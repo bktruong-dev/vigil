@@ -1,0 +1,25 @@
+---
+import Base from '../layouts/Base.astro';
+import Atlas from '../components/Atlas.astro';
+import Story from '../components/Story.astro';
+import { by } from '../lib/feed';
+const incidents = by(i => i.kind === 'incident', 12);
+---
+<Base title="Incident Atlas" current="/atlas" description="A live map of AI incidents and good news around the world, with every story linked to its source.">
+  <div class="wrap page">
+    <Atlas tall />
+    <section class="block" aria-labelledby="inc-h">
+      <header class="sec-head"><span class="num">V.ii</span><h2 id="inc-h">Latest incident reports</h2>
+        <a class="out more" href="https://incidentdatabase.ai" target="_blank" rel="noopener noreferrer"><span class="host">incidentdatabase.ai</span><span class="arrow">↗</span></a>
+      </header>
+      <div class="grid">{incidents.map(i => <Story item={i} />)}</div>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .page { padding-top: 30px; }
+  .block { margin-top: 64px; }
+  .more { margin-left: auto; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 16px; }
+</style>

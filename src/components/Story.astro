@@ -1,0 +1,56 @@
+---
+import { type Item, KIND_LABEL, TONE_LABEL, host, fmtDate } from '../lib/feed';
+interface Props { item: Item; variant?: 'lead' | 'std' | 'compact' }
+const { item, variant = 'std' } = Astro.props;
+const search = `${item.title} ${item.sourceName} ${item.topics.join(' ')} ${item.place?.name ?? ''}`.toLowerCase();
+---
+<article
+  class={`card story ${variant} edge-${item.tone}`}
+  data-kind={item.kind}
+  data-tone={item.tone}
+  data-search={search}
+>
+  <div class="meta">
+    <span class={`pill t-${item.tone}`}><i></i>{item.kind === 'incident' ? 'Incident' : TONE_LABEL[item.tone]}</span>
+    {item.kind !== 'incident' && <span class="label kind">{KIND_LABEL[item.kind]}</span>}
+    {item.place && <span class="label place">◎ {item.place.name}</span>}
+  </div>
+  <h3><a class="hl stretch" href={item.url} target="_blank" rel="noopener noreferrer">{item.title}</a></h3>
+  {variant !== 'compact' && item.summary && <p class="sum">{item.summary}</p>}
+  {variant !== 'compact' && item.topics.length > 0 && (
+    <ul class="topics">{item.topics.map(t => <li>{t}</li>)}</ul>
+  )}
+  <div class="foot">
+    <span class="src"><span class="sname">{item.sourceName}</span> · <time datetime={item.date}>{fmtDate(item.date)}</time></span>
+    <a class="out" href={item.url} target="_blank" rel="noopener noreferrer" aria-label={`Read “${item.title}” at ${host(item.url)} (opens in a new tab)`}>
+      Read at <span class="host">{host(item.url)}</span><span class="arrow">↗</span>
+    </a>
+  </div>
+  {item.also.length > 0 && (
+    <div class="also">
+      <span class="label">Also covered by</span>
+      {item.also.slice(0, 4).map(a => (
+        <a class="out" href={a.url} target="_blank" rel="noopener noreferrer"><span class="host">{host(a.url)}</span><span class="arrow">↗</span></a>
+      ))}
+    </div>
+  )}
+</article>
+
+<style>
+  .story { padding: 18px 20px 16px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+  .meta { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+  .place { color: var(--ink-2); text-transform: none; letter-spacing: 0.04em; }
+  h3 { margin: 0; font-weight: 500; font-size: 22px; line-height: 1.22; overflow-wrap: anywhere; }
+  .lead h3 { font-size: clamp(30px, 3.4vw, 46px); line-height: 1.08; font-style: italic; }
+  .compact h3 { font-size: 18px; }
+  .sum { margin: 0; color: var(--ink-2); font-size: 17px; line-height: 1.45; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+  .lead .sum { font-size: 20px; -webkit-line-clamp: 6; }
+  .topics { display: flex; gap: 6px; flex-wrap: wrap; list-style: none; margin: 0; padding: 0; }
+  .topics li { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em; color: var(--dim); border: 1px solid var(--line); border-radius: 999px; padding: 2px 9px; }
+  .foot { margin-top: auto; padding-top: 8px; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; border-top: 1px dashed #23262d; }
+  .src { font-family: var(--mono); font-size: 11px; color: var(--dim); letter-spacing: 0.04em; }
+  .sname { color: var(--ink-2); }
+  .out, .also { position: relative; z-index: 1; }
+  .also { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .story[hidden] { display: none; }
+</style>

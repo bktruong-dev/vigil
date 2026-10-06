@@ -1,0 +1,168 @@
+---
+import '../styles/global.css';
+import { generated, edition, items } from '../lib/feed';
+import Mark from '../components/Mark.astro';
+
+interface Props { title?: string; description?: string; current?: string }
+const { title, description = 'A daily watch on AI safety: news, research, videos, podcasts and incidents from across the field, with every source linked.', current = '' } = Astro.props;
+const fullTitle = title ? `${title} · The Vigil` : 'The Vigil — A daily watch on AI safety';
+
+const nav = [
+  ['/', 'Front Page'],
+  ['/#research', 'Research'],
+  ['/#watch', 'Watch'],
+  ['/#listen', 'Listen'],
+  ['/atlas', 'Atlas'],
+  ['/#good', 'Good News'],
+  ['/guide', 'Field Guide'],
+  ['/sources', 'Sources'],
+];
+const ticker = items.filter(i => i.kind === 'news' || i.kind === 'lab' || i.kind === 'incident').slice(0, 14);
+const dateline = generated.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric', timeZone: 'America/Chicago' });
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#0c0d10" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>{fullTitle}</title>
+  <meta name="description" content={description} />
+  <meta name="author" content="Benjamin Truong" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <style is:inline>html,body{background:#0c0d10;color:#e8e6e1}</style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="shell">
+    <header class="masthead">
+      <div class="wrap">
+        <div class="topline label">
+          <span>Vol. I · No. {edition}</span>
+          <span class="dateline">{dateline}</span>
+          <span>Updated <time datetime={generated.toISOString()} data-ago>{generated.toISOString().slice(11, 16)} UTC</time></span>
+        </div>
+        <a class="title" href="/" aria-label="The Vigil, home">
+          <Mark size={54} />
+          <span class="name"><span class="the">The</span> Vigil</span>
+        </a>
+        <p class="motto">A daily watch on AI safety <span class="sep">·</span> <span class="kept">kept by Benjamin Truong</span></p>
+        <nav aria-label="Sections">
+          <ul>
+            {nav.map(([href, label], i) => (
+              <li><a href={href} aria-current={current === href ? 'page' : undefined}><span class="rn">{['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', '§'][i]}.</span> {label}</a></li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+      <div class="ticker" aria-label="Latest headlines">
+        <span class="live label"><i></i> Wire</span>
+        <div class="track">
+          <ul class="run">
+            {ticker.map(i => <li><a href={i.url} target="_blank" rel="noopener noreferrer"><span class={`tdot t-${i.tone}`}></span>{i.title}<span class="src">{i.sourceName}</span></a></li>)}
+          </ul>
+          <ul class="run" aria-hidden="true">
+            {ticker.map(i => <li><a href={i.url} target="_blank" rel="noopener noreferrer" tabindex="-1"><span class={`tdot t-${i.tone}`}></span>{i.title}<span class="src">{i.sourceName}</span></a></li>)}
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer>
+      <div class="wrap foot">
+        <div>
+          <p class="fname"><Mark size={22} /> <em>The Vigil</em></p>
+          <p class="fine">Kept by Benjamin Truong. Every story links to its original source; we show headlines and short excerpts only. Updated automatically from public feeds. <a href="/sources">How it works →</a></p>
+        </div>
+        <div class="flinks">
+          <a class="out" href="https://benjamin-truong.vercel.app" target="_blank" rel="noopener noreferrer"><span class="host">Quaderni</span><span class="arrow">↗</span></a>
+          <a class="out" href="https://github.com/bktruong-dev" target="_blank" rel="noopener noreferrer"><span class="host">GitHub</span><span class="arrow">↗</span></a>
+          <a class="out" href="https://www.linkedin.com/in/bktruong" target="_blank" rel="noopener noreferrer"><span class="host">LinkedIn</span><span class="arrow">↗</span></a>
+          <button class="btn" type="button" id="motion" aria-pressed="true">Motion on</button>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <div class="veil" id="veil" hidden>
+    <figure>
+      <blockquote id="veil-q">We had better be quite sure that the purpose put into the machine is the purpose which we really desire.</blockquote>
+      <figcaption>Norbert Wiener, 1960</figcaption>
+      <p class="label skiphint">Click or press any key</p>
+    </figure>
+  </div>
+
+  <script>
+    import '../scripts/chrome.ts';
+  </script>
+</body>
+</html>
+
+<style>
+  .shell {
+    min-height: 100vh;
+    display: grid;
+    grid-template-areas: 'head' 'main' 'foot';
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .masthead { grid-area: head; min-width: 0; border-bottom: 1px solid var(--line); padding-top: 14px; background: linear-gradient(180deg, rgba(12,13,16,0.4), rgba(12,13,16,0.95)); }
+  .topline { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+  .title { display: flex; align-items: center; justify-content: center; gap: 18px; text-decoration: none; margin: 22px 0 4px; }
+  .name { font-family: var(--serif); font-weight: 500; font-size: clamp(48px, 8vw, 104px); line-height: 0.95; letter-spacing: -0.01em; text-shadow: 0 0 40px rgba(134,168,255,0.12); }
+  .the { font-style: italic; font-weight: 400; color: var(--ink-2); font-size: 0.55em; vertical-align: 0.42em; margin-right: 0.1em; }
+  .motto { text-align: center; margin: 4px 0 18px; font-style: italic; color: var(--ink-2); font-size: 19px; }
+  .motto .sep { color: var(--dim); margin: 0 6px; }
+  .motto .kept { color: var(--gold); }
+  nav { border-top: 1px solid var(--line); border-bottom: 3px double var(--line); }
+  nav ul { list-style: none; margin: 0; padding: 0; display: flex; justify-content: center; flex-wrap: wrap; }
+  nav a { display: block; padding: 11px 14px; font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-2); text-decoration: none; transition: color .3s var(--ease), text-shadow .3s var(--ease); }
+  nav a:hover, nav a[aria-current='page'] { color: var(--ink); text-shadow: 0 0 14px var(--acc-glow); }
+  nav a[aria-current='page'] .rn, nav a:hover .rn { color: var(--acc); }
+  .rn { color: var(--dim); }
+
+  .ticker { min-width: 0; display: flex; align-items: center; height: 38px; overflow: hidden; border-top: 1px solid transparent; }
+  .live { flex: none; display: flex; align-items: center; gap: 8px; padding: 0 16px 0 var(--gutter); color: var(--risk); height: 100%; background: var(--bg); position: relative; z-index: 1; box-shadow: 12px 0 18px var(--bg); }
+  .live i { width: 7px; height: 7px; border-radius: 50%; background: var(--risk); box-shadow: 0 0 10px var(--risk); animation: blink 2s ease-in-out infinite; }
+  @keyframes blink { 50% { opacity: 0.25; } }
+  .track { display: flex; width: max-content; animation: run 120s linear infinite; }
+  .ticker:hover .track, .ticker:focus-within .track { animation-play-state: paused; }
+  .run { display: flex; list-style: none; margin: 0; padding: 0; }
+  .run li { white-space: nowrap; }
+  .run a { display: inline-flex; align-items: center; gap: 10px; padding: 0 26px; font-size: 16px; color: var(--ink-2); text-decoration: none; border-right: 1px solid var(--line); transition: color .3s var(--ease); }
+  .run a:hover { color: var(--ink); }
+  .run .src { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); }
+  .tdot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; box-shadow: 0 0 8px currentColor; }
+  @keyframes run { to { transform: translateX(-50%); } }
+
+  main { grid-area: main; min-width: 0; }
+  footer { grid-area: foot; border-top: 1px solid var(--line); margin-top: 72px; }
+  .foot { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; padding-top: 28px; padding-bottom: 40px; }
+  .fname { display: flex; align-items: center; gap: 10px; margin: 0 0 6px; font-size: 22px; }
+  .fine { margin: 0; max-width: 560px; color: var(--dim); font-size: 15px; }
+  .fine a { color: var(--acc); text-decoration: none; }
+  .flinks { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+
+  .veil { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: 24px; background: radial-gradient(ellipse at center, rgba(20,22,27,0.97), rgba(12,13,16,0.995)); cursor: pointer; transition: opacity .9s var(--ease); }
+  .veil[hidden] { display: none; }
+  .veil.out { opacity: 0; pointer-events: none; }
+  .veil figure { margin: 0; max-width: 760px; text-align: center; }
+  .veil blockquote { margin: 0 0 18px; font-style: italic; font-size: clamp(26px, 3.6vw, 44px); line-height: 1.25; }
+  .veil figcaption { font-family: var(--mono); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); opacity: 0; animation: fade 1.2s 2.6s var(--ease) forwards; }
+  .skiphint { margin-top: 36px; opacity: 0; animation: fade 1s 3.4s var(--ease) forwards; }
+  @keyframes fade { to { opacity: 1; } }
+
+  @media (max-width: 720px) {
+    .topline .dateline { display: none; }
+    nav ul { justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+    nav a { padding: 11px 10px; white-space: nowrap; }
+    .title { gap: 12px; }
+    .run a { font-size: 15px; }
+  }
+</style>

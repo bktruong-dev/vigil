@@ -1,0 +1,33 @@
+# Rebuilds The Vigil every two hours so the news stays fresh.
+#
+# How it works: this job only pings a Vercel "deploy hook". Vercel then runs
+# `npm run collect && npm run build` (see vercel.json), which reads the feeds
+# and publishes the new edition. Nothing is committed back to the repo.
+#
+# Cost: each run takes a few seconds, well inside GitHub's free minutes for
+# private repos, and Vercel Hobby builds are free. No paid services.
+#
+# Setup (once): in Vercel, Project → Settings → Git → Deploy Hooks, create a
+# hook for the main branch. In GitHub, Settings → Secrets → Actions, save it
+# as VERCEL_DEPLOY_HOOK.
+
+name: Refresh edition
+
+on:
+  schedule:
+    - cron: '17 */2 * * *'
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Trigger Vercel rebuild
+        env:
+          HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$HOOK" ]; then echo "VERCEL_DEPLOY_HOOK is not set; skipping."; exit 0; fi
+          curl -fsS -X POST "$HOOK" > /dev/null && echo "Rebuild requested."

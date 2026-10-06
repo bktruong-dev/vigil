@@ -1,0 +1,103 @@
+---
+import Base from '../layouts/Base.astro';
+import { host } from '../lib/feed';
+
+// Hand-picked starting points. Edit this list freely.
+const shelves: { title: string; note: string; links: [string, string, string][] }[] = [
+  {
+    title: 'Start here', note: 'Free courses and overviews for newcomers.',
+    links: [
+      ['AI Safety Fundamentals', 'https://bluedot.org', 'BlueDot Impact’s free online courses on alignment and governance.'],
+      ['AI Safety, Ethics and Society', 'https://www.aisafetybook.com', 'A free textbook from the Center for AI Safety.'],
+      ['International AI Safety Report', 'https://internationalaisafetyreport.org', 'The science of advanced AI risks, written by experts from many countries.'],
+      ['AISafety.com', 'https://www.aisafety.com', 'A map of the field: courses, communities, funders, jobs.'],
+    ],
+  },
+  {
+    title: 'Watch & listen', note: 'Good first videos and podcasts.',
+    links: [
+      ['Robert Miles AI Safety', 'https://www.youtube.com/@RobertMilesAI', 'Clear, friendly explainers of core alignment problems.'],
+      ['Rational Animations', 'https://www.youtube.com/@RationalAnimations', 'Animated stories and explainers about AI risk.'],
+      ['AXRP', 'https://axrp.net', 'Long interviews with alignment researchers about their papers.'],
+      ['80,000 Hours Podcast', 'https://80000hours.org/podcast/', 'In-depth conversations on AI and the world’s biggest problems.'],
+    ],
+  },
+  {
+    title: 'Key reading', note: 'Papers and essays people point to.',
+    links: [
+      ['Concrete Problems in AI Safety', 'https://arxiv.org/abs/1606.06565', 'A classic 2016 paper that framed many open problems.'],
+      ['Core Views on AI Safety', 'https://www.anthropic.com/news/core-views-on-ai-safety', 'Anthropic on why and how it works on safety.'],
+      ['Alignment Forum Library', 'https://www.alignmentforum.org/library', 'Curated sequences from alignment researchers.'],
+      ['Import AI', 'https://importai.substack.com', 'A weekly newsletter on AI research and policy.'],
+    ],
+  },
+  {
+    title: 'Careers & fellowships', note: 'Ways into the field.',
+    links: [
+      ['80,000 Hours: AI risk', 'https://80000hours.org/problem-profiles/artificial-intelligence/', 'Career guide to reducing risks from AI.'],
+      ['MATS', 'https://www.matsprogram.org', 'A research mentorship programme for aspiring alignment researchers.'],
+      ['ARENA', 'https://www.arena.education', 'Hands-on technical training in ML safety engineering.'],
+      ['Events & training', 'https://www.aisafety.com/events-and-training', 'Upcoming conferences, workshops and programmes.'],
+    ],
+  },
+  {
+    title: 'Organisations', note: 'Labs, institutes and non-profits doing the work.',
+    links: [
+      ['UK AI Security Institute', 'https://www.aisi.gov.uk', 'The UK government’s institute for testing advanced AI.'],
+      ['METR', 'https://metr.org', 'Evaluates frontier AI for dangerous capabilities.'],
+      ['Apollo Research', 'https://www.apolloresearch.ai', 'Studies deception and scheming in AI systems.'],
+      ['Redwood Research', 'https://www.redwoodresearch.org', 'Research on AI control and alignment.'],
+      ['Center for AI Safety', 'https://safe.ai', 'Research and field-building to reduce AI risk.'],
+      ['FAR.AI', 'https://far.ai', 'Technical research on robustness and alignment.'],
+    ],
+  },
+  {
+    title: 'At universities', note: 'Academic centres with public programmes.',
+    links: [
+      ['Center for Human-Compatible AI', 'https://humancompatible.ai', 'UC Berkeley.'],
+      ['Stanford Center for AI Safety', 'https://aisafety.stanford.edu', 'Stanford University.'],
+      ['Mila', 'https://mila.quebec/en', 'Quebec AI Institute, Montreal.'],
+      ['Centre for the Study of Existential Risk', 'https://www.cser.ac.uk', 'University of Cambridge.'],
+    ],
+  },
+];
+const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI'];
+---
+<Base title="Field Guide" current="/guide" description="Hand-picked courses, reading, videos, careers and organisations for anyone getting into AI safety.">
+  <div class="wrap page">
+    <header class="intro">
+      <p class="label">VII. Field Guide</p>
+      <h1>A way into AI safety</h1>
+      <p class="lede">The news moves fast; this page doesn’t. Hand-picked places to learn, watch, read and get involved. Every link goes to the original site.</p>
+    </header>
+    {shelves.map((s, n) => (
+      <section class="block" aria-labelledby={`g${n}`}>
+        <header class="sec-head"><span class="num">{ROMAN[n]}.</span><h2 id={`g${n}`}>{s.title}</h2><span class="label more">{s.note}</span></header>
+        <ul class="shelf">
+          {s.links.map(([name, url, note]) => (
+            <li class="card item">
+              <h3><a class="hl stretch" href={url} target="_blank" rel="noopener noreferrer">{name}</a></h3>
+              <p>{note}</p>
+              <span class="out"><span class="host">{host(url)}</span><span class="arrow">↗</span></span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+  </div>
+</Base>
+
+<style>
+  .page { padding-top: 40px; }
+  .intro h1 { font-style: italic; font-weight: 500; font-size: clamp(38px, 5vw, 64px); line-height: 1.05; margin: 8px 0 14px; }
+  .lede { font-size: 22px; color: var(--ink-2); max-width: 760px; margin: 0; }
+  .block { margin-top: 56px; }
+  .more { margin-left: auto; }
+  .shelf { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 14px; }
+  .item { padding: 16px 18px; display: flex; flex-direction: column; gap: 6px; }
+  .item h3 { margin: 0; font-weight: 500; font-size: 22px; line-height: 1.2; }
+  .item p { margin: 0 0 6px; color: var(--ink-2); font-size: 16.5px; }
+  .item .out { margin-top: auto; align-self: flex-start; }
+  .card:hover .out { background: rgba(134,168,255,0.08); }
+  .card:hover .out .arrow { transform: translate(3px, -3px); }
+</style>

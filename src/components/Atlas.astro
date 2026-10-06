@@ -1,0 +1,169 @@
+---
+import { items } from '../lib/feed';
+
+interface Props { tall?: boolean; numeral?: string }
+const { tall = false, numeral = 'V' } = Astro.props;
+
+// Group every placed story by location.
+type Pt = { t: string; u: string; s: string; d: string; tone: string; k: string };
+const groups = new Map<string, { name: string; country: string; lon: number; lat: number; items: Pt[]; risk: number; good: number }>();
+for (const i of items) {
+  if (!i.place) continue;
+  const key = i.place.name;
+  const g = groups.get(key) ?? { ...i.place, items: [], risk: 0, good: 0 };
+  g.items.push({ t: i.title, u: i.url, s: i.sourceName, d: i.date.slice(0, 10), tone: i.tone, k: i.kind });
+  if (i.tone === 'risk') g.risk++;
+  if (i.tone === 'good') g.good++;
+  groups.set(key, g);
+}
+const points = [...groups.values()]
+  .map(g => ({ ...g, items: g.items.sort((a, b) => b.d.localeCompare(a.d)).slice(0, 20) }))
+  .sort((a, b) => b.items.length - a.items.length);
+const totals = {
+  risk: points.reduce((n, p) => n + p.risk, 0),
+  good: points.reduce((n, p) => n + p.good, 0),
+  places: points.length,
+  countries: new Set(points.map(p => p.country)).size,
+};
+// JSON for the client script. "<" is escaped so the data can never close the tag.
+const json = JSON.stringify(points).replace(/</g, '\\u003c');
+---
+<section class={`atlas ${tall ? 'tall' : ''}`} aria-labelledby="atlas-title">
+  <div class="frame">
+    <canvas class="map" aria-hidden="true"></canvas>
+    <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+
+    <div class="hud top">
+      <div>
+        <p class="label hud-k">Pl. {numeral} — Incident Atlas</p>
+        <h2 id="atlas-title">Where AI is making news</h2>
+      </div>
+      <div class="filters" role="group" aria-label="Show on the map">
+        <button class="btn" type="button" data-f="all" aria-pressed="true">All</button>
+        <button class="btn" type="button" data-f="risk" aria-pressed="false">Incidents &amp; risk</button>
+        <button class="btn" type="button" data-f="good" aria-pressed="false">Good news</button>
+      </div>
+    </div>
+
+    <dl class="hud stats">
+      <div><dt class="label">Risk reports</dt><dd class="t-risk">{totals.risk}</dd></div>
+      <div><dt class="label">Good news</dt><dd class="t-good">{totals.good}</dd></div>
+      <div><dt class="label">Locations</dt><dd>{totals.places}</dd></div>
+      <div><dt class="label">Countries</dt><dd>{totals.countries}</dd></div>
+    </dl>
+
+    <div class="hud legend label">
+      <span><i class="lg risk"></i>Incident / risk</span>
+      <span><i class="lg good"></i>Good news</span>
+      <span><i class="lg neutral"></i>Lab &amp; policy</span>
+    </div>
+
+    <p class="hud readout label" aria-hidden="true"></p>
+
+    <aside class="panel" hidden aria-live="polite">
+      <button class="close" type="button" aria-label="Close">×</button>
+      <p class="label p-coord"></p>
+      <h3 class="p-name"></h3>
+      <ol class="p-list"></ol>
+    </aside>
+  </div>
+
+  <div class="hot">
+    <p class="label">Hotspots — select to inspect</p>
+    <ul>
+      {points.slice(0, 14).map((p, idx) => (
+        <li><button type="button" class="spot" data-i={idx}>
+          <span class={`sd ${p.risk >= p.good ? (p.risk ? 'risk' : 'neutral') : 'good'}`}></span>{p.name}<span class="n">{p.items.length}</span>
+        </button></li>
+      ))}
+    </ul>
+  </div>
+  <p class="caption">Fig. {numeral} — Stories placed by where they happened, or by the company’s headquarters. Data: AI Incident Database and the feeds on the Sources page.</p>
+  <script type="application/json" class="atlas-data" set:html={json} />
+</section>
+
+<script>
+  import { mountAtlas } from '../scripts/atlas.ts';
+  document.querySelectorAll<HTMLElement>('section.atlas').forEach(mountAtlas);
+</script>
+
+<style>
+  .atlas { margin: 0; }
+  .frame {
+    position: relative; border-radius: 12px; overflow: hidden;
+    aspect-ratio: 2 / 1; min-height: 420px;
+    background: radial-gradient(ellipse at 50% 45%, #10131a 0%, #0b0c0f 70%);
+    border: 1px solid transparent;
+    background-clip: padding-box;
+    box-shadow: 0 0 0 1px #262a33, 0 30px 80px -40px rgba(134,168,255,0.25), inset 0 0 120px rgba(0,0,0,0.75);
+  }
+  .tall .frame { aspect-ratio: 16 / 8.2; }
+  .frame::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at center, transparent 55%, rgba(5,6,8,0.65) 100%); }
+  .map { position: absolute; inset: 0; width: 100%; height: 100%; display: block; cursor: crosshair; }
+  .corner { position: absolute; width: 14px; height: 14px; border-color: var(--acc); border-style: solid; opacity: 0.6; z-index: 2; pointer-events: none; }
+  .tl { top: 10px; left: 10px; border-width: 1px 0 0 1px; } .tr { top: 10px; right: 10px; border-width: 1px 1px 0 0; }
+  .bl { bottom: 10px; left: 10px; border-width: 0 0 1px 1px; } .br { bottom: 10px; right: 10px; border-width: 0 1px 1px 0; }
+
+  .hud { position: absolute; z-index: 3; pointer-events: none; }
+  .hud > * { pointer-events: auto; }
+  .top { left: 26px; right: 26px; top: 20px; display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; }
+  .hud-k { color: var(--acc); margin: 0 0 4px; }
+  .top h2 { margin: 0; font-style: italic; font-weight: 500; font-size: clamp(24px, 2.6vw, 34px); text-shadow: 0 2px 20px #000; }
+  .filters { display: flex; gap: 8px; flex-wrap: wrap; }
+  .filters .btn { background: rgba(12,13,16,0.7); backdrop-filter: blur(4px); }
+  .filters .btn[aria-pressed='true'] { background: var(--acc); color: var(--bg); }
+  .stats { left: 26px; bottom: 20px; margin: 0; display: flex; gap: 26px; }
+  .stats div { display: flex; flex-direction: column-reverse; }
+  .stats dd { margin: 0; font-family: var(--mono); font-size: 26px; line-height: 1; text-shadow: 0 0 16px currentColor; }
+  .stats dt { margin-top: 6px; font-size: 9.5px; }
+  .legend { right: 26px; bottom: 22px; display: flex; gap: 16px; font-size: 10px; }
+  .legend span { display: flex; align-items: center; gap: 6px; }
+  .lg, .sd { width: 7px; height: 7px; border-radius: 50%; display: inline-block; flex: none; }
+  .risk { background: var(--risk); box-shadow: 0 0 8px var(--risk); }
+  .good { background: var(--good); box-shadow: 0 0 8px var(--good); }
+  .neutral { background: var(--acc); box-shadow: 0 0 8px var(--acc); }
+  .readout { right: 26px; bottom: 46px; margin: 0; font-size: 10px; color: var(--ink-2); text-align: right; min-height: 1em; }
+
+  .panel {
+    position: absolute; z-index: 4; top: 84px; right: 18px; bottom: 74px; width: min(380px, calc(100% - 36px));
+    background: rgba(14,16,21,0.92); backdrop-filter: blur(8px);
+    border: 1px solid #333846; border-radius: 10px; padding: 16px 16px 12px;
+    display: flex; flex-direction: column; box-shadow: 0 20px 60px -20px #000, 0 0 30px -12px var(--acc-glow);
+    animation: slide .45s var(--ease);
+  }
+  .panel[hidden] { display: none; }
+  @keyframes slide { from { opacity: 0; transform: translateX(14px); } }
+  .close { position: absolute; top: 8px; right: 10px; background: none; border: 0; color: var(--dim); font-size: 22px; cursor: pointer; line-height: 1; padding: 4px 6px; }
+  .close:hover { color: var(--ink); }
+  .p-coord { margin: 0; color: var(--acc); font-size: 10px; }
+  .p-name { margin: 4px 0 10px; font-style: italic; font-weight: 500; font-size: 26px; }
+  .p-list { list-style: none; margin: 0; padding: 0; overflow-y: auto; display: flex; flex-direction: column; gap: 2px; scrollbar-width: thin; scrollbar-color: #333 transparent; }
+
+  .hot { margin-top: 16px; }
+  .hot ul { list-style: none; padding: 0; margin: 8px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .spot { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11.5px; color: var(--ink-2); background: var(--card-2); border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; cursor: pointer; transition: border-color .3s var(--ease), color .3s var(--ease); }
+  .spot:hover, .spot[aria-pressed='true'] { color: var(--ink); border-color: var(--acc); }
+  .spot .n { color: var(--dim); }
+  .caption { margin-top: 18px; }
+
+  @media (max-width: 760px) {
+    .frame, .tall .frame { aspect-ratio: auto; height: 74vw; min-height: 300px; }
+    .top { left: 14px; right: 14px; top: 12px; }
+    .top h2 { font-size: 20px; }
+    .filters { display: none; }
+    .stats { left: 14px; bottom: 12px; gap: 14px; }
+    .stats dd { font-size: 18px; }
+    .stats dt { font-size: 8px; letter-spacing: 0.1em; }
+    .legend, .readout { display: none; }
+    .panel { top: auto; bottom: 8px; right: 8px; left: 8px; width: auto; max-height: 70%; }
+  }
+</style>
+
+<style is:global>
+  .atlas .p-list li a { display: block; padding: 9px 10px; border-radius: 8px; text-decoration: none; transition: background .25s var(--ease); }
+  .atlas .p-list li a:hover, .atlas .p-list li a:focus-visible { background: rgba(134,168,255,0.08); }
+  .atlas .p-list .pt { display: block; font-size: 17px; line-height: 1.25; color: var(--ink); }
+  .atlas .p-list .ps { display: flex; gap: 8px; align-items: center; margin-top: 3px; font-family: var(--mono); font-size: 10.5px; color: var(--dim); letter-spacing: 0.04em; }
+  .atlas .p-list .ps b { font-weight: 400; color: var(--acc); }
+  .atlas .p-list .ps i { width: 6px; height: 6px; border-radius: 50%; background: currentColor; display: inline-block; }
+</style>

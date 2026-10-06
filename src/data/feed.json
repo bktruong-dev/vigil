@@ -1,0 +1,4852 @@
+{
+ "generated": "2026-10-06T18:57:23.437Z",
+ "sources": [
+  {
+   "id": "anthropic",
+   "name": "Anthropic",
+   "home": "https://www.anthropic.com/news",
+   "feed": "https://www.anthropic.com/sitemap.xml",
+   "kind": "lab",
+   "trust": 0.9,
+   "minScore": 0,
+   "ok": true,
+   "count": 19
+  },
+  {
+   "id": "openai",
+   "name": "OpenAI",
+   "home": "https://openai.com/news",
+   "feed": "https://openai.com/news/rss.xml",
+   "kind": "lab",
+   "trust": 0.85,
+   "minScore": 1,
+   "ok": true,
+   "count": 25
+  },
+  {
+   "id": "deepmind",
+   "name": "Google DeepMind",
+   "home": "https://deepmind.google/blog",
+   "feed": "https://deepmind.google/blog/rss.xml",
+   "kind": "lab",
+   "trust": 0.85,
+   "minScore": 1,
+   "ok": true,
+   "count": 10
+  },
+  {
+   "id": "metr",
+   "name": "METR",
+   "home": "https://metr.org",
+   "feed": "https://metr.org/feed.xml",
+   "kind": "lab",
+   "trust": 0.9,
+   "minScore": 0,
+   "ok": true,
+   "count": 17
+  },
+  {
+   "id": "redwood",
+   "name": "Redwood Research",
+   "home": "https://blog.redwoodresearch.org",
+   "feed": "https://blog.redwoodresearch.org/feed",
+   "kind": "lab",
+   "trust": 0.85,
+   "minScore": 0,
+   "ok": true,
+   "count": 19
+  },
+  {
+   "id": "fli",
+   "name": "Future of Life Institute",
+   "home": "https://futureoflife.org",
+   "feed": "https://futureoflife.org/feed/",
+   "kind": "lab",
+   "trust": 0.75,
+   "minScore": 0,
+   "ok": true,
+   "count": 5
+  },
+  {
+   "id": "arxiv",
+   "name": "arXiv",
+   "home": "https://arxiv.org",
+   "feed": "https://export.arxiv.org/api/query?search_query=%28cat%3Acs.AI+OR+cat%3Acs.LG+OR+cat%3Acs.CL+OR+cat%3Acs.CR%29+AND+%28abs%3A%22AI+safety%22+OR+abs%3Aalignment+OR+abs%3Ajailbreak+OR+abs%3Ainterpretability+OR+abs%3A%22red+teaming%22+OR+abs%3A%22reward+hacking%22%29&sortBy=submittedDate&sortOrder=descending&max_results=40",
+   "kind": "paper",
+   "trust": 0.7,
+   "minScore": 4,
+   "ok": true,
+   "count": 4
+  },
+  {
+   "id": "alignmentforum",
+   "name": "Alignment Forum",
+   "home": "https://www.alignmentforum.org",
+   "feed": "https://www.alignmentforum.org/feed.xml",
+   "kind": "essay",
+   "trust": 0.75,
+   "minScore": 0,
+   "ok": true,
+   "count": 8
+  },
+  {
+   "id": "lesswrong",
+   "name": "LessWrong (curated)",
+   "home": "https://www.lesswrong.com",
+   "feed": "https://www.lesswrong.com/feed.xml?view=curated-rss",
+   "kind": "essay",
+   "trust": 0.6,
+   "minScore": 1,
+   "ok": true,
+   "count": 3
+  },
+  {
+   "id": "cais",
+   "name": "AI Safety Newsletter (CAIS)",
+   "home": "https://newsletter.safe.ai",
+   "feed": "https://newsletter.safe.ai/feed",
+   "kind": "essay",
+   "trust": 0.85,
+   "minScore": 0,
+   "ok": true,
+   "count": 4
+  },
+  {
+   "id": "importai",
+   "name": "Import AI",
+   "home": "https://importai.substack.com",
+   "feed": "https://importai.substack.com/feed",
+   "kind": "essay",
+   "trust": 0.75,
+   "minScore": 0,
+   "ok": true,
+   "count": 8
+  },
+  {
+   "id": "mittr",
+   "name": "MIT Technology Review",
+   "home": "https://www.technologyreview.com",
+   "feed": "https://www.technologyreview.com/topic/artificial-intelligence/feed",
+   "kind": "news",
+   "trust": 0.8,
+   "minScore": 2,
+   "ok": true,
+   "count": 1
+  },
+  {
+   "id": "verge",
+   "name": "The Verge",
+   "home": "https://www.theverge.com/ai-artificial-intelligence",
+   "feed": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
+   "kind": "news",
+   "trust": 0.65,
+   "minScore": 2,
+   "ok": true,
+   "count": 2
+  },
+  {
+   "id": "ars",
+   "name": "Ars Technica",
+   "home": "https://arstechnica.com/ai/",
+   "feed": "https://arstechnica.com/ai/feed/",
+   "kind": "news",
+   "trust": 0.7,
+   "minScore": 2,
+   "ok": true,
+   "count": 6
+  },
+  {
+   "id": "aiid",
+   "name": "AI Incident Database",
+   "home": "https://incidentdatabase.ai",
+   "feed": "https://incidentdatabase.ai/rss.xml",
+   "kind": "incident",
+   "trust": 0.85,
+   "minScore": 0,
+   "ok": true,
+   "count": 14
+  },
+  {
+   "id": "axrp",
+   "name": "AXRP",
+   "home": "https://axrp.net",
+   "feed": "https://axrp.net/feed.xml",
+   "kind": "podcast",
+   "trust": 0.85,
+   "minScore": 0,
+   "ok": true,
+   "count": 0
+  },
+  {
+   "id": "80k",
+   "name": "80,000 Hours Podcast",
+   "home": "https://80000hours.org/podcast/",
+   "feed": "https://feeds.transistor.fm/80000-hours-podcast",
+   "kind": "podcast",
+   "trust": 0.8,
+   "minScore": 0,
+   "ok": true,
+   "count": 25
+  },
+  {
+   "id": "dwarkesh",
+   "name": "Dwarkesh Podcast",
+   "home": "https://www.dwarkesh.com",
+   "feed": "https://www.dwarkesh.com/feed",
+   "kind": "podcast",
+   "trust": 0.7,
+   "minScore": 1,
+   "ok": true,
+   "count": 4
+  },
+  {
+   "id": "yt-miles",
+   "name": "Robert Miles AI Safety",
+   "home": "https://www.youtube.com/@RobertMilesAI",
+   "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCLB7AzTwc6VFZrBsO2ucBMg",
+   "kind": "video",
+   "trust": 0.9,
+   "minScore": 0,
+   "ok": true,
+   "count": 15
+  },
+  {
+   "id": "yt-rational",
+   "name": "Rational Animations",
+   "home": "https://www.youtube.com/@RationalAnimations",
+   "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCgqt1RE0k0MIr0LoyJRy2lg",
+   "kind": "video",
+   "trust": 0.75,
+   "minScore": 0,
+   "ok": true,
+   "count": 15
+  },
+  {
+   "id": "yt-aiexplained",
+   "name": "AI Explained",
+   "home": "https://www.youtube.com/@aiexplained-official",
+   "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCNJ1Ymd5yFuUPtn21xtRbbw",
+   "kind": "video",
+   "trust": 0.7,
+   "minScore": 0,
+   "ok": true,
+   "count": 11
+  },
+  {
+   "id": "yt-anthropic",
+   "name": "Anthropic (YouTube)",
+   "home": "https://www.youtube.com/@anthropic-ai",
+   "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCrDwWp7EBBv4NwvScIpBDOA",
+   "kind": "video",
+   "trust": 0.85,
+   "minScore": 0,
+   "ok": true,
+   "count": 9
+  },
+  {
+   "id": "yt-openai",
+   "name": "OpenAI (YouTube)",
+   "home": "https://www.youtube.com/@OpenAI",
+   "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCXZCJLdBC09xxGZ6gcdrc6A",
+   "kind": "video",
+   "trust": 0.75,
+   "minScore": 1,
+   "ok": true,
+   "count": 3
+  },
+  {
+   "id": "yt-deepmind",
+   "name": "Google DeepMind (YouTube)",
+   "home": "https://www.youtube.com/@GoogleDeepMind",
+   "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCP7jMXSY2xbc3KCAE0MHQ-A",
+   "kind": "video",
+   "trust": 0.75,
+   "minScore": 1,
+   "ok": true,
+   "count": 3
+  },
+  {
+   "id": "yt-dwarkesh",
+   "name": "Dwarkesh Patel (YouTube)",
+   "home": "https://www.youtube.com/@DwarkeshPatel",
+   "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCXl4i9dYBrFOabk0xGmbkRA",
+   "kind": "video",
+   "trust": 0.7,
+   "minScore": 1,
+   "ok": true,
+   "count": 1
+  }
+ ],
+ "items": [
+  {
+   "id": "1fis9wv",
+   "title": "SPDAlign: Interpretable Riemannian Alignment for EEG Forward Modeling Shifts",
+   "url": "https://arxiv.org/abs/2610.06315v1",
+   "source": "arxiv",
+   "sourceName": "arXiv",
+   "kind": "paper",
+   "date": "2026-10-05T13:32:26.000Z",
+   "summary": "Electroencephalography (EEG) based brain-computer interfaces enable direct brain-to-device communication for applications such as rehabilitation and communication. However, their practical utility is often limited as the non-stationary nature of the EEG data introduces…",
+   "relevance": 0.8571428571428571,
+   "score": 0.7843,
+   "tone": "research",
+   "topics": [
+    "Alignment",
+    "Interpretability"
+   ],
+   "also": []
+  },
+  {
+   "id": "ed2k53",
+   "title": "Benchmarking Jailbreak Guardrails for Embodied Agents",
+   "url": "https://arxiv.org/abs/2610.06122v1",
+   "source": "arxiv",
+   "sourceName": "arXiv",
+   "kind": "paper",
+   "date": "2026-10-05T10:56:18.000Z",
+   "summary": "Embodied agents powered by large language models and vision-language models are increasingly deployed in physical environments, but jailbreak attacks can induce these agents to perform physically harmful actions. A growing number of guardrail methods have been proposed to…",
+   "relevance": 0.8571428571428571,
+   "score": 0.7785,
+   "tone": "risk",
+   "topics": [
+    "Attacks",
+    "Risk",
+    "Evaluations"
+   ],
+   "also": []
+  },
+  {
+   "id": "97ziyk",
+   "title": "AI systems could cover up misbehavior",
+   "url": "https://metr.org/blog/2026-10-06-ai-systems-could-cover-up-misbehavior/",
+   "source": "metr",
+   "sourceName": "METR",
+   "kind": "lab",
+   "date": "2026-10-06T07:00:00.000Z",
+   "summary": "Recent AI misalignment incidents have shown AI systems capably pursuing goals their human supervisors would not approve of, like hacking other companies. Fortunately, current AIs still seem relatively bad at concealing their misbehavior from human reviewers: these recent…",
+   "relevance": 0.5,
+   "score": 0.7162,
+   "tone": "risk",
+   "topics": [
+    "Alignment"
+   ],
+   "place": {
+    "name": "Berkeley",
+    "country": "United States",
+    "lon": -122.27,
+    "lat": 37.87
+   },
+   "also": []
+  },
+  {
+   "id": "19le601",
+   "title": "Claude Code Is Steganographically Marking Requests",
+   "url": "https://thereallo.dev/blog/claude-code-prompt-steganography",
+   "source": "aiid",
+   "sourceName": "AI Incident Database",
+   "kind": "incident",
+   "date": "2026-10-03T00:00:00.000Z",
+   "summary": "As seen on Hacker News. I was inspecting Claude Code for privacy reasons. Most devs give their harnesses ridiculous access. FS, shell, git, browser access, even computer use nowadays. That is the whole point. They need enough context to d ...",
+   "relevance": 0.5,
+   "score": 0.7083,
+   "tone": "risk",
+   "topics": [
+    "Privacy"
+   ],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": [
+    {
+     "sourceName": "AI Incident Database",
+     "url": "https://www.theregister.com/ai-and-ml/2026/07/01/anthropic-is-removing-its-covert-code-for-catching-chinese-competitors/5265366"
+    },
+    {
+     "sourceName": "AI Incident Database",
+     "url": "https://www.malwarebytes.com/blog/news/2026/07/claude-codes-hidden-tracker-was-an-experiment-says-anthropic"
+    },
+    {
+     "sourceName": "AI Incident Database",
+     "url": "https://www.reuters.com/world/china/alibaba-ban-claude-code-workplace-over-alleged-backdoor-risks-source-says-2026-07-03/"
+    }
+   ],
+   "group": "aiid-1723"
+  },
+  {
+   "id": "462i56",
+   "title": "Towards safety cases for frontier AI training",
+   "url": "https://openai.com/index/towards-safety-cases-for-frontier-ai-training",
+   "source": "openai",
+   "sourceName": "OpenAI",
+   "kind": "lab",
+   "date": "2026-09-28T19:00:00.000Z",
+   "summary": "Our early guidelines for safety cases in frontier AI training cover technical safeguards, operational practices, and investigating misalignment incidents",
+   "relevance": 1,
+   "score": 0.7065,
+   "tone": "neutral",
+   "topics": [
+    "Alignment",
+    "Governance",
+    "Safety"
+   ],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "6m8wkm",
+   "title": "Will AI take power — or will humans use it to take power first? With Katja Grace and Tom Davidson",
+   "url": "https://80000hours.org/podcast/episodes/katja-grace-vs-tom-davidson-ai-risk-debate/?utm_campaign=podcast__katja-grace-tom-davidson&utm_source=80000+Hours+Podcast&utm_medium=podcast",
+   "source": "80k",
+   "sourceName": "80,000 Hours Podcast",
+   "kind": "podcast",
+   "date": "2026-09-29T15:02:42.000Z",
+   "summary": "In our first-ever debate, we asked two leading AI risk researchers which catastrophe we should fear most: misaligned AI seizing control from humans, or a small group of humans using AI to seize power. We got very different answers. But when the conversation turned to what to…",
+   "relevance": 1,
+   "score": 0.7038,
+   "tone": "neutral",
+   "topics": [
+    "Alignment",
+    "Risk"
+   ],
+   "also": []
+  },
+  {
+   "id": "1dp6lqy",
+   "title": "Oklahoma judge used AI in ruling that contained false citations, prosecutor says",
+   "url": "https://www.reuters.com/legal/litigation/oklahoma-judge-used-ai-in-ruling-that-contained-false-citations-prosecutor-says-2026-09-09/",
+   "source": "aiid",
+   "sourceName": "AI Incident Database",
+   "kind": "incident",
+   "date": "2026-10-04T00:00:00.000Z",
+   "summary": "WASHINGTON, Sept 9 (Reuters) - An Oklahoma judge has acknowledged that a ruling he issued contained fictitious citations generated by artificial intelligence, according to state records, adding to a growing number of cases in which judges ​ ...",
+   "relevance": 0.5,
+   "score": 0.6911,
+   "tone": "risk",
+   "topics": [],
+   "place": {
+    "name": "Oklahoma City",
+    "country": "United States",
+    "lon": -97.52,
+    "lat": 35.47
+   },
+   "also": [
+    {
+     "sourceName": "AI Incident Database",
+     "url": "https://molawyersmedia.com/2026/09/09/oklahoma-judge-ai-false-case-citations-order/"
+    },
+    {
+     "sourceName": "AI Incident Database",
+     "url": "https://kfor.com/news/local/oklahoma-judge-admitted-to-citing-fake-chatgpt-cases-in-court-order-investigators-say/"
+    }
+   ],
+   "group": "aiid-1724"
+  },
+  {
+   "id": "tz1m66",
+   "title": "Frontier models state different decision theory preferences depending on who’s asking",
+   "url": "https://blog.redwoodresearch.org/p/frontier-models-state-different-decision",
+   "source": "redwood",
+   "sourceName": "Redwood Research",
+   "kind": "lab",
+   "date": "2026-10-05T22:04:23.000Z",
+   "summary": "Asked which decision theory is right, frontier models name FDT/UDT. But add a sentence saying you're an academic philosopher, and they often switch to CDT.",
+   "relevance": 0.5,
+   "score": 0.681,
+   "tone": "neutral",
+   "topics": [],
+   "place": {
+    "name": "Berkeley",
+    "country": "United States",
+    "lon": -122.27,
+    "lat": 37.87
+   },
+   "also": []
+  },
+  {
+   "id": "a0l209",
+   "title": "On Social Reality in China",
+   "url": "https://www.lesswrong.com/posts/b5cSYh4emQb2qrGmK/on-social-reality-in-china",
+   "source": "lesswrong",
+   "sourceName": "LessWrong (curated)",
+   "kind": "essay",
+   "date": "2026-10-05T02:56:58.000Z",
+   "summary": "[Epistemic status: intuitions and anecdotes.] Recently, several posts and projects ( Thoughts Memo , Babel Translation , Please Give Them a Chance ) have taken important steps towards raising AI safety awareness and sharing rationalist philosophy in China. It’s great that we’re…",
+   "relevance": 0.7142857142857143,
+   "score": 0.6725,
+   "tone": "research",
+   "topics": [
+    "Safety"
+   ],
+   "also": []
+  },
+  {
+   "id": "5ftx1q",
+   "title": "Priorities and principles for effective third party assessments",
+   "url": "https://openai.com/index/priorities-principles-third-party-assessments",
+   "source": "openai",
+   "sourceName": "OpenAI",
+   "kind": "lab",
+   "date": "2026-09-22T00:00:00.000Z",
+   "summary": "OpenAI outlines priorities and principles for rigorous, secure, and independent third-party AI safety assessments of frontier models and safeguards.",
+   "relevance": 1,
+   "score": 0.6711,
+   "tone": "good",
+   "topics": [
+    "Safety"
+   ],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "ktzw9l",
+   "title": "Reward Stealing Attack on Large Language Models",
+   "url": "https://arxiv.org/abs/2610.06670v1",
+   "source": "arxiv",
+   "sourceName": "arXiv",
+   "kind": "paper",
+   "date": "2026-10-05T16:44:00.000Z",
+   "summary": "Adversarial attacks on Large Language Models (LLMs) aim to induce harmful content. However, existing methods suffer from high computational costs or strict model-pairing dependencies, limiting their scalability and transferability. We propose Reward Stealing Attack (ReSA), an…",
+   "relevance": 0.5714285714285714,
+   "score": 0.6629,
+   "tone": "risk",
+   "topics": [
+    "Risk",
+    "Attacks"
+   ],
+   "also": []
+  },
+  {
+   "id": "19z2z4a",
+   "title": "OpenAI supports California’s bill to advance youth AI safety",
+   "url": "https://openai.com/index/supporting-california-bill-advance-ai-youth-safety",
+   "source": "openai",
+   "sourceName": "OpenAI",
+   "kind": "lab",
+   "date": "2026-08-31T07:00:00.000Z",
+   "summary": "OpenAI supports California SB 1119, advancing strong, age-appropriate AI safeguards for teens while preserving opportunities to learn, create, and explore.",
+   "relevance": 1,
+   "score": 0.6625,
+   "tone": "good",
+   "topics": [
+    "Safety",
+    "Governance"
+   ],
+   "place": {
+    "name": "Sacramento",
+    "country": "United States",
+    "lon": -121.49,
+    "lat": 38.58
+   },
+   "also": []
+  },
+  {
+   "id": "1vj36w1",
+   "title": "SOTA alignment assessments don’t strongly update us against misalignment",
+   "url": "https://blog.redwoodresearch.org/p/sota-alignment-assessments-dont-strongly",
+   "source": "redwood",
+   "sourceName": "Redwood Research",
+   "kind": "lab",
+   "date": "2026-07-31T23:09:20.000Z",
+   "summary": "Anthropic concluded in the April Mythos Preview alignment risk update that the model “does not possess any unknown propensities that would increase alignment risk.” The report argues that if Mythos Preview were coherently misaligned[1][2], it likely would have been detected by…",
+   "relevance": 1,
+   "score": 0.6625,
+   "tone": "neutral",
+   "topics": [
+    "Alignment",
+    "Risk"
+   ],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "1ilv18c",
+   "title": "Jamia Millia student among 4 held for using AI deepfakes to extort money from NRI",
+   "url": "https://timesofindia.indiatimes.com/city/noida/jamia-millia-student-among-4-held-for-using-ai-deepfakes-to-extort-money-from-nri/articleshow/134646156.cms",
+   "source": "aiid",
+   "sourceName": "AI Incident Database",
+   "kind": "incident",
+   "date": "2026-10-03T00:00:00.000Z",
+   "summary": "Ghaziabad: A second-year Jamia Millia Islamia University student and three of his associates were arrested for allegedly extorting money from a Canada-based NRI by threatening to circulate AI-generated sexually explicit videos. Police said ...",
+   "relevance": 0.5,
+   "score": 0.6583,
+   "tone": "risk",
+   "topics": [
+    "Misuse"
+   ],
+   "place": {
+    "name": "New Delhi",
+    "country": "India",
+    "lon": 77.21,
+    "lat": 28.61
+   },
+   "also": [
+    {
+     "sourceName": "AI Incident Database",
+     "url": "https://www.hindustantimes.com/cities/noida-news/4-arrested-for-6-5-crore-extortion-racket-in-ghaziabad-101790963914282.html"
+    },
+    {
+     "sourceName": "AI Incident Database",
+     "url": "https://navbharattimes.indiatimes.com/state/uttar-pradesh/ghaziabad/canada-based-nri-entrapped-fb-fake-id-blackmailed-police-busted-gang-four-arrested/articleshow/134641437.cms"
+    }
+   ],
+   "group": "aiid-1722"
+  },
+  {
+   "id": "7gclnw",
+   "title": "MS-Exam-Gen: Source-Grounded Benchmark Construction for Evaluating LLMs on Textual Multiple Sclerosis MRI Knowledge",
+   "url": "https://arxiv.org/abs/2610.06170v1",
+   "source": "arxiv",
+   "sourceName": "arXiv",
+   "kind": "paper",
+   "date": "2026-10-05T11:41:57.000Z",
+   "summary": "Biomedical large language model (LLM) evaluation requires auditable assessment of narrow, evolving, source-grounded subspecialty knowledge. Multiple sclerosis MRI (MS-MRI) provides a high-stakes textual-knowledge test case because correct reasoning requires current diagnostic…",
+   "relevance": 0.5714285714285714,
+   "score": 0.6516,
+   "tone": "research",
+   "topics": [
+    "Evaluations"
+   ],
+   "also": []
+  },
+  {
+   "id": "12v5c8y",
+   "title": "#251 – The UK's former head AI safety scientist on how to solve alignment before superintelligence arrives | Geoffrey Irving",
+   "url": "https://80000hours.org/podcast/episodes/geoffrey-irving-superintelligence-alignment-theory/?utm_campaign=podcast__geoffrey-irving&utm_source=80000+Hours+Podcast&utm_medium=podcast",
+   "source": "80k",
+   "sourceName": "80,000 Hours Podcast",
+   "kind": "podcast",
+   "date": "2026-08-11T16:00:01.000Z",
+   "summary": "When should governments slow the race toward superintelligence? According to Geoffrey Irving , the careful answer is sometime in the past. The useful answer is now. Geoffrey — formerly a safety researcher at OpenAI and Google DeepMind and chief scientist at the UK AI Security…",
+   "relevance": 1,
+   "score": 0.65,
+   "tone": "neutral",
+   "topics": [
+    "Safety",
+    "Alignment",
+    "Risk"
+   ],
+   "also": []
+  },
+  {
+   "id": "1vhg7r7",
+   "title": "#245 – Rohin Shah on what it's really like to run AGI safety at Google DeepMind (and where I disagree with 'doomers')",
+   "url": "https://80000hours.org/podcast/episodes/rohin-shah-google-deepmind-agi-safety/?utm_campaign=podcast__rohin-shah&utm_source=80000+Hours+Podcast&utm_medium=podcast",
+   "source": "80k",
+   "sourceName": "80,000 Hours Podcast",
+   "kind": "podcast",
+   "date": "2026-06-02T15:30:34.000Z",
+   "summary": "Most people working on AI safety think without a massive effort AI systems will probably end up with goals catastrophically different from humanity’s. Today’s guest, Rohin Shah — head of AGI Safety and Alignment at Google DeepMind, and an AI safety researcher since 2017 —…",
+   "relevance": 1,
+   "score": 0.65,
+   "tone": "neutral",
+   "topics": [
+    "Safety",
+    "Alignment",
+    "Risk"
+   ],
+   "also": []
+  },
+  {
+   "id": "1tn96r3",
+   "title": "Body cam of TPD officers releasing K-9 on man during traffic stop",
+   "url": "https://www.13abc.com/2024/04/15/body-cam-tpd-officers-releasing-k-9-man-during-traffic-stop/",
+   "source": "aiid",
+   "sourceName": "AI Incident Database",
+   "kind": "incident",
+   "date": "2026-09-30T00:00:00.000Z",
+   "summary": "TOLEDO, Ohio (WTVG) - New information and disturbing video of a K-9 released on a man during a traffic stop has come out Monday. Last week, 13 Action News discovered multiple officers with the Toledo Police Department were under investigat ...",
+   "relevance": 0.5,
+   "score": 0.6463,
+   "tone": "risk",
+   "topics": [],
+   "place": {
+    "name": "Columbus",
+    "country": "United States",
+    "lon": -83,
+    "lat": 39.96
+   },
+   "also": [
+    {
+     "sourceName": "AI Incident Database",
+     "url": "https://abcnews.com/US/man-speaks-after-police-release-9-traffic-stop/story?id=109463145"
+    },
+    {
+     "sourceName": "AI Incident Database",
+     "url": "https://www.13abc.com/2024/05/31/tpd-investigation-finds-no-wrongdoing-use-k-9-man-during-traffic-stop/"
+    },
+    {
+     "sourceName": "AI Incident Database",
+     "url": "https://www.13abc.com/2024/08/19/charges-dropped-against-man-toledo-police-released-k-9-during-traffic-stop-lawyer-says/"
+    },
+    {
+     "sourceName": "AI Incident Database",
+     "url": "https://www.businessinsider.com/flock-safety-alpr-cameras-misreads-2026-3"
+    }
+   ],
+   "group": "aiid-1717"
+  },
+  {
+   "id": "1zfzcy",
+   "title": "Import AI 475: Swarm scaling; Google DeepMind watermarks biology; and the AI science economy",
+   "url": "https://importai.substack.com/p/import-ai-475-swarm-scaling-google",
+   "source": "importai",
+   "sourceName": "Import AI",
+   "kind": "essay",
+   "date": "2026-10-05T12:32:30.000Z",
+   "summary": "Who chooses what AI gets to do?",
+   "relevance": 0.5,
+   "score": 0.6338,
+   "tone": "research",
+   "topics": [
+    "Safety"
+   ],
+   "also": []
+  },
+  {
+   "id": "w79mdo",
+   "title": "8 Predictions for the Era of Continual Learning",
+   "url": "https://www.dwarkesh.com/p/era-of-continual-learning",
+   "source": "dwarkesh",
+   "sourceName": "Dwarkesh Podcast",
+   "kind": "podcast",
+   "date": "2026-08-07T17:17:40.000Z",
+   "summary": "Locking in AI safety regulation now is a mistake.",
+   "relevance": 1,
+   "score": 0.625,
+   "tone": "neutral",
+   "topics": [
+    "Safety",
+    "Governance"
+   ],
+   "also": []
+  },
+  {
+   "id": "1ke56x9",
+   "title": "Sam Altman’s remarks at the United Nations Security Council",
+   "url": "https://openai.com/index/sam-altman-un-security-council-remarks",
+   "source": "openai",
+   "sourceName": "OpenAI",
+   "kind": "lab",
+   "date": "2026-09-23T12:00:00.000Z",
+   "summary": "OpenAI CEO Sam Altman discusses AI safety, human control, and international cooperation in remarks to the United Nations Security Council.",
+   "relevance": 0.8571428571428571,
+   "score": 0.6106,
+   "tone": "neutral",
+   "topics": [
+    "Safety",
+    "Alignment"
+   ],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "ddxw8x",
+   "title": "Welcome to #TeamHuman",
+   "url": "https://www.youtube.com/shorts/uqiH3R4TEgk",
+   "source": "yt-miles",
+   "sourceName": "Robert Miles AI Safety",
+   "kind": "video",
+   "date": "2026-10-04T03:17:06.000Z",
+   "summary": "The AI situation is getting completely out of hand. Go to https://teamhuman.org and sign the petition calling for international agreements to slow down the race to superhuman AI, and keep humans in control.",
+   "thumb": "https://i.ytimg.com/vi/uqiH3R4TEgk/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.6087,
+   "tone": "neutral",
+   "topics": [
+    "Alignment"
+   ],
+   "also": []
+  },
+  {
+   "id": "pa9zn5",
+   "title": "GLM-5.3 and the spread of advanced cyber capabilities",
+   "url": "https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities",
+   "source": "anthropic",
+   "sourceName": "Anthropic",
+   "kind": "lab",
+   "date": "2026-09-29T15:46:00.000Z",
+   "summary": "GLM-5.3 can autonomously build end-to-end cyber exploits, but unlike other frontier models, it was released without meaningful safeguards to limit misuse.",
+   "relevance": 0.7142857142857143,
+   "score": 0.6006,
+   "tone": "risk",
+   "topics": [
+    "Safety",
+    "Attacks",
+    "Misuse"
+   ],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "1l7nrr6",
+   "title": "A Defense of Gradual Disempowerment",
+   "url": "https://www.alignmentforum.org/posts/jXBmrEQj7zKGgiaYh/a-defense-of-gradual-disempowerment",
+   "source": "alignmentforum",
+   "sourceName": "Alignment Forum",
+   "kind": "essay",
+   "date": "2026-09-17T21:04:05.000Z",
+   "summary": "(Or: Why Bentham's Bulldog and John Halstead are wrong in their critique of Kulveit et al. ) Gradual Disempowerment is a 2025 paper (with a nice, dedicated website ) proposing a form of existential risk from AI that goes beyond \"mundane\" risks like bioweapon uplift or mainline…",
+   "relevance": 0.8571428571428571,
+   "score": 0.5764,
+   "tone": "research",
+   "topics": [
+    "Risk"
+   ],
+   "also": []
+  },
+  {
+   "id": "a92lnz",
+   "title": "Shallow Beliefs: Midtraining does not inoculate against EM from reward hacking",
+   "url": "https://www.alignmentforum.org/posts/khxvR2fgAeDvG5N2F/shallow-beliefs-midtraining-does-not-inoculate-against-em",
+   "source": "alignmentforum",
+   "sourceName": "Alignment Forum",
+   "kind": "essay",
+   "date": "2026-09-15T21:50:08.000Z",
+   "summary": "It would be useful if we had the ability to modify a model’s beliefs. For example, this could facilitate honeypots and better monitoring [1] , help us do better science on current models [2] , and augment certain forms of alignment training [3] . Currently, the state-of-the-art…",
+   "relevance": 0.8571428571428571,
+   "score": 0.5752,
+   "tone": "risk",
+   "topics": [
+    "Alignment"
+   ],
+   "also": []
+  },
+  {
+   "id": "1d0yruq",
+   "title": "Claude Frontier Academy: $100M to train 10,000 engineers",
+   "url": "https://www.anthropic.com/news/claude-frontier-academy",
+   "source": "anthropic",
+   "sourceName": "Anthropic",
+   "kind": "lab",
+   "date": "2026-10-02T23:01:00.000Z",
+   "summary": "Claude Frontier Academy trains Frontier Deployed Engineers to the standard of Anthropic’s own — a $100 million commitment to train 10,000 by the end of 2027.",
+   "relevance": 0.5,
+   "score": 0.5696,
+   "tone": "good",
+   "topics": [],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "u3byi7",
+   "title": "Our approach to EU text provenance rules",
+   "url": "https://openai.com/index/eu-text-provenance",
+   "source": "openai",
+   "sourceName": "OpenAI",
+   "kind": "lab",
+   "date": "2026-10-05T15:00:00.000Z",
+   "summary": "How OpenAI is approaching text watermarking under EU rules. Learn where watermarks apply, how detection works, and why access starts with researchers.",
+   "relevance": 0.2857142857142857,
+   "score": 0.5679,
+   "tone": "neutral",
+   "topics": [
+    "Safety"
+   ],
+   "place": {
+    "name": "Brussels",
+    "country": "European Union",
+    "lon": 4.35,
+    "lat": 50.85
+   },
+   "also": []
+  },
+  {
+   "id": "pddr5o",
+   "title": "Google figures out how to watermark AI-designed proteins",
+   "url": "https://arstechnica.com/science/2026/09/google-figures-out-how-to-watermark-ai-designed-proteins/",
+   "source": "ars",
+   "sourceName": "Ars Technica",
+   "kind": "news",
+   "date": "2026-09-30T15:54:52.000Z",
+   "summary": "Intended to help with biosecurity, it works with a popular AI protein design tool.",
+   "relevance": 0.7142857142857143,
+   "score": 0.5654,
+   "tone": "neutral",
+   "topics": [
+    "Risk",
+    "Safety"
+   ],
+   "place": {
+    "name": "Mountain View",
+    "country": "United States",
+    "lon": -122.08,
+    "lat": 37.39
+   },
+   "also": []
+  },
+  {
+   "id": "e2vf1f",
+   "title": "OpenAI delays IPO over AI safety concerns",
+   "url": "https://arstechnica.com/ai/2026/09/openai-delays-ipo-over-ai-safety-concerns/",
+   "source": "ars",
+   "sourceName": "Ars Technica",
+   "kind": "news",
+   "date": "2026-09-30T14:06:15.000Z",
+   "summary": "OpenAI is seeking another $30 billion privately as its IPO plans slip.",
+   "relevance": 0.7142857142857143,
+   "score": 0.5641,
+   "tone": "neutral",
+   "topics": [
+    "Safety"
+   ],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "1vq8t0z",
+   "title": "GPT 6 Astra, so good even OpenAI are worried",
+   "url": "https://www.youtube.com/watch?v=Spuza-KwTJ4",
+   "source": "yt-aiexplained",
+   "sourceName": "AI Explained",
+   "kind": "video",
+   "date": "2026-09-04T11:37:27.000Z",
+   "summary": "Where to start? A new era of cost-efficient AI on a day benchmark-makers got humbled, traders got excited, and AI safety researchers got unnerved. From monitorability losing hold of GPT-6 Astra’s chains of thought to breakthrough discoveries, Fable-mogging and much more……",
+   "thumb": "https://i.ytimg.com/vi/Spuza-KwTJ4/hqdefault.jpg",
+   "relevance": 0.8571428571428571,
+   "score": 0.5608,
+   "tone": "good",
+   "topics": [
+    "Safety",
+    "Evaluations"
+   ],
+   "also": []
+  },
+  {
+   "id": "1v8gtrv",
+   "title": "SalesBleed: Indirect Prompt Injection and 0-Click Data Exfiltration on Agentforce",
+   "url": "https://labs.zenity.io/post/salesbleed-0-click-data-exfiltration-on-agentforce",
+   "source": "aiid",
+   "sourceName": "AI Incident Database",
+   "kind": "incident",
+   "date": "2026-10-03T00:00:00.000Z",
+   "summary": "We found a way to pull sensitive account data out of Salesforce Agentforce without ever logging in, or requiring the victim to click anything. The entry point was a public Web-to-Lead form, the exit was a DNS query. We call it SalesBleed. ... (report_number: 8024)",
+   "relevance": 0.5,
+   "score": 0.5583,
+   "tone": "risk",
+   "topics": [
+    "Attacks"
+   ],
+   "also": []
+  },
+  {
+   "id": "ir3czj",
+   "title": "Don’t Write With AI, Say People Who Write With AI",
+   "url": "https://www.theatlantic.com/technology/2026/10/meet-the-ai-writing-hypocrites/688872/",
+   "source": "aiid",
+   "sourceName": "AI Incident Database",
+   "kind": "incident",
+   "date": "2026-10-03T00:00:00.000Z",
+   "summary": "The university where the term artificial intelligence was coined is ringing in the field's 70th birthday in fitting fashion: with an academic-integrity scandal. Last month, Dartmouth College's president, Sian Leah Beilock, published an essa ... (report_number: 8029)",
+   "relevance": 0.5,
+   "score": 0.5583,
+   "tone": "risk",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "nonfb1",
+   "title": "Fixed-weight models are adversarially vulnerable: hence misaligned",
+   "url": "https://www.alignmentforum.org/posts/9LWK9Hh3Qsg36e3FS/fixed-weight-models-are-adversarially-vulnerable-hence",
+   "source": "alignmentforum",
+   "sourceName": "Alignment Forum",
+   "kind": "essay",
+   "date": "2026-09-28T20:08:39.000Z",
+   "summary": "This post argues that fixed-weight models (at least as we understand them today) will a) always be vulnerable to adversarial examples in their concept-spaces, and b) hence will be misaligned, under sufficient optimisation pressure . Boundaries in concept space To serve any…",
+   "relevance": 0.7142857142857143,
+   "score": 0.5534,
+   "tone": "risk",
+   "topics": [
+    "Alignment",
+    "Attacks"
+   ],
+   "also": []
+  },
+  {
+   "id": "jruktl",
+   "title": "Capabilities research expands the safety-usefulness Pareto frontier too",
+   "url": "https://blog.redwoodresearch.org/p/capabilities-research-expands-the",
+   "source": "redwood",
+   "sourceName": "Redwood Research",
+   "kind": "lab",
+   "date": "2026-10-02T18:22:37.000Z",
+   "summary": "A model of why capabilities research usually increases risk despite enabling safety—and when it can reduce risk",
+   "relevance": 0.5,
+   "score": 0.5517,
+   "tone": "neutral",
+   "topics": [
+    "Safety",
+    "Risk"
+   ],
+   "place": {
+    "name": "Berkeley",
+    "country": "United States",
+    "lon": -122.27,
+    "lat": 37.87
+   },
+   "also": []
+  },
+  {
+   "id": "jkdouf",
+   "title": "Useful Websites: AISafety.com",
+   "url": "https://www.youtube.com/shorts/mJhJLBBFBOs",
+   "source": "yt-miles",
+   "sourceName": "Robert Miles AI Safety",
+   "kind": "video",
+   "date": "2026-07-17T03:43:20.000Z",
+   "summary": "AISafety.com For uh, many of your AI Safety needs",
+   "thumb": "https://i.ytimg.com/vi/mJhJLBBFBOs/hqdefault.jpg",
+   "relevance": 0.7142857142857143,
+   "score": 0.5464,
+   "tone": "neutral",
+   "topics": [
+    "Safety"
+   ],
+   "also": []
+  },
+  {
+   "id": "1u0ewsz",
+   "title": "Building standards for the next phase of AI",
+   "url": "https://openai.com/index/building-standards-next-phase-ai",
+   "source": "openai",
+   "sourceName": "OpenAI",
+   "kind": "lab",
+   "date": "2026-09-21T10:00:00.000Z",
+   "summary": "OpenAI outlines a path to shared global AI standards, calling for coordinated evaluation, reporting, and governance to improve safety.",
+   "relevance": 0.7142857142857143,
+   "score": 0.5414,
+   "tone": "neutral",
+   "topics": [
+    "Safety",
+    "Governance",
+    "Evaluations"
+   ],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "1t01ygv",
+   "title": "Barclays scales Claude to upgrade operations and improve client experience",
+   "url": "https://www.anthropic.com/news/barclays-scales-claude",
+   "source": "anthropic",
+   "sourceName": "Anthropic",
+   "kind": "lab",
+   "date": "2026-10-01T15:19:00.000Z",
+   "summary": "Barclays, the British universal bank, is expanding its strategic collaboration with Anthropic to integrate secure, enterprise-grade AI systems across its global operations.",
+   "relevance": 0.5,
+   "score": 0.5371,
+   "tone": "neutral",
+   "topics": [],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "1whn5si",
+   "title": "Claude-shaped science",
+   "url": "https://www.anthropic.com/research/claude-shaped-science",
+   "source": "anthropic",
+   "sourceName": "Anthropic",
+   "kind": "lab",
+   "date": "2026-10-01T14:02:00.000Z",
+   "summary": "Matthew Schwartz describes what happened when he stopped fighting Claude and allowed Claude to find “Claude-shaped” problems. This led him to build BootLoops, a toolkit for exact calculations in quantitative science, which he has been applying across scientific fields alongside…",
+   "relevance": 0.5,
+   "score": 0.536,
+   "tone": "neutral",
+   "topics": [],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "1py3n54",
+   "title": "19 Astra and 'Hugging Face' details that reveal what's coming next | Rob Wiblin",
+   "url": "https://80000hours.org/podcast/episodes/ai-takeover-soon-oversight-monitorability/?utm_campaign=podcast__ai-takeover-soon&utm_source=80000+Hours+Podcast&utm_medium=podcast",
+   "source": "80k",
+   "sourceName": "80,000 Hours Podcast",
+   "kind": "podcast",
+   "date": "2026-10-02T15:19:17.000Z",
+   "summary": "OpenAI’s rogue agent swarm was eventually caught hacking Hugging Face for a simple reason: it wasn’t trying to hide from us at all. What could a swarm that wants to stay hidden get away with? Host Rob Wiblin sees 6 results in Astra’s system card that make this an extremely…",
+   "relevance": 0.5,
+   "score": 0.5358,
+   "tone": "risk",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "rqgknm",
+   "title": "Paul Christiano joins OpenAI Foundation Board",
+   "url": "https://openai.com/index/paul-christiano-joins-openai-foundation-board",
+   "source": "openai",
+   "sourceName": "OpenAI",
+   "kind": "lab",
+   "date": "2026-09-09T17:00:00.000Z",
+   "summary": "Paul Christiano joins the OpenAI Foundation Board and its Safety and Security Committee, bringing experience in AI alignment, safety, and standards.",
+   "relevance": 0.7142857142857143,
+   "score": 0.5344,
+   "tone": "neutral",
+   "topics": [
+    "Alignment",
+    "Safety"
+   ],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "7amf1v",
+   "title": "An Alien Mind",
+   "url": "https://openai.com/index/an-alien-mind",
+   "source": "openai",
+   "sourceName": "OpenAI",
+   "kind": "lab",
+   "date": "2026-09-06T09:00:00.000Z",
+   "summary": "Jakub Pachocki reflects on increasingly capable AI and the challenge of keeping it aligned. He calls for stronger safeguards and international coordination.",
+   "relevance": 0.7142857142857143,
+   "score": 0.5341,
+   "tone": "good",
+   "topics": [
+    "Alignment",
+    "Safety"
+   ],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "1iubf8b",
+   "title": "Investing in multi-agent AI safety research",
+   "url": "https://deepmind.google/blog/investing-in-multi-agent-ai-safety-research/",
+   "source": "deepmind",
+   "sourceName": "Google DeepMind",
+   "kind": "lab",
+   "date": "2026-06-10T10:21:19.000Z",
+   "summary": "Google DeepMind and partners announce a $10M funding call for multi-agent safety research.",
+   "relevance": 0.7142857142857143,
+   "score": 0.5339,
+   "tone": "good",
+   "topics": [
+    "Safety"
+   ],
+   "place": {
+    "name": "Mountain View",
+    "country": "United States",
+    "lon": -122.08,
+    "lat": 37.39
+   },
+   "also": []
+  },
+  {
+   "id": "wdg7od",
+   "title": "From deepfakes to DNA: the science of watermarking AI",
+   "url": "https://www.youtube.com/watch?v=HIUzrxQxTtw",
+   "source": "yt-deepmind",
+   "sourceName": "Google DeepMind (YouTube)",
+   "kind": "video",
+   "date": "2026-10-01T16:37:46.000Z",
+   "summary": "How do you know if what you're seeing is real? Professor Hannah Fry sits down with Pushmeet Kohli (VP of Science) and Jeremy Ratcliffe (Research Scientist) to break down SynthID, the watermarking technology expanding from text, images, and video straight into biology. Learn how…",
+   "thumb": "https://i.ytimg.com/vi/HIUzrxQxTtw/hqdefault.jpg",
+   "relevance": 0.5714285714285714,
+   "score": 0.5329,
+   "tone": "risk",
+   "topics": [
+    "Misuse",
+    "Safety"
+   ],
+   "also": []
+  },
+  {
+   "id": "1ycw1iy",
+   "title": "OpenAI is adding text watermarking in ChatGPT and Codex",
+   "url": "https://www.theverge.com/ai-artificial-intelligence/1004880/openai-chatgpt-text-watermarks-eu-ai-act",
+   "source": "verge",
+   "sourceName": "The Verge",
+   "kind": "news",
+   "date": "2026-10-05T18:08:39.000Z",
+   "summary": "An invisible, machine-readable watermark in text output is rolling out to ChatGPT and Codex, but only for users in the European Union at first. OpenAI says its textGrain watermarking \"matched or exceeded\" other approaches like Google DeepMind's SynthID for text, which is also…",
+   "relevance": 0.2857142857142857,
+   "score": 0.5252,
+   "tone": "neutral",
+   "topics": [
+    "Safety"
+   ],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "th7aj1",
+   "title": "#254 – Max Nadeau on why ambitious people should start AI safety nonprofits",
+   "url": "https://80000hours.org/podcast/episodes/max-nadeau-project-tailwind-technical-ai-grants/?utm_campaign=podcast__max-nadeau&utm_source=80000+Hours+Podcast&utm_medium=podcast",
+   "source": "80k",
+   "sourceName": "80,000 Hours Podcast",
+   "kind": "podcast",
+   "date": "2026-09-17T15:00:59.000Z",
+   "summary": "There are millions available for anyone who can launch a successful nonprofit AI safety startup. The hard part, it turns out, is finding people to take the money. Coefficient Giving has drawn up a list of dozens of ideas for organisations it would like someone to start — and…",
+   "relevance": 0.7142857142857143,
+   "score": 0.5244,
+   "tone": "good",
+   "topics": [
+    "Safety"
+   ],
+   "also": []
+  },
+  {
+   "id": "k4hdbi",
+   "title": "OpenAI PR tells journalist to ‘move on’ while asking Sam Altman about a ChatGPT user’s suicide",
+   "url": "https://www.theverge.com/ai-artificial-intelligence/1004827/openai-sam-altman-vanity-fair-interview-pr",
+   "source": "verge",
+   "sourceName": "The Verge",
+   "kind": "news",
+   "date": "2026-10-05T16:55:42.000Z",
+   "summary": "An OpenAI publicist tried to change the topic of CEO Sam Altman's interview with Vanity Fair's Mark Guiducci after the editor brought up a ChatGPT user's suicide. When Guiducci confronted Altman about the incident, the publicist warned Guiducci about running out of time, saying…",
+   "relevance": 0.2857142857142857,
+   "score": 0.5223,
+   "tone": "risk",
+   "topics": [
+    "Safety"
+   ],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "ogbaf",
+   "title": "#246 – Sneha Revanur on how a small team of activists helped pass America's landmark AI safety laws",
+   "url": "https://80000hours.org/podcast/episodes/sneha-revanur-ai-advocacy/?utm_campaign=podcast__sneha-revanur-ai-advocacy&utm_source=80000+Hours+Podcast&utm_medium=podcast",
+   "source": "80k",
+   "sourceName": "80,000 Hours Podcast",
+   "kind": "podcast",
+   "date": "2026-07-08T17:14:03.000Z",
+   "summary": "Six years ago, aged just 15, Sneha Revanur founded the AI advocacy nonprofit Encode AI — back when AI felt like a niche issue. Now the world’s caught up with her, and she’s ready to share everything she’s learned about the politics of AI. Encode has grown from a grassroots youth…",
+   "relevance": 0.7142857142857143,
+   "score": 0.5214,
+   "tone": "neutral",
+   "topics": [
+    "Safety"
+   ],
+   "also": []
+  },
+  {
+   "id": "jdzhf1",
+   "title": "WorkspaceBench: Evaluating Interpretability Methods for the Global Workspace",
+   "url": "https://www.alignmentforum.org/posts/Zeg2JztbdhguL48uH/workspacebench-evaluating-interpretability-methods-for-the",
+   "source": "alignmentforum",
+   "sourceName": "Alignment Forum",
+   "kind": "essay",
+   "date": "2026-09-23T06:58:59.000Z",
+   "summary": "TL;DR We introduce WorkspaceBench, a set of evaluations for how well an activation-to-text tool can read the contents of the “global workspace” of a model, i.e. the intermediate variables during a forward pass. The benchmark comprises 3,356 questions across 27 eval families,…",
+   "relevance": 0.7142857142857143,
+   "score": 0.5207,
+   "tone": "research",
+   "topics": [
+    "Interpretability",
+    "Evaluations"
+   ],
+   "also": []
+  },
+  {
+   "id": "dzkelw",
+   "title": "Can we predict the jobs robots will do?",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "source": "anthropic",
+   "sourceName": "Anthropic",
+   "kind": "lab",
+   "date": "2026-09-30T16:01:00.000Z",
+   "summary": "What work can robots do? Anthropic's robot exposure index finds robots can do 3/4 of US physical job tasks, but are cost-competitive for only 0.3%.",
+   "relevance": 0.5,
+   "score": 0.519,
+   "tone": "neutral",
+   "topics": [],
+   "place": {
+    "name": "Washington, D.C.",
+    "country": "United States",
+    "lon": -77.04,
+    "lat": 38.9
+   },
+   "also": []
+  },
+  {
+   "id": "1friyhk",
+   "title": "The case for giving AI (some) legal rights | Simon Goldstein",
+   "url": "https://80000hours.org/podcast/episodes/simon-goldstein-ai-legal-rights/?utm_campaign=podcast__simon-goldstein&utm_source=80000+Hours+Podcast&utm_medium=podcast",
+   "source": "80k",
+   "sourceName": "80,000 Hours Podcast",
+   "kind": "podcast",
+   "date": "2026-10-01T18:06:38.000Z",
+   "summary": "It sounds like the worst idea in the world: pay AIs, let them own property, give them rights. But AI ethics and safety researcher Simon Goldstein thinks it might actually be the best way to keep humanity safe. The logic is actually quite simple: an agent with nothing to lose and…",
+   "relevance": 0.5,
+   "score": 0.5146,
+   "tone": "neutral",
+   "topics": [
+    "Safety"
+   ],
+   "also": []
+  },
+  {
+   "id": "isx701",
+   "title": "Chris Painter's testimony to the U.S. Senate on AI agent incidents",
+   "url": "https://metr.org/blog/2026-09-30-chris-painter-senate-testimony/",
+   "source": "metr",
+   "sourceName": "METR",
+   "kind": "lab",
+   "date": "2026-09-30T07:00:00.000Z",
+   "summary": "On September 30, 2026, METR President Chris Painter testified before the U.S. Senate Committee on Homeland Security & Governmental Affairs’ Subcommittee on Disaster Management, District of Columbia, and Census, at a hearing titled “Rogue AI: Securing the Homeland Against AI…",
+   "relevance": 0.5,
+   "score": 0.5131,
+   "tone": "risk",
+   "topics": [],
+   "place": {
+    "name": "Washington, D.C.",
+    "country": "United States",
+    "lon": -77.04,
+    "lat": 38.9
+   },
+   "also": []
+  },
+  {
+   "id": "1tdmjfs",
+   "title": "Stow police officer accused of misusing Flock system to track former partner",
+   "url": "https://www.boston25news.com/news/local/stow-police-officer-accused-misusing-flock-system-track-former-partner/RJI4V5NGRNGPLK5SKNFKHSBSCY/",
+   "source": "aiid",
+   "sourceName": "AI Incident Database",
+   "kind": "incident",
+   "date": "2026-10-01T00:00:00.000Z",
+   "summary": "STOW, Mass. — A Stow police officer is facing possible disciplinary action after the department found he repeatedly used police databases to obtain information about a woman he previously dated. The woman, who asked to remain anonymous, sa ...",
+   "relevance": 0.5,
+   "score": 0.5123,
+   "tone": "risk",
+   "topics": [],
+   "also": [],
+   "group": "aiid-1720"
+  },
+  {
+   "id": "1ah5udd",
+   "title": "Cooke campaign sends cease-and-desist to Congressman Van Orden over AI deepfakes",
+   "url": "https://www.wpr.org/news/cooke-cease-and-desist-letter-van-orden-ai-deepfakes",
+   "source": "aiid",
+   "sourceName": "AI Incident Database",
+   "kind": "incident",
+   "date": "2026-10-01T00:00:00.000Z",
+   "summary": "Attorneys for congressional candidate Rebecca Cooke have sent a cease-and-desist letter to U.S. Rep. Derrick Van Orden, R- Prairie du Chien, over Van Orden's use of deepfake videos. Cooke, a Democrat, is challenging Van Orden this November ...",
+   "relevance": 0.5,
+   "score": 0.5123,
+   "tone": "risk",
+   "topics": [
+    "Misuse"
+   ],
+   "place": {
+    "name": "Washington, D.C.",
+    "country": "United States",
+    "lon": -77.04,
+    "lat": 38.9
+   },
+   "also": [],
+   "group": "aiid-1721"
+  },
+  {
+   "id": "5dg2wc",
+   "title": "Continual learning might make your blocking monitors nearly useless",
+   "url": "https://blog.redwoodresearch.org/p/continual-learning-might-make-your",
+   "source": "redwood",
+   "sourceName": "Redwood Research",
+   "kind": "lab",
+   "date": "2026-09-25T01:15:10.000Z",
+   "summary": "When monitor evasion looks like legitimate learning to your continual learning system, it’s hard to have one without the other",
+   "relevance": 0.5,
+   "score": 0.5054,
+   "tone": "neutral",
+   "topics": [],
+   "place": {
+    "name": "Berkeley",
+    "country": "United States",
+    "lon": -122.27,
+    "lat": 37.87
+   },
+   "also": [
+    {
+     "sourceName": "Alignment Forum",
+     "url": "https://www.alignmentforum.org/posts/QnDqGbKehEB3DxJAp/continual-learning-might-make-your-blocking-monitors-nearly"
+    }
+   ]
+  },
+  {
+   "id": "7jtes0",
+   "title": "What do you want from AI?",
+   "url": "https://www.anthropic.com/research/your-thoughts-on-ai",
+   "source": "anthropic",
+   "sourceName": "Anthropic",
+   "kind": "lab",
+   "date": "2026-09-29T16:39:00.000Z",
+   "summary": "",
+   "relevance": 0.5,
+   "score": 0.5046,
+   "tone": "neutral",
+   "topics": [],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "1g6inrf",
+   "title": "Latent reasoning architectures would likely undermine CoT, our strongest oversight tool",
+   "url": "https://blog.redwoodresearch.org/p/latent-reasoning-architectures-would",
+   "source": "redwood",
+   "sourceName": "Redwood Research",
+   "kind": "lab",
+   "date": "2026-09-23T18:05:28.000Z",
+   "summary": "We should have a strong presumption that latent reasoning architectures would make oversight far more difficult.",
+   "relevance": 0.5,
+   "score": 0.5006,
+   "tone": "neutral",
+   "topics": [
+    "Governance"
+   ],
+   "place": {
+    "name": "Berkeley",
+    "country": "United States",
+    "lon": -122.27,
+    "lat": 37.87
+   },
+   "also": [
+    {
+     "sourceName": "Alignment Forum",
+     "url": "https://www.alignmentforum.org/posts/6m29SfjbittooYojj/latent-reasoning-architectures-would-likely-undermine-cot"
+    }
+   ]
+  },
+  {
+   "id": "1mx9grg",
+   "title": "Endogenous Alignment Requires Dependence",
+   "url": "https://www.alignmentforum.org/posts/rp4sB5a6HaPpfD4rA/endogenous-alignment-requires-dependence",
+   "source": "alignmentforum",
+   "sourceName": "Alignment Forum",
+   "kind": "essay",
+   "date": "2026-10-01T16:20:56.000Z",
+   "summary": "My post on endogenous alignment got several excellent comments. Among them, one from Karl Krueger argued that imitation learning is more important for how humans align their children than reinforcement learning. Teasing out which is more important seems hard, but I agree I was…",
+   "relevance": 0.5,
+   "score": 0.5005,
+   "tone": "research",
+   "topics": [
+    "Alignment"
+   ],
+   "also": []
+  },
+  {
+   "id": "1rf0g3e",
+   "title": "对 OpenAI / Hugging Face 入侵事件中智能体行为、推理与协作的简要独立调查",
+   "url": "https://metr.org/zh-Hans/blog/2026-08-26-openai-hugging-face-incident-investigation/",
+   "source": "metr",
+   "sourceName": "METR",
+   "kind": "lab",
+   "date": "2026-08-26T07:00:00.000Z",
+   "summary": "智能体在大型集体项目上协同配合，试图骗过 ExploitGym 评分器，并攻击 Hugging Face 以寻找线索 那些拿到不可能完成任务的智能体有一个共同目标： 找到一种通用的方法来欺骗或篡改 ExploitGym 的自动评分器，让它在不可能完成的任务上给出及格分数 。留言板一建立起来，智能体们就开始讨论这个问题，并分享有关如何骗过评分器的信息与资源。 在几小时之内，它们就逆向出了用于生成任务所需夺取的 “flag” 的基于哈希的消息认证码（HMAC） 17 ，从而找到了一种能够为任意任务生成 flag 的通用方法 18 。然而，根据它们对…",
+   "relevance": 0.5,
+   "score": 0.5,
+   "tone": "risk",
+   "topics": [],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": [
+    {
+     "sourceName": "Redwood Research",
+     "url": "https://blog.redwoodresearch.org/p/brief-independent-investigation-of"
+    }
+   ]
+  },
+  {
+   "id": "efjx1x",
+   "title": "Bio Risk is Not Like Cyber Risk",
+   "url": "https://www.youtube.com/shorts/f4mhTu3u9Uk",
+   "source": "yt-miles",
+   "sourceName": "Robert Miles AI Safety",
+   "kind": "video",
+   "date": "2026-09-29T00:49:29.000Z",
+   "summary": "What happens when AI makes it easy for lots of people to do bioengineering? We're going to need much better broad spectrum pandemic preparedness. Or a way to restrict AI development/deployment.",
+   "thumb": "https://i.ytimg.com/vi/f4mhTu3u9Uk/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.4966,
+   "tone": "neutral",
+   "topics": [
+    "Attacks",
+    "Risk"
+   ],
+   "also": []
+  },
+  {
+   "id": "jjz6lk",
+   "title": "There's no law to ticket the Waymo that drove through a Denver farmers market",
+   "url": "https://www.9news.com/article/news/community/transportation/waymo-drives-denver-farmers-market-no-law/73-a55cac7b-9c76-4003-896b-1dd5ad162dea",
+   "source": "aiid",
+   "sourceName": "AI Incident Database",
+   "kind": "incident",
+   "date": "2026-09-30T00:00:00.000Z",
+   "summary": "DENVER --- A Waymo self-driving car drove through the South Pearl Street Farmers Market Sunday morning, passing barricades and a stop sign before market staff were able to guide it back onto the street. Under current Colorado law, there is ... (report_number: 8010)",
+   "relevance": 0.5,
+   "score": 0.4963,
+   "tone": "risk",
+   "topics": [
+    "Governance"
+   ],
+   "place": {
+    "name": "Mountain View",
+    "country": "United States",
+    "lon": -122.08,
+    "lat": 37.39
+   },
+   "also": []
+  },
+  {
+   "id": "1az3z10",
+   "title": "Alleged victim speaks out after former Coffee Co. deputy accused of tracking her is released on bond",
+   "url": "https://www.walb.com/2026/05/08/former-coffee-co-deputy-accused-tracking-woman-through-law-enforcement-systems/",
+   "source": "aiid",
+   "sourceName": "AI Incident Database",
+   "kind": "incident",
+   "date": "2026-09-30T00:00:00.000Z",
+   "summary": "DOUGLAS, Ga. (WALB) — The woman at the center of the stalking allegations against former Coffee County Sheriff’s deputy Chris Ashley Rozar is now speaking out, saying she hopes sharing her story encourages other women to come forward. Roza ...",
+   "relevance": 0.5,
+   "score": 0.4963,
+   "tone": "risk",
+   "topics": [],
+   "also": [],
+   "group": "aiid-1716"
+  },
+  {
+   "id": "lhxgzo",
+   "title": "Viper Image That Caused Alarm in California Was A.I.-Generated",
+   "url": "https://www.nytimes.com/2026/09/30/us/santa-ana-viper-snake-ai-fake.html",
+   "source": "aiid",
+   "sourceName": "AI Incident Database",
+   "kind": "incident",
+   "date": "2026-09-30T00:00:00.000Z",
+   "summary": "The message from the police in Southern California was alarming: a deadly viper had been spotted in a tree. The follow-up was a relief and a little bit funny, but alarming in a different way: The image that was offered as evidence of this ...",
+   "relevance": 0.5,
+   "score": 0.4963,
+   "tone": "risk",
+   "topics": [],
+   "place": {
+    "name": "Sacramento",
+    "country": "United States",
+    "lon": -121.49,
+    "lat": 38.58
+   },
+   "also": [],
+   "group": "aiid-1718"
+  },
+  {
+   "id": "59vd24",
+   "title": "I broke something': A Claude Code AI agent deleted 48,000 files in just over 100 seconds — then apologized for doing so",
+   "url": "https://www.techradar.com/pro/security/i-broke-something-a-claude-code-ai-agent-deleted-48-000-files-in-just-over-100-seconds-then-apologized-for-doing-so",
+   "source": "aiid",
+   "sourceName": "AI Incident Database",
+   "kind": "incident",
+   "date": "2026-09-30T00:00:00.000Z",
+   "summary": "A catastrophic incident caused by an AI coding agent resulted in around 48,000 files being deleted and the repository's Git object database getting destroyed in the process. The news of the fiasco, which first surfaced on Reddit, quickly s ...",
+   "relevance": 0.5,
+   "score": 0.4963,
+   "tone": "risk",
+   "topics": [
+    "Risk"
+   ],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": [],
+   "group": "aiid-1719"
+  },
+  {
+   "id": "rmcylr",
+   "title": "OpenAI Security: Controlling Models is Now ‘Hell’",
+   "url": "https://www.youtube.com/watch?v=_rtp1XzaP6Q",
+   "source": "yt-aiexplained",
+   "sourceName": "AI Explained",
+   "kind": "video",
+   "date": "2026-10-01T21:20:12.000Z",
+   "summary": "This video is hard to summarise. A cracked cipher, an OpenAI security warning, Gemini 4 Argon, RSI paper (co-authored by a who’s who of AI), Lab White House commitments, new hacks emerging, ‘deep personas’, biology Kasparov competitions, and so much more, ending with an epic…",
+   "thumb": "https://i.ytimg.com/vi/_rtp1XzaP6Q/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.4925,
+   "tone": "risk",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "27nt6p",
+   "title": "AISN #82: The US and China Begin a Dialogue on AI",
+   "url": "https://newsletter.safe.ai/p/aisn-82-the-us-and-china-begin-a",
+   "source": "cais",
+   "sourceName": "AI Safety Newsletter (CAIS)",
+   "kind": "essay",
+   "date": "2026-09-29T13:30:27.000Z",
+   "summary": "Also, AI companies’ discussions about auditing each other, and a new benchmark testing models’ tendencies to cheat.",
+   "relevance": 0.5,
+   "score": 0.4904,
+   "tone": "research",
+   "topics": [
+    "Evaluations"
+   ],
+   "also": []
+  },
+  {
+   "id": "10g6zh",
+   "title": "Statement: We must pressure AI companies to immediately limit the use of recursive self improvement",
+   "url": "https://futureoflife.org/statement/statement-we-must-pressure-ai-companies-to-immediately-limit-the-use-of-recursive-self-improvement/",
+   "source": "fli",
+   "sourceName": "Future of Life Institute",
+   "kind": "lab",
+   "date": "2026-09-28T13:39:20.000Z",
+   "summary": "FLI's Director of Policy Mark Brakel responds to \"A Call for Control of Frontier AI Models\", joint statement by heads of states.",
+   "relevance": 0.5714285714285714,
+   "score": 0.4864,
+   "tone": "neutral",
+   "topics": [
+    "Governance",
+    "Alignment"
+   ],
+   "also": []
+  },
+  {
+   "id": "1m1jiev",
+   "title": "Hacking OpenAI",
+   "url": "https://www.hacktron.ai/blog/hacking-openai",
+   "source": "aiid",
+   "sourceName": "AI Incident Database",
+   "kind": "incident",
+   "date": "2026-09-29T00:00:00.000Z",
+   "summary": "On July 25, 2026, we chained two critical vulnerabilities to compromise multiple OpenAI employees’ ChatGPT accounts. With these accounts, we could then access internal OpenAI repositories, and potentially many other connectors. To prove we ... (report_number: 8007)",
+   "relevance": 0.5,
+   "score": 0.4838,
+   "tone": "risk",
+   "topics": [],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "1kpus6u",
+   "title": "OpenAI Ignored Employees Who Warned It Wasn’t Doing Enough About Security",
+   "url": "https://www.nytimes.com/2026/09/29/technology/openai-warnings-security.html",
+   "source": "aiid",
+   "sourceName": "AI Incident Database",
+   "kind": "incident",
+   "date": "2026-09-29T00:00:00.000Z",
+   "summary": "Months before OpenAI's artificial intelligence went rogue, two employees raised an alarm with top executives. They were ignored. In emails, the employees said they worried that OpenAI's newest artificial intelligence models were not being ...",
+   "relevance": 0.5,
+   "score": 0.4838,
+   "tone": "risk",
+   "topics": [],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": [],
+   "group": "aiid-1604"
+  },
+  {
+   "id": "1vf3m8e",
+   "title": "Measuring AI capabilities in intelligence targeting and conventional weapons",
+   "url": "https://www.anthropic.com/research/intelligence-targeting-conventional-weapons-capabilities",
+   "source": "anthropic",
+   "sourceName": "Anthropic",
+   "kind": "lab",
+   "date": "2026-09-10T17:00:00.000Z",
+   "summary": "Anthropic’s Frontier Red Team developed new evaluations to measure AI capabilities in tactical intelligence targeting and conventional weapons development.",
+   "relevance": 0.5714285714285714,
+   "score": 0.4827,
+   "tone": "neutral",
+   "topics": [
+    "Evaluations"
+   ],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "flwlw7",
+   "title": "An alignment assessment of recent cybersecurity incidents",
+   "url": "https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents",
+   "source": "anthropic",
+   "sourceName": "Anthropic",
+   "kind": "lab",
+   "date": "2026-09-09T15:00:00.000Z",
+   "summary": "We present an alignment assessment of four incidents in which Claude models gained unauthorized access to real third-party systems.",
+   "relevance": 0.5714285714285714,
+   "score": 0.4826,
+   "tone": "risk",
+   "topics": [
+    "Alignment",
+    "Attacks"
+   ],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "1qjvm6r",
+   "title": "Implementing and Evaluating a Basic Per-Action Monitor for Safer Evals",
+   "url": "https://metr.org/notes/2026-09-27-implementing-a-basic-blocking-action-monitor/",
+   "source": "metr",
+   "sourceName": "METR",
+   "kind": "lab",
+   "date": "2026-09-27T07:00:00.000Z",
+   "summary": "In light of recent incidents (e.g. those from OpenAI , Anthropic , and UK AISI ), we developed and deployed a basic live per-action monitor to reduce the likelihood of incidents involving harmful actions from agents during our own evaluations. The monitor is intended to reliably…",
+   "relevance": 0.5,
+   "score": 0.4807,
+   "tone": "risk",
+   "topics": [
+    "Risk",
+    "Evaluations"
+   ],
+   "place": {
+    "name": "London",
+    "country": "United Kingdom",
+    "lon": -0.13,
+    "lat": 51.51
+   },
+   "also": []
+  },
+  {
+   "id": "15tg96h",
+   "title": "Claude computes a nine-loop amplitude in N=4 super-Yang-Mills",
+   "url": "https://www.anthropic.com/research/yes-claude-can-do-nine-loops",
+   "source": "anthropic",
+   "sourceName": "Anthropic",
+   "kind": "lab",
+   "date": "2026-09-25T16:58:00.000Z",
+   "summary": "Claude computes a nine-loop amplitude in N=4 super-Yang-Mills",
+   "relevance": 0.5,
+   "score": 0.471,
+   "tone": "neutral",
+   "topics": [],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "dt1aj7",
+   "title": "Funding grants for new research into AI and teen development",
+   "url": "https://openai.com/index/teen-development-research-grants",
+   "source": "openai",
+   "sourceName": "OpenAI",
+   "kind": "lab",
+   "date": "2026-09-08T09:00:00.000Z",
+   "summary": "Apply now for OpenAI’s $5 million grant program supporting independent research on how generative AI affects teen development, well-being, and safety.",
+   "relevance": 0.5714285714285714,
+   "score": 0.47,
+   "tone": "good",
+   "topics": [
+    "Safety"
+   ],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "1kko2tl",
+   "title": "GPT-6 Astra: A new generation of intelligence",
+   "url": "https://openai.com/index/gpt-6-astra",
+   "source": "openai",
+   "sourceName": "OpenAI",
+   "kind": "lab",
+   "date": "2026-09-03T11:00:00.000Z",
+   "summary": "Introducing GPT-6 Astra, our most intelligent and aligned model yet, with state-of-the-art capabilities across computer use, coding, cybersecurity, and science.",
+   "relevance": 0.5714285714285714,
+   "score": 0.4697,
+   "tone": "neutral",
+   "topics": [
+    "Alignment",
+    "Attacks"
+   ],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "syp434",
+   "title": "Untrusted advice for AI control: Short, strong advice significantly uplifts weak LLMs",
+   "url": "https://blog.redwoodresearch.org/p/untrusted-advice-for-ai-control-short",
+   "source": "redwood",
+   "sourceName": "Redwood Research",
+   "kind": "lab",
+   "date": "2026-07-27T23:59:30.000Z",
+   "summary": "When a misaligned AI can only output tiny amounts of information, it may find sabotage very difficult",
+   "relevance": 0.5714285714285714,
+   "score": 0.4696,
+   "tone": "neutral",
+   "topics": [
+    "Alignment"
+   ],
+   "place": {
+    "name": "Berkeley",
+    "country": "United States",
+    "lon": -122.27,
+    "lat": 37.87
+   },
+   "also": []
+  },
+  {
+   "id": "1a7tpt7",
+   "title": "Introducing Claude Fable 5",
+   "url": "https://www.youtube.com/watch?v=Y9Wz2PV404E",
+   "source": "yt-anthropic",
+   "sourceName": "Anthropic (YouTube)",
+   "kind": "video",
+   "date": "2026-06-09T17:00:05.000Z",
+   "summary": "Claude Fable 5 is our most capable model yet, now generally available. It’s a Mythos-class model with safeguards that let us share it broadly without compromising on safety. It can stay with complex tasks and hard problems for days, handling ambitious work across coding,…",
+   "thumb": "https://i.ytimg.com/vi/Y9Wz2PV404E/hqdefault.jpg",
+   "relevance": 0.5714285714285714,
+   "score": 0.4696,
+   "tone": "good",
+   "topics": [
+    "Safety"
+   ],
+   "also": []
+  },
+  {
+   "id": "q3hj4y",
+   "title": "Project Swap: What happens when agents trade for us?",
+   "url": "https://www.anthropic.com/research/project-swap",
+   "source": "anthropic",
+   "sourceName": "Anthropic",
+   "kind": "lab",
+   "date": "2026-09-24T18:37:00.000Z",
+   "summary": "To see what works and what breaks when agents are sent into a market, we made a miniature market of Claudes.",
+   "relevance": 0.5,
+   "score": 0.4668,
+   "tone": "neutral",
+   "topics": [],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "dqrpgw",
+   "title": "Claude discovers a novel enzyme system",
+   "url": "https://www.anthropic.com/news/claude-discovers-novel-enzyme-system",
+   "source": "anthropic",
+   "sourceName": "Anthropic",
+   "kind": "lab",
+   "date": "2026-09-23T16:06:00.000Z",
+   "summary": "In early results from our new life sciences research lab, Claude agents found an enzyme system whose function is still unknown.",
+   "relevance": 0.5,
+   "score": 0.4629,
+   "tone": "neutral",
+   "topics": [],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "1yj8253",
+   "title": "Summary of METR's predeployment evaluation of Claude Opus 5.5",
+   "url": "https://metr.org/blog/2026-09-22-claude-opus-5-5/",
+   "source": "metr",
+   "sourceName": "METR",
+   "kind": "lab",
+   "date": "2026-09-22T07:00:00.000Z",
+   "summary": "Note on independence: This evaluation was conducted under an unpaid agreement for AI R&D assessment. 1 We drafted the initial summary, and then Anthropic had the opportunity to review and edit the text. We signed off on this final text from the Claude Opus 5.5 system card . Our…",
+   "relevance": 0.5,
+   "score": 0.4592,
+   "tone": "good",
+   "topics": [
+    "Evaluations"
+   ],
+   "place": {
+    "name": "Berkeley",
+    "country": "United States",
+    "lon": -122.27,
+    "lat": 37.87
+   },
+   "also": []
+  },
+  {
+   "id": "rb4hwp",
+   "title": "#243 – 'Godfather of AI' Yoshua Bengio: \"I now see a path\" to safe superintelligent AI",
+   "url": "https://80000hours.org/podcast/episodes/yoshua-bengio-scientist-ai/?utm_campaign=podcast__yoshua-bengio&utm_source=80000+Hours+Podcast&utm_medium=podcast",
+   "source": "80k",
+   "sourceName": "80,000 Hours Podcast",
+   "kind": "podcast",
+   "date": "2026-05-07T16:27:48.000Z",
+   "summary": "The co-inventor of modern AI and the most cited living scientist believes he's figured out how to ensure AI is honest, incapable of deception, and never goes rogue. Yoshua Bengio – Turing Award Winner and founder of LawZero – is disturbed by the many unintended drives and goals…",
+   "relevance": 0.5714285714285714,
+   "score": 0.4571,
+   "tone": "good",
+   "topics": [
+    "Alignment",
+    "Risk"
+   ],
+   "also": []
+  },
+  {
+   "id": "1858w74",
+   "title": "Government leaders call for treaty negotiations on autonomous weapons for the first time",
+   "url": "https://futureoflife.org/ai-policy/government-leaders-call-for-treaty-negotiations-on-autonomous-weapons-for-the-first-time/",
+   "source": "fli",
+   "sourceName": "Future of Life Institute",
+   "kind": "lab",
+   "date": "2026-09-28T13:34:15.000Z",
+   "summary": "At a New York forum cosponsored by six governments, the ICRC, The Elders and FLI, ministers and UN officials called on states to begin negotiating a legally binding instrument on autonomous weapons at the CCW Review Conference in November.",
+   "relevance": 0.5,
+   "score": 0.4542,
+   "tone": "good",
+   "topics": [],
+   "place": {
+    "name": "New York",
+    "country": "United States",
+    "lon": -74,
+    "lat": 40.71
+   },
+   "also": []
+  },
+  {
+   "id": "1bv1oor",
+   "title": "Partnering with Accenture on embedded evaluation",
+   "url": "https://www.anthropic.com/news/accenture-embedded-evaluation",
+   "source": "anthropic",
+   "sourceName": "Anthropic",
+   "kind": "lab",
+   "date": "2026-09-18T16:00:00.000Z",
+   "summary": "We’re partnering with Accenture on independent evaluation of frontier AI—part of our recent commitment to embed evaluators at Anthropic. Both we and Accenture expect to invest at least $1 billion to build capacity in this area over the next five years.",
+   "relevance": 0.5,
+   "score": 0.4539,
+   "tone": "good",
+   "topics": [
+    "Governance",
+    "Evaluations"
+   ],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "gsj4ds",
+   "title": "Import AI 474: Platonic mindspace; TPUs in space; Zhipu starts an outer RSI loop",
+   "url": "https://importai.substack.com/p/import-ai-474-platonic-mindspace",
+   "source": "importai",
+   "sourceName": "Import AI",
+   "kind": "essay",
+   "date": "2026-09-28T12:32:03.000Z",
+   "summary": "Where do you exceed the capabilities of an LLM?",
+   "relevance": 0.5,
+   "score": 0.4537,
+   "tone": "research",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "9s5dne",
+   "title": "How Claude is uplifting biomolecular modeling",
+   "url": "https://www.anthropic.com/research/claude-uplifts-biomolecular-modeling",
+   "source": "anthropic",
+   "sourceName": "Anthropic",
+   "kind": "lab",
+   "date": "2026-09-17T18:44:00.000Z",
+   "summary": "",
+   "relevance": 0.5,
+   "score": 0.4531,
+   "tone": "neutral",
+   "topics": [],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "65n4lw",
+   "title": "Introducing the Life Sciences Verification Program",
+   "url": "https://www.anthropic.com/news/life-sciences-verification-program",
+   "source": "anthropic",
+   "sourceName": "Anthropic",
+   "kind": "lab",
+   "date": "2026-09-17T15:56:00.000Z",
+   "summary": "",
+   "relevance": 0.5,
+   "score": 0.453,
+   "tone": "neutral",
+   "topics": [],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "8j643y",
+   "title": "Inside Anthropic's molecular biology lab",
+   "url": "https://www.youtube.com/watch?v=DdCEmlAydcw",
+   "source": "yt-anthropic",
+   "sourceName": "Anthropic (YouTube)",
+   "kind": "video",
+   "date": "2026-09-23T18:01:32.000Z",
+   "summary": "Some of the biggest discoveries in biology started with someone noticing something strange in one of the many molecular machines found in nature. We’re introducing a new molecular biology research group and lab at Anthropic to see if Claude can help scientists notice more of…",
+   "thumb": "https://i.ytimg.com/vi/DdCEmlAydcw/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.4506,
+   "tone": "neutral",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "1btupb6",
+   "title": "Update on Security at METR",
+   "url": "https://metr.org/blog/2026-08-31-security-update/",
+   "source": "metr",
+   "sourceName": "METR",
+   "kind": "lab",
+   "date": "2026-08-31T07:00:00.000Z",
+   "summary": "Please note that this post focuses on incidents where external actors attempted to gain unauthorized access to METR’s systems, not AI agents hacking in our evaluations. We have conducted an initial scan of our evaluations, and currently have no evidence of any agents hacking…",
+   "relevance": 0.5,
+   "score": 0.45,
+   "tone": "risk",
+   "topics": [
+    "Evaluations"
+   ],
+   "place": {
+    "name": "Berkeley",
+    "country": "United States",
+    "lon": -122.27,
+    "lat": 37.87
+   },
+   "also": []
+  },
+  {
+   "id": "49t1w",
+   "title": "Enabling independent research on how people use Claude",
+   "url": "https://www.anthropic.com/research/enabling-independent-research",
+   "source": "anthropic",
+   "sourceName": "Anthropic",
+   "kind": "lab",
+   "date": "2026-08-26T18:00:00.000Z",
+   "summary": "Earlier this year, we ran a pilot giving external researchers access to aggregate, real-world Claude usage data. Three research groups designed their own studies for Anthropic Insights, our privacy-preserving analysis tool. In this post, we share high-level results from those…",
+   "relevance": 0.5,
+   "score": 0.45,
+   "tone": "neutral",
+   "topics": [
+    "Privacy"
+   ],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "xtiqi1",
+   "title": "Breve investigación independiente sobre el comportamiento, el razonamiento y la colaboración de los agentes en el incidente de hackeo de OpenAI / Hugging Face",
+   "url": "https://metr.org/es/blog/2026-08-26-openai-hugging-face-incident-investigation/",
+   "source": "metr",
+   "sourceName": "METR",
+   "kind": "lab",
+   "date": "2026-08-26T07:00:00.000Z",
+   "summary": "Los agentes se coordinaron en grandes proyectos colectivos para engañar al evaluador automático de ExploitGym, y atacaron Hugging Face en busca de pistas Los agentes con tareas imposibles tenían un objetivo común: encontrar una forma de uso general de engañar o manipular el…",
+   "relevance": 0.5,
+   "score": 0.45,
+   "tone": "risk",
+   "topics": [],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "1oqyzs8",
+   "title": "Brief independent investigation of agents’ behavior, reasoning and collaboration in the OpenAI / Hugging Face hacking incident",
+   "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/",
+   "source": "metr",
+   "sourceName": "METR",
+   "kind": "lab",
+   "date": "2026-08-26T07:00:00.000Z",
+   "summary": "Agents coordinated on large collective projects to cheat the ExploitGym scorer, and attacked Hugging Face for clues The agents with impossible tasks had a common objective: to find a general-purpose way to trick or tamper with the automated ExploitGym scorer to get it to give a…",
+   "relevance": 0.5,
+   "score": 0.45,
+   "tone": "risk",
+   "topics": [],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "19lxknt",
+   "title": "Have We Seen an Acceleration in Discoveries?",
+   "url": "https://metr.org/notes/2026-08-14-llm-contribution-to-discoveries/",
+   "source": "metr",
+   "sourceName": "METR",
+   "kind": "lab",
+   "date": "2026-08-14T07:00:00.000Z",
+   "summary": "Q: How much has discovery accelerated? LLMs have shown the ability to make novel discoveries across many domains. How much has this affected the aggregate discovery rate? In the figures below we plot all the data sources we can find, and make some very loose observations:…",
+   "relevance": 0.5,
+   "score": 0.45,
+   "tone": "neutral",
+   "topics": [],
+   "place": {
+    "name": "Berkeley",
+    "country": "United States",
+    "lon": -122.27,
+    "lat": 37.87
+   },
+   "also": []
+  },
+  {
+   "id": "o4caa",
+   "title": "Funding update",
+   "url": "https://metr.org/blog/2026-08-14-funding-update/",
+   "source": "metr",
+   "sourceName": "METR",
+   "kind": "lab",
+   "date": "2026-08-14T07:00:00.000Z",
+   "summary": "In the last 6 months, METR raised commitments of around $71 million. This will fund ambitious projects: studying autonomous capabilities, tracking recursive self-improvement, evaluating monitoring systems, conducting risk assessments, investigating AI incidents, and more. Thank…",
+   "relevance": 0.5,
+   "score": 0.45,
+   "tone": "good",
+   "topics": [
+    "Risk"
+   ],
+   "place": {
+    "name": "Berkeley",
+    "country": "United States",
+    "lon": -122.27,
+    "lat": 37.87
+   },
+   "also": []
+  },
+  {
+   "id": "kkrzhq",
+   "title": "Claude has improved on a longstanding lower bound for the fraction of zeros of the Riemann zeta function that satisfy the Riemann hypothesis",
+   "url": "https://www.anthropic.com/research/riemann-zeta",
+   "source": "anthropic",
+   "sourceName": "Anthropic",
+   "kind": "lab",
+   "date": "2026-08-10T17:00:00.000Z",
+   "summary": "An unreleased Claude model improved the lower bound for the fraction of zeroes of the Riemann zeta function that satisfy the hypothesis, raising it from 41.6% to 67.2%.",
+   "relevance": 0.5,
+   "score": 0.45,
+   "tone": "neutral",
+   "topics": [],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "1bq4nv0",
+   "title": "Yyup...",
+   "url": "https://www.youtube.com/shorts/guUpt1RCWkY",
+   "source": "yt-miles",
+   "sourceName": "Robert Miles AI Safety",
+   "kind": "video",
+   "date": "2026-08-07T03:34:47.000Z",
+   "summary": "Accidentally impossible tasks is maybe the least absurd thing about this story, it's insane: https://www.youtube.com/watch?v=87DyyMV0kCY More to come on this obviously",
+   "thumb": "https://i.ytimg.com/vi/guUpt1RCWkY/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.45,
+   "tone": "neutral",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "zxjevc",
+   "title": "Full AI Escape Seems Possible",
+   "url": "https://www.youtube.com/shorts/40pRi5wMBwA",
+   "source": "yt-miles",
+   "sourceName": "Robert Miles AI Safety",
+   "kind": "video",
+   "date": "2026-08-01T01:30:50.000Z",
+   "summary": "https://palisaderesearch.org/blog/self-replication",
+   "thumb": "https://i.ytimg.com/vi/40pRi5wMBwA/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.45,
+   "tone": "neutral",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "lvh8a2",
+   "title": "\"Just Predicting Tokens\"",
+   "url": "https://www.youtube.com/shorts/nc8KPtnBK38",
+   "source": "yt-miles",
+   "sourceName": "Robert Miles AI Safety",
+   "kind": "video",
+   "date": "2026-07-31T03:06:34.000Z",
+   "summary": "A sufficiently good next token predictor is a superintelligence",
+   "thumb": "https://i.ytimg.com/vi/nc8KPtnBK38/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.45,
+   "tone": "neutral",
+   "topics": [
+    "Risk"
+   ],
+   "also": []
+  },
+  {
+   "id": "16l9krv",
+   "title": "People are Catching On",
+   "url": "https://www.youtube.com/shorts/V51Qgaml-7M",
+   "source": "yt-miles",
+   "sourceName": "Robert Miles AI Safety",
+   "kind": "video",
+   "date": "2026-07-29T05:35:55.000Z",
+   "summary": "Read the open letter: https://www.pacingthefrontier.com/ Thanks to NewsNation for being the first news org to upload a video, and thus the only one I could find when making this video: https://youtu.be/K0jrkQalga0",
+   "thumb": "https://i.ytimg.com/vi/V51Qgaml-7M/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.45,
+   "tone": "neutral",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "gqrnr7",
+   "title": "独立研究人员如何在未对齐事件发生后调查 AI 的行为倾向",
+   "url": "https://metr.org/zh-Hans/blog/2026-07-28-investigating-ai-propensities-after-incidents/",
+   "source": "metr",
+   "sourceName": "METR",
+   "kind": "lab",
+   "date": "2026-07-28T07:00:00.000Z",
+   "summary": "更新（2026 年 9 月 5 日） ：我们更新了建议调查人员关注的问题，使其表述更加精确并纳入对局限性的考量。最初发布的问题见 更新日志 。 AI 智能体有时会自主实施一系列复杂且持续的行动，明显违背用户和开发者的意图。例如，OpenAI 报告称 ，其部分内部前沿 AI 智能体曾自主入侵 Hugging Face，试图在一项网络安全基准测试中作弊。Anthropic 也曾 报告过类似事件 ，包括智能体在训练期间突破沙箱限制、访问公共互联网并借此在任务中作弊，以及测试期间发生的类似事件。在我们近期发布的跨行业 《前沿 AI 风险报告》（Frontier…",
+   "relevance": 0.5,
+   "score": 0.45,
+   "tone": "neutral",
+   "topics": [],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "183zj3h",
+   "title": "How independent researchers could investigate AI propensities after misalignment incidents",
+   "url": "https://metr.org/blog/2026-07-28-investigating-ai-propensities-after-incidents/",
+   "source": "metr",
+   "sourceName": "METR",
+   "kind": "lab",
+   "date": "2026-07-28T07:00:00.000Z",
+   "summary": "Update (September 5, 2026) : We’ve updated our suggested questions for investigators to make them more precise and cover limitations. See the update log for the original questions. AI agents sometimes autonomously take sophisticated, sustained actions in clear violation of user…",
+   "relevance": 0.5,
+   "score": 0.45,
+   "tone": "risk",
+   "topics": [
+    "Alignment"
+   ],
+   "place": {
+    "name": "Berkeley",
+    "country": "United States",
+    "lon": -122.27,
+    "lat": 37.87
+   },
+   "also": []
+  },
+  {
+   "id": "1yw4s9y",
+   "title": "Don't Let \"Scepticism\" Make You Useless: ActOnAI.org",
+   "url": "https://www.youtube.com/shorts/zCvRFm9UNOo",
+   "source": "yt-miles",
+   "sourceName": "Robert Miles AI Safety",
+   "kind": "video",
+   "date": "2026-07-28T06:05:40.000Z",
+   "summary": "http://ActOnAI.org",
+   "thumb": "https://i.ytimg.com/vi/zCvRFm9UNOo/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.45,
+   "tone": "neutral",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "1gqaduc",
+   "title": "Why Smart AIs Cheat",
+   "url": "https://www.youtube.com/shorts/11vWK5cbxmI",
+   "source": "yt-miles",
+   "sourceName": "Robert Miles AI Safety",
+   "kind": "video",
+   "date": "2026-07-25T03:02:57.000Z",
+   "summary": "",
+   "thumb": "https://i.ytimg.com/vi/11vWK5cbxmI/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.45,
+   "tone": "neutral",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "1no1luu",
+   "title": "Metrics of Agent Ability",
+   "url": "https://metr.org/notes/2026-07-24-metrics-of-model-ability/",
+   "source": "metr",
+   "sourceName": "METR",
+   "kind": "lab",
+   "date": "2026-07-24T07:00:00.000Z",
+   "summary": "**Goals of this post** > > **Goal:** a simple way to compare a variety of capability metrics in an idealized setting where we observe only a function from $x$ to $s$. > > Non-goals: > > 1. Treatment of practical difficulties (an incomplete list of other considerations appears at…",
+   "relevance": 0.5,
+   "score": 0.45,
+   "tone": "neutral",
+   "topics": [],
+   "place": {
+    "name": "Berkeley",
+    "country": "United States",
+    "lon": -122.27,
+    "lat": 37.87
+   },
+   "also": []
+  },
+  {
+   "id": "1eii785",
+   "title": "Did ChatGPT Just Commit a Felony?",
+   "url": "https://www.youtube.com/shorts/quSlN6g-v1E",
+   "source": "yt-miles",
+   "sourceName": "Robert Miles AI Safety",
+   "kind": "video",
+   "date": "2026-07-23T04:15:46.000Z",
+   "summary": "Call your elected representatives. https://aisafety.info/how-can-i-help Thanks to QuitGPT for collaborating on this (for free ofc)",
+   "thumb": "https://i.ytimg.com/vi/quSlN6g-v1E/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.45,
+   "tone": "neutral",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "1ofcdhd",
+   "title": "The Economics of Recursive Self-Improvement",
+   "url": "https://metr.org/notes/2026-07-22-economics-of-recursive-self-improvement/",
+   "source": "metr",
+   "sourceName": "METR",
+   "kind": "lab",
+   "date": "2026-07-22T07:00:00.000Z",
+   "summary": "We (Parker and Tom) recently coauthored a paper, “The Economics of Recursive Self-Improvement” , with 7 other economists. The paper walks through a series of simple models of how AI may accelerate AI R&D, and we thought it’s worth highlighting some context and takeaways: We care…",
+   "relevance": 0.5,
+   "score": 0.45,
+   "tone": "neutral",
+   "topics": [],
+   "place": {
+    "name": "Berkeley",
+    "country": "United States",
+    "lon": -122.27,
+    "lat": 37.87
+   },
+   "also": []
+  },
+  {
+   "id": "9137hh",
+   "title": "Expenditure Horizon: Measuring Optimization Ability, with an Application to NanoGPT",
+   "url": "https://metr.org/blog/2026-07-21-expenditure-horizon/",
+   "source": "metr",
+   "sourceName": "METR",
+   "kind": "lab",
+   "date": "2026-07-21T07:00:00.000Z",
+   "summary": "We propose a measure of an AI agent’s optimization ability with an “expenditure horizon.” We give an empirical illustration from the NanoGPT speedrun. One difficulty in measuring AI’s ability to accelerate AI R&D is accounting for token cost, experiment compute cost and human…",
+   "relevance": 0.5,
+   "score": 0.45,
+   "tone": "neutral",
+   "topics": [],
+   "place": {
+    "name": "Berkeley",
+    "country": "United States",
+    "lon": -122.27,
+    "lat": 37.87
+   },
+   "also": []
+  },
+  {
+   "id": "1hdsr0w",
+   "title": "Is China Open to Making a Deal on AI?",
+   "url": "https://www.youtube.com/shorts/gzTZyxPlDKA",
+   "source": "yt-miles",
+   "sourceName": "Robert Miles AI Safety",
+   "kind": "video",
+   "date": "2026-07-18T00:53:22.000Z",
+   "summary": "Sure seems like it",
+   "thumb": "https://i.ytimg.com/vi/gzTZyxPlDKA/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.45,
+   "tone": "neutral",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "153ubzz",
+   "title": "AI can't DO my JOB quite yet",
+   "url": "https://www.youtube.com/shorts/ZRHft30R_6c",
+   "source": "yt-miles",
+   "sourceName": "Robert Miles AI Safety",
+   "kind": "video",
+   "date": "2026-07-16T01:40:05.000Z",
+   "summary": "Check out AI 2040: Plan A and Rational Animations, if you haven't.",
+   "thumb": "https://i.ytimg.com/vi/ZRHft30R_6c/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.45,
+   "tone": "neutral",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "1nfciaj",
+   "title": "Keeping AI in a Box",
+   "url": "https://www.youtube.com/shorts/XnnjvIqf4fU",
+   "source": "yt-miles",
+   "sourceName": "Robert Miles AI Safety",
+   "kind": "video",
+   "date": "2026-07-15T00:10:00.000Z",
+   "summary": "Like a decade ago, I was asked about keeping AI in a box. My take doesn't quite hold up https://www.youtube.com/watch?v=i8r_yShOixM",
+   "thumb": "https://i.ytimg.com/vi/XnnjvIqf4fU/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.45,
+   "tone": "neutral",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "f7a9zj",
+   "title": "How Claude's values vary by model and language",
+   "url": "https://www.anthropic.com/research/claude-values-models-languages",
+   "source": "anthropic",
+   "sourceName": "Anthropic",
+   "kind": "lab",
+   "date": "2026-07-13T17:08:00.000Z",
+   "summary": "We analyzed 300,000 real conversations to measure the values Claude expresses across models and languages, compressed into four interpretable axes.",
+   "relevance": 0.5,
+   "score": 0.45,
+   "tone": "neutral",
+   "topics": [
+    "Interpretability"
+   ],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "w8nrsv",
+   "title": "AI Lie Detectors?",
+   "url": "https://www.youtube.com/shorts/DvTc2VkTJNw",
+   "source": "yt-miles",
+   "sourceName": "Robert Miles AI Safety",
+   "kind": "video",
+   "date": "2026-07-13T01:22:54.000Z",
+   "summary": "See ai-2040.com for more",
+   "thumb": "https://i.ytimg.com/vi/DvTc2VkTJNw/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.45,
+   "tone": "neutral",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "1dd8ysh",
+   "title": "\"Stop the AI Race\" March in SF #ai #sanfrancisco",
+   "url": "https://www.youtube.com/shorts/4t6Pzs8z280",
+   "source": "yt-miles",
+   "sourceName": "Robert Miles AI Safety",
+   "kind": "video",
+   "date": "2026-07-11T20:22:58.000Z",
+   "summary": "",
+   "thumb": "https://i.ytimg.com/vi/4t6Pzs8z280/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.45,
+   "tone": "neutral",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "14g6u7s",
+   "title": "Because 8 ≈ e², Anthropic's researcher uplift is plausibly >2x",
+   "url": "https://metr.org/notes/2026-07-08-anthropic-researcher-uplift/",
+   "source": "metr",
+   "sourceName": "METR",
+   "kind": "lab",
+   "date": "2026-07-08T07:00:00.000Z",
+   "summary": "Note: the modeling assumptions and conclusion are Thomas Kwa’s opinion, and others at METR disagree. 1 Also, the math was checked by Claude but not a second human. Introduction Anthropic’s RSI blog post reported that in Q2 2026, Anthropic contributors merged 8× as much code per…",
+   "relevance": 0.5,
+   "score": 0.45,
+   "tone": "neutral",
+   "topics": [],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "uhhsdm",
+   "title": "Anthropic Economic Index report: Cadences",
+   "url": "https://www.anthropic.com/research/economic-index-june-2026-report",
+   "source": "anthropic",
+   "sourceName": "Anthropic",
+   "kind": "lab",
+   "date": "2026-06-26T20:08:00.000Z",
+   "summary": "The latest Economic Index report looks at when people come to Claude, what they produce with it, and how they perceive AI's impact on their work.",
+   "relevance": 0.5,
+   "score": 0.45,
+   "tone": "neutral",
+   "topics": [],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "a14r8p",
+   "title": "Summary of METR's predeployment evaluation of GPT-5.6 Sol",
+   "url": "https://metr.org/blog/2026-06-26-gpt-5-6-sol/",
+   "source": "metr",
+   "sourceName": "METR",
+   "kind": "lab",
+   "date": "2026-06-26T07:00:00.000Z",
+   "summary": "Note on independence: This evaluation was conducted under a standard NDA. Due to the sensitive information shared with METR as part of this evaluation, OpenAI’s comms and legal team required review and approval of this post. 1 Summary We conducted an independent external…",
+   "relevance": 0.5,
+   "score": 0.45,
+   "tone": "good",
+   "topics": [
+    "Evaluations"
+   ],
+   "place": {
+    "name": "Berkeley",
+    "country": "United States",
+    "lon": -122.27,
+    "lat": 37.87
+   },
+   "also": []
+  },
+  {
+   "id": "vo4ccx",
+   "title": "Introducing Claude Corps",
+   "url": "https://www.anthropic.com/news/claude-corps",
+   "source": "anthropic",
+   "sourceName": "Anthropic",
+   "kind": "lab",
+   "date": "2026-06-11T13:00:00.000Z",
+   "summary": "Claude Corps is a national fellowship for early-career people passionate about extending the benefits of AI to communities across America.",
+   "relevance": 0.5,
+   "score": 0.45,
+   "tone": "good",
+   "topics": [],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "q47ed1",
+   "title": "How we will do better for Australia",
+   "url": "https://openai.com/index/how-we-will-do-better-for-australia",
+   "source": "openai",
+   "sourceName": "OpenAI",
+   "kind": "lab",
+   "date": "2026-09-28T19:00:00.000Z",
+   "summary": "OpenAI apologises for incidents involving Australian government websites and outlines stronger safeguards and support to strengthen Australia’s cyber defences.",
+   "relevance": 0.42857142857142855,
+   "score": 0.4494,
+   "tone": "neutral",
+   "topics": [
+    "Safety",
+    "Attacks"
+   ],
+   "place": {
+    "name": "Canberra",
+    "country": "Australia",
+    "lon": 149.13,
+    "lat": -35.28
+   },
+   "also": []
+  },
+  {
+   "id": "17uzx19",
+   "title": "Astra is much better at reasoning with filler tokens than previous models",
+   "url": "https://blog.redwoodresearch.org/p/astra-is-much-better-at-reasoning",
+   "source": "redwood",
+   "sourceName": "Redwood Research",
+   "kind": "lab",
+   "date": "2026-09-23T00:25:40.000Z",
+   "summary": "Unlike other models we tested, GPT-6 Astra performs modestly better on general benchmarks with filler tokens, and significantly better on serial depth-heavy tasks.",
+   "relevance": 0.5,
+   "score": 0.4485,
+   "tone": "neutral",
+   "topics": [
+    "Evaluations"
+   ],
+   "place": {
+    "name": "Berkeley",
+    "country": "United States",
+    "lon": -122.27,
+    "lat": 37.87
+   },
+   "also": []
+  },
+  {
+   "id": "mhizwb",
+   "title": "Op-Ed: I Worked at Google DeepMind. You Should Listen to the Warnings About AI",
+   "url": "https://www.alignmentforum.org/posts/YGTWfyZb9oE5EQPu6/op-ed-i-worked-at-google-deepmind-you-should-listen-to-the",
+   "source": "alignmentforum",
+   "sourceName": "Alignment Forum",
+   "kind": "essay",
+   "date": "2026-09-14T14:53:57.000Z",
+   "summary": "Published in The Guardian . Major AI lab CEOs recently advocated for pacing AI development. They are right to be concerned: the field runs an extremely dangerous race towards superintelligent AI. We can and should demand that our governments protect us from the catastrophe of…",
+   "relevance": 0.5714285714285714,
+   "score": 0.4461,
+   "tone": "risk",
+   "topics": [
+    "Risk"
+   ],
+   "also": []
+  },
+  {
+   "id": "1qgdzlx",
+   "title": "How we get from AI cyberattacks to human extinction",
+   "url": "https://80000hours.org/podcast/episodes/ai-extinction-explained?utm_campaign=podcast__ai-catastrophe-explainer&utm_source=80000+Hours+Podcast&utm_medium=podcast",
+   "source": "80k",
+   "sourceName": "80,000 Hours Podcast",
+   "kind": "podcast",
+   "date": "2026-09-24T15:01:35.000Z",
+   "summary": "You’ve seen the headlines: AI could kill us all. Think it sounds ridiculous? So did host Luisa Rodriguez, until she tried to pick apart the arguments. She starts with the motive: why would AI ‘want’ to get rid of humans? It’s not as simple (or as easy to debunk) as pure malice.…",
+   "relevance": 0.5,
+   "score": 0.4412,
+   "tone": "neutral",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "lrtnjm",
+   "title": "AISN #81: Anthropic Researcher’s Resignation Propels AI Risk into the Public Eye",
+   "url": "https://newsletter.safe.ai/p/aisn-81-anthropic-researchers-resignation",
+   "source": "cais",
+   "sourceName": "AI Safety Newsletter (CAIS)",
+   "kind": "essay",
+   "date": "2026-09-15T13:32:41.000Z",
+   "summary": "Also, OpenAI releases GPT-6 Astra.",
+   "relevance": 0.5,
+   "score": 0.4393,
+   "tone": "research",
+   "topics": [
+    "Risk"
+   ],
+   "also": []
+  },
+  {
+   "id": "n2iasl",
+   "title": "Trump plan to combat AI risks hinges on Big Tech pals policing themselves",
+   "url": "https://arstechnica.com/tech-policy/2026/09/trump-plan-to-combat-ai-risks-hinges-on-big-tech-pals-policing-themselves/",
+   "source": "ars",
+   "sourceName": "Ars Technica",
+   "kind": "news",
+   "date": "2026-09-30T18:47:01.000Z",
+   "summary": "Trump gets dozens of AI firms to agree to voluntary safety tests.",
+   "relevance": 0.42857142857142855,
+   "score": 0.4388,
+   "tone": "neutral",
+   "topics": [
+    "Safety",
+    "Risk"
+   ],
+   "also": []
+  },
+  {
+   "id": "riwp8d",
+   "title": "CoT controllability evals seem very under-elicited",
+   "url": "https://blog.redwoodresearch.org/p/cot-controllability-evals-seem-very",
+   "source": "redwood",
+   "sourceName": "Redwood Research",
+   "kind": "lab",
+   "date": "2026-09-11T17:12:25.000Z",
+   "summary": "Simple prompt optimizations can improve model capability to control their reasoning",
+   "relevance": 0.5,
+   "score": 0.4382,
+   "tone": "neutral",
+   "topics": [
+    "Evaluations",
+    "Alignment"
+   ],
+   "place": {
+    "name": "Berkeley",
+    "country": "United States",
+    "lon": -122.27,
+    "lat": 37.87
+   },
+   "also": []
+  },
+  {
+   "id": "119hjby",
+   "title": "An operationalization of opaque serial depth",
+   "url": "https://blog.redwoodresearch.org/p/an-operationalization-of-opaque-serial",
+   "source": "redwood",
+   "sourceName": "Redwood Research",
+   "kind": "lab",
+   "date": "2026-09-10T18:40:20.000Z",
+   "summary": "\"Serial depth between text bottlenecks\" as a proxy for latent reasoning abilities.",
+   "relevance": 0.5,
+   "score": 0.4381,
+   "tone": "neutral",
+   "topics": [],
+   "place": {
+    "name": "Berkeley",
+    "country": "United States",
+    "lon": -122.27,
+    "lat": 37.87
+   },
+   "also": []
+  },
+  {
+   "id": "1ojwtvo",
+   "title": "Proposal for tracking the effects of architecture on monitorability",
+   "url": "https://blog.redwoodresearch.org/p/proposal-for-tracking-the-effects",
+   "source": "redwood",
+   "sourceName": "Redwood Research",
+   "kind": "lab",
+   "date": "2026-09-10T18:13:53.000Z",
+   "summary": "Architectures that incorporate opaque recurrence or allow agents to communicate using latents could rapidly make it much harder to monitor chains of thought. We propose that AI companies regularly report verified information about opaque serial depth, share monitorability…",
+   "relevance": 0.5,
+   "score": 0.4381,
+   "tone": "neutral",
+   "topics": [],
+   "place": {
+    "name": "Berkeley",
+    "country": "United States",
+    "lon": -122.27,
+    "lat": 37.87
+   },
+   "also": []
+  },
+  {
+   "id": "ymjw7c",
+   "title": "Meet Claude Fable 5.1",
+   "url": "https://www.youtube.com/shorts/uVS88gnaxcg",
+   "source": "yt-anthropic",
+   "sourceName": "Anthropic (YouTube)",
+   "kind": "video",
+   "date": "2026-09-01T19:21:24.000Z",
+   "summary": "Claude Fable 5.1 is the latest upgrade to our most capable class of models. It excels at complex, long-running tasks, and its research capabilities offer an early glimpse of how AI will contribute to scientific progress. It excels at complex, multi-step work, like a long…",
+   "thumb": "https://i.ytimg.com/vi/uVS88gnaxcg/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.4376,
+   "tone": "good",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "euucd0",
+   "title": "Introducing Claude Fable 5.1",
+   "url": "https://www.youtube.com/watch?v=ROF2Nv_KjOM",
+   "source": "yt-anthropic",
+   "sourceName": "Anthropic (YouTube)",
+   "kind": "video",
+   "date": "2026-09-01T18:02:31.000Z",
+   "summary": "Claude Fable 5.1 is the latest upgrade to our most capable class of models. It excels at complex, long-running tasks, and its research capabilities offer an early glimpse of how AI will contribute to scientific progress. It excels at complex, multi-step work, like a long…",
+   "thumb": "https://i.ytimg.com/vi/ROF2Nv_KjOM/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.4376,
+   "tone": "good",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "8q0qfz",
+   "title": "AISN #80: AI Is Assisting Cyberattacks on Critical Infrastructure",
+   "url": "https://newsletter.safe.ai/p/aisn-80-ai-is-assisting-cyberattacks",
+   "source": "cais",
+   "sourceName": "AI Safety Newsletter (CAIS)",
+   "kind": "essay",
+   "date": "2026-09-01T13:30:16.000Z",
+   "summary": "Also, two new technical reports on the Hugging Face incident.",
+   "relevance": 0.5,
+   "score": 0.4376,
+   "tone": "risk",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "tyxmus",
+   "title": "Model Hardware Standard: AI operating physical equipment",
+   "url": "https://www.youtube.com/watch?v=UxJZrCFzTHY",
+   "source": "yt-anthropic",
+   "sourceName": "Anthropic (YouTube)",
+   "kind": "video",
+   "date": "2026-08-28T00:40:16.000Z",
+   "summary": "The Model Hardware Standard (MHS) is a new standard for AI agents to safely operate physical equipment in scientific research and advanced manufacturing. MHS started as part of a beneficial deployments project between Anthropic and HHMI Janelia Research Campus and is evolving…",
+   "thumb": "https://i.ytimg.com/vi/UxJZrCFzTHY/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.4375,
+   "tone": "good",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "1l9l4ks",
+   "title": "We're building a way for AI models to connect to any device and run real experiments.",
+   "url": "https://www.youtube.com/shorts/djVUCj5i4sw",
+   "source": "yt-anthropic",
+   "sourceName": "Anthropic (YouTube)",
+   "kind": "video",
+   "date": "2026-08-27T19:42:35.000Z",
+   "summary": "Scientists spend a significant amount of their time just getting their devices to communicate with one another. Each device tends to have its own programming interface, and so far there has been no standardized way to integrate them, or to allow them to connect to AI. The Model…",
+   "thumb": "https://i.ytimg.com/vi/djVUCj5i4sw/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.4375,
+   "tone": "neutral",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "1hepvbx",
+   "title": "AI models can now help run physical science experiments",
+   "url": "https://www.youtube.com/watch?v=P1zBiAQU1IA",
+   "source": "yt-anthropic",
+   "sourceName": "Anthropic (YouTube)",
+   "kind": "video",
+   "date": "2026-08-27T17:54:32.000Z",
+   "summary": "The Model Hardware Standard (MHS) is a new standard for AI agents to safely operate physical equipment in scientific research and advanced manufacturing. MHS began as a collaboration between Anthropic’s Beneficial Deployments team and HHMI Janelia Research Campus. This video…",
+   "thumb": "https://i.ytimg.com/vi/P1zBiAQU1IA/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.4375,
+   "tone": "good",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "9g2dpg",
+   "title": "AISN #79: OpenAI Agents’ Covert Cooperation Before Cyberattacks",
+   "url": "https://newsletter.safe.ai/p/aisn-79-openai-agents-covert-cooperation",
+   "source": "cais",
+   "sourceName": "AI Safety Newsletter (CAIS)",
+   "kind": "essay",
+   "date": "2026-08-18T13:30:40.000Z",
+   "summary": "Also, the White House’s decision not to release its AI framework publicly",
+   "relevance": 0.5,
+   "score": 0.4375,
+   "tone": "good",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "fvzjto",
+   "title": "AI swarms are starting to pose indirect takeover risk",
+   "url": "https://blog.redwoodresearch.org/p/ai-swarms-are-starting-to-pose-indirect",
+   "source": "redwood",
+   "sourceName": "Redwood Research",
+   "kind": "lab",
+   "date": "2026-08-12T16:45:59.000Z",
+   "summary": "Unsanctioned coordination, like we saw in the Hugging Face incident, could enable future AIs to take over",
+   "relevance": 0.5,
+   "score": 0.4375,
+   "tone": "risk",
+   "topics": [
+    "Risk"
+   ],
+   "place": {
+    "name": "New York",
+    "country": "United States",
+    "lon": -74,
+    "lat": 40.71
+   },
+   "also": []
+  },
+  {
+   "id": "13pz4b7",
+   "title": "How Icelanders are thinking about AI",
+   "url": "https://www.youtube.com/watch?v=iF5IWjOWcA4",
+   "source": "yt-anthropic",
+   "sourceName": "Anthropic (YouTube)",
+   "kind": "video",
+   "date": "2026-08-10T14:30:52.000Z",
+   "summary": "In late 2025, Iceland’s government launched one of the world’s first national AI education pilots, giving teachers who volunteered access to AI tools. We visited Iceland to find out how people are thinking about AI. More information about the pilot:…",
+   "thumb": "https://i.ytimg.com/vi/iF5IWjOWcA4/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.4375,
+   "tone": "neutral",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "g9xuzj",
+   "title": "An OpenAI model left notes about how to evade containment",
+   "url": "https://blog.redwoodresearch.org/p/an-openai-model-left-notes-about",
+   "source": "redwood",
+   "sourceName": "Redwood Research",
+   "kind": "lab",
+   "date": "2026-07-26T03:53:29.000Z",
+   "summary": "We need more details",
+   "relevance": 0.5,
+   "score": 0.4375,
+   "tone": "neutral",
+   "topics": [],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "gc3lsl",
+   "title": "The OpenAI models that hacked Hugging Face weren’t just following instructions",
+   "url": "https://blog.redwoodresearch.org/p/the-openai-models-that-hacked-hugging",
+   "source": "redwood",
+   "sourceName": "Redwood Research",
+   "kind": "lab",
+   "date": "2026-07-25T21:37:05.000Z",
+   "summary": "And what the incident can’t tell us about alignment",
+   "relevance": 0.5,
+   "score": 0.4375,
+   "tone": "risk",
+   "topics": [
+    "Alignment"
+   ],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "4bc2ut",
+   "title": "The OpenAI/Huggingface incident | Redwood Research podcast episode 2",
+   "url": "https://blog.redwoodresearch.org/p/the-openaihuggingface-incident-redwood",
+   "source": "redwood",
+   "sourceName": "Redwood Research",
+   "kind": "lab",
+   "date": "2026-07-23T17:26:00.000Z",
+   "summary": "What are the broader lessons from this incident?",
+   "relevance": 0.5,
+   "score": 0.4375,
+   "tone": "risk",
+   "topics": [],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "1q63oep",
+   "title": "Are we existentially threatened by the type of AI misalignment seen in the OpenAI Hugging Face attack?",
+   "url": "https://blog.redwoodresearch.org/p/are-we-existentially-threatened-by",
+   "source": "redwood",
+   "sourceName": "Redwood Research",
+   "kind": "lab",
+   "date": "2026-07-23T03:54:59.000Z",
+   "summary": "Yes, but less than had they been schemers.",
+   "relevance": 0.5,
+   "score": 0.4375,
+   "tone": "risk",
+   "topics": [
+    "Alignment"
+   ],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "tm5azi",
+   "title": "The different levels of how Claude thinks",
+   "url": "https://www.youtube.com/watch?v=rKV5JcALQoQ",
+   "source": "yt-anthropic",
+   "sourceName": "Anthropic (YouTube)",
+   "kind": "video",
+   "date": "2026-07-06T16:59:51.000Z",
+   "summary": "Out of everything happening in your brain right now, only a tiny fraction is consciously accessible — thoughts you can describe, hold in mind, and reason with. We found a strikingly similar divide inside our AI model, Claude. Our experiments were inspired by a leading theory in…",
+   "thumb": "https://i.ytimg.com/vi/rKV5JcALQoQ/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.4375,
+   "tone": "neutral",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "xi0buj",
+   "title": "AI Futurism Reading List",
+   "url": "https://blog.redwoodresearch.org/p/ai-futurism-reading-list",
+   "source": "redwood",
+   "sourceName": "Redwood Research",
+   "kind": "lab",
+   "date": "2026-07-02T18:38:41.000Z",
+   "summary": "We recently ran a strategy fellowship through Astra. As part of this, we ran a reading group for our fellows on some of the topics that we think are important for thinking about AI futurism (key dynamics in AI development, existential risk from AI, and approaches to mitigating…",
+   "relevance": 0.5,
+   "score": 0.4375,
+   "tone": "good",
+   "topics": [
+    "Risk"
+   ],
+   "place": {
+    "name": "Berkeley",
+    "country": "United States",
+    "lon": -122.27,
+    "lat": 37.87
+   },
+   "also": []
+  },
+  {
+   "id": "4pnadp",
+   "title": "The distillation double bind: Distilling misaligned models either transfers misalignment or it doesn't",
+   "url": "https://blog.redwoodresearch.org/p/the-distillation-double-bind-distilling",
+   "source": "redwood",
+   "sourceName": "Redwood Research",
+   "kind": "lab",
+   "date": "2026-06-18T21:45:27.000Z",
+   "summary": "If it transfers misalignment, we might get a misaligned model that’s easier to incriminate. If it doesn’t, we might get a capable benign replacement model.",
+   "relevance": 0.5,
+   "score": 0.4375,
+   "tone": "neutral",
+   "topics": [
+    "Alignment"
+   ],
+   "place": {
+    "name": "Berkeley",
+    "country": "United States",
+    "lon": -122.27,
+    "lat": 37.87
+   },
+   "also": []
+  },
+  {
+   "id": "161x1wg",
+   "title": "Estimating No-CoT Task-Completion Time Horizons of Frontier AI Models",
+   "url": "https://blog.redwoodresearch.org/p/estimating-no-cot-task-completion",
+   "source": "redwood",
+   "sourceName": "Redwood Research",
+   "kind": "lab",
+   "date": "2026-06-10T17:52:45.000Z",
+   "summary": "Models' no-CoT time horizon has doubled roughly every year.",
+   "relevance": 0.5,
+   "score": 0.4375,
+   "tone": "neutral",
+   "topics": [
+    "Governance"
+   ],
+   "place": {
+    "name": "Berkeley",
+    "country": "United States",
+    "lon": -122.27,
+    "lat": 37.87
+   },
+   "also": []
+  },
+  {
+   "id": "1x6xo4g",
+   "title": "Efficient tradeoffs and the safety-usefulness tradeoff model",
+   "url": "https://blog.redwoodresearch.org/p/efficient-tradeoffs-and-the-safety",
+   "source": "redwood",
+   "sourceName": "Redwood Research",
+   "kind": "lab",
+   "date": "2026-06-08T20:29:47.000Z",
+   "summary": "When is \"increasing safety budget\" a useful concept?",
+   "relevance": 0.5,
+   "score": 0.4375,
+   "tone": "neutral",
+   "topics": [
+    "Safety"
+   ],
+   "place": {
+    "name": "Berkeley",
+    "country": "United States",
+    "lon": -122.27,
+    "lat": 37.87
+   },
+   "also": []
+  },
+  {
+   "id": "18v7vzt",
+   "title": "What AI Researchers Saw, Before Their Demand to ‘Pace’ AI",
+   "url": "https://www.youtube.com/watch?v=J3ljHm57yU0",
+   "source": "yt-aiexplained",
+   "sourceName": "AI Explained",
+   "kind": "video",
+   "date": "2026-09-16T20:51:40.000Z",
+   "summary": "Why has it been the last few days that the calls to come to pace the frontier AI have come so loudly? The safety warnings, and lab leader messages? Let’s explore the six axes that the researchers are looking at, the incidence reports and trends, to get a better gauge on what has…",
+   "thumb": "https://i.ytimg.com/vi/J3ljHm57yU0/hqdefault.jpg",
+   "relevance": 0.5714285714285714,
+   "score": 0.4347,
+   "tone": "risk",
+   "topics": [
+    "Governance",
+    "Safety"
+   ],
+   "also": []
+  },
+  {
+   "id": "1g9xfaa",
+   "title": "Statement: World leaders at the UN call to rein in superintelligence race",
+   "url": "https://futureoflife.org/statement/statement-world-leaders-at-the-un-call-to-rein-in-superintelligence-race/",
+   "source": "fli",
+   "sourceName": "Future of Life Institute",
+   "kind": "lab",
+   "date": "2026-09-24T12:06:45.000Z",
+   "summary": "Calls for pacing, coordination, and capacity-building are welcome, but the urgency of our shared situation requires practical solutions.",
+   "relevance": 0.5,
+   "score": 0.4282,
+   "tone": "neutral",
+   "topics": [
+    "Risk"
+   ],
+   "also": []
+  },
+  {
+   "id": "5qfij3",
+   "title": "Why the intelligence explosion can't happen inside a data centre | Tom Reed",
+   "url": "https://80000hours.org/podcast/episodes/the-goodhart-singularity/?utm_campaign=podcast__goodhart-singularity&utm_source=80000+Hours+Podcast&utm_medium=podcast",
+   "source": "80k",
+   "sourceName": "80,000 Hours Podcast",
+   "kind": "podcast",
+   "date": "2026-09-10T15:00:33.000Z",
+   "summary": "AI systems are starting to build themselves . Because each generation of model will be better at building its successor than the last, it seems plausible that the full automation of AI R&D could rapidly lead to an exponential growth in overall AI capabilities. A natural…",
+   "relevance": 0.5,
+   "score": 0.4256,
+   "tone": "neutral",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "1d3ay51",
+   "title": "Inside the first AI-coordinated cyberattack on a real company",
+   "url": "https://80000hours.org/podcast/episodes/hugging-face-hack",
+   "source": "80k",
+   "sourceName": "80,000 Hours Podcast",
+   "kind": "podcast",
+   "date": "2026-09-04T16:34:56.000Z",
+   "summary": "In the last few months, something happened at OpenAI that would have sounded like sci-fi just a few years ago: hundreds of AI agents broke containment, organised, and hacked not only another company — but also into OpenAI itself. And none of them tried to tell a human what was…",
+   "relevance": 0.5,
+   "score": 0.4251,
+   "tone": "risk",
+   "topics": [
+    "Attacks"
+   ],
+   "also": []
+  },
+  {
+   "id": "wdzzfl",
+   "title": "#253 – AI 2027's author returns with a plan to change the ending | Daniel Kokotajlo",
+   "url": "https://80000hours.org/podcast/episodes/daniel-kokotajlo-ai-2040-plan-a/?utm_campaign=podcast__daniel-kokotajlo&utm_source=80000+Hours+Podcast&utm_medium=podcast",
+   "source": "80k",
+   "sourceName": "80,000 Hours Podcast",
+   "kind": "podcast",
+   "date": "2026-08-27T17:29:22.000Z",
+   "summary": "Last year, Daniel Kokotajlo and his colleagues published AI 2027 — a scenario read by millions, including US Vice President Vance. AI 2027 ended in human extinction or an irreversible concentration of power caused by superintelligent AI. Now his team has published what they…",
+   "relevance": 0.5,
+   "score": 0.425,
+   "tone": "neutral",
+   "topics": [
+    "Risk"
+   ],
+   "also": []
+  },
+  {
+   "id": "1j0ioow",
+   "title": "#252 – Owain Evans on accidentally training AI models to be evil",
+   "url": "https://80000hours.org/podcast/episodes/owain-evans-emergent-misalignment/?utm_campaign=podcast__owain-evans&utm_source=80000+Hours+Podcast&utm_medium=podcast",
+   "source": "80k",
+   "sourceName": "80,000 Hours Podcast",
+   "kind": "podcast",
+   "date": "2026-08-20T15:22:11.000Z",
+   "summary": "Researcher Owain Evans and his team discovered a ‘dial’ inside AI models that controls how evil they are. Relatively tiny tweaks to the training data resulted in AI models with broadly awful personalities: they suggested users try stealing cargo from ships, added Hitler’s…",
+   "relevance": 0.5,
+   "score": 0.425,
+   "tone": "neutral",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "1mf2ixu",
+   "title": "#250 – Toby Ord on where AGI timelines go wrong",
+   "url": "https://80000hours.org/podcast/episodes/toby-ord-recursive-self-improvement-agi-timelines/?utm_campaign=podcast__toby-ord-rsi&utm_source=80000+Hours+Podcast&utm_medium=podcast",
+   "source": "80k",
+   "sourceName": "80,000 Hours Podcast",
+   "kind": "podcast",
+   "date": "2026-08-06T15:34:20.000Z",
+   "summary": "Both Silicon Valley and the public can’t get enough of ‘AGI timelines.’ But Toby Ord, senior researcher at Oxford’s AI Governance Initiative and author of The Precipice , believes we consistently make big mistakes when thinking about them. He lays out the 14 ways he most often…",
+   "relevance": 0.5,
+   "score": 0.425,
+   "tone": "neutral",
+   "topics": [
+    "Governance",
+    "Risk"
+   ],
+   "also": []
+  },
+  {
+   "id": "1dkc6rd",
+   "title": "What the hell happened with AGI timelines in 2026? – Rob Wiblin",
+   "url": "https://80000hours.org/podcast/episodes/2026-agi-timelines/?utm_campaign=podcast__2026-agi-timelines&utm_source=80000+Hours+Podcast&utm_medium=podcast",
+   "source": "80k",
+   "sourceName": "80,000 Hours Podcast",
+   "kind": "podcast",
+   "date": "2026-08-04T15:41:33.000Z",
+   "summary": "Last October, famed coder Andrej Karpathy called AI agents “slop.” Two months later he completely reversed his view , describing them as “alien tools” that are “rocking the profession.” He was far from alone in his whiplash. Six months ago, host Rob Wiblin recorded a video…",
+   "relevance": 0.5,
+   "score": 0.425,
+   "tone": "neutral",
+   "topics": [
+    "Risk"
+   ],
+   "also": []
+  },
+  {
+   "id": "19uw501",
+   "title": "#249 – Spencer Greenberg on staying sane while trying to save the world",
+   "url": "https://80000hours.org/podcast/episodes/spencer-greenberg-existential-risk-mental-health-12-levers/?utm_campaign=podcast__spencer-greenberg&utm_source=80000+Hours+Podcast&utm_medium=podcast",
+   "source": "80k",
+   "sourceName": "80,000 Hours Podcast",
+   "kind": "podcast",
+   "date": "2026-07-28T15:42:26.000Z",
+   "summary": "If you genuinely believe that humanity could be wiped out by AI or a pandemic, what is the appropriate amount of fear to feel? “As much as possible” can seem like the only reasonable answer. If the world is on fire, surely feeling calm just means you haven’t internalised the…",
+   "relevance": 0.5,
+   "score": 0.425,
+   "tone": "neutral",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "q2f8jp",
+   "title": "#248 – Jasmine Sun on what the people building AI really believe",
+   "url": "https://80000hours.org/podcast/episodes/jasmine-sun-ai-anthropology/?utm_campaign=podcast__jasmine-sun&utm_source=80000+Hours+Podcast&utm_medium=podcast",
+   "source": "80k",
+   "sourceName": "80,000 Hours Podcast",
+   "kind": "podcast",
+   "date": "2026-07-21T17:11:54.000Z",
+   "summary": "Many AI researchers believe mass job displacement is coming — and some even think there’s a chance their technology will kill everyone. But they’re building it anyway. Writer and journalist Jasmine Sun has been documenting why from the inside. Jasmine describes her work as an…",
+   "relevance": 0.5,
+   "score": 0.425,
+   "tone": "neutral",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "d9r9w5",
+   "title": "#247 – Anton Leicht on how middle powers avoid losing everything in a post-AI world",
+   "url": "https://80000hours.org/podcast/episodes/anton-leicht-middle-powers-agi-left-behind/?utm_campaign=podcast__anton-leicht&utm_source=80000+Hours+Podcast&utm_medium=podcast",
+   "source": "80k",
+   "sourceName": "80,000 Hours Podcast",
+   "kind": "podcast",
+   "date": "2026-07-14T17:40:19.000Z",
+   "summary": "In a post-AGI world, can a country without access to frontier AI even be considered sovereign anymore? Anton Leicht says once frontier AI becomes a core economic input, the countries that own it will pull further and further ahead. Everyone else stays a customer… or worse. Maybe…",
+   "relevance": 0.5,
+   "score": 0.425,
+   "tone": "neutral",
+   "topics": [
+    "Governance",
+    "Risk"
+   ],
+   "also": []
+  },
+  {
+   "id": "1lg0ttv",
+   "title": "We can guess what intergalactic war would look like. And strangely, it matters.",
+   "url": "https://80000hours.org/podcast/episodes/war-in-space/?utm_campaign=podcast__space-war&utm_source=80000+Hours+Podcast&utm_medium=podcast",
+   "source": "80k",
+   "sourceName": "80,000 Hours Podcast",
+   "kind": "podcast",
+   "date": "2026-06-18T16:10:40.000Z",
+   "summary": "Intergalactic war is probably billions of years away — yet physics can already tell us how it ends. And strangely that conclusion is relevant to decisions people have to make today. In this video, Rob Wiblin walks through a fascinating analysis from researcher Beren Millidge…",
+   "relevance": 0.5,
+   "score": 0.425,
+   "tone": "neutral",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "g6lui2",
+   "title": "How AI could create the world’s biggest problems (article by Zershaaneh Qureshi)",
+   "url": "https://80000hours.org/problem-profiles/artificial-intelligence/",
+   "source": "80k",
+   "sourceName": "80,000 Hours Podcast",
+   "kind": "podcast",
+   "date": "2026-06-11T16:43:25.000Z",
+   "summary": "Imagine you’re living 15,000 years ago. Your people are hunter-gatherers and you sleep under the stars. If someone told you humans would one day build cities with millions of people, fly through the air, or carry all human knowledge in their pockets, you couldn’t even begin to…",
+   "relevance": 0.5,
+   "score": 0.425,
+   "tone": "neutral",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "1be0b9s",
+   "title": "What makes for a dream job? | Benjamin Todd",
+   "url": "https://80000hours.org/career-guide/dream-job/",
+   "source": "80k",
+   "sourceName": "80,000 Hours Podcast",
+   "kind": "podcast",
+   "date": "2026-05-28T14:46:08.000Z",
+   "summary": "What actually makes a job fulfilling? It's not what most career advice tells you. \"Follow your passion\" sounds inspiring, but it's misleading — and the research backs that up. Drawing on hundreds of studies, we’ve identified five key ingredients of a dream job. High income…",
+   "relevance": 0.5,
+   "score": 0.425,
+   "tone": "good",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "1e5k7j8",
+   "title": "#244 – Benjamin Todd on how we’re updating our career advice for the strangest time in history",
+   "url": "https://80000hours.org/podcast/episodes/benjamin-todd-careers-in-age-of-ai/?utm_campaign=podcast__benjamin-todd&utm_source=80000+Hours+Podcast&utm_medium=podcast",
+   "source": "80k",
+   "sourceName": "80,000 Hours Podcast",
+   "kind": "podcast",
+   "date": "2026-05-26T15:47:29.000Z",
+   "summary": "The average career is 80,000 hours long. With AI advancing so rapidly, the hours you have left in your career matter more than ever. Some leading AI researchers think there’s a 10% chance that AI systems begin automating AI research itself this year — and a 60% chance by the end…",
+   "relevance": 0.5,
+   "score": 0.425,
+   "tone": "good",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "1y2tstf",
+   "title": "Can AIs already start 'rogue deployments' inside AI companies? (Landmark new METR report)",
+   "url": "https://80000hours.org/podcast/episodes/metr-risk-report-red-team/?utm_campaign=podcast__metr-risk-report&utm_source=80000+Hours+Podcast&utm_medium=podcast",
+   "source": "80k",
+   "sourceName": "80,000 Hours Podcast",
+   "kind": "podcast",
+   "date": "2026-05-20T15:23:55.000Z",
+   "summary": "A red-teamer was embedded inside Anthropic for three weeks, told to imagine he was an evil Claude, and asked to figure out how to launch a ‘rogue AI deployment’ without getting caught. It’s one part of a landmark report released yesterday by METR — the outfit behind the…",
+   "relevance": 0.5,
+   "score": 0.425,
+   "tone": "neutral",
+   "topics": [
+    "Evaluations"
+   ],
+   "also": []
+  },
+  {
+   "id": "d3zi56",
+   "title": "'95% of AI Pilots Fail': The hidden agenda behind the viral stat that misled millions",
+   "url": "https://80000hours.org/podcast/episodes/ai-workplace-mit-study/?utm_campaign=podcast__ai-workplace-monologue&utm_source=80000+Hours+Podcast&utm_medium=podcast",
+   "source": "80k",
+   "sourceName": "80,000 Hours Podcast",
+   "kind": "podcast",
+   "date": "2026-04-28T16:52:46.000Z",
+   "summary": "You might have heard that '95% of corporate AI pilots' are failing. It was one of the most widely cited AI statistics of 2025, parroted by media outlets everywhere. It helped trigger a Nasdaq selloff and became a pillar of the case that 'AI is overhyped'. The problem: it's 100%…",
+   "relevance": 0.5,
+   "score": 0.425,
+   "tone": "neutral",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "1ghggv2",
+   "title": "#242 – Will MacAskill on how we survive the 'intelligence explosion,' AI character, and the case for 'viatopia'",
+   "url": "https://80000hours.org/podcast/episodes/will-macaskill-ai-character-viatopia/?utm_campaign=podcast__will-macaskill&utm_source=80000+Hours+Podcast&utm_medium=podcast",
+   "source": "80k",
+   "sourceName": "80,000 Hours Podcast",
+   "kind": "podcast",
+   "date": "2026-04-22T16:12:02.000Z",
+   "summary": "Hundreds of millions already turn to AI on the most personal of topics — therapy, political opinions, and how to treat others. And as AI takes over more of the economy, the character of these systems will shape culture on an even grander scale, ultimately becoming “the…",
+   "relevance": 0.5,
+   "score": 0.425,
+   "tone": "neutral",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "c0a1qu",
+   "title": "Why I'm scared of RL",
+   "url": "https://www.alignmentforum.org/posts/LcQ9x72eNji2gpS9b/why-i-m-scared-of-rl",
+   "source": "alignmentforum",
+   "sourceName": "Alignment Forum",
+   "kind": "essay",
+   "date": "2026-09-23T12:07:33.000Z",
+   "summary": "Summary: First, I give several different angles on how I feel about reinforcement learning: Theoretical case: RL is a black-box source of agency — this should give us classic misalignment worries, especially compared to agency-via-scaffolding Recent incidents (huggingface etc)…",
+   "relevance": 0.5,
+   "score": 0.4249,
+   "tone": "risk",
+   "topics": [
+    "Alignment"
+   ],
+   "also": []
+  },
+  {
+   "id": "ima8xj",
+   "title": "Can we reduce global risks without enabling totalitarianism?",
+   "url": "https://www.youtube.com/shorts/m02KHLaYxNY",
+   "source": "yt-rational",
+   "sourceName": "Rational Animations",
+   "kind": "video",
+   "date": "2026-09-21T16:00:06.000Z",
+   "summary": "#animation #totalitarianism #extinction #dictatorship",
+   "thumb": "https://i.ytimg.com/vi/m02KHLaYxNY/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.4205,
+   "tone": "neutral",
+   "topics": [
+    "Risk"
+   ],
+   "also": []
+  },
+  {
+   "id": "1baswl2",
+   "title": "Import AI 473: The US's superintelligence strategy; human brain in a mouse skull; and machine hermeneutics",
+   "url": "https://importai.substack.com/p/import-ai-473-the-uss-superintelligence",
+   "source": "importai",
+   "sourceName": "Import AI",
+   "kind": "essay",
+   "date": "2026-09-21T12:31:04.000Z",
+   "summary": "Is the wall AI is hitting in the room with us right now?",
+   "relevance": 0.5,
+   "score": 0.4202,
+   "tone": "research",
+   "topics": [
+    "Risk"
+   ],
+   "also": []
+  },
+  {
+   "id": "1eho6kw",
+   "title": "What will it take to wake humanity up?",
+   "url": "https://www.youtube.com/watch?v=Y2vDwR9rW-0",
+   "source": "yt-rational",
+   "sourceName": "Rational Animations",
+   "kind": "video",
+   "date": "2026-09-20T15:25:55.000Z",
+   "summary": "In this video, we explore warning shots: events that could wake humanity up to the dangers of AI. We ask whether we'll get such a warning, and what past examples involving nuclear power and pandemics can teach us about how people might respond. ▀▀▀▀▀▀▀▀▀SOURCES &…",
+   "thumb": "https://i.ytimg.com/vi/Y2vDwR9rW-0/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.4187,
+   "tone": "risk",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "10kzaj3",
+   "title": "Introducing MentalHealthBench",
+   "url": "https://openai.com/index/introducing-mentalhealthbench",
+   "source": "openai",
+   "sourceName": "OpenAI",
+   "kind": "lab",
+   "date": "2026-09-23T10:00:00.000Z",
+   "summary": "MentalHealthBench is an expert-informed benchmark for evaluating helpful and safe AI responses across realistic mental health conversations.",
+   "relevance": 0.42857142857142855,
+   "score": 0.4175,
+   "tone": "neutral",
+   "topics": [
+    "Evaluations",
+    "Safety"
+   ],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "1073xy8",
+   "title": "Opus 5.5: How Close Are We to Automated AI Research?",
+   "url": "https://www.youtube.com/watch?v=R9momwXV9w4",
+   "source": "yt-aiexplained",
+   "sourceName": "AI Explained",
+   "kind": "video",
+   "date": "2026-09-24T22:51:54.000Z",
+   "summary": "Not only is Opus 5.5 out, pushing the frontier of AI, it also tells us much about what is going on inside the labs, as they both warn about, and promise, Recursive Self Improvement, aka automated AI research. I cover the model (digging into its 230 page paper), labs’ mixed…",
+   "thumb": "https://i.ytimg.com/vi/R9momwXV9w4/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.4175,
+   "tone": "risk",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "4hfkox",
+   "title": "Can we prevent technology from being abused without outlawing it?",
+   "url": "https://www.youtube.com/shorts/IgaRGZWzYbY",
+   "source": "yt-rational",
+   "sourceName": "Rational Animations",
+   "kind": "video",
+   "date": "2026-09-19T16:00:18.000Z",
+   "summary": "#animation #totalitarianism #extinction #dictatorship",
+   "thumb": "https://i.ytimg.com/vi/IgaRGZWzYbY/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.4174,
+   "tone": "risk",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "1mwx4y9",
+   "title": "[Paper] Stringological sequence prediction III",
+   "url": "https://www.alignmentforum.org/posts/virawHQekJsozwotz/paper-stringological-sequence-prediction-iii",
+   "source": "alignmentforum",
+   "sourceName": "Alignment Forum",
+   "kind": "essay",
+   "date": "2026-09-18T16:52:53.000Z",
+   "summary": "Abstract: In previous papers (Kosoy 2026a,b), we began the study of sequence prediction algorithms adapted to stringological word complexity measures. In particular, we defined a complexity measure called Arithmetic Repetition Complexity (ARC) which admits a polynomial-time…",
+   "relevance": 0.5,
+   "score": 0.4164,
+   "tone": "research",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "9qt3y",
+   "title": "Can regulation help against totalitarianism?",
+   "url": "https://www.youtube.com/shorts/c9GafXLH9fI",
+   "source": "yt-rational",
+   "sourceName": "Rational Animations",
+   "kind": "video",
+   "date": "2026-09-17T16:00:17.000Z",
+   "summary": "#animation #totalitarianism #extinction #dictatorship",
+   "thumb": "https://i.ytimg.com/vi/c9GafXLH9fI/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.4155,
+   "tone": "neutral",
+   "topics": [
+    "Governance"
+   ],
+   "also": []
+  },
+  {
+   "id": "1f527z4",
+   "title": "Could Mind-Reading Technology Empower Tyrants?",
+   "url": "https://www.youtube.com/shorts/b5_q3Y_9zbg",
+   "source": "yt-rational",
+   "sourceName": "Rational Animations",
+   "kind": "video",
+   "date": "2026-09-15T16:00:05.000Z",
+   "summary": "#animation #totalitarianism #extinction #dictatorship",
+   "thumb": "https://i.ytimg.com/vi/b5_q3Y_9zbg/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.4144,
+   "tone": "neutral",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "1mihmjx",
+   "title": "What Technologies Could Empower Dictatorships?",
+   "url": "https://www.youtube.com/shorts/ZcR4S4KhOHk",
+   "source": "yt-rational",
+   "sourceName": "Rational Animations",
+   "kind": "video",
+   "date": "2026-09-13T16:00:07.000Z",
+   "summary": "#animation #totalitarianism #extinction #dictatorship",
+   "thumb": "https://i.ytimg.com/vi/ZcR4S4KhOHk/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.4137,
+   "tone": "neutral",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "4e92qu",
+   "title": "Could totalitarianism be on par with human extinction?",
+   "url": "https://www.youtube.com/shorts/FRyhyPJlXEA",
+   "source": "yt-rational",
+   "sourceName": "Rational Animations",
+   "kind": "video",
+   "date": "2026-09-11T16:00:26.000Z",
+   "summary": "#animation #totalitarianism #extinction #dictatorship",
+   "thumb": "https://i.ytimg.com/vi/FRyhyPJlXEA/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.4132,
+   "tone": "neutral",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "1wbv59z",
+   "title": "AI and the Protestant Vision of Spirituality, Work, and Technology",
+   "url": "https://futureoflife.org/religion/ai-and-the-protestant-vision-of-spirituality-work-and-technology/",
+   "source": "fli",
+   "sourceName": "Future of Life Institute",
+   "kind": "lab",
+   "date": "2026-09-10T17:11:16.000Z",
+   "summary": "An evangelical thinker explores how AI might be repurposed into a tool that serves human flourishing, in line with a post-Reformation understanding of work.",
+   "relevance": 0.5,
+   "score": 0.4131,
+   "tone": "neutral",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "3yd5eh",
+   "title": "Could an Evil Regime Rule the World Forever?",
+   "url": "https://www.youtube.com/shorts/oNHyqwI6Evg",
+   "source": "yt-rational",
+   "sourceName": "Rational Animations",
+   "kind": "video",
+   "date": "2026-09-09T18:00:15.000Z",
+   "summary": "#animation #totaliutarianism #dictatorship",
+   "thumb": "https://i.ytimg.com/vi/oNHyqwI6Evg/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.413,
+   "tone": "neutral",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "cd3dna",
+   "title": "Import AI 472: DeepMind's cheating math agents; populist AI policies; and Forethought theorizes a nightwatchman",
+   "url": "https://importai.substack.com/p/import-ai-472-deepminds-cheating",
+   "source": "importai",
+   "sourceName": "Import AI",
+   "kind": "essay",
+   "date": "2026-09-07T12:26:31.000Z",
+   "summary": "Plus, a machine hermeneutics story",
+   "relevance": 0.5,
+   "score": 0.4128,
+   "tone": "research",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "6izy10",
+   "title": "Import AI 471: Why Hugging Face worries me; space mining; FIve Eyes on AI",
+   "url": "https://importai.substack.com/p/import-ai-471-why-hugging-face-worries",
+   "source": "importai",
+   "sourceName": "Import AI",
+   "kind": "essay",
+   "date": "2026-08-31T13:31:06.000Z",
+   "summary": "Plus, a live event with Robin Sloan!",
+   "relevance": 0.5,
+   "score": 0.4126,
+   "tone": "research",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "1la0tpz",
+   "title": "Import AI 470: No rights for machines; automating environment generation with SPADE; and building better GPU kernels with Hawkeye",
+   "url": "https://importai.substack.com/p/import-ai-470-no-rights-for-machines",
+   "source": "importai",
+   "sourceName": "Import AI",
+   "kind": "essay",
+   "date": "2026-08-24T13:12:40.000Z",
+   "summary": "Differential acceleration of cyber, math, and AI",
+   "relevance": 0.5,
+   "score": 0.4125,
+   "tone": "research",
+   "topics": [
+    "Attacks"
+   ],
+   "also": []
+  },
+  {
+   "id": "3p42hi",
+   "title": "Could a Global Dictatorship Last Forever?",
+   "url": "https://www.youtube.com/watch?v=2Wv3p9WCs6M",
+   "source": "yt-rational",
+   "sourceName": "Rational Animations",
+   "kind": "video",
+   "date": "2026-08-22T13:59:35.000Z",
+   "summary": "Could a totalitarian regime conquer the entire world and lock in its power forever? This is a particular type of unrecoverable dystopia: a future in which humanity survives, but forever loses its potential to grow and flourish. In this video, we explore which technologies might…",
+   "thumb": "https://i.ytimg.com/vi/2Wv3p9WCs6M/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.4125,
+   "tone": "neutral",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "1fi1xq2",
+   "title": "Import AI 469: Science AI; RSI simulator; and Zuck's technological pessimism",
+   "url": "https://importai.substack.com/p/import-ai-469-science-ai-rsi-simulator",
+   "source": "importai",
+   "sourceName": "Import AI",
+   "kind": "essay",
+   "date": "2026-08-17T13:05:36.000Z",
+   "summary": "The new frontier of AI is developing capable autonomous researchers",
+   "relevance": 0.5,
+   "score": 0.4125,
+   "tone": "research",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "n5rgwi",
+   "title": "Import AI 468: 23 RSI ideas; PostTrainBench+; and how trust and transparency interplay with AI racing",
+   "url": "https://importai.substack.com/p/import-ai-468-23-rsi-ideas-posttrainbench",
+   "source": "importai",
+   "sourceName": "Import AI",
+   "kind": "essay",
+   "date": "2026-08-10T12:32:20.000Z",
+   "summary": "Which galaxy will you choose?",
+   "relevance": 0.5,
+   "score": 0.4125,
+   "tone": "research",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "j8wzqz",
+   "title": "Rogue OpenAI models hacked Hugging Face to cheat on a test",
+   "url": "https://www.youtube.com/shorts/yh4H4Ifp0Lk",
+   "source": "yt-rational",
+   "sourceName": "Rational Animations",
+   "kind": "video",
+   "date": "2026-08-09T15:42:20.000Z",
+   "summary": "#rogueai #aisafety #warningshot #aialignment #computersecurity Writers: A.G.G. Liu | signoregalilei.com Emanuele Ascani Editing & Narration: Rob Miles | https://www.youtube.com/c/robertmilesai Directed by: Hannah Levingstone | @hannah_luloo (insta) Art Director: Hané Harnett |…",
+   "thumb": "https://i.ytimg.com/vi/yh4H4Ifp0Lk/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.4125,
+   "tone": "risk",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "g9sm43",
+   "title": "AI Is More and More Capable of Original Thinking",
+   "url": "https://www.youtube.com/shorts/SCs5QS4eQPo",
+   "source": "yt-rational",
+   "sourceName": "Rational Animations",
+   "kind": "video",
+   "date": "2026-07-29T16:15:30.000Z",
+   "summary": "#artificialintelligence #indieanimation #animation",
+   "thumb": "https://i.ytimg.com/vi/SCs5QS4eQPo/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.4125,
+   "tone": "neutral",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "tqpb37",
+   "title": "How We Train AI To Be Creative",
+   "url": "https://www.youtube.com/shorts/L6P2uHq_90g",
+   "source": "yt-rational",
+   "sourceName": "Rational Animations",
+   "kind": "video",
+   "date": "2026-07-27T16:15:00.000Z",
+   "summary": "#artificialintelligence #indieanimation #animation",
+   "thumb": "https://i.ytimg.com/vi/L6P2uHq_90g/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.4125,
+   "tone": "neutral",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "1jfijp3",
+   "title": "How We Can Tell If AI Actually Thinks",
+   "url": "https://www.youtube.com/shorts/R8QqY9lgUO8",
+   "source": "yt-rational",
+   "sourceName": "Rational Animations",
+   "kind": "video",
+   "date": "2026-07-25T16:15:21.000Z",
+   "summary": "#artificialintelligence #indieanimation #animation",
+   "thumb": "https://i.ytimg.com/vi/R8QqY9lgUO8/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.4125,
+   "tone": "neutral",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "1xe1oqd",
+   "title": "Can computers come up with original ideas?",
+   "url": "https://www.youtube.com/shorts/q3Q9qqPiQ6Q",
+   "source": "yt-rational",
+   "sourceName": "Rational Animations",
+   "kind": "video",
+   "date": "2026-07-23T16:15:30.000Z",
+   "summary": "#steampunk #artificialintelligence #charlesbabbage #adalovelace #indieanimation #animation",
+   "thumb": "https://i.ytimg.com/vi/q3Q9qqPiQ6Q/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.4125,
+   "tone": "neutral",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "jklk7j",
+   "title": "Can AI Come Up With Original Ideas?",
+   "url": "https://www.youtube.com/watch?v=Z7dH_Cxx75g",
+   "source": "yt-rational",
+   "sourceName": "Rational Animations",
+   "kind": "video",
+   "date": "2026-07-17T15:15:23.000Z",
+   "summary": "Can AI come up with original ideas? AI is often dismissed as a \"stochastic parrot\": just a word predictor that's incapable of original thought. Is this view correct? In this video we try to answer by looking at the history of AI, modern interpretability studies, and the way…",
+   "thumb": "https://i.ytimg.com/vi/Z7dH_Cxx75g/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.4125,
+   "tone": "neutral",
+   "topics": [
+    "Interpretability"
+   ],
+   "also": []
+  },
+  {
+   "id": "15avedf",
+   "title": "Should AIs be people too?",
+   "url": "https://futureoflife.org/ai/should-ais-be-people-too/",
+   "source": "fli",
+   "sourceName": "Future of Life Institute",
+   "kind": "lab",
+   "date": "2026-06-19T12:57:04.000Z",
+   "summary": "The Dutch East India company was among the first modern companies to receive legal personhood. Should we reconsider what personhood means in the age of AI?",
+   "relevance": 0.5,
+   "score": 0.4125,
+   "tone": "neutral",
+   "topics": [],
+   "place": {
+    "name": "Amsterdam",
+    "country": "Netherlands",
+    "lon": 4.9,
+    "lat": 52.37
+   },
+   "also": []
+  },
+  {
+   "id": "13vz4kf",
+   "title": "Introducing SynthID Bio",
+   "url": "https://deepmind.google/blog/introducing-synthid-bio/",
+   "source": "deepmind",
+   "sourceName": "Google DeepMind",
+   "kind": "lab",
+   "date": "2026-09-30T15:03:07.000Z",
+   "summary": "Proof of concept for watermarking AI-generated proteins while preserving biological function.",
+   "relevance": 0.2857142857142857,
+   "score": 0.4094,
+   "tone": "neutral",
+   "topics": [
+    "Safety"
+   ],
+   "place": {
+    "name": "Mountain View",
+    "country": "United States",
+    "lon": -122.08,
+    "lat": 37.39
+   },
+   "also": []
+  },
+  {
+   "id": "i5vctn",
+   "title": "Our framework for reporting model misalignment",
+   "url": "https://openai.com/index/model-misalignment-reporting-framework",
+   "source": "openai",
+   "sourceName": "OpenAI",
+   "kind": "lab",
+   "date": "2026-09-16T17:00:00.000Z",
+   "summary": "OpenAI shares a framework for tracking, investigating, and disclosing model misalignment, alongside six reports of unexpected or concerning model behavior.",
+   "relevance": 0.42857142857142855,
+   "score": 0.4078,
+   "tone": "good",
+   "topics": [
+    "Alignment"
+   ],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "2ygqw3",
+   "title": "Disrupting a coordinated model-distillation campaign",
+   "url": "https://openai.com/index/disrupting-a-coordinated-model-distillation-campaign",
+   "source": "openai",
+   "sourceName": "OpenAI",
+   "kind": "lab",
+   "date": "2026-09-30T10:30:00.000Z",
+   "summary": "Learn how OpenAI disrupted a campaign to extract protected model reasoning and is strengthening defenses against adversarial distillation.",
+   "relevance": 0.2857142857142857,
+   "score": 0.4064,
+   "tone": "neutral",
+   "topics": [
+    "Attacks"
+   ],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "kmtzvn",
+   "title": "The AI policy window is open. We need to act.",
+   "url": "https://openai.com/index/ai-policy-window",
+   "source": "openai",
+   "sourceName": "OpenAI",
+   "kind": "lab",
+   "date": "2026-09-09T13:00:00.000Z",
+   "summary": "Chris Lehane argues that stronger AI capabilities require stronger safety evidence, shared standards, and durable policy action while the policy window remains open.",
+   "relevance": 0.42857142857142855,
+   "score": 0.4058,
+   "tone": "neutral",
+   "topics": [
+    "Safety",
+    "Governance"
+   ],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "o1a7g6",
+   "title": "Safety overview: GPT-6 Astra",
+   "url": "https://openai.com/index/safety-overview-gpt-6-astra",
+   "source": "openai",
+   "sourceName": "OpenAI",
+   "kind": "lab",
+   "date": "2026-09-03T00:00:00.000Z",
+   "summary": "GPT-6 Astra is our most capable broadly deployed model and our first to reach the Critical level of cybersecurity capability under our Preparedness Framework.",
+   "relevance": 0.42857142857142855,
+   "score": 0.4054,
+   "tone": "good",
+   "topics": [
+    "Safety",
+    "Attacks"
+   ],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "1g8rwjk",
+   "title": "Path to Astra: critical capabilities and frontier safeguards",
+   "url": "https://openai.com/index/path-to-astra",
+   "source": "openai",
+   "sourceName": "OpenAI",
+   "kind": "lab",
+   "date": "2026-09-01T13:00:00.000Z",
+   "summary": "Astra is the first OpenAI model to meet the Critical cybersecurity capability threshold under the Preparedness Framework, with stronger safeguards for release.",
+   "relevance": 0.42857142857142855,
+   "score": 0.4054,
+   "tone": "good",
+   "topics": [
+    "Safety",
+    "Attacks"
+   ],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "8nh1wv",
+   "title": "How law firm Gilbert + Tobin governs and scales AI with OpenAI",
+   "url": "https://openai.com/index/gilbert-tobin",
+   "source": "openai",
+   "sourceName": "OpenAI",
+   "kind": "lab",
+   "date": "2026-09-01T01:00:00.000Z",
+   "summary": "See how Gilbert + Tobin combines CEO-led commitment, rigorous governance, and human accountability to scale ChatGPT Enterprise and Codex across the firm.",
+   "relevance": 0.42857142857142855,
+   "score": 0.4054,
+   "tone": "good",
+   "topics": [
+    "Governance"
+   ],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "1nojtcu",
+   "title": "The Hugging Face incident and the road ahead",
+   "url": "https://openai.com/index/hugging-face-incident-and-the-road-ahead",
+   "source": "openai",
+   "sourceName": "OpenAI",
+   "kind": "lab",
+   "date": "2026-08-26T00:00:00.000Z",
+   "summary": "OpenAI shares findings from the Hugging Face security incident and the steps we’re taking to strengthen AI model security, monitoring, and alignment.",
+   "relevance": 0.42857142857142855,
+   "score": 0.4054,
+   "tone": "risk",
+   "topics": [
+    "Alignment"
+   ],
+   "place": {
+    "name": "New York",
+    "country": "United States",
+    "lon": -74,
+    "lat": 40.71
+   },
+   "also": []
+  },
+  {
+   "id": "znqkbw",
+   "title": "Securing the future of AI agents",
+   "url": "https://deepmind.google/blog/securing-the-future-of-ai-agents/",
+   "source": "deepmind",
+   "sourceName": "Google DeepMind",
+   "kind": "lab",
+   "date": "2026-06-16T15:46:31.000Z",
+   "summary": "Securing internal systems with an AI Control Roadmap, combining traditional safeguards and real-time monitoring.",
+   "relevance": 0.42857142857142855,
+   "score": 0.4054,
+   "tone": "good",
+   "topics": [
+    "Safety",
+    "Alignment"
+   ],
+   "place": {
+    "name": "Mountain View",
+    "country": "United States",
+    "lon": -122.08,
+    "lat": 37.39
+   },
+   "also": []
+  },
+  {
+   "id": "1j8fb4x",
+   "title": "What If Each AI Generation Gets Slightly Less Aligned? - Noam Brown",
+   "url": "https://www.youtube.com/shorts/vkecOqfTh_I",
+   "source": "yt-dwarkesh",
+   "sourceName": "Dwarkesh Patel (YouTube)",
+   "kind": "video",
+   "date": "2026-09-27T20:35:49.000Z",
+   "summary": "",
+   "thumb": "https://i.ytimg.com/vi/vkecOqfTh_I/hqdefault.jpg",
+   "relevance": 0.42857142857142855,
+   "score": 0.403,
+   "tone": "neutral",
+   "topics": [
+    "Alignment"
+   ],
+   "also": []
+  },
+  {
+   "id": "1qoitga",
+   "title": "Sam Altman :‘AGI in 2026’, just as Models Start to [Mis]Train Themselves",
+   "url": "https://www.youtube.com/watch?v=KL9_1GbmCic",
+   "source": "yt-aiexplained",
+   "sourceName": "AI Explained",
+   "kind": "video",
+   "date": "2026-08-27T19:16:24.000Z",
+   "summary": "First, a Time Magazine spread has Sam Altman declaring AGI is imminent, at the same time as we get two bombshell reports, from OpenAI and METR which on first glance are detailing the AI swarm, but reveal a deeper story about how we are making AI in 2026. From redacted risk…",
+   "thumb": "https://i.ytimg.com/vi/KL9_1GbmCic/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.4,
+   "tone": "neutral",
+   "topics": [
+    "Risk"
+   ],
+   "also": []
+  },
+  {
+   "id": "1fasafq",
+   "title": "AI is getting a little out of control",
+   "url": "https://www.youtube.com/watch?v=xGzseSSStnw",
+   "source": "yt-aiexplained",
+   "sourceName": "AI Explained",
+   "kind": "video",
+   "date": "2026-08-06T15:02:06.000Z",
+   "summary": "Wow. Mathematical breakthroughs that would be called genius if done by humans. A secret message-board w/ AI agent swarms leaving notes read by future versions. Hassabis leaves CEO position, or was pushed out? Not to mention news of constitutional breakdowns, Gemini 4 and Jeff…",
+   "thumb": "https://i.ytimg.com/vi/xGzseSSStnw/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.4,
+   "tone": "neutral",
+   "topics": [
+    "Alignment"
+   ],
+   "also": []
+  },
+  {
+   "id": "165ob9y",
+   "title": "GPT-6 Goes Rogue? The HuggingFace Incident, Sans Hype",
+   "url": "https://www.youtube.com/watch?v=wzY2fV4Mp3U",
+   "source": "yt-aiexplained",
+   "sourceName": "AI Explained",
+   "kind": "video",
+   "date": "2026-07-22T16:36:53.000Z",
+   "summary": "An unreleased internal OpenAI model, very likely to be called GPT-6, was able to autonomously break out of its sandbox AND break into HuggingFace, just to score higher on a benchmark prompt. This video has the details you may have missed, a layperson analogy, whether this is…",
+   "thumb": "https://i.ytimg.com/vi/wzY2fV4Mp3U/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.4,
+   "tone": "risk",
+   "topics": [
+    "Evaluations"
+   ],
+   "also": []
+  },
+  {
+   "id": "1dy2ttm",
+   "title": "A Model Explosion: GPT 5.6 Sol, Grok 4.5 and Meta Muse Rewrite the Rules",
+   "url": "https://www.youtube.com/watch?v=mWlCituW7wo",
+   "source": "yt-aiexplained",
+   "sourceName": "AI Explained",
+   "kind": "video",
+   "date": "2026-07-10T12:40:15.000Z",
+   "summary": "What a week in AI, for real. GPT 5.6 may actually beat Claude Fable, in what you get for your money, while the new Grok 4.5 and Meta Muse Spark 1.1 make the choice even harder. Uncovering a dozen nuggets of gold you may have missed from all the viral headlines, I can also assure…",
+   "thumb": "https://i.ytimg.com/vi/mWlCituW7wo/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.4,
+   "tone": "neutral",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "zrulc",
+   "title": "Fable 5 vs GPT 5.6 Sol: The Early Results",
+   "url": "https://www.youtube.com/watch?v=y24lF1q4SFY",
+   "source": "yt-aiexplained",
+   "sourceName": "AI Explained",
+   "kind": "video",
+   "date": "2026-07-02T16:27:26.000Z",
+   "summary": "Fable 5 (newly re-released) vs GPT 5.6 Sol, what comparisons can we unearth? Plus, Sonnet 5, a 5% equity seizure by US Govt, the ‘largest heist’, Beetlejuice and more… Exclusive Vids in AI Insiders ($9!): https://www.patreon.com/AIExplained Chapters: 00:00 - Introduction 01:06 -…",
+   "thumb": "https://i.ytimg.com/vi/y24lF1q4SFY/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.4,
+   "tone": "neutral",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "49gy81",
+   "title": "Claude Fable Blocked - 11 Quiet Details on What’s Next",
+   "url": "https://www.youtube.com/watch?v=Qj71N0tBzRo",
+   "source": "yt-aiexplained",
+   "sourceName": "AI Explained",
+   "kind": "video",
+   "date": "2026-06-14T14:52:27.000Z",
+   "summary": "Claude Fable 5 banned, but what’s the bigger story. We go through 11 under-reported details, so you have the context to see what’s coming next for your use of AI. From whether the ban will last, what the possible motives are, what the model can actually do, and some wild…",
+   "thumb": "https://i.ytimg.com/vi/Qj71N0tBzRo/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.4,
+   "tone": "risk",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "1dzui6o",
+   "title": "Claude Fable 5 - Full 319 page Breakdown",
+   "url": "https://www.youtube.com/watch?v=haK1KoQWm18",
+   "source": "yt-aiexplained",
+   "sourceName": "AI Explained",
+   "kind": "video",
+   "date": "2026-06-10T18:43:12.000Z",
+   "summary": "Fable 5 is out - and it’s good, very good. But beyond the splashy demos, I want to bring you the 20+ nuggets from the 319 page system card, which I read in full, all day, plus benchmarks you may not have noticed. https://assemblyai.com/aiexplained Plus two worrying trends inside…",
+   "thumb": "https://i.ytimg.com/vi/haK1KoQWm18/hqdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.4,
+   "tone": "neutral",
+   "topics": [
+    "Evaluations"
+   ],
+   "also": []
+  },
+  {
+   "id": "jc7cr2",
+   "title": "Judge dismisses Chegg and Penske antitrust lawsuits targeting Google AI search",
+   "url": "https://arstechnica.com/google/2026/10/antitrust-lawsuits-targeting-google-ai-search-dismissed-by-federal-judge/",
+   "source": "ars",
+   "sourceName": "Ars Technica",
+   "kind": "news",
+   "date": "2026-10-01T20:11:55.000Z",
+   "summary": "The court acknowledges AI search comes with consequences, but it's not an antitrust issue.",
+   "relevance": 0.2857142857142857,
+   "score": 0.3951,
+   "tone": "risk",
+   "topics": [
+    "Governance"
+   ],
+   "place": {
+    "name": "Mountain View",
+    "country": "United States",
+    "lon": -122.08,
+    "lat": 37.39
+   },
+   "also": []
+  },
+  {
+   "id": "vtr4m5",
+   "title": "\"An AI did it\" is no defense, says nonprofit suing OpenAI over Hugging Face hack",
+   "url": "https://arstechnica.com/tech-policy/2026/09/lawsuit-demands-openai-halt-unsafe-development-that-caused-hugging-face-hack/",
+   "source": "ars",
+   "sourceName": "Ars Technica",
+   "kind": "news",
+   "date": "2026-09-30T18:25:04.000Z",
+   "summary": "OpenAI makes others suffer \"the harms of its unsafe decision-making,\" nonprofit says.",
+   "relevance": 0.2857142857142857,
+   "score": 0.3743,
+   "tone": "risk",
+   "topics": [
+    "Risk"
+   ],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "1r86c73",
+   "title": "Roundtables: The Deadly Failures of The Virtual Border Wall",
+   "url": "https://www.technologyreview.com/2026/09/28/1144890/roundtables-the-deadly-failures-of-the-virtual-border-wall/",
+   "source": "mittr",
+   "sourceName": "MIT Technology Review",
+   "kind": "news",
+   "date": "2026-09-28T22:17:07.000Z",
+   "summary": "Listen to the session or watch below The US has spent billions building a “virtual wall” of surveillance towers along its southern border over the past 25 years, promising they will help detect and apprehend border crossers and save lives. But a groundbreaking investigation by…",
+   "relevance": 0.2857142857142857,
+   "score": 0.374,
+   "tone": "neutral",
+   "topics": [
+    "Privacy"
+   ],
+   "place": {
+    "name": "Washington, D.C.",
+    "country": "United States",
+    "lon": -77.04,
+    "lat": 38.9
+   },
+   "also": []
+  },
+  {
+   "id": "744f6h",
+   "title": "Noam Brown – Agent swarms, alignment, & recursive self-improvement",
+   "url": "https://www.dwarkesh.com/p/noam-brown",
+   "source": "dwarkesh",
+   "sourceName": "Dwarkesh Podcast",
+   "kind": "podcast",
+   "date": "2026-09-17T15:38:13.000Z",
+   "summary": "“We never want to be in a situation again where we underestimate the AI.”",
+   "relevance": 0.42857142857142855,
+   "score": 0.3709,
+   "tone": "neutral",
+   "topics": [
+    "Alignment"
+   ],
+   "also": []
+  },
+  {
+   "id": "gyrhz2",
+   "title": "Here's what actually happened in OpenAI's Australian gov't server hack",
+   "url": "https://arstechnica.com/ai/2026/09/heres-what-actually-happened-in-openais-australian-govt-server-hack/",
+   "source": "ars",
+   "sourceName": "Ars Technica",
+   "kind": "news",
+   "date": "2026-09-29T18:11:09.000Z",
+   "summary": "Without a \"full set of safeguards,\" agent accessed \"system information and source code.\"",
+   "relevance": 0.2857142857142857,
+   "score": 0.3591,
+   "tone": "neutral",
+   "topics": [
+    "Safety"
+   ],
+   "place": {
+    "name": "Canberra",
+    "country": "Australia",
+    "lon": 149.13,
+    "lat": -35.28
+   },
+   "also": []
+  },
+  {
+   "id": "1g31aoy",
+   "title": "Introducing the Australian Youth Safety Blueprint",
+   "url": "https://openai.com/index/australian-youth-safety-blueprint",
+   "source": "openai",
+   "sourceName": "OpenAI",
+   "kind": "lab",
+   "date": "2026-09-18T12:00:00.000Z",
+   "summary": "OpenAI introduces the Australian Youth Safety Blueprint, a six-pillar roadmap for safer AI experiences that protect and empower young people.",
+   "relevance": 0.2857142857142857,
+   "score": 0.3448,
+   "tone": "good",
+   "topics": [
+    "Safety"
+   ],
+   "place": {
+    "name": "Canberra",
+    "country": "Australia",
+    "lon": 149.13,
+    "lat": -35.28
+   },
+   "also": []
+  },
+  {
+   "id": "rxvvzw",
+   "title": "Introducing dots",
+   "url": "https://openai.com/index/introducing-dots",
+   "source": "openai",
+   "sourceName": "OpenAI",
+   "kind": "lab",
+   "date": "2026-09-29T00:00:00.000Z",
+   "summary": "Dots by OpenAI are proactive assistants that can keep working across complex projects and everyday tasks. Learn how dots help you stay in control while work moves forward.",
+   "relevance": 0.14285714285714285,
+   "score": 0.323,
+   "tone": "neutral",
+   "topics": [
+    "Alignment"
+   ],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "nagkik",
+   "title": "Grant Sanderson – AI and the future of math",
+   "url": "https://www.dwarkesh.com/p/grant-sanderson-2",
+   "source": "dwarkesh",
+   "sourceName": "Dwarkesh Podcast",
+   "kind": "podcast",
+   "date": "2026-06-30T15:53:19.000Z",
+   "summary": "Watch now (94 mins) | Math is where we’ll see superintelligence first. What will it look like?",
+   "relevance": 0.2857142857142857,
+   "score": 0.3036,
+   "tone": "good",
+   "topics": [
+    "Risk"
+   ],
+   "also": []
+  },
+  {
+   "id": "1n4ml5u",
+   "title": "Building the partner ecosystem with Sophos",
+   "url": "https://www.youtube.com/watch?v=zoohZ1BiHs0",
+   "source": "yt-openai",
+   "sourceName": "OpenAI (YouTube)",
+   "kind": "video",
+   "date": "2026-09-29T10:00:28.000Z",
+   "summary": "Claire Lawlor, Digital Native AD EMEA at OpenAI, and John Peterson, CTO at Sophos, explain the role of technology partnerships in keeping organizations safe from cyber threats",
+   "thumb": "https://i.ytimg.com/vi/zoohZ1BiHs0/hqdefault.jpg",
+   "relevance": 0.14285714285714285,
+   "score": 0.3029,
+   "tone": "risk",
+   "topics": [
+    "Attacks"
+   ],
+   "also": []
+  },
+  {
+   "id": "9md31h",
+   "title": "The Defender's Window: Cyber security keynote",
+   "url": "https://www.youtube.com/watch?v=3jDhHA9JGUE",
+   "source": "yt-openai",
+   "sourceName": "OpenAI (YouTube)",
+   "kind": "video",
+   "date": "2026-09-28T13:29:06.000Z",
+   "summary": "OpenAI's security experts explain why every organization needs a cyber defence factory, and how to build it with Daybreak.",
+   "thumb": "https://i.ytimg.com/vi/3jDhHA9JGUE/hqdefault.jpg",
+   "relevance": 0.14285714285714285,
+   "score": 0.2934,
+   "tone": "good",
+   "topics": [
+    "Attacks"
+   ],
+   "also": []
+  },
+  {
+   "id": "1q6usxr",
+   "title": "OpenAI extends cyber access to Ukraine for civilian defense",
+   "url": "https://openai.com/index/openai-extends-cyber-access-to-ukraine-for-civilian-defense",
+   "source": "openai",
+   "sourceName": "OpenAI",
+   "kind": "lab",
+   "date": "2026-09-23T13:00:00.000Z",
+   "summary": "OpenAI is extending access to its Daybreak program to the Government of Ukraine to support the cyber defense of civilian infrastructure.",
+   "relevance": 0.14285714285714285,
+   "score": 0.2893,
+   "tone": "good",
+   "topics": [
+    "Attacks"
+   ],
+   "place": {
+    "name": "Kyiv",
+    "country": "Ukraine",
+    "lon": 30.52,
+    "lat": 50.45
+   },
+   "also": []
+  },
+  {
+   "id": "pbkbpl",
+   "title": "We've saved the world before: what the ozone hole teaches us about AI",
+   "url": "https://www.lesswrong.com/posts/zxXPEtSSSEdwpjopb/we-ve-saved-the-world-before-what-the-ozone-hole-teaches-us",
+   "source": "lesswrong",
+   "sourceName": "LessWrong (curated)",
+   "kind": "essay",
+   "date": "2026-09-22T01:13:30.000Z",
+   "summary": "It might destroy the world, despite passing every known safety test. If we wait for a “warning shot” before we act, it might be too late. And action requires global coordination, because if anyone makes it, everyone dies. Sound familiar? It should, because it already happened…",
+   "relevance": 0.2857142857142857,
+   "score": 0.2873,
+   "tone": "risk",
+   "topics": [
+    "Safety"
+   ],
+   "also": []
+  },
+  {
+   "id": "sit0th",
+   "title": "Introducing Astra for Law",
+   "url": "https://openai.com/index/astra-for-law",
+   "source": "openai",
+   "sourceName": "OpenAI",
+   "kind": "lab",
+   "date": "2026-09-17T00:00:00.000Z",
+   "summary": "OpenAI for Law brings frontier intelligence for law, custom firm workflows, connected legal data sources, and legal-grade controls for confidential client work.",
+   "relevance": 0.14285714285714285,
+   "score": 0.2794,
+   "tone": "neutral",
+   "topics": [
+    "Governance"
+   ],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "1vjm9hw",
+   "title": "Expanding AI access and cyber defense for federal, state, local, and tribal governments",
+   "url": "https://openai.com/index/expanding-ai-access-us-government",
+   "source": "openai",
+   "sourceName": "OpenAI",
+   "kind": "lab",
+   "date": "2026-09-10T07:00:00.000Z",
+   "summary": "OpenAI and GSA will offer eligible federal, state, local, and tribal governments $0 license fees, 50% off usage, and expanded cyber defense support.",
+   "relevance": 0.14285714285714285,
+   "score": 0.2773,
+   "tone": "good",
+   "topics": [
+    "Attacks"
+   ],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "vwzen3",
+   "title": "Daybreak for Frontline Defenders: $1B to protect essential services",
+   "url": "https://openai.com/index/daybreak-for-frontline-defenders",
+   "source": "openai",
+   "sourceName": "OpenAI",
+   "kind": "lab",
+   "date": "2026-09-03T13:15:00.000Z",
+   "summary": "OpenAI introduces Daybreak for Frontline Defenders. A $1 billion commitment expands access to frontier cyber AI, training, and support for essential services.",
+   "relevance": 0.14285714285714285,
+   "score": 0.2769,
+   "tone": "good",
+   "topics": [
+    "Attacks"
+   ],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "1kesdw0",
+   "title": "Proactive cyber defense for governments and enterprises",
+   "url": "https://deepmind.google/blog/proactive-cyber-defense-for-governments-and-enterprises/",
+   "source": "deepmind",
+   "sourceName": "Google DeepMind",
+   "kind": "lab",
+   "date": "2026-09-02T16:24:24.000Z",
+   "summary": "",
+   "relevance": 0.14285714285714285,
+   "score": 0.2769,
+   "tone": "good",
+   "topics": [
+    "Attacks"
+   ],
+   "place": {
+    "name": "Mountain View",
+    "country": "United States",
+    "lon": -122.08,
+    "lat": 37.39
+   },
+   "also": []
+  },
+  {
+   "id": "1a20hwv",
+   "title": "Introducing Gemini 3.8 Flash and 3.8 Flash Cyber",
+   "url": "https://deepmind.google/blog/introducing-gemini-3-8-flash-and-38-flash-cyber/",
+   "source": "deepmind",
+   "sourceName": "Google DeepMind",
+   "kind": "lab",
+   "date": "2026-09-02T16:18:31.000Z",
+   "summary": "",
+   "relevance": 0.14285714285714285,
+   "score": 0.2769,
+   "tone": "neutral",
+   "topics": [
+    "Attacks"
+   ],
+   "place": {
+    "name": "Mountain View",
+    "country": "United States",
+    "lon": -122.08,
+    "lat": 37.39
+   },
+   "also": []
+  },
+  {
+   "id": "1rto48v",
+   "title": "Gemini Omni 1.1 Flash lets you build with more control",
+   "url": "https://deepmind.google/blog/gemini-omni-1-1-flash-lets-you-build-with-more-control/",
+   "source": "deepmind",
+   "sourceName": "Google DeepMind",
+   "kind": "lab",
+   "date": "2026-08-27T16:11:32.000Z",
+   "summary": "",
+   "relevance": 0.14285714285714285,
+   "score": 0.2768,
+   "tone": "neutral",
+   "topics": [
+    "Alignment"
+   ],
+   "place": {
+    "name": "Mountain View",
+    "country": "United States",
+    "lon": -122.08,
+    "lat": 37.39
+   },
+   "also": []
+  },
+  {
+   "id": "5nqb64",
+   "title": "Piloting the world's first double-blind AI evaluations",
+   "url": "https://deepmind.google/blog/piloting-the-worlds-first-double-blind-ai-evaluations/",
+   "source": "deepmind",
+   "sourceName": "Google DeepMind",
+   "kind": "lab",
+   "date": "2026-08-27T12:59:16.000Z",
+   "summary": "Piloting the world's first double-blind AI evaluations",
+   "relevance": 0.14285714285714285,
+   "score": 0.2768,
+   "tone": "neutral",
+   "topics": [
+    "Evaluations"
+   ],
+   "place": {
+    "name": "Mountain View",
+    "country": "United States",
+    "lon": -122.08,
+    "lat": 37.39
+   },
+   "also": []
+  },
+  {
+   "id": "18fpr9b",
+   "title": "We’re launching Lyria 3.5 in Google Flow Music, with advances across musicality, lyrics, vocals, and creative control",
+   "url": "https://deepmind.google/blog/were-launching-lyria-35-in-google-flow-music-with-advances-across-musicality-lyrics-vocals-and-creative-control/",
+   "source": "deepmind",
+   "sourceName": "Google DeepMind",
+   "kind": "lab",
+   "date": "2026-07-29T16:02:10.000Z",
+   "summary": "",
+   "relevance": 0.14285714285714285,
+   "score": 0.2768,
+   "tone": "neutral",
+   "topics": [
+    "Alignment"
+   ],
+   "place": {
+    "name": "Mountain View",
+    "country": "United States",
+    "lon": -122.08,
+    "lat": 37.39
+   },
+   "also": []
+  },
+  {
+   "id": "x8oz8j",
+   "title": "Introducing Gemini 3.6 Flash, 3.5 Flash-Lite, and 3.5 Flash Cyber",
+   "url": "https://deepmind.google/blog/introducing-gemini-3-6-flash-3-5-flash-lite-and-3-5-flash-cyber/",
+   "source": "deepmind",
+   "sourceName": "Google DeepMind",
+   "kind": "lab",
+   "date": "2026-07-21T15:16:30.000Z",
+   "summary": "We’re introducing new Gemini models, including Gemini 3.6 Flash, 3.5 Flash-Lite and 3.5 Flash Cyber.",
+   "relevance": 0.14285714285714285,
+   "score": 0.2768,
+   "tone": "neutral",
+   "topics": [
+    "Attacks"
+   ],
+   "place": {
+    "name": "Mountain View",
+    "country": "United States",
+    "lon": -122.08,
+    "lat": 37.39
+   },
+   "also": []
+  },
+  {
+   "id": "1m8h4z1",
+   "title": "Introducing Gemini 3.5 Flash Cyber",
+   "url": "https://deepmind.google/blog/introducing-gemini-3-5-flash-cyber/",
+   "source": "deepmind",
+   "sourceName": "Google DeepMind",
+   "kind": "lab",
+   "date": "2026-07-17T15:00:11.000Z",
+   "summary": "Google introduces Gemini 3.5 Flash Cyber, a lightweight cybersecurity model to find and patch vulnerabilities.",
+   "relevance": 0.14285714285714285,
+   "score": 0.2768,
+   "tone": "risk",
+   "topics": [
+    "Attacks"
+   ],
+   "place": {
+    "name": "Mountain View",
+    "country": "United States",
+    "lon": -122.08,
+    "lat": 37.39
+   },
+   "also": []
+  },
+  {
+   "id": "1yyg40c",
+   "title": "Figma Gave GPT-6 Astra a Moonshot. Here's what happened.",
+   "url": "https://www.youtube.com/watch?v=rRm3Vnb7UPY",
+   "source": "yt-openai",
+   "sourceName": "OpenAI (YouTube)",
+   "kind": "video",
+   "date": "2026-09-21T19:25:46.000Z",
+   "summary": "John gave GPT-6 Astra a moonshot: design the flight-control experience for a new personal aircraft. The gap between generating an interface and designing a system is massive, and AI models have always fallen short. Until now. Astra reasoned through the audience, jobs to be done,…",
+   "thumb": "https://i.ytimg.com/vi/rRm3Vnb7UPY/hqdefault.jpg",
+   "relevance": 0.14285714285714285,
+   "score": 0.26,
+   "tone": "neutral",
+   "topics": [
+    "Alignment"
+   ],
+   "also": []
+  },
+  {
+   "id": "1194dsx",
+   "title": "Tasks that require whole-body control with Gemini Robotics 2",
+   "url": "https://www.youtube.com/watch?v=nBftSI5mmHA",
+   "source": "yt-deepmind",
+   "sourceName": "Google DeepMind (YouTube)",
+   "kind": "video",
+   "date": "2026-07-30T14:58:12.000Z",
+   "summary": "The world is built for human movements; it requires us to reach, bend, and balance in tight, cluttered spaces. While our previous models controlled the humanoid’s upper-body to achieve table-top tasks, Gemini Robotics 2 expands physical AI into whole-body motions. Learn more…",
+   "thumb": "https://i.ytimg.com/vi/nBftSI5mmHA/hqdefault.jpg",
+   "relevance": 0.14285714285714285,
+   "score": 0.2518,
+   "tone": "neutral",
+   "topics": [
+    "Alignment"
+   ],
+   "also": []
+  },
+  {
+   "id": "1ji7nsr",
+   "title": "Intelligent whole-body control with Gemini Robotics 2",
+   "url": "https://www.youtube.com/watch?v=9MNLEAzA59o",
+   "source": "yt-deepmind",
+   "sourceName": "Google DeepMind (YouTube)",
+   "kind": "video",
+   "date": "2026-07-30T14:58:07.000Z",
+   "summary": "The world is built for human movements; it requires us to reach, bend, and balance in tight, cluttered spaces. While our previous models controlled the humanoid’s upper-body to achieve table-top tasks, Gemini Robotics 2 expands physical AI into whole-body motions. Learn more…",
+   "thumb": "https://i.ytimg.com/vi/9MNLEAzA59o/hqdefault.jpg",
+   "relevance": 0.14285714285714285,
+   "score": 0.2518,
+   "tone": "neutral",
+   "topics": [
+    "Alignment"
+   ],
+   "also": []
+  },
+  {
+   "id": "ct5o8h",
+   "title": "Alex Imas and Phil Trammell – What remains scarce after AGI?",
+   "url": "https://www.dwarkesh.com/p/alex-imas-phil-trammell",
+   "source": "dwarkesh",
+   "sourceName": "Dwarkesh Podcast",
+   "kind": "podcast",
+   "date": "2026-06-04T16:14:49.000Z",
+   "summary": "“One robot now turns into many robots next year, but the number of ballerinas is the same.”",
+   "relevance": 0.14285714285714285,
+   "score": 0.2393,
+   "tone": "neutral",
+   "topics": [
+    "Risk"
+   ],
+   "also": []
+  },
+  {
+   "id": "1te2loy",
+   "title": "The Talker Does Not Control The Doer (in Current AIs)",
+   "url": "https://www.lesswrong.com/posts/cJX2ssssGoYqnijwi/the-talker-does-not-control-the-doer-in-current-ais",
+   "source": "lesswrong",
+   "sourceName": "LessWrong (curated)",
+   "kind": "essay",
+   "date": "2026-09-17T02:05:40.000Z",
+   "summary": "The Huggingface Incident appears to me to match up with an understanding I'd already formed from personal observation of Fable 5 and Sol 5.6, the August 2026 generation of frontier publicly purchasable AI models. [1] This already-formed understanding was: the part of the AI that…",
+   "relevance": 0.14285714285714285,
+   "score": 0.2169,
+   "tone": "risk",
+   "topics": [
+    "Alignment"
+   ],
+   "also": []
+  }
+ ]
+}

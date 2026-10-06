@@ -1,0 +1,209 @@
+---
+import Base from '../layouts/Base.astro';
+import Story from '../components/Story.astro';
+import Atlas from '../components/Atlas.astro';
+import { items, by, host, fmtDate, sources } from '../lib/feed';
+
+const headline = (i: (typeof items)[number]) => i.kind === 'news' || i.kind === 'lab' || i.kind === 'incident' || i.kind === 'essay';
+const used = new Set<string>();
+const take = (list: typeof items) => { list.forEach(i => used.add(i.id)); return list; };
+
+const lead = take(by(headline, 1))[0];
+// Secondary stories: one per source, so the front page has range.
+const seenSrc = new Set([lead.source]);
+const second = take(items.filter(i => headline(i) && !used.has(i.id) && !seenSrc.has(i.source) && seenSrc.add(i.source)).slice(0, 4));
+const brief = take(items.filter(i => headline(i) && !used.has(i.id)).slice(0, 3));
+const wire = [...items].filter(i => i.kind !== 'video' && i.kind !== 'podcast').sort((a, b) => b.date.localeCompare(a.date)).slice(0, 12);
+
+const stream = items.filter(i => !used.has(i.id) && i.kind !== 'video' && i.kind !== 'podcast');
+const papers = by(i => i.kind === 'paper', 6);
+const essays = by(i => i.kind === 'essay', 6);
+const videos = [...by(i => i.kind === 'video')].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 8);
+const pods = [...by(i => i.kind === 'podcast')].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 6);
+const good = by(i => i.tone === 'good' && i.kind !== 'video', 6);
+const live = sources.filter(s => s.ok).length;
+
+const chips = [
+  ['all', 'Everything'], ['news', 'News'], ['lab', 'Labs'], ['paper', 'Papers'], ['essay', 'Essays'], ['incident', 'Incidents'], ['good', 'Good news'],
+];
+---
+<Base current="/">
+  <div class="wrap">
+    <section class="front" aria-labelledby="front-h">
+      <h2 id="front-h" class="visually-hidden">Front page</h2>
+      <div class="lead-col">
+        <p class="label kicker">The lead</p>
+        <Story item={lead} variant="lead" />
+        <p class="label kicker brief-k">In brief</p>
+        <div class="brief">{brief.map(i => <Story item={i} variant="compact" />)}</div>
+      </div>
+      <div class="second-col">
+        <p class="label kicker">Also today</p>
+        <div class="seconds">{second.map(i => <Story item={i} />)}</div>
+      </div>
+      <aside class="wire" aria-labelledby="wire-h">
+        <p class="label kicker" id="wire-h"><span class="dot"></span> The Wire — latest first</p>
+        <ol>
+          {wire.map(i => (
+            <li>
+              <a href={i.url} target="_blank" rel="noopener noreferrer">
+                <span class="wt"><span class={`tdot t-${i.tone}`}></span>{i.title}</span>
+                <span class="wm">{i.sourceName} · {fmtDate(i.date)} · {host(i.url)} ↗</span>
+              </a>
+            </li>
+          ))}
+        </ol>
+      </aside>
+    </section>
+
+    <section class="block" id="latest" aria-labelledby="latest-h">
+      <header class="sec-head"><span class="num">I.</span><h2 id="latest-h">Latest from the field</h2><span class="label more">Ranked by relevance, source and freshness · <a href="/sources#algorithm">how</a></span></header>
+      <div class="tools">
+        <div class="chips" role="group" aria-label="Filter stories">
+          {chips.map(([k, l], i) => <button class="btn" type="button" data-chip={k} aria-pressed={i === 0 ? 'true' : 'false'}>{l}</button>)}
+        </div>
+        <label class="search">
+          <span class="visually-hidden">Search stories</span>
+          <input type="search" id="q" placeholder="Search: jailbreak, OpenAI, EU…" autocomplete="off" spellcheck="false" />
+        </label>
+      </div>
+      <div class="grid stream" id="stream">
+        {stream.map(i => <Story item={i} />)}
+      </div>
+      <p class="empty label" id="empty" hidden>Nothing matches. Try another word.</p>
+      <div class="morewrap"><button class="btn" type="button" id="more">Show more</button></div>
+    </section>
+
+    <section class="block" id="research" aria-labelledby="research-h">
+      <header class="sec-head"><span class="num">II.</span><h2 id="research-h">Research &amp; essays</h2><a class="out more" href="https://arxiv.org/list/cs.AI/recent" target="_blank" rel="noopener noreferrer"><span class="host">arXiv cs.AI</span><span class="arrow">↗</span></a></header>
+      <div class="two">
+        <div><p class="label colhead">New papers</p><div class="col">{papers.map(i => <Story item={i} variant="compact" />)}</div></div>
+        <div><p class="label colhead">Essays &amp; newsletters</p><div class="col">{essays.map(i => <Story item={i} variant="compact" />)}</div></div>
+      </div>
+    </section>
+
+    <section class="block" id="watch" aria-labelledby="watch-h">
+      <header class="sec-head"><span class="num">III.</span><h2 id="watch-h">Watch</h2><span class="label more">From YouTube · plays on youtube.com</span></header>
+      <div class="vids">
+        {videos.map(v => (
+          <article class="card vid">
+            <a class="thumb" href={v.url} target="_blank" rel="noopener noreferrer" aria-label={`Watch “${v.title}” on YouTube (opens in a new tab)`}>
+              {v.thumb && <img src={v.thumb} alt="" loading="lazy" decoding="async" width="480" height="360" referrerpolicy="no-referrer" />}
+              <span class="play" aria-hidden="true">▶</span>
+            </a>
+            <div class="vb">
+              <h3><a class="hl" href={v.url} target="_blank" rel="noopener noreferrer">{v.title}</a></h3>
+              <p class="label vm">{v.sourceName} · {fmtDate(v.date)}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="block" id="listen" aria-labelledby="listen-h">
+      <header class="sec-head"><span class="num">IV.</span><h2 id="listen-h">Listen</h2><span class="label more">Podcast episodes</span></header>
+      <ol class="pods">
+        {pods.map((p, n) => (
+          <li class="card pod">
+            <span class="pn">{String(n + 1).padStart(2, '0')}</span>
+            <div>
+              <h3><a class="hl stretch" href={p.url} target="_blank" rel="noopener noreferrer">{p.title}</a></h3>
+              <p class="label vm">{p.sourceName} · {fmtDate(p.date)} · {host(p.url)} ↗</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section class="block" id="atlas">
+      <Atlas />
+    </section>
+
+    <section class="block" id="good" aria-labelledby="good-h">
+      <header class="sec-head"><span class="num">VI.</span><h2 id="good-h">Good news</h2><span class="label more">Progress, funding, laws and safeguards</span></header>
+      <div class="grid">{good.map(i => <Story item={i} />)}</div>
+    </section>
+
+    <section class="block guide" aria-labelledby="guide-h">
+      <header class="sec-head"><span class="num">VII.</span><h2 id="guide-h">New to AI safety?</h2></header>
+      <p class="intro">Start with the <a href="/guide">Field Guide</a>: hand-picked courses, reading, organisations and fellowships. Or see <a href="/sources">all {sources.length} sources</a> we read ({live} live right now) and exactly how stories are ranked.</p>
+    </section>
+  </div>
+</Base>
+
+<script>
+  import '../scripts/front.ts';
+</script>
+
+<style>
+  .front { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr) minmax(0, 0.8fr); gap: 28px; padding: 34px 0 10px; }
+  .kicker { margin: 0 0 10px; display: flex; align-items: center; gap: 8px; }
+  .kicker .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--risk); box-shadow: 0 0 10px var(--risk); }
+  .lead-col > :global(.lead) { padding: 26px 28px; }
+  .brief-k { margin-top: 22px; }
+  .brief { display: grid; gap: 12px; }
+  .seconds { display: grid; gap: 14px; }
+  .seconds :global(h3) { font-size: 20px; }
+  .seconds :global(.sum) { -webkit-line-clamp: 2; font-size: 16px; }
+  .wire { border-left: 1px solid var(--line); padding-left: 22px; }
+  .wire ol { list-style: none; margin: 0; padding: 0; }
+  .wire li { border-bottom: 1px solid #1d2026; }
+  .wire a { display: block; padding: 10px 0; text-decoration: none; }
+  .wt { display: flex; gap: 10px; align-items: baseline; font-size: 16.5px; line-height: 1.25; color: var(--ink); transition: color .3s var(--ease); }
+  .wt .tdot { flex: none; width: 6px; height: 6px; border-radius: 50%; background: currentColor; transform: translateY(-2px); box-shadow: 0 0 8px currentColor; }
+  .wm { display: block; margin: 4px 0 0 16px; font-family: var(--mono); font-size: 10.5px; color: var(--dim); letter-spacing: 0.03em; transition: color .3s var(--ease); }
+  .wire a:hover .wt { color: #fff; }
+  .wire a:hover .wm { color: var(--acc); }
+
+  .block { margin-top: 72px; scroll-margin-top: 20px; }
+  .more { margin-left: auto; }
+  .more a { color: var(--acc); }
+  .tools { display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 20px; }
+  .chips { display: flex; gap: 8px; flex-wrap: wrap; }
+  .search input {
+    width: min(320px, 80vw); font: 15px var(--mono); color: var(--ink);
+    background: var(--well); border: 1px solid var(--line); border-radius: 999px; padding: 8px 16px;
+    transition: border-color .3s var(--ease), box-shadow .3s var(--ease);
+  }
+  .search input:focus { outline: none; border-color: var(--acc); box-shadow: 0 0 0 3px rgba(134,168,255,0.15); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 16px; }
+  .empty { text-align: center; padding: 30px 0; }
+  .morewrap { display: flex; justify-content: center; margin-top: 22px; }
+
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .colhead { margin: 0 0 10px; }
+  .col { display: grid; gap: 12px; }
+
+  .vids { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: 16px; }
+  .vid { overflow: hidden; display: flex; flex-direction: column; }
+  .thumb { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; background: var(--well); border-bottom: 1px solid var(--line); }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.75) brightness(0.8); transition: transform .6s var(--ease), filter .6s var(--ease); }
+  .vid:hover .thumb img { transform: scale(1.04); filter: saturate(1) brightness(0.95); }
+  .play { position: absolute; left: 50%; top: 50%; width: 46px; height: 46px; margin: -23px 0 0 -23px; display: grid; place-items: center; padding-left: 3px; border-radius: 50%; border: 1px solid rgba(232,230,225,0.6); background: rgba(12,13,16,0.55); color: var(--ink); font-size: 14px; backdrop-filter: blur(3px); transition: transform .4s var(--ease), border-color .4s var(--ease), box-shadow .4s var(--ease); }
+  .vid:hover .play { transform: scale(1.1); border-color: var(--acc); box-shadow: 0 0 22px var(--acc-glow); }
+  .vb { padding: 12px 14px 14px; }
+  .vb h3 { margin: 0 0 6px; font-size: 18px; font-weight: 500; line-height: 1.2; }
+  .vm { margin: 0; font-size: 10px; }
+
+  .pods { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr)); gap: 14px; }
+  .pod { display: flex; gap: 16px; padding: 16px 18px; align-items: baseline; }
+  .pn { font-family: var(--mono); font-size: 12px; color: var(--gold); }
+  .pod h3 { margin: 0 0 6px; font-weight: 500; font-size: 19px; line-height: 1.25; }
+
+  .guide .intro { font-size: 21px; color: var(--ink-2); max-width: 760px; }
+  .guide a { color: var(--acc); }
+
+  @media (max-width: 1100px) {
+    .front { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); }
+    .wire { grid-column: 1 / -1; border-left: 0; padding-left: 0; border-top: 1px solid var(--line); padding-top: 18px; }
+    .wire ol { columns: 2; column-gap: 28px; }
+    .wire li { break-inside: avoid; }
+  }
+  @media (max-width: 760px) {
+    .front { grid-template-columns: minmax(0, 1fr); padding-top: 22px; }
+    .wire ol { columns: 1; }
+    .two { grid-template-columns: minmax(0, 1fr); }
+    .block { margin-top: 52px; }
+    .lead-col > :global(.lead) { padding: 20px; }
+  }
+</style>

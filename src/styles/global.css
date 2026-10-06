@@ -1,0 +1,162 @@
+@import '@fontsource/cormorant-garamond/400.css';
+@import '@fontsource/cormorant-garamond/500.css';
+@import '@fontsource/cormorant-garamond/600.css';
+@import '@fontsource/cormorant-garamond/400-italic.css';
+@import '@fontsource/cormorant-garamond/500-italic.css';
+@import '@fontsource/ibm-plex-mono/400.css';
+@import '@fontsource/ibm-plex-mono/500.css';
+
+:root {
+  --bg: #0c0d10;
+  --dot: #24262c;
+  --ink: #e8e6e1;
+  --ink-2: #c9c6bf;
+  --dim: #8d8b86;
+  --line: #2e3138;
+  --card: #14161b;
+  --card-2: #101216;
+  --well: #0b0c0f;
+  --acc: #86a8ff;
+  --acc-glow: rgba(134, 168, 255, 0.35);
+  --gold: #d9b878;
+  --risk: #ff9b8a;
+  --good: #8fd3a8;
+  --violet: #b79cff;
+  --serif: 'Cormorant Garamond', 'Iowan Old Style', Georgia, serif;
+  --mono: 'IBM Plex Mono', ui-monospace, Consolas, monospace;
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --gutter: clamp(16px, 4vw, 48px);
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { background: var(--bg); -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--bg);
+  background-image: radial-gradient(var(--dot) 1px, transparent 1px);
+  background-size: 24px 24px;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.5;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 3px; border-radius: 4px; }
+::selection { background: rgba(134, 168, 255, 0.3); }
+
+.skip { position: absolute; left: -999px; top: 8px; z-index: 100; background: var(--card); padding: 8px 12px; font-family: var(--mono); font-size: 12px; }
+.skip:focus { left: 8px; }
+
+.wrap { width: 100%; max-width: 1320px; margin: 0 auto; padding: 0 var(--gutter); }
+
+/* Small uppercase mono labels */
+.label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+/* Notebook figure caption: "Fig. II — Lorenz" with rules on either side */
+.caption {
+  display: flex; align-items: center; gap: 14px;
+  font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--dim);
+}
+.caption::before, .caption::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--line), transparent); }
+
+/* Section headers: roman numeral + italic title */
+.sec-head {
+  display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 10px; margin: 0 0 22px;
+}
+.sec-head .num { font-family: var(--mono); font-size: 12px; color: var(--acc); letter-spacing: 0.12em; }
+.sec-head h2 { margin: 0; font-weight: 500; font-style: italic; font-size: clamp(28px, 3vw, 38px); line-height: 1.1; }
+.sec-head .more { margin-left: auto; }
+
+/* Cards: 1px border, 10px radius, faint lit top edge */
+.card {
+  position: relative;
+  background: linear-gradient(180deg, var(--card), var(--card-2));
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  transition: border-color 0.35s var(--ease), transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+}
+.card::before {
+  content: ''; position: absolute; left: 12%; right: 12%; top: -1px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--edge, var(--acc)), transparent);
+  opacity: 0.45; transition: opacity 0.35s var(--ease), left 0.35s var(--ease), right 0.35s var(--ease);
+}
+.card:hover, .card:focus-within { border-color: #3c4150; box-shadow: 0 10px 40px -18px var(--acc-glow); }
+.card:hover::before, .card:focus-within::before { opacity: 1; left: 4%; right: 4%; }
+
+/* Outbound links: the star of the site */
+.out {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.06em;
+  color: var(--acc); text-decoration: none;
+  padding: 6px 10px; margin: -6px -10px;
+  border-radius: 6px;
+  transition: background 0.3s var(--ease), color 0.3s var(--ease), text-shadow 0.3s var(--ease);
+}
+.out .host { color: var(--ink-2); }
+.out .arrow { display: inline-block; transition: transform 0.35s var(--ease); }
+.out:hover, .out:focus-visible { background: rgba(134, 168, 255, 0.08); text-shadow: 0 0 12px var(--acc-glow); }
+.out:hover .arrow, .out:focus-visible .arrow { transform: translate(3px, -3px); }
+
+/* Headline links stretch across the whole card */
+.hl { text-decoration: none; background-image: linear-gradient(var(--acc), var(--acc)); background-size: 0 1px; background-repeat: no-repeat; background-position: 0 100%; transition: background-size 0.5s var(--ease); }
+.card:hover .hl, .hl:focus-visible { background-size: 100% 1px; }
+.stretch::after { content: ''; position: absolute; inset: 0; border-radius: 10px; }
+
+/* Tone pills */
+.pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--dim);
+}
+.pill i { width: 6px; height: 6px; border-radius: 50%; background: currentColor; box-shadow: 0 0 8px currentColor; }
+.t-risk { color: var(--risk); }
+.t-good { color: var(--good); }
+.t-research { color: var(--violet); }
+.t-neutral { color: var(--acc); }
+
+.btn {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-2); background: transparent;
+  border: 1px solid var(--line); border-radius: 999px;
+  padding: 7px 14px; cursor: pointer;
+  transition: color 0.3s var(--ease), border-color 0.3s var(--ease), background 0.3s var(--ease);
+}
+.btn:hover { color: var(--ink); border-color: #4a5060; }
+.btn[aria-pressed='true'] { color: var(--bg); background: var(--acc); border-color: var(--acc); box-shadow: 0 0 18px -4px var(--acc-glow); }
+
+.visually-hidden { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+  html { scroll-behavior: auto; }
+}
+html.no-motion *, html.no-motion *::before, html.no-motion *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+
+/* Quote veil letters */
+.vw { display: inline-block; white-space: nowrap; }
+.vl { display: inline-block; opacity: 0; filter: blur(10px); transform: translateY(6px); animation: settle 1.4s var(--ease) forwards; }
+@keyframes settle { to { opacity: 1; filter: blur(0); transform: none; } }
+
+/* Without motion the ticker becomes a still, scrollable strip */
+html.no-motion .track { animation: none !important; }
+html.no-motion .ticker { overflow-x: auto; scrollbar-width: none; }
+@media (prefers-reduced-motion: reduce) { .track { animation: none !important; } .ticker { overflow-x: auto; } }
+html.no-motion .iris { animation: none !important; }
+
+.edge-risk { --edge: var(--risk); }
+.edge-good { --edge: var(--good); }
+.edge-research { --edge: var(--violet); }
+.edge-neutral { --edge: var(--acc); }
