@@ -1,0 +1,26 @@
+---
+import Base from '../../layouts/Base.astro';
+import TopicCard from '../../components/TopicCard.astro';
+import { TOPICS } from '../../lib/feed';
+---
+<Base title="Topics" current="/topics" description="Short briefs on the big topics in AI safety, each with the latest headlines." compact>
+  <div class="wrap page">
+    <header class="phead">
+      <p class="label crumb"><a href="/">Front Page</a> / Section VIII</p>
+      <h1><span class="num">VIII.</span> Topics</h1>
+      <p class="dek">The big questions in AI safety, explained in two sentences each, with the newest reporting underneath. The explainers are written by hand; the headlines update on their own.</p>
+    </header>
+    <div class="grid">{TOPICS.map(t => <TopicCard topic={t} n={4} />)}</div>
+  </div>
+</Base>
+
+<style>
+  .page { padding-top: 34px; }
+  .phead { border-bottom: 2px solid var(--ink); padding-bottom: 22px; margin-bottom: 28px; }
+  .crumb { margin: 0 0 6px; }
+  .crumb a { color: var(--acc); text-decoration: none; }
+  h1 { margin: 0; font-family: var(--display); font-weight: 600; font-size: clamp(48px, 6vw, 84px); line-height: 0.98; }
+  h1 .num { color: var(--acc); font-size: 0.5em; vertical-align: 0.5em; font-family: var(--mono); font-weight: 400; }
+  .dek { margin: 10px 0 0; font-size: 21px; color: var(--ink-2); max-width: 760px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr)); gap: 18px; }
+</style>

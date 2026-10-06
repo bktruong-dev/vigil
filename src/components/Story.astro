@@ -1,56 +1,99 @@
 ---
-import { type Item, KIND_LABEL, TONE_LABEL, host, fmtDate } from '../lib/feed';
-interface Props { item: Item; variant?: 'lead' | 'std' | 'compact' }
-const { item, variant = 'std' } = Astro.props;
-const search = `${item.title} ${item.sourceName} ${item.topics.join(' ')} ${item.place?.name ?? ''}`.toLowerCase();
+import { type Item, KIND_LABEL, TONE_LABEL, PERSPECTIVES, host, ago, linkTo, perspectiveOf, readMins } from '../lib/feed';
+import Plate from './Plate.astro';
+
+interface Props { item: Item; variant?: 'hero' | 'card' | 'row' | 'text'; eager?: boolean }
+const { item, variant = 'card', eager = false } = Astro.props;
+const href = linkTo(item);
+const p = perspectiveOf(item);
+const mins = readMins(item);
+const media = item.kind === 'video' ? 'Watch' : item.kind === 'podcast' ? 'Listen' : 'Read';
+const search = `${item.title} ${item.sourceName} ${item.topics.join(' ')} ${item.place?.name ?? ''} ${item.summary}`.toLowerCase();
+const showImage = variant !== 'text';
 ---
 <article
   class={`card story ${variant} edge-${item.tone}`}
   data-kind={item.kind}
   data-tone={item.tone}
+  data-persp={p}
+  data-topics={item.topics.join(',')}
   data-search={search}
 >
-  <div class="meta">
-    <span class={`pill t-${item.tone}`}><i></i>{item.kind === 'incident' ? 'Incident' : TONE_LABEL[item.tone]}</span>
-    {item.kind !== 'incident' && <span class="label kind">{KIND_LABEL[item.kind]}</span>}
-    {item.place && <span class="label place">◎ {item.place.name}</span>}
-  </div>
-  <h3><a class="hl stretch" href={item.url} target="_blank" rel="noopener noreferrer">{item.title}</a></h3>
-  {variant !== 'compact' && item.summary && <p class="sum">{item.summary}</p>}
-  {variant !== 'compact' && item.topics.length > 0 && (
-    <ul class="topics">{item.topics.map(t => <li>{t}</li>)}</ul>
-  )}
-  <div class="foot">
-    <span class="src"><span class="sname">{item.sourceName}</span> · <time datetime={item.date}>{fmtDate(item.date)}</time></span>
-    <a class="out" href={item.url} target="_blank" rel="noopener noreferrer" aria-label={`Read “${item.title}” at ${host(item.url)} (opens in a new tab)`}>
-      Read at <span class="host">{host(item.url)}</span><span class="arrow">↗</span>
-    </a>
-  </div>
-  {item.also.length > 0 && (
-    <div class="also">
-      <span class="label">Also covered by</span>
-      {item.also.slice(0, 4).map(a => (
-        <a class="out" href={a.url} target="_blank" rel="noopener noreferrer"><span class="host">{host(a.url)}</span><span class="arrow">↗</span></a>
-      ))}
+  {showImage && (
+    <div class="media">
+      <Plate item={item} />
+      {item.thumb && <img src={item.thumb} alt="" loading={eager ? 'eager' : 'lazy'} decoding="async" referrerpolicy="no-referrer" />}
+      {(item.kind === 'video' || item.kind === 'podcast') && <span class="play" aria-hidden="true">{item.kind === 'video' ? '▶' : '◖◗'}</span>}
     </div>
   )}
+  <div class="body">
+    <p class="kicker">
+      <span class={`pill t-${item.tone}`}><i></i>{item.kind === 'incident' ? 'Incident' : TONE_LABEL[item.tone]}</span>
+      {item.kind !== 'incident' && <span class="kind">{KIND_LABEL[item.kind]}</span>}
+      {item.place && variant !== 'row' && <span class="place">◎ {item.place.name}</span>}
+    </p>
+    <h3><a class="hl stretch" href={href} target="_blank" rel="noopener noreferrer">{item.title}</a></h3>
+    {(variant === 'hero' || variant === 'card' || variant === 'text') && item.summary && <p class="sum">{item.summary}</p>}
+    <p class="meta">
+      <span class="src">{item.sourceName}</span>
+      <span class={`persp pc-${p}`} title={PERSPECTIVES[p].note}>{PERSPECTIVES[p].label}</span>
+      <time datetime={item.date}>{ago(item.date)}</time>
+      {mins && variant !== 'row' && <span class="mins">{mins} min read</span>}
+    </p>
+    {variant !== 'row' && (
+      <div class="foot">
+        <a class="out" href={href} target="_blank" rel="noopener noreferrer" aria-label={`${media} “${item.title}” at ${host(item.url)} (opens in a new tab)`}>
+          {media} at <span class="host">{host(item.url)}</span><span class="arrow">↗</span>
+        </a>
+        {item.also.length > 0 && (
+          <span class="also">
+            <span class="label">+{item.also.length} {item.also.length === 1 ? 'source' : 'sources'}</span>
+            {item.also.slice(0, 3).map(a => <a class="out" href={a.url} target="_blank" rel="noopener noreferrer"><span class="host">{host(a.url)}</span><span class="arrow">↗</span></a>)}
+          </span>
+        )}
+      </div>
+    )}
+  </div>
 </article>
 
 <style>
-  .story { padding: 18px 20px 16px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
-  .meta { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
-  .place { color: var(--ink-2); text-transform: none; letter-spacing: 0.04em; }
-  h3 { margin: 0; font-weight: 500; font-size: 22px; line-height: 1.22; overflow-wrap: anywhere; }
-  .lead h3 { font-size: clamp(30px, 3.4vw, 46px); line-height: 1.08; font-style: italic; }
-  .compact h3 { font-size: 18px; }
-  .sum { margin: 0; color: var(--ink-2); font-size: 17px; line-height: 1.45; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
-  .lead .sum { font-size: 20px; -webkit-line-clamp: 6; }
-  .topics { display: flex; gap: 6px; flex-wrap: wrap; list-style: none; margin: 0; padding: 0; }
-  .topics li { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em; color: var(--dim); border: 1px solid var(--line); border-radius: 999px; padding: 2px 9px; }
-  .foot { margin-top: auto; padding-top: 8px; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; border-top: 1px dashed #23262d; }
-  .src { font-family: var(--mono); font-size: 11px; color: var(--dim); letter-spacing: 0.04em; }
-  .sname { color: var(--ink-2); }
-  .out, .also { position: relative; z-index: 1; }
-  .also { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .story { display: flex; flex-direction: column; min-width: 0; overflow: hidden; }
+  .media { aspect-ratio: 16 / 9; border-bottom: 1px solid var(--line); flex: none; }
+  .body { display: flex; flex-direction: column; gap: 9px; padding: 16px 18px 16px; flex: 1; min-width: 0; }
+  .kicker { margin: 0; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); }
+  .place { letter-spacing: 0.04em; text-transform: none; color: var(--ink-2); }
+  h3 { margin: 0; font-family: var(--serif); font-weight: 560; font-size: 22px; line-height: 1.22; letter-spacing: -0.005em; overflow-wrap: anywhere; color: var(--ink); }
+  .sum { margin: 0; color: var(--ink-2); font-size: 17px; line-height: 1.55; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .meta { margin: 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-family: var(--mono); font-size: 12px; color: var(--dim); }
+  .src { color: var(--ink); font-weight: 500; }
+  .foot { margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line-2); display: flex; align-items: center; justify-content: space-between; gap: 10px 18px; flex-wrap: wrap; }
+  .out, .also, .persp { position: relative; z-index: 2; }
+  .also { display: inline-flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+  .play { position: absolute; z-index: 2; left: 50%; top: 50%; width: 52px; height: 52px; margin: -26px 0 0 -26px; display: grid; place-items: center; border-radius: 50%; border: 1px solid rgba(238,236,231,0.7); background: rgba(12,13,16,0.6); color: var(--ink); font-size: 15px; backdrop-filter: blur(4px); transition: transform .4s var(--ease), border-color .4s var(--ease), box-shadow .4s var(--ease); }
+  .story:hover .play { transform: scale(1.1); border-color: var(--acc); box-shadow: 0 0 24px var(--acc-glow); }
+
+  /* Hero: the lead story */
+  .hero .media { aspect-ratio: 16 / 8.6; }
+  .hero .body { padding: 22px 26px 22px; gap: 12px; }
+  .hero h3 { font-size: clamp(32px, 3.4vw, 48px); line-height: 1.08; font-weight: 600; letter-spacing: -0.015em; }
+  .hero .sum { font-size: 21px; -webkit-line-clamp: 4; }
+
+  /* Row: compact list with a thumbnail */
+  .row { flex-direction: row; align-items: stretch; }
+  .row .media { aspect-ratio: auto; width: 128px; border-bottom: 0; border-right: 1px solid var(--line); }
+  .row .body { padding: 12px 14px; gap: 6px; }
+  .row h3 { font-size: 18px; line-height: 1.25; }
+  .row .kicker { font-size: 10.5px; }
+
+  /* Text: no image (papers, briefs) */
+  .text h3 { font-size: 21px; }
+  .text .sum { -webkit-line-clamp: 4; font-size: 16.5px; }
+
   .story[hidden] { display: none; }
+
+  @media (max-width: 560px) {
+    .row .media { width: 96px; }
+    .hero .body { padding: 18px; }
+    .hero .sum { font-size: 18px; }
+  }
 </style>

@@ -106,6 +106,34 @@ function clean(s: string, max = 280) {
 const safeUrl = (u: string) => { try { const x = new URL(u.trim()); return x.protocol === 'https:' || x.protocol === 'http:' ? x.href.replace(/^http:/, 'https:') : ''; } catch { return ''; } };
 const hash = (s: string) => { let h = 2166136261; for (const c of s) h = Math.imul(h ^ c.charCodeAt(0), 16777619); return (h >>> 0).toString(36); };
 
+// Article images: the picture the publisher offers for link previews.
+// We link to it (never copy it), and skip placeholders and tracking pixels.
+function goodImage(u?: string) {
+  if (!u) return undefined;
+  const url = safeUrl(u.replace(/&amp;/g, '&'));
+  if (!url || /d_fallback|d41d8cd98f00b204e9800998ecf8427e|pixel|spacer|\.gif(\?|$)|gravatar|feeds\.feedburner/i.test(url)) return undefined;
+  return url.replace(/^https:\/\/i\d\.ytimg\.com\//, 'https://i.ytimg.com/');
+}
+
+async function ogImage(url: string) {
+  try {
+    const res = await fetch(url, { headers: { 'user-agent': UA, accept: 'text/html' }, signal: AbortSignal.timeout(8000), redirect: 'follow' });
+    if (!res.ok || !(res.headers.get('content-type') ?? '').includes('html')) return undefined;
+    // Only the <head> is needed.
+    const reader = res.body!.getReader();
+    let html = '';
+    while (html.length < 200_000 && !/<\/head>/i.test(html)) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      html += new TextDecoder().decode(value);
+    }
+    reader.cancel().catch(() => {});
+    const m = html.match(/<meta[^>]+(?:property|name)=["'](?:og:image|twitter:image)(?::src)?["'][^>]*content=["']([^"']+)["']/i)
+      ?? html.match(/<meta[^>]+content=["']([^"']+)["'][^>]*(?:property|name)=["'](?:og:image|twitter:image)["']/i);
+    return goodImage(m?.[1] ? new URL(m[1], url).href : undefined);
+  } catch { return undefined; }
+}
+
 interface Raw { title: string; url: string; date: string; summary: string; thumb?: string; group?: string }
 
 function parseFeed(body: string): Raw[] {
@@ -117,7 +145,11 @@ function parseFeed(body: string): Raw[] {
     const link = rss ? text(e.link) || text(e.guid)
       : [e.link].flat().find((l: any) => !l?.['@rel'] || l['@rel'] === 'alternate')?.['@href'] ?? '';
     const media = e['media:group'];
-    const thumb = media?.['media:thumbnail']?.['@url'];
+    const attr = (v: any, k: string) => [v].flat().find((x: any) => x?.[k])?.[k];
+    const enclosure = [e.enclosure].flat().find((x: any) => /^image\//.test(x?.['@type'] ?? ''))?.['@url'];
+    const inline = (text(e['content:encoded']) || text(e.content) || text(e.description)).match(/<img[^>]+src=["']([^"']+)["']/i)?.[1];
+    const thumb = attr(media?.['media:thumbnail'], '@url') ?? attr(e['media:content'], '@url') ?? attr(e['media:thumbnail'], '@url')
+      ?? enclosure ?? attr(e['itunes:image'], '@href') ?? inline;
     const desc = text(e.description);
     return {
       group: desc.match(/incidentdatabase\.ai\/cite\/(\d+)/)?.[1],
@@ -139,7 +171,7 @@ async function anthropic(src: Source): Promise<Raw[]> {
     try {
       const html = await get(url);
       const meta = (p: string) => html.match(new RegExp(`<meta[^>]+property="${p}"[^>]+content="([^"]*)"`))?.[1] ?? '';
-      return { title: clean(meta('og:title'), 200), url, date: meta('article:published_time'), summary: meta('og:description') } as Raw;
+      return { title: clean(meta('og:title'), 200), url, date: meta('article:published_time'), summary: meta('og:description'), thumb: meta('og:image') } as Raw;
     } catch { return null; }
   }));
   return pages.filter((p): p is Raw => !!p && !!p.date);
@@ -160,10 +192,12 @@ async function collect(src: Source): Promise<{ items: Item[]; ok: boolean; error
       const summary = clean(r.summary).replace(/^Anthropic is an AI safety and research company.*$/, '');
       const { raw, rel, topics } = relevance(`${r.title} ${summary}`);
       if (raw < src.minScore) continue;
+      // arXiv uses "alignment" in other fields too (e.g. signal alignment), so papers must be about AI models.
+      if (src.kind === 'paper' && !/\b(language models?|LLMs?|AI|agents?|neural|transformers?|reinforcement learning|chatbots?)\b/.test(`${r.title} ${summary}`)) continue;
       const kind = src.kind;
       items.push({
         id: hash(url), title: r.title, url, source: src.id, sourceName: src.name, kind,
-        date: new Date(t).toISOString(), summary, thumb: r.thumb && safeUrl(r.thumb).replace(/^https:\/\/i\d\.ytimg\.com\//, 'https://i.ytimg.com/') || undefined,
+        date: new Date(t).toISOString(), summary, thumb: goodImage(r.thumb),
         relevance: Math.max(rel, src.minScore === 0 ? 0.5 : 0), score: 0,
         tone: tone(kind, `${r.title} ${summary}`), topics,
         place: kind === 'incident' || kind === 'news' || kind === 'lab' ? locate(r.title, summary, src.name) : undefined,
@@ -226,9 +260,31 @@ const items = merge([...fresh, ...carried].map(i => ({ ...i, also: [] })), trust
   .map(i => ({ ...i, score: score(i, trust.get(i.source) ?? 0.5) }))
   .sort((a, b) => b.score - a.score);
 
+// Fill in preview images for the top stories that lack one. Results from the
+// last run are reused, so each article page is fetched at most once.
+const prevImg = new Map<string, string | undefined>();
+for (const p of previous) prevImg.set(p.id, p.thumb ?? ((p as any).noImage ? 'none' : undefined));
+const need = items.filter(i => !i.thumb && i.kind !== 'paper').slice(0, 180);
+let fetched = 0;
+for (let k = 0; k < need.length; k += 12) {
+  await Promise.all(need.slice(k, k + 12).map(async it => {
+    const cached = prevImg.get(it.id);
+    if (cached === 'none') { (it as any).noImage = true; return; }
+    if (cached) { it.thumb = cached; return; }
+    fetched++;
+    const img = await ogImage(it.url);
+    if (img) it.thumb = img; else (it as any).noImage = true;
+  }));
+}
+
+// An image used by several different stories is a site logo, not a story picture.
+const imgUses = new Map<string, number>();
+for (const i of items) if (i.thumb) imgUses.set(i.thumb, (imgUses.get(i.thumb) ?? 0) + 1);
+for (const i of items) if (i.thumb && imgUses.get(i.thumb)! >= 3) i.thumb = undefined;
+
 const sources = SOURCES.map(s => {
   const r = results.find(x => x.s.id === s.id)!;
-  return { id: s.id, name: s.name, home: s.home, feed: s.feed, kind: s.kind, trust: s.trust, minScore: s.minScore, ok: r.ok, error: r.error, count: items.filter(i => i.source === s.id).length };
+  return { id: s.id, name: s.name, home: s.home, feed: s.feed, kind: s.kind, trust: s.trust, minScore: s.minScore, perspective: s.perspective, ok: r.ok, error: r.error, count: items.filter(i => i.source === s.id).length };
 });
 
 await mkdir(new URL('.', OUT), { recursive: true });

@@ -1,0 +1,79 @@
+---
+import Base from '../../layouts/Base.astro';
+import Story from '../../components/Story.astro';
+import Mix from '../../components/Mix.astro';
+import { TOPICS, topicItems, newest, within, type Topic } from '../../lib/feed';
+
+export function getStaticPaths() {
+  return TOPICS.map(t => ({ params: { slug: t.slug }, props: { t } }));
+}
+const { t } = Astro.props as { t: Topic };
+const list = topicItems(t);
+const recent = newest(list);
+const stats = [
+  ['Last 7 days', list.filter(i => within(i, 7)).length],
+  ['Last 30 days', list.filter(i => within(i, 30)).length],
+  ['Papers', list.filter(i => i.kind === 'paper').length],
+  ['Incidents', list.filter(i => i.kind === 'incident').length],
+];
+const others = TOPICS.filter(o => o.slug !== t.slug);
+---
+<Base title={t.name} current="/topics" description={t.brief} compact>
+  <div class="wrap page">
+    <header class="phead">
+      <div>
+        <p class="label crumb"><a href="/">Front Page</a> / <a href="/topics">Topics</a></p>
+        <h1>{t.name}</h1>
+      </div>
+    </header>
+
+    <section class="briefing" aria-label="Brief">
+      <div class="text">
+        <p class="label k">The brief</p>
+        <p class="lead">{t.brief}</p>
+        <p class="label k">Why it matters</p>
+        <p class="why">{t.why}</p>
+      </div>
+      <aside class="card facts">
+        <dl>{stats.map(([k, v]) => <div><dt class="label">{k}</dt><dd>{v}</dd></div>)}</dl>
+        <Mix list={list} label="Who is speaking on this topic" />
+      </aside>
+    </section>
+
+    <header class="sec-head"><span class="num">§</span><h2>Latest on {t.name.toLowerCase()}</h2></header>
+    <div class="grid" id="stream">{recent.map(i => <Story item={i} />)}</div>
+    <div class="morewrap"><button class="btn" type="button" id="more">Show more</button></div>
+
+    <nav class="other" aria-label="Other topics">
+      <p class="label">Other topics</p>
+      <ul>{others.map(o => <li><a class="btn" href={`/topics/${o.slug}`}>{o.name}</a></li>)}</ul>
+    </nav>
+  </div>
+</Base>
+
+<script>
+  import '../../scripts/filters.ts';
+</script>
+
+<style>
+  .page { padding-top: 34px; }
+  .phead { border-bottom: 2px solid var(--ink); padding-bottom: 18px; margin-bottom: 28px; }
+  .crumb { margin: 0 0 6px; }
+  .crumb a { color: var(--acc); text-decoration: none; }
+  h1 { margin: 0; font-family: var(--display); font-weight: 600; font-size: clamp(48px, 6vw, 84px); line-height: 0.98; }
+  .briefing { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 36px; margin-bottom: 56px; }
+  .k { margin: 0 0 6px; color: var(--gold); }
+  .lead { margin: 0 0 22px; font-size: clamp(22px, 2.2vw, 28px); line-height: 1.45; }
+  .lead::first-letter { font-family: var(--display); float: left; font-size: 3.4em; line-height: 0.8; padding: 6px 10px 0 0; color: var(--acc); }
+  .why { margin: 0; font-size: 20px; color: var(--ink-2); }
+  .facts { padding: 20px; display: flex; flex-direction: column; gap: 22px; align-self: start; }
+  dl { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  dd { margin: 0; font-family: var(--mono); font-size: 30px; line-height: 1.1; color: var(--ink); }
+  dl div { display: flex; flex-direction: column-reverse; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 18px; }
+  .morewrap { display: flex; justify-content: center; margin-top: 24px; }
+  .other { margin-top: 56px; }
+  .other ul { list-style: none; padding: 0; margin: 10px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .other a { text-decoration: none; display: inline-block; }
+  @media (max-width: 900px) { .briefing { grid-template-columns: minmax(0, 1fr); } }
+</style>

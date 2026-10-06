@@ -1,24 +1,34 @@
 ---
 import '../styles/global.css';
-import { generated, edition, items } from '../lib/feed';
+import { generated, edition, items, linkTo, host, perspectiveOf, PERSPECTIVES } from '../lib/feed';
 import Mark from '../components/Mark.astro';
 
-interface Props { title?: string; description?: string; current?: string }
-const { title, description = 'A daily watch on AI safety: news, research, videos, podcasts and incidents from across the field, with every source linked.', current = '' } = Astro.props;
+interface Props { title?: string; description?: string; current?: string; compact?: boolean }
+const { title, description = 'A daily watch on AI safety: news, research, videos, podcasts and incidents from across the field, with every source linked.', current = '/', compact = false } = Astro.props;
 const fullTitle = title ? `${title} · The Vigil` : 'The Vigil — A daily watch on AI safety';
 
-const nav = [
-  ['/', 'Front Page'],
-  ['/#research', 'Research'],
-  ['/#watch', 'Watch'],
-  ['/#listen', 'Listen'],
-  ['/atlas', 'Atlas'],
-  ['/#good', 'Good News'],
-  ['/guide', 'Field Guide'],
-  ['/sources', 'Sources'],
+const nav: [string, string, string][] = [
+  ['/', '', 'Front Page'],
+  ['/latest', 'I', 'Latest'],
+  ['/research', 'II', 'Research'],
+  ['/watch', 'III', 'Watch'],
+  ['/listen', 'IV', 'Listen'],
+  ['/incidents', 'V', 'Incidents'],
+  ['/good-news', 'VI', 'Good News'],
+  ['/atlas', 'VII', 'Atlas'],
+  ['/topics', 'VIII', 'Topics'],
+  ['/guide', 'IX', 'Field Guide'],
+  ['/sources', '§', 'Sources'],
 ];
 const ticker = items.filter(i => i.kind === 'news' || i.kind === 'lab' || i.kind === 'incident').slice(0, 14);
 const dateline = generated.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric', timeZone: 'America/Chicago' });
+
+// Data for the first-open briefing (top stories by rank).
+const brief = items.filter(i => i.kind !== 'paper').slice(0, 40).map(i => ({
+  t: i.title, u: linkTo(i), h: host(i.url), s: i.sourceName, p: PERSPECTIVES[perspectiveOf(i)].label, pc: perspectiveOf(i),
+  d: i.date, img: i.thumb ?? '', tone: i.tone, k: i.kind,
+}));
+const briefJson = JSON.stringify({ generated: generated.toISOString(), items: brief }).replace(/</g, '\\u003c');
 ---
 <!doctype html>
 <html lang="en">
@@ -36,7 +46,7 @@ const dateline = generated.toLocaleDateString('en-US', { weekday: 'long', month:
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
-  <div class="shell">
+  <div class={`shell ${compact ? 'compact' : ''}`}>
     <header class="masthead">
       <div class="wrap">
         <div class="topline label">
@@ -45,30 +55,36 @@ const dateline = generated.toLocaleDateString('en-US', { weekday: 'long', month:
           <span>Updated <time datetime={generated.toISOString()} data-ago>{generated.toISOString().slice(11, 16)} UTC</time></span>
         </div>
         <a class="title" href="/" aria-label="The Vigil, home">
-          <Mark size={54} />
+          <Mark size={compact ? 38 : 54} />
           <span class="name"><span class="the">The</span> Vigil</span>
         </a>
-        <p class="motto">A daily watch on AI safety <span class="sep">·</span> <span class="kept">kept by Benjamin Truong</span></p>
-        <nav aria-label="Sections">
-          <ul>
-            {nav.map(([href, label], i) => (
-              <li><a href={href} aria-current={current === href ? 'page' : undefined}><span class="rn">{['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', '§'][i]}.</span> {label}</a></li>
-            ))}
-          </ul>
-        </nav>
-      </div>
-      <div class="ticker" aria-label="Latest headlines">
-        <span class="live label"><i></i> Wire</span>
-        <div class="track">
-          <ul class="run">
-            {ticker.map(i => <li><a href={i.url} target="_blank" rel="noopener noreferrer"><span class={`tdot t-${i.tone}`}></span>{i.title}<span class="src">{i.sourceName}</span></a></li>)}
-          </ul>
-          <ul class="run" aria-hidden="true">
-            {ticker.map(i => <li><a href={i.url} target="_blank" rel="noopener noreferrer" tabindex="-1"><span class={`tdot t-${i.tone}`}></span>{i.title}<span class="src">{i.sourceName}</span></a></li>)}
-          </ul>
-        </div>
+        {!compact && <p class="motto">A daily watch on AI safety <span class="sep">·</span> <span class="kept">kept by Benjamin Truong</span></p>}
       </div>
     </header>
+
+    <nav class="secnav" aria-label="Sections">
+      <div class="wrap navin">
+        <a class="mini" href="/" aria-hidden="true" tabindex="-1"><Mark size={22} /><span>The Vigil</span></a>
+        <ul>
+          {nav.map(([href, n, label]) => (
+            <li><a href={href} aria-current={current === href ? 'page' : undefined}>{label}</a></li>
+          ))}
+        </ul>
+        <button class="brief-btn" type="button" id="open-brief" aria-label="Open today’s briefing">◐ Briefing</button>
+      </div>
+    </nav>
+
+    <div class="ticker" aria-label="Latest headlines">
+      <span class="live label"><i></i> Wire</span>
+      <div class="track">
+        <ul class="run">
+          {ticker.map(i => <li><a href={linkTo(i)} target="_blank" rel="noopener noreferrer"><span class={`tdot t-${i.tone}`}></span>{i.title}<span class="src">{i.sourceName}</span></a></li>)}
+        </ul>
+        <ul class="run" aria-hidden="true">
+          {ticker.map(i => <li><a href={linkTo(i)} target="_blank" rel="noopener noreferrer" tabindex="-1"><span class={`tdot t-${i.tone}`}></span>{i.title}<span class="src">{i.sourceName}</span></a></li>)}
+        </ul>
+      </div>
+    </div>
 
     <main id="main">
       <slot />
@@ -78,7 +94,7 @@ const dateline = generated.toLocaleDateString('en-US', { weekday: 'long', month:
       <div class="wrap foot">
         <div>
           <p class="fname"><Mark size={22} /> <em>The Vigil</em></p>
-          <p class="fine">Kept by Benjamin Truong. Every story links to its original source; we show headlines and short excerpts only. Updated automatically from public feeds. <a href="/sources">How it works →</a></p>
+          <p class="fine">Kept by Benjamin Truong. Every story links to its original source; we show headlines, short excerpts and preview images only, and the publisher gets the visit. Updated automatically from public feeds. <a href="/sources">How it works →</a></p>
         </div>
         <div class="flinks">
           <a class="out" href="https://benjamin-truong.vercel.app" target="_blank" rel="noopener noreferrer"><span class="host">Quaderni</span><span class="arrow">↗</span></a>
@@ -98,6 +114,23 @@ const dateline = generated.toLocaleDateString('en-US', { weekday: 'long', month:
     </figure>
   </div>
 
+  <div class="briefing" id="briefing" role="dialog" aria-modal="true" aria-labelledby="brief-title" hidden>
+    <div class="bpanel">
+      <header class="bhead">
+        <p class="label bkick"><span class="bdot"></span><span id="brief-slot">Today’s edition</span></p>
+        <h2 id="brief-title">Good morning.</h2>
+        <p class="bsub" id="brief-sub"></p>
+        <button class="bclose" type="button" id="brief-close" aria-label="Close briefing">×</button>
+      </header>
+      <ol class="blist" id="brief-list"></ol>
+      <footer class="bfoot">
+        <p class="label">Ranked by relevance, source and freshness · every link opens the original</p>
+        <button class="btn bgo" type="button" id="brief-go">Read the paper →</button>
+      </footer>
+    </div>
+  </div>
+  <script type="application/json" id="brief-data" set:html={briefJson} />
+
   <script>
     import '../scripts/chrome.ts';
   </script>
@@ -108,61 +141,111 @@ const dateline = generated.toLocaleDateString('en-US', { weekday: 'long', month:
   .shell {
     min-height: 100vh;
     display: grid;
-    grid-template-areas: 'head' 'main' 'foot';
-    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 'head' 'nav' 'tick' 'main' 'foot';
+    grid-template-rows: auto auto auto 1fr auto;
     grid-template-columns: minmax(0, 1fr);
   }
-  .masthead { grid-area: head; min-width: 0; border-bottom: 1px solid var(--line); padding-top: 14px; background: linear-gradient(180deg, rgba(12,13,16,0.4), rgba(12,13,16,0.95)); }
+  .masthead { grid-area: head; min-width: 0; padding-top: 14px; }
   .topline { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
   .title { display: flex; align-items: center; justify-content: center; gap: 18px; text-decoration: none; margin: 22px 0 4px; }
-  .name { font-family: var(--serif); font-weight: 500; font-size: clamp(48px, 8vw, 104px); line-height: 0.95; letter-spacing: -0.01em; text-shadow: 0 0 40px rgba(134,168,255,0.12); }
-  .the { font-style: italic; font-weight: 400; color: var(--ink-2); font-size: 0.55em; vertical-align: 0.42em; margin-right: 0.1em; }
-  .motto { text-align: center; margin: 4px 0 18px; font-style: italic; color: var(--ink-2); font-size: 19px; }
+  .name { font-family: var(--display); font-weight: 600; font-size: clamp(52px, 8vw, 108px); line-height: 0.95; letter-spacing: -0.01em; text-shadow: 0 0 40px rgba(134,168,255,0.12); }
+  .the { font-style: italic; font-weight: 500; color: var(--ink-2); font-size: 0.55em; vertical-align: 0.42em; margin-right: 0.1em; }
+  .motto { text-align: center; margin: 6px 0 20px; font-style: italic; color: var(--ink-2); font-size: 20px; }
   .motto .sep { color: var(--dim); margin: 0 6px; }
   .motto .kept { color: var(--gold); }
-  nav { border-top: 1px solid var(--line); border-bottom: 3px double var(--line); }
-  nav ul { list-style: none; margin: 0; padding: 0; display: flex; justify-content: center; flex-wrap: wrap; }
-  nav a { display: block; padding: 11px 14px; font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-2); text-decoration: none; transition: color .3s var(--ease), text-shadow .3s var(--ease); }
-  nav a:hover, nav a[aria-current='page'] { color: var(--ink); text-shadow: 0 0 14px var(--acc-glow); }
-  nav a[aria-current='page'] .rn, nav a:hover .rn { color: var(--acc); }
-  .rn { color: var(--dim); }
+  .compact .title { margin: 14px 0 16px; gap: 12px; }
+  .compact .name { font-size: clamp(40px, 5vw, 60px); }
 
-  .ticker { min-width: 0; display: flex; align-items: center; height: 38px; overflow: hidden; border-top: 1px solid transparent; }
+  .secnav { grid-area: nav; position: sticky; top: 0; z-index: 20; min-width: 0; background: rgba(12,13,16,0.86); backdrop-filter: blur(10px) saturate(1.2); border-top: 1px solid var(--line); border-bottom: 3px double var(--line); }
+  .navin { display: flex; align-items: center; gap: 14px; }
+  .mini { display: flex; align-items: center; gap: 8px; text-decoration: none; font-family: var(--display); font-weight: 600; font-size: 20px; white-space: nowrap; width: 0; opacity: 0; overflow: hidden; transition: width .4s var(--ease), opacity .4s var(--ease); }
+  .secnav.stuck .mini { width: 128px; opacity: 1; }
+  .secnav ul { list-style: none; margin: 0 auto; padding: 0; display: flex; justify-content: center; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; min-width: 0; }
+  .secnav li a { display: block; padding: 13px 10px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); text-decoration: none; white-space: nowrap; transition: color .3s var(--ease), text-shadow .3s var(--ease); }
+  .secnav li a:hover, .secnav li a[aria-current='page'] { color: var(--ink); text-shadow: 0 0 14px var(--acc-glow); }
+  .secnav li a[aria-current='page'] { box-shadow: inset 0 -2px 0 var(--acc); }
+  .secnav li a[aria-current='page'] .rn, .secnav li a:hover .rn { color: var(--acc); }
+  .rn { color: var(--dim); }
+  .brief-btn { flex: none; font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); background: none; border: 1px solid rgba(217,184,120,0.4); border-radius: 999px; padding: 6px 12px; cursor: pointer; transition: background .3s var(--ease), border-color .3s var(--ease); }
+  .brief-btn:hover { background: rgba(217,184,120,0.1); border-color: var(--gold); }
+
+  .ticker { grid-area: tick; min-width: 0; display: flex; align-items: center; height: 42px; overflow: hidden; border-bottom: 1px solid var(--line); }
   .live { flex: none; display: flex; align-items: center; gap: 8px; padding: 0 16px 0 var(--gutter); color: var(--risk); height: 100%; background: var(--bg); position: relative; z-index: 1; box-shadow: 12px 0 18px var(--bg); }
   .live i { width: 7px; height: 7px; border-radius: 50%; background: var(--risk); box-shadow: 0 0 10px var(--risk); animation: blink 2s ease-in-out infinite; }
   @keyframes blink { 50% { opacity: 0.25; } }
-  .track { display: flex; width: max-content; animation: run 120s linear infinite; }
+  .track { display: flex; width: max-content; animation: run 140s linear infinite; }
   .ticker:hover .track, .ticker:focus-within .track { animation-play-state: paused; }
   .run { display: flex; list-style: none; margin: 0; padding: 0; }
   .run li { white-space: nowrap; }
-  .run a { display: inline-flex; align-items: center; gap: 10px; padding: 0 26px; font-size: 16px; color: var(--ink-2); text-decoration: none; border-right: 1px solid var(--line); transition: color .3s var(--ease); }
+  .run a { display: inline-flex; align-items: center; gap: 10px; padding: 0 26px; font-size: 17px; color: var(--ink-2); text-decoration: none; border-right: 1px solid var(--line); transition: color .3s var(--ease); }
   .run a:hover { color: var(--ink); }
-  .run .src { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); }
+  .run .src { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--dim); }
   .tdot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; box-shadow: 0 0 8px currentColor; }
   @keyframes run { to { transform: translateX(-50%); } }
 
   main { grid-area: main; min-width: 0; }
-  footer { grid-area: foot; border-top: 1px solid var(--line); margin-top: 72px; }
+  footer { grid-area: foot; border-top: 1px solid var(--line); margin-top: 80px; }
   .foot { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; padding-top: 28px; padding-bottom: 40px; }
-  .fname { display: flex; align-items: center; gap: 10px; margin: 0 0 6px; font-size: 22px; }
-  .fine { margin: 0; max-width: 560px; color: var(--dim); font-size: 15px; }
+  .fname { display: flex; align-items: center; gap: 10px; margin: 0 0 6px; font-family: var(--display); font-size: 24px; }
+  .fine { margin: 0; max-width: 600px; color: var(--dim); font-size: 16px; }
   .fine a { color: var(--acc); text-decoration: none; }
   .flinks { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
 
-  .veil { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: 24px; background: radial-gradient(ellipse at center, rgba(20,22,27,0.97), rgba(12,13,16,0.995)); cursor: pointer; transition: opacity .9s var(--ease); }
+  .veil { position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; padding: 24px; background: radial-gradient(ellipse at center, rgba(20,22,27,0.98), rgba(12,13,16,0.995)); cursor: pointer; transition: opacity .9s var(--ease); }
   .veil[hidden] { display: none; }
   .veil.out { opacity: 0; pointer-events: none; }
-  .veil figure { margin: 0; max-width: 760px; text-align: center; }
-  .veil blockquote { margin: 0 0 18px; font-style: italic; font-size: clamp(26px, 3.6vw, 44px); line-height: 1.25; }
+  .veil figure { margin: 0; max-width: 780px; text-align: center; }
+  .veil blockquote { margin: 0 0 18px; font-family: var(--display); font-style: italic; font-weight: 500; font-size: clamp(28px, 3.8vw, 48px); line-height: 1.22; }
   .veil figcaption { font-family: var(--mono); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); opacity: 0; animation: fade 1.2s 2.6s var(--ease) forwards; }
   .skiphint { margin-top: 36px; opacity: 0; animation: fade 1s 3.4s var(--ease) forwards; }
   @keyframes fade { to { opacity: 1; } }
 
-  @media (max-width: 720px) {
+  /* First-open briefing */
+  .briefing { position: fixed; inset: 0; z-index: 55; display: grid; place-items: center; padding: 20px; background: rgba(6,7,9,0.78); backdrop-filter: blur(6px); animation: fade .6s var(--ease); opacity: 1; }
+  .briefing[hidden] { display: none; }
+  .briefing.out { opacity: 0; transition: opacity .5s var(--ease); pointer-events: none; }
+  .bpanel { width: min(860px, 100%); max-height: min(88vh, 900px); display: flex; flex-direction: column; background: linear-gradient(180deg, #15171d, #0f1115); border: 1px solid #363b48; border-radius: 14px; box-shadow: 0 40px 120px -30px #000, 0 0 60px -20px var(--acc-glow); overflow: hidden; animation: rise .7s var(--ease); }
+  @keyframes rise { from { transform: translateY(18px); opacity: 0; } }
+  .bhead { position: relative; padding: 24px 28px 18px; border-bottom: 1px solid var(--line); }
+  .bkick { display: flex; align-items: center; gap: 8px; margin: 0; color: var(--gold); }
+  .bdot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 10px var(--gold); }
+  .bhead h2 { margin: 6px 0 2px; font-family: var(--display); font-weight: 600; font-size: clamp(34px, 4vw, 48px); line-height: 1.05; }
+  .bsub { margin: 0; color: var(--ink-2); font-size: 18px; }
+  .bclose { position: absolute; top: 14px; right: 16px; background: none; border: 0; color: var(--dim); font-size: 28px; line-height: 1; cursor: pointer; padding: 4px 8px; border-radius: 6px; }
+  .bclose:hover { color: var(--ink); }
+  .blist { list-style: none; margin: 0; padding: 8px 14px; overflow-y: auto; counter-reset: b; }
+  .bfoot { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 14px 28px; border-top: 1px solid var(--line); }
+  .bfoot .label { margin: 0; font-size: 10.5px; }
+  .bgo { color: var(--bg); background: var(--acc); border-color: var(--acc); }
+  .bgo:hover { color: var(--bg); box-shadow: 0 0 22px -4px var(--acc-glow); }
+
+  @media (max-width: 900px) {
     .topline .dateline { display: none; }
-    nav ul { justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
-    nav a { padding: 11px 10px; white-space: nowrap; }
-    .title { gap: 12px; }
-    .run a { font-size: 15px; }
+    .secnav ul { justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin: 0; }
+    .secnav.stuck .mini { width: 0; opacity: 0; }
+    .brief-btn { padding: 6px 10px; }
+    .run a { font-size: 16px; }
+  }
+  @media (max-width: 560px) {
+    .brief-btn { display: none; }
+    .bhead { padding: 18px 18px 14px; }
+    .bfoot { padding: 12px 18px; }
+    .blist { padding: 6px 6px; }
+  }
+</style>
+
+<style is:global>
+  .blist li a { display: grid; grid-template-columns: 34px 112px minmax(0, 1fr); gap: 14px; align-items: center; padding: 12px 12px; border-radius: 10px; text-decoration: none; transition: background .3s var(--ease); }
+  .blist li a:hover, .blist li a:focus-visible { background: rgba(134,168,255,0.07); }
+  .blist .bn { font-family: var(--mono); font-size: 13px; color: var(--gold); text-align: right; }
+  .blist .bimg { position: relative; aspect-ratio: 16 / 10; border-radius: 6px; overflow: hidden; background: linear-gradient(135deg, #1a1d24, #0d0f13); border: 1px solid var(--line); }
+  .blist .bimg img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.85) brightness(0.9); }
+  .blist .bt { display: block; font-family: var(--serif); font-weight: 560; font-size: 19px; line-height: 1.25; color: var(--ink); }
+  .blist .bm { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 5px; font-family: var(--mono); font-size: 11.5px; color: var(--dim); }
+  .blist .bm b { font-weight: 500; color: var(--acc); }
+  .blist .bm i { width: 6px; height: 6px; border-radius: 50%; background: currentColor; display: inline-block; }
+  @media (max-width: 560px) {
+    .blist li a { grid-template-columns: 22px 76px minmax(0, 1fr); gap: 10px; padding: 10px 8px; }
+    .blist .bt { font-size: 17px; }
   }
 </style>

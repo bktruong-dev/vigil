@@ -1,8 +1,8 @@
 ---
-import { items } from '../lib/feed';
+import { items, linkTo } from '../lib/feed';
 
 interface Props { tall?: boolean; numeral?: string }
-const { tall = false, numeral = 'V' } = Astro.props;
+const { tall = false, numeral = 'VII' } = Astro.props;
 
 // Group every placed story by location.
 type Pt = { t: string; u: string; s: string; d: string; tone: string; k: string };
@@ -11,7 +11,7 @@ for (const i of items) {
   if (!i.place) continue;
   const key = i.place.name;
   const g = groups.get(key) ?? { ...i.place, items: [], risk: 0, good: 0 };
-  g.items.push({ t: i.title, u: i.url, s: i.sourceName, d: i.date.slice(0, 10), tone: i.tone, k: i.kind });
+  g.items.push({ t: i.title, u: linkTo(i), s: i.sourceName, d: i.date.slice(0, 10), tone: i.tone, k: i.kind });
   if (i.tone === 'risk') g.risk++;
   if (i.tone === 'good') g.good++;
   groups.set(key, g);

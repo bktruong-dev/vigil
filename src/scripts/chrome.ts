@@ -1,4 +1,6 @@
-// Shared page behaviour: motion switch, the opening quote veil, "updated … ago".
+// Shared page behaviour: motion switch, the opening quote veil, the
+// first-open briefing, the sticky section bar, image fallbacks, "… ago".
+// Feed text is only ever inserted with textContent.
 
 const root = document.documentElement;
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -11,9 +13,9 @@ function store(key: string, value?: string) {
   return null;
 }
 
-// Motion on/off
+// ---------- Motion on/off ----------
 export const motion = { on: !reduced && store('vigil:motion') !== 'off' };
-const apply = () => {
+const applyMotion = () => {
   root.classList.toggle('no-motion', !motion.on);
   const b = document.getElementById('motion');
   if (b) { b.setAttribute('aria-pressed', String(motion.on)); b.textContent = motion.on ? 'Motion on' : 'Motion off'; }
@@ -22,52 +24,145 @@ const apply = () => {
 document.getElementById('motion')?.addEventListener('click', () => {
   motion.on = !motion.on;
   store('vigil:motion', motion.on ? 'on' : 'off');
-  apply();
+  applyMotion();
 });
-apply();
+applyMotion();
 
-// "Updated 2h ago"
-function ago(iso: string) {
-  const m = Math.round((Date.now() - Date.parse(iso)) / 6e4);
+// ---------- "Updated 2h ago" ----------
+function ago(ms: number) {
+  const m = Math.round(ms / 6e4);
   if (m < 1) return 'just now';
   if (m < 60) return `${m} min ago`;
   const h = Math.round(m / 60);
   if (h < 48) return `${h}h ago`;
   return `${Math.round(h / 24)} days ago`;
 }
-const tick = () => document.querySelectorAll<HTMLTimeElement>('time[data-ago]').forEach(t => { t.textContent = ago(t.dateTime); });
+const tick = () => document.querySelectorAll<HTMLTimeElement>('time[data-ago]').forEach(t => { t.textContent = ago(Date.now() - Date.parse(t.dateTime)); });
 tick();
 setInterval(tick, 60_000);
 
-// Opening quote veil, once per visit. Letters settle out of a blur.
+// ---------- Broken images fall back to the cover art underneath ----------
+document.addEventListener('error', e => {
+  const img = e.target as HTMLElement;
+  if (img instanceof HTMLImageElement) img.closest('.media, .bimg')?.classList.add('broken');
+}, true);
+document.querySelectorAll<HTMLImageElement>('.media img').forEach(img => {
+  if (img.complete && img.naturalWidth === 0 && img.src) img.closest('.media')?.classList.add('broken');
+});
+
+// ---------- Sticky section bar shows the small logo once the masthead scrolls away ----------
+const nav = document.querySelector('.secnav');
+const mast = document.querySelector('.masthead');
+if (nav && mast) new IntersectionObserver(([e]) => nav.classList.toggle('stuck', !e.isIntersecting)).observe(mast);
+
+// ---------- First-open briefing ----------
+type B = { t: string; u: string; h: string; s: string; p: string; pc: string; d: string; img: string; tone: string; k: string };
+const panel = document.getElementById('briefing');
+const data: { generated: string; items: B[] } = JSON.parse(document.getElementById('brief-data')?.textContent || '{"items":[]}');
+const safe = (u: string) => { try { const x = new URL(u); return x.protocol === 'https:' ? x.href : ''; } catch { return ''; } };
+
+const now = new Date();
+const hour = now.getHours();
+const slot = hour >= 5 && hour < 12 ? 'Morning' : hour >= 12 && hour < 18 ? 'Afternoon' : 'Evening';
+const dayKey = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}-${slot}`;
+const lastVisit = Number(store('vigil:last') || 0);
+store('vigil:last', String(Date.now()));
+
+function fillBriefing() {
+  const since = lastVisit && Date.now() - lastVisit > 30 * 6e4 ? lastVisit : 0;
+  const gen = Date.parse(data.generated);
+  const fresh = data.items.filter(i => Date.parse(i.d) > (since || gen - 864e5 * 2));
+  const list = (fresh.length >= 3 ? fresh : data.items).slice(0, 6);
+  const greeting = { Morning: 'Good morning.', Afternoon: 'Good afternoon.', Evening: 'Good evening.' }[slot];
+  document.getElementById('brief-slot')!.textContent = `The ${slot} Edition · ${now.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}`;
+  document.getElementById('brief-title')!.textContent = greeting;
+  document.getElementById('brief-sub')!.textContent = since
+    ? `Since your last visit ${ago(Date.now() - since)}: ${fresh.length} new ${fresh.length === 1 ? 'story' : 'stories'}. Here is what matters most.`
+    : 'Here is what matters in AI safety right now: the most important stories from the last two days.';
+  const ol = document.getElementById('brief-list')!;
+  ol.replaceChildren();
+  list.forEach((it, n) => {
+    const href = safe(it.u);
+    if (!href) return;
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = href; a.target = '_blank'; a.rel = 'noopener noreferrer';
+    const num = document.createElement('span'); num.className = 'bn'; num.textContent = String(n + 1).padStart(2, '0');
+    const fig = document.createElement('span'); fig.className = 'bimg';
+    const src = safe(it.img);
+    if (src) { const img = document.createElement('img'); img.src = src; img.alt = ''; img.referrerPolicy = 'no-referrer'; img.decoding = 'async'; fig.append(img); }
+    const txt = document.createElement('span');
+    const t = document.createElement('span'); t.className = 'bt'; t.textContent = it.t;
+    const m = document.createElement('span'); m.className = 'bm';
+    const dot = document.createElement('i'); dot.className = `t-${it.tone}`;
+    const host = document.createElement('b'); host.textContent = `${it.h} ↗`;
+    const per = document.createElement('span'); per.className = `persp pc-${it.pc}`; per.textContent = it.p;
+    m.append(dot, document.createTextNode(it.s), per, host);
+    txt.append(t, m);
+    a.append(num, fig, txt); li.append(a); ol.append(li);
+  });
+}
+
+let lastFocus: Element | null = null;
+function openBriefing() {
+  if (!panel) return;
+  fillBriefing();
+  lastFocus = document.activeElement;
+  panel.classList.remove('out');
+  panel.hidden = false;
+  store('vigil:edition', dayKey);
+  (document.getElementById('brief-close') as HTMLButtonElement).focus();
+}
+function closeBriefing() {
+  if (!panel || panel.hidden) return;
+  panel.classList.add('out');
+  setTimeout(() => { panel.hidden = true; }, motion.on ? 450 : 0);
+  (lastFocus as HTMLElement | null)?.focus?.();
+}
+document.getElementById('open-brief')?.addEventListener('click', openBriefing);
+document.getElementById('brief-close')?.addEventListener('click', closeBriefing);
+document.getElementById('brief-go')?.addEventListener('click', closeBriefing);
+panel?.addEventListener('click', e => { if (e.target === panel) closeBriefing(); });
+addEventListener('keydown', e => { if (e.key === 'Escape') closeBriefing(); });
+
+const wantBriefing = store('vigil:edition') !== dayKey;
+
+// ---------- Opening quote veil, once per visit; letters settle out of a blur ----------
 const veil = document.getElementById('veil');
 let seen = false;
 try { seen = sessionStorage.getItem('vigil:veil') === '1'; sessionStorage.setItem('vigil:veil', '1'); } catch {}
-if (veil && !seen && motion.on) {
+if (veil && !seen) {
   const q = document.getElementById('veil-q')!;
-  const words = (q.textContent ?? '').split(' ');
-  q.textContent = '';
-  let n = 0;
-  words.forEach((w, wi) => {
-    const word = document.createElement('span');
-    word.className = 'vw';
-    for (const ch of w) {
-      const s = document.createElement('span');
-      s.className = 'vl';
-      s.textContent = ch;
-      s.style.animationDelay = `${(n++ * 0.018 + Math.random() * 0.25).toFixed(3)}s`;
-      word.append(s);
-    }
-    q.append(word);
-    if (wi < words.length - 1) q.append(' ');
-  });
+  if (motion.on) {
+    const words = (q.textContent ?? '').split(' ');
+    q.textContent = '';
+    let n = 0;
+    words.forEach((w, wi) => {
+      const word = document.createElement('span');
+      word.className = 'vw';
+      for (const ch of w) {
+        const s = document.createElement('span');
+        s.className = 'vl';
+        s.textContent = ch;
+        s.style.animationDelay = `${(n++ * 0.018 + Math.random() * 0.25).toFixed(3)}s`;
+        word.append(s);
+      }
+      q.append(word);
+      if (wi < words.length - 1) q.append(' ');
+    });
+  }
   veil.hidden = false;
+  let closed = false;
   const close = () => {
+    if (closed) return;
+    closed = true;
     veil.classList.add('out');
     removeEventListener('keydown', close);
-    setTimeout(() => { veil.hidden = true; }, 900);
+    setTimeout(() => { veil.hidden = true; if (wantBriefing) openBriefing(); }, motion.on ? 700 : 0);
   };
   veil.addEventListener('click', close);
   addEventListener('keydown', close);
-  setTimeout(close, 6500);
+  setTimeout(close, motion.on ? 6500 : 3500);
+} else if (wantBriefing) {
+  setTimeout(openBriefing, 400);
 }
