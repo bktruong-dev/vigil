@@ -50,15 +50,18 @@ themeBtn?.addEventListener('click', () => {
 function patternSvg(id: string) {
   const NS = 'http://www.w3.org/2000/svg';
   const p = pattern(id);
+  const box = document.createElement('span');
+  box.className = `pat pc${p.color}`;
+  box.setAttribute('aria-hidden', 'true');
   const svg = document.createElementNS(NS, 'svg');
   svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
-  svg.setAttribute('preserveAspectRatio', 'xMidYMid slice');
-  svg.setAttribute('class', `pat pc${p.color}`);
-  svg.setAttribute('aria-hidden', 'true');
+  svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+  const g = document.createElementNS(NS, 'g');
+  g.setAttribute('class', 'spin');
   const path = document.createElementNS(NS, 'path');
-  path.setAttribute('class', 'curve'); path.setAttribute('d', p.d); path.setAttribute('pathLength', '1');
-  svg.append(path);
-  return svg;
+  path.setAttribute('class', p.dots ? 'curve dots' : 'curve'); path.setAttribute('d', p.d); path.setAttribute('pathLength', '1');
+  g.append(path); svg.append(g); box.append(svg);
+  return box;
 }
 
 // ---------- "Updated 2h ago" ----------
@@ -77,7 +80,10 @@ setInterval(tick, 60_000);
 // ---------- Broken images fall back to the cover art underneath ----------
 document.addEventListener('error', e => {
   const img = e.target as HTMLElement;
-  if (img instanceof HTMLImageElement) img.closest('.media, .bimg')?.classList.add('broken');
+  if (!(img instanceof HTMLImageElement)) return;
+  // Not every YouTube video has an HD thumbnail; fall back to the standard one.
+  if (img.src.includes('/maxresdefault.')) { img.src = img.src.replace('/maxresdefault.', '/hqdefault.'); return; }
+  img.closest('.media, .bimg')?.classList.add('broken');
 }, true);
 document.querySelectorAll<HTMLImageElement>('.media img').forEach(img => {
   if (img.complete && img.naturalWidth === 0 && img.src) img.closest('.media')?.classList.add('broken');

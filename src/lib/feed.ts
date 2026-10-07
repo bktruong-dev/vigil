@@ -15,8 +15,8 @@ export interface SourceInfo {
 }
 
 export const generated = new Date(data.generated);
-export const items = data.items as Item[];
-export const sources = data.sources as SourceInfo[];
+export const items = (data.items as Item[]).filter(i => i.kind !== 'podcast');
+export const sources = (data.sources as SourceInfo[]).filter(s => s.kind !== 'podcast');
 const bySource = new Map(sources.map(s => [s.id, s]));
 export const perspectiveOf = (i: Item): Perspective => bySource.get(i.source)?.perspective ?? 'journalism';
 
@@ -82,9 +82,8 @@ export const SECTIONS: Section[] = [
   { slug: 'latest', num: 'I', title: 'Latest', dek: 'Everything new from labs, newsrooms, researchers and the incident record, ranked.', match: i => i.kind !== 'video' && i.kind !== 'podcast' },
   { slug: 'research', num: 'II', title: 'Research', dek: 'New papers and long-form essays on alignment, interpretability, evaluations and attacks.', match: i => i.kind === 'paper' || i.kind === 'essay', sort: 'date' },
   { slug: 'watch', num: 'III', title: 'Watch', dek: 'Explainers, interviews and talks from YouTube. Every video plays on youtube.com.', match: i => i.kind === 'video', sort: 'date' },
-  { slug: 'listen', num: 'IV', title: 'Listen', dek: 'Podcast episodes with the people working on AI safety.', match: i => i.kind === 'podcast', sort: 'date' },
-  { slug: 'incidents', num: 'V', title: 'Incidents', dek: 'Real-world harms and failures involving AI, from the AI Incident Database and the press.', match: i => i.kind === 'incident' || (i.tone === 'risk' && i.kind === 'news'), sort: 'date' },
-  { slug: 'good-news', num: 'VI', title: 'Good News', dek: 'Progress worth knowing about: new safeguards, laws, research funding and commitments.', match: i => i.tone === 'good' },
+  { slug: 'incidents', num: 'IV', title: 'Incidents', dek: 'Real-world harms and failures involving AI, from the AI Incident Database and the press.', match: i => i.kind === 'incident' || (i.tone === 'risk' && i.kind === 'news'), sort: 'date' },
+  { slug: 'good-news', num: 'V', title: 'Good News', dek: 'Progress worth knowing about: new safeguards, laws, research funding and commitments.', match: i => i.tone === 'good' },
 ];
 export const sectionItems = (s: Section) => {
   const list = items.filter(s.match);

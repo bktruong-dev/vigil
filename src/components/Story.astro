@@ -7,7 +7,7 @@ const { item, variant = 'card', eager = false } = Astro.props;
 const href = linkTo(item);
 const p = perspectiveOf(item);
 const mins = readMins(item);
-const media = item.kind === 'video' ? 'Watch' : item.kind === 'podcast' ? 'Listen' : 'Read';
+const media = item.kind === 'video' ? 'Watch' : 'Read';
 const search = `${item.title} ${item.sourceName} ${item.topics.join(' ')} ${item.place?.name ?? ''} ${item.summary}`.toLowerCase();
 const showImage = variant !== 'text';
 ---

@@ -305,17 +305,26 @@ const items = merge([...fresh, ...carried].map(i => ({ ...i, also: [] })), trust
 // last run are reused, so each article page is fetched at most once.
 const prevImg = new Map<string, string | undefined>();
 for (const p of previous) prevImg.set(p.id, p.thumb ?? ((p as any).noImage ? 'none' : undefined));
-const need = items.filter(i => !i.thumb && i.kind !== 'paper').slice(0, 180);
+// Feed images are often tiny thumbnails (e.g. 140px wide), which look
+// pixelated on a big card. The article's own share image (og:image) is
+// almost always full size (~1200px), so we prefer it for every story.
+// YouTube thumbnails are already a good size; arXiv papers have none.
+const need = items.filter(i => i.kind !== 'paper' && i.kind !== 'video' && !/news\.google\.com/.test(i.url)).slice(0, 260);
 let fetched = 0;
-for (let k = 0; k < need.length; k += 12) {
-  await Promise.all(need.slice(k, k + 12).map(async it => {
-    const cached = prevImg.get(it.id);
-    if (cached === 'none') { (it as any).noImage = true; return; }
-    if (cached) { it.thumb = cached; return; }
+for (let k = 0; k < need.length; k += 14) {
+  await Promise.all(need.slice(k, k + 14).map(async it => {
     fetched++;
     const img = await ogImage(it.url);
-    if (img) it.thumb = img; else (it as any).noImage = true;
+    if (img) it.thumb = img;
+    else if (it.thumb && isTiny(it.thumb)) it.thumb = undefined;
   }));
+}
+// Video thumbnails: the full HD version (the page falls back to hqdefault if a video has none).
+for (const i of items) if (i.thumb && /i\.ytimg\.com\/vi\/[^/]+\/hqdefault/.test(i.thumb)) i.thumb = i.thumb.replace('hqdefault', 'maxresdefault');
+
+function isTiny(u: string) {
+  const m = u.match(/[?&](?:w|width|resize)=(\d+)/i) ?? u.match(/[-_/](\d{2,3})x\d{2,3}[._/-]/);
+  return !!m && Number(m[1]) < 500;
 }
 
 // An image used by several different stories is a site logo, not a story picture.

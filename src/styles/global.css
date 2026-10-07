@@ -250,23 +250,33 @@ html.no-motion .iris { animation: none !important; }
 html.no-motion .bgart { animation: none; }
 @media (max-width: 760px) { .bgart { opacity: 0.05; } .bgart.tr { width: 420px; height: 420px; right: -180px; } .bgart.bl { display: none; } }
 
-/* ---------- Cover-art patterns (cards and the briefing) ---------- */
-.pat { position: absolute; inset: 0; width: 100%; height: 100%; display: block; background-color: var(--well);
-  background-image: linear-gradient(var(--line-2) 1px, transparent 1px), linear-gradient(90deg, var(--line-2) 1px, transparent 1px);
-  background-size: 26px 26px; background-position: 4px 12px; color: var(--acc); }
-.pat .axis { stroke: currentColor; stroke-opacity: 0.18; stroke-width: 0.7; }
-.pat .curve { fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 0; }
-.pat .dot { fill: currentColor; }
-.pat text { fill: var(--dim); font-family: var(--mono); font-size: 9px; letter-spacing: 1.5px; }
-.pc0 { color: var(--acc); } .pc1 { color: var(--gold); } .pc2 { color: var(--rose); } .pc3 { color: var(--good); }
-.pc4 { color: var(--violet); } .pc5 { color: var(--risk); } .pc6 { color: var(--teal); } .pc7 { color: var(--amber); }
-/* Hover: the pattern draws itself again, like a pen tracing it */
-.card:hover .pat .curve, .card:focus-within .pat .curve, .blist a:hover .pat .curve { animation: trace 2.6s var(--ease) both; }
-@keyframes trace { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
-.card:hover .pat .dot { animation: pulse 1.4s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
-@keyframes pulse { 50% { transform: scale(2.2); opacity: 0.5; } }
-
 /* Theme switch */
 .theme-btn { flex: none; font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-2); background: none; border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; cursor: pointer; transition: border-color .3s var(--ease), color .3s var(--ease); }
 .theme-btn:hover { color: var(--ink); border-color: var(--dim); }
-.row .pat text, .bimg .pat text { display: none; }
+
+/* ---------- Cover-art patterns (cards and the briefing) ---------- */
+.pat { position: absolute; inset: 0; display: grid; place-items: center; overflow: hidden; container-type: size;
+  background-color: var(--well);
+  background-image: linear-gradient(var(--line-2) 1px, transparent 1px), linear-gradient(90deg, var(--line-2) 1px, transparent 1px);
+  background-size: 24px 24px; background-position: center; color: var(--acc); }
+.pat svg { position: absolute; inset: 0; width: 100%; height: 100%; padding: 10cqmin; overflow: visible; box-sizing: border-box; }
+.pat .curve { fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke;
+  stroke-dasharray: 1; stroke-dashoffset: 0; filter: drop-shadow(0 0 3px color-mix(in srgb, currentColor 35%, transparent)); }
+.pat .curve.dots { stroke-dasharray: none; stroke-width: 4; }
+.pat .dot { fill: currentColor; }
+.pat .spin { transform-box: view-box; transform-origin: 50% 50%; }
+.pat .fig { position: absolute; left: 12px; bottom: 9px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim); white-space: nowrap; }
+@container (max-width: 220px) { .pat .fig { display: none; } .pat svg { padding: 8cqmin; } }
+.pc0 { color: var(--acc); } .pc1 { color: var(--gold); } .pc2 { color: var(--rose); } .pc3 { color: var(--good); }
+.pc4 { color: var(--violet); } .pc5 { color: var(--risk); } .pc6 { color: var(--teal); } .pc7 { color: var(--amber); }
+
+/* Hover: a pen traces the figure again, then it keeps slowly turning */
+.card:hover .pat .curve:not(.dots), .card:focus-within .pat .curve:not(.dots), .blist a:hover .pat .curve:not(.dots) { animation: trace 2.4s var(--ease) both; }
+.card:hover .pat .spin, .card:focus-within .pat .spin, .blist a:hover .pat .spin { animation: turn 24s linear infinite; }
+.card:hover .pat .curve.dots, .blist a:hover .pat .curve.dots { animation: bloom 2.4s var(--ease) both; }
+.card:hover .pat .dot { animation: pulse 1.6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes trace { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes turn { to { transform: rotate(360deg); } }
+@keyframes bloom { from { stroke-width: 0; opacity: 0.2; } to { stroke-width: 4; opacity: 1; } }
+@keyframes pulse { 50% { transform: scale(2.4); opacity: 0.4; } }
+html.no-motion .pat * { animation: none !important; }

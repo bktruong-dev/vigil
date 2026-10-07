@@ -25,7 +25,6 @@ const essays = take(sec.research.filter(i => i.kind === 'essay'), 4);
 const videos = take(sec.watch, 4);
 const incidents = take(sec.incidents, 4);
 const good = take(sec['good-news'], 4);
-const pods = take(sec.listen, 4);
 const hotTopics = [...TOPICS].sort((a, b) => topicItems(b).filter(i => within(i, 7)).length - topicItems(a).filter(i => within(i, 7)).length);
 
 const day = items.filter(i => within(i, 1));
@@ -64,7 +63,7 @@ const stats = [
     </section>
 
     <section class="block" aria-labelledby="topics-h">
-      <header class="sec-head"><span class="num">VIII.</span><h2 id="topics-h"><a href="/topics">The big topics, briefly</a></h2><a class="all" href="/topics">All topics →</a></header>
+      <header class="sec-head"><span class="num">VII.</span><h2 id="topics-h"><a href="/topics">The big topics, briefly</a></h2><a class="all" href="/topics">All topics →</a></header>
       <div class="g3">{hotTopics.slice(0, 3).map(t => <TopicCard topic={t} />)}</div>
     </section>
 
@@ -83,7 +82,7 @@ const stats = [
     </section>
 
     <section class="block" id="atlas">
-      <header class="sec-head"><span class="num">VII.</span><h2><a href="/atlas">The Atlas</a></h2><a class="all" href="/atlas">Open the full map →</a></header>
+      <header class="sec-head"><span class="num">VI.</span><h2><a href="/atlas">The Atlas</a></h2><a class="all" href="/atlas">Open the full map →</a></header>
       <Atlas />
     </section>
 
@@ -94,23 +93,18 @@ const stats = [
 
     <section class="block two" aria-label="Incidents and good news">
       <div>
-        <header class="sec-head"><span class="num">V.</span><h2><a href="/incidents">Incidents</a></h2><a class="all" href="/incidents">All →</a></header>
+        <header class="sec-head"><span class="num">IV.</span><h2><a href="/incidents">Incidents</a></h2><a class="all" href="/incidents">All →</a></header>
         <div class="stack">{incidents.map(i => <Story item={i} variant="row" />)}</div>
       </div>
       <div>
-        <header class="sec-head"><span class="num">VI.</span><h2><a href="/good-news">Good News</a></h2><a class="all" href="/good-news">All →</a></header>
+        <header class="sec-head"><span class="num">V.</span><h2><a href="/good-news">Good News</a></h2><a class="all" href="/good-news">All →</a></header>
         <div class="stack">{good.map(i => <Story item={i} variant="row" />)}</div>
       </div>
     </section>
 
-    <section class="block" aria-labelledby="listen-h">
-      <header class="sec-head"><span class="num">IV.</span><h2 id="listen-h"><a href="/listen">Listen</a></h2><a class="all" href="/listen">All episodes →</a></header>
-      <div class="g2">{pods.map(i => <Story item={i} variant="row" />)}</div>
-    </section>
-
     <section class="block guide" aria-labelledby="guide-h">
-      <header class="sec-head"><span class="num">IX.</span><h2 id="guide-h"><a href="/guide">New to AI safety?</a></h2></header>
-      <p class="intro">Start with the <a href="/guide">Field Guide</a>: hand-picked courses, reading, organisations and fellowships. Or see <a href="/sources">all {sources.length} sources</a> we read, who they are, and exactly how stories are ranked.</p>
+      <header class="sec-head"><span class="num">VIII.</span><h2 id="guide-h"><a href="/guide">New to AI safety?</a></h2></header>
+      <p class="intro">Start with the <a href="/guide">Guide</a>: hand-picked courses, reading, organisations and fellowships, plus <a href="/guide#sources">all {sources.length} sources</a> we read, who they are, and exactly how stories are ranked.</p>
     </section>
   </div>
 </Base>

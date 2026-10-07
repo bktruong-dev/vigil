@@ -12,13 +12,11 @@ const nav: [string, string, string][] = [
   ['/latest', 'I', 'Latest'],
   ['/research', 'II', 'Research'],
   ['/watch', 'III', 'Watch'],
-  ['/listen', 'IV', 'Listen'],
-  ['/incidents', 'V', 'Incidents'],
-  ['/good-news', 'VI', 'Good News'],
-  ['/atlas', 'VII', 'Atlas'],
-  ['/topics', 'VIII', 'Topics'],
-  ['/guide', 'IX', 'Field Guide'],
-  ['/sources', '§', 'Sources'],
+  ['/incidents', 'IV', 'Incidents'],
+  ['/good-news', 'V', 'Good News'],
+  ['/atlas', 'VI', 'Atlas'],
+  ['/topics', 'VII', 'Topics'],
+  ['/guide', 'VIII', 'Guide & Sources'],
 ];
 // A golden spiral for the background drawing.
 const spiral = (() => {
@@ -72,11 +70,15 @@ const briefJson = JSON.stringify({ generated: generated.toISOString(), items: br
           <span class="dateline">{dateline}</span>
           <span>Updated <time datetime={generated.toISOString()} data-ago>{generated.toISOString().slice(11, 16)} UTC</time></span>
         </div>
-        <a class="title" href="/" aria-label="The Vigil, home">
-          <Mark size={54} />
-          <span class="name"><span class="the">The</span> Vigil</span>
-        </a>
-        <p class="motto">A daily watch on AI safety <span class="sep">·</span> <span class="kept">kept by Benjamin Truong</span></p>
+        <div class="brand">
+          <span class="rule" aria-hidden="true"></span>
+          <a class="title" href="/" aria-label="The Vigil, home">
+            <Mark size={46} />
+            <span class="name"><span class="the">The</span>Vigil</span>
+          </a>
+          <span class="rule" aria-hidden="true"></span>
+        </div>
+        <p class="motto"><span>A daily watch on AI safety</span><span class="star" aria-hidden="true">✦</span><span>Kept by <b>Benjamin Truong</b></span></p>
       </div>
     </header>
 
@@ -113,7 +115,7 @@ const briefJson = JSON.stringify({ generated: generated.toISOString(), items: br
       <div class="wrap foot">
         <div>
           <p class="fname"><Mark size={22} /> <em>The Vigil</em></p>
-          <p class="fine">Kept by Benjamin Truong. Every story links to its original source; we show headlines, short excerpts and preview images only, and the publisher gets the visit. Updated automatically from public feeds. <a href="/sources">How it works →</a></p>
+          <p class="fine">Kept by Benjamin Truong. Every story links to its original source; we show headlines, short excerpts and preview images only, and the publisher gets the visit. Updated automatically from public feeds. <a href="/guide#sources">Sources &amp; method →</a></p>
         </div>
         <div class="flinks">
           <a class="out" href="https://benjamin-truong.vercel.app" target="_blank" rel="noopener noreferrer"><span class="host">Quaderni</span><span class="arrow">↗</span></a>
@@ -164,14 +166,16 @@ const briefJson = JSON.stringify({ generated: generated.toISOString(), items: br
     grid-template-rows: auto auto auto 1fr auto;
     grid-template-columns: minmax(0, 1fr);
   }
-  .masthead { grid-area: head; min-width: 0; padding-top: 14px; }
+  .masthead { grid-area: head; min-width: 0; padding-top: 12px; }
   .topline { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
-  .title { display: flex; align-items: center; justify-content: center; gap: 18px; text-decoration: none; margin: 22px 0 4px; }
-  .name { font-family: var(--display); font-weight: 600; font-size: clamp(52px, 8vw, 108px); line-height: 0.95; letter-spacing: -0.01em; text-shadow: 0 0 40px var(--acc-glow); }
-  .the { font-style: italic; font-weight: 500; color: var(--ink-2); font-size: 0.55em; vertical-align: 0.42em; margin-right: 0.1em; }
-  .motto { text-align: center; margin: 6px 0 20px; font-style: italic; color: var(--ink-2); font-size: 20px; }
-  .motto .sep { color: var(--dim); margin: 0 6px; }
-  .motto .kept { color: var(--gold); }
+  .brand { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 22px; margin: 16px 0 6px; }
+  .rule { height: 5px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .title { display: inline-flex; align-items: center; gap: 14px; text-decoration: none; color: var(--ink); }
+  .name { font-family: var(--display); font-weight: 600; font-size: clamp(44px, 5.6vw, 76px); line-height: 1; letter-spacing: 0.005em; white-space: nowrap; }
+  .the { font-style: italic; font-weight: 500; font-size: 0.62em; color: var(--ink-2); margin-right: 0.16em; }
+  .motto { display: flex; justify-content: center; align-items: center; gap: 14px; flex-wrap: wrap; margin: 6px 0 16px; font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); }
+  .motto b { font-weight: 500; color: var(--gold); }
+  .motto .star { color: var(--acc); font-size: 10px; }
 
   .secnav { grid-area: nav; position: sticky; top: 0; z-index: 20; min-width: 0; background: var(--nav-bg); backdrop-filter: blur(10px) saturate(1.2); border-top: 1px solid var(--line); border-bottom: 3px double var(--line); }
   .navin { display: flex; align-items: center; gap: 14px; }
@@ -238,6 +242,8 @@ const briefJson = JSON.stringify({ generated: generated.toISOString(), items: br
 
   @media (max-width: 900px) {
     .topline .dateline { display: none; }
+    .brand { gap: 12px; }
+    .motto { font-size: 10.5px; letter-spacing: 0.12em; gap: 8px; }
     .secnav ul { justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin: 0; }
     .secnav.stuck .mini { width: 0; opacity: 0; }
     .brief-btn { padding: 6px 10px; }

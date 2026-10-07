@@ -10,7 +10,7 @@ export function getStaticPaths() {
 const { s } = Astro.props as { s: Section };
 const list = sectionItems(s).slice(0, 150);
 const [lead, ...rest] = list;
-const side = s.slug === 'watch' || s.slug === 'listen' ? [] : rest.slice(0, 3);
+const side = s.slug === 'watch' ? [] : rest.slice(0, 3);
 const grid = rest.slice(side.length);
 
 // Filters offered on this page: its most common topics and perspectives.

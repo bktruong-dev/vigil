@@ -1,16 +1,19 @@
 ---
-// Notebook cover art for stories without an image (also shown behind images
-// that fail to load). One of ten patterns in one of eight colours, chosen by
-// the story's id. Hovering the card redraws the pattern.
+// Notebook cover art for stories without an image. One of ten patterns in one
+// of eight colours, chosen by the story's id. The figure always fits whole
+// inside the card; hovering the card traces it again and sets it turning.
 import type { Item } from '../lib/feed';
 import { pattern, W, H } from '../lib/patterns';
 interface Props { item: Item }
 const { item } = Astro.props;
 const p = pattern(item.id);
 ---
-<svg class={`plate pat pc${p.color}`} viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-  <line class="axis" x1="0" y1={H / 2} x2={W} y2={H / 2} /><line class="axis" x1={W / 2} y1="0" x2={W / 2} y2={H} />
-  <path class="curve" d={p.d} pathLength="1" />
-  <circle class="dot" cx={W / 2} cy={H / 2} r="2" />
-  <text x="12" y={H - 12}>FIG. {p.fig} — {p.name.toUpperCase()}</text>
-</svg>
+<div class={`pat pc${p.color}`} aria-hidden="true">
+  <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid meet">
+    <g class="spin">
+      <path class={p.dots ? 'curve dots' : 'curve'} d={p.d} pathLength="1" />
+    </g>
+    <circle class="dot" cx={W / 2} cy={H / 2} r="1.8" />
+  </svg>
+  <span class="fig">Fig. {p.fig} — {p.name}</span>
+</div>

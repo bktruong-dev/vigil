@@ -57,9 +57,6 @@ export const SOURCES: Source[] = [
   { id: 'aiid', name: 'AI Incident Database', home: 'https://incidentdatabase.ai', feed: 'https://incidentdatabase.ai/rss.xml', kind: 'incident', trust: 0.85, minScore: 0, perspective: 'database' },
 
   // Podcasts
-  { id: 'axrp', name: 'AXRP', home: 'https://axrp.net', feed: 'https://axrp.net/feed.xml', kind: 'podcast', trust: 0.85, minScore: 0, perspective: 'creator' },
-  { id: '80k', name: '80,000 Hours Podcast', home: 'https://80000hours.org/podcast/', feed: 'https://feeds.transistor.fm/80000-hours-podcast', kind: 'podcast', trust: 0.8, minScore: 0, perspective: 'nonprofit' },
-  { id: 'dwarkesh', name: 'Dwarkesh Podcast', home: 'https://www.dwarkesh.com', feed: 'https://www.dwarkesh.com/feed', kind: 'podcast', trust: 0.7, minScore: 1, perspective: 'creator' },
 
   // YouTube
   { id: 'yt-miles', name: 'Robert Miles AI Safety', home: 'https://www.youtube.com/@RobertMilesAI', feed: yt('UCLB7AzTwc6VFZrBsO2ucBMg'), kind: 'video', trust: 0.9, minScore: 0, perspective: 'creator' },
