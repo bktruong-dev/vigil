@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-07T03:36:30.956Z",
+ "generated": "2026-10-07T03:57:54.285Z",
  "sources": [
   {
    "id": "anthropic",
@@ -82,7 +82,8 @@
    "trust": 0.7,
    "minScore": 3,
    "perspective": "research",
-   "ok": true,
+   "ok": false,
+   "error": "HTTP 429",
    "count": 24
   },
   {
@@ -191,7 +192,7 @@
    "minScore": 0,
    "perspective": "creator",
    "ok": true,
-   "count": 15
+   "count": 1
   },
   {
    "id": "yt-rational",
@@ -227,7 +228,7 @@
    "minScore": 0,
    "perspective": "company",
    "ok": true,
-   "count": 7
+   "count": 8
   },
   {
    "id": "yt-openai",
@@ -275,7 +276,7 @@
    "minScore": 0,
    "perspective": "creator",
    "ok": true,
-   "count": 5
+   "count": 4
   },
   {
    "id": "yt-fli",
@@ -722,7 +723,7 @@
    "summary": "Martyn Thomas wonders how any rational person can argue that independent oversight and regulation will be sufficient Once again a frontier AI model has been withdrawn because it fails safety tests ( OpenAI scraps release of new model over safety concerns in internal testing, 28…",
    "thumb": "https://i.guim.co.uk/img/media/df4adbb7305624629e237841d72a92370f690e09/606_0_6034_4830/master/6034.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=5c0b983a1eaa74e6fa4587ed9f451c17",
    "relevance": 1,
-   "score": 0.9196,
+   "score": 0.9187,
    "tone": "risk",
    "topics": [
     "Governance",
@@ -748,7 +749,7 @@
    "date": "2026-10-06T20:56:05.000Z",
    "summary": "",
    "relevance": 1,
-   "score": 0.8806,
+   "score": 0.8796,
    "tone": "risk",
    "topics": [
     "Governance",
@@ -769,7 +770,7 @@
    "date": "2026-10-06T18:40:40.000Z",
    "summary": "",
    "relevance": 1,
-   "score": 0.8744,
+   "score": 0.8734,
    "tone": "neutral",
    "topics": [
     "Safety",
@@ -789,7 +790,7 @@
    "date": "2026-10-06T11:00:00.000Z",
    "summary": "",
    "relevance": 1,
-   "score": 0.8541,
+   "score": 0.8532,
    "tone": "risk",
    "topics": [
     "Safety",
@@ -813,7 +814,7 @@
    "date": "2026-10-05T17:50:10.000Z",
    "summary": "While open-weight models have enjoyed steady progress in capabilities and wide adoption across multiple domains, their safety remains an important concern. One key feature is the ability to refuse or deflect harmful, malicious, or insensitive prompts. In this paper, we expose…",
    "relevance": 1,
-   "score": 0.839,
+   "score": 0.8383,
    "tone": "risk",
    "topics": [
     "Attacks",
@@ -832,7 +833,7 @@
    "date": "2026-10-06T15:40:21.000Z",
    "summary": "While HCI increasingly examines AI-safety for youth, the literature lacks a comprehensive view of what risks have been identified, how they are addressed, and whether proposed protections work in-practice. We systematically reviewed 100 empirical HCI studies involving children…",
    "relevance": 0.8571428571428571,
-   "score": 0.827,
+   "score": 0.826,
    "tone": "research",
    "topics": [
     "Safety",
@@ -851,7 +852,7 @@
    "summary": "The findings come after warnings from tech leaders that AI placed in the wrong hands could trigger larger threats such as nuclear war or bioweaponry destruction Misusing artificial intelligence (AI) is the top threat to companies’ reputations – more so than being accused of…",
    "thumb": "https://i.guim.co.uk/img/media/6d7b4ac09c1a7cc7e496eabec88cca48e84f2343/634_0_5001_4000/master/5001.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=611f879a692bb3c5b9dfb97ae6cb036f",
    "relevance": 0.7142857142857143,
-   "score": 0.7756,
+   "score": 0.7746,
    "tone": "risk",
    "topics": [
     "Risk",
@@ -870,7 +871,7 @@
    "summary": "Campaign groups report surge in membership after a spate of AI safety alerts and apocalyptic warnings In a bar below Waterloo Bridge, a cell of a fast-growing anti-AI protest movement met last week to plot their latest move: disrupting a tech industry dinner being addressed by a…",
    "thumb": "https://i.guim.co.uk/img/media/c8e5d42e1a557862182577de9c2f72e61899aec2/290_62_4910_3928/master/4910.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=b4dc50948993613fd38cd09cbc7f28ac",
    "relevance": 0.7142857142857143,
-   "score": 0.7631,
+   "score": 0.7623,
    "tone": "risk",
    "topics": [
     "Safety"
@@ -888,7 +889,7 @@
    "summary": "The Federal Trade Commission is investigating OpenAI, Anthropic and other AI companies over potential safety risks posed by their products, an agency spokesperson told Axios Wednesday. Why it matters: The federal government has largely taken a hands-off approach to regulating AI…",
    "thumb": "https://images.axios.com/Oljo4sMWJ7gbB1B6mXs8BzjQbHw=/0x0:1920x1080/1366x768/2025/12/17/1766006317612.jpeg",
    "relevance": 1,
-   "score": 0.7419,
+   "score": 0.7417,
    "tone": "risk",
    "topics": [
     "Safety",
@@ -920,7 +921,7 @@
    "date": "2026-10-06T14:30:00.000Z",
    "summary": "",
    "relevance": 0.7142857142857143,
-   "score": 0.7346,
+   "score": 0.7336,
    "tone": "neutral",
    "topics": [
     "Safety"
@@ -937,7 +938,7 @@
    "date": "2026-10-06T04:17:18.000Z",
    "summary": "Safety alignment in Large Language Models (LLMs) remains vulnerable to backdoor attacks. Existing LLM backdoors are almost all input-centric: activation depends on explicit trigger patterns in the user input, so modern guardrails are built to sanitize the input space. We…",
    "relevance": 0.7142857142857143,
-   "score": 0.734,
+   "score": 0.7332,
    "tone": "risk",
    "topics": [
     "Alignment",
@@ -956,7 +957,7 @@
    "summary": "We’re launching a new, expanded version of our Cyber Verification Program (CVP), which makes advanced cyber capabilities and reduced blocking classifiers available to qualifying security professionals.",
    "thumb": "https://www.anthropic.com/api/opengraph-illustration?name=Hand%20Lock&backgroundColor=heather",
    "relevance": 0.5,
-   "score": 0.7253,
+   "score": 0.7243,
    "tone": "neutral",
    "topics": [
     "Attacks"
@@ -981,7 +982,7 @@
    "date": "2026-10-06T07:53:45.000Z",
    "summary": "",
    "relevance": 0.7142857142857143,
-   "score": 0.7178,
+   "score": 0.7169,
    "tone": "neutral",
    "topics": [
     "Safety"
@@ -998,7 +999,7 @@
    "date": "2026-09-28T19:00:00.000Z",
    "summary": "Our early guidelines for safety cases in frontier AI training cover technical safeguards, operational practices, and investigating misalignment incidents",
    "relevance": 1,
-   "score": 0.7029,
+   "score": 0.7027,
    "tone": "risk",
    "topics": [
     "Alignment",
@@ -1024,7 +1025,7 @@
    "summary": "As seen on Hacker News. I was inspecting Claude Code for privacy reasons. Most devs give their harnesses ridiculous access. FS, shell, git, browser access, even computer use nowadays. That is the whole point. They need enough context to d ...",
    "thumb": "https://thereallo.dev/og/images/claude-code-prompt-steganography.png",
    "relevance": 0.5,
-   "score": 0.6983,
+   "score": 0.6979,
    "tone": "risk",
    "topics": [
     "Privacy"
@@ -1063,7 +1064,7 @@
    "date": "2026-10-06T23:29:35.000Z",
    "summary": "",
    "relevance": 0.5714285714285714,
-   "score": 0.6951,
+   "score": 0.694,
    "tone": "risk",
    "topics": [
     "Attacks",
@@ -1087,7 +1088,7 @@
    "date": "2026-10-06T14:07:43.000Z",
    "summary": "Large language models (LLMs) have demonstrated strong capabilities in question answering, yet they still frequently suffer from hallucinations on knowledge-intensive tasks. Knowledge graphs (KGs) provide LLMs with structured, interpretable, and updatable factual grounding,…",
    "relevance": 0.5714285714285714,
-   "score": 0.6943,
+   "score": 0.6934,
    "tone": "research",
    "topics": [
     "Interpretability",
@@ -1105,7 +1106,7 @@
    "date": "2026-10-06T07:00:00.000Z",
    "summary": "Recent AI misalignment incidents have shown AI systems capably pursuing goals their human supervisors would not approve of, like hacking other companies. Fortunately, current AIs still seem relatively bad at concealing their misbehavior from human reviewers: these recent…",
    "relevance": 0.5,
-   "score": 0.6941,
+   "score": 0.6933,
    "tone": "risk",
    "topics": [
     "Alignment"
@@ -1130,7 +1131,7 @@
    "date": "2026-10-05T19:55:00.000Z",
    "summary": "",
    "relevance": 0.7142857142857143,
-   "score": 0.69,
+   "score": 0.6892,
    "tone": "neutral",
    "topics": [
     "Safety"
@@ -1154,34 +1155,9 @@
    "summary": "Without significant investment into energy infrastructure, AI could outpace America's power grid",
    "thumb": "https://substackcdn.com/image/fetch/$s_!GvMG!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F475966d2-e4a4-4610-9933-29e998a56d4e_1920x1080.png",
    "relevance": 0.5,
-   "score": 0.6896,
+   "score": 0.6886,
    "tone": "research",
    "topics": [],
-   "also": []
-  },
-  {
-   "id": "4n65kq",
-   "title": "Privacy watchdog launches probe into China-based company behind Kmart ‘pervert glasses’ app",
-   "url": "https://www.theguardian.com/technology/2026/oct/07/privacy-regulator-probe-kmart-anko-meta-smartglasses-australia",
-   "source": "guardian",
-   "sourceName": "The Guardian",
-   "kind": "news",
-   "date": "2026-10-07T02:00:15.000Z",
-   "summary": "Commissioner said Shenzhen Qingcheng, the app maker behind the HeyCyan app in the smartglasses, failed to respond to her inquiries Get our breaking news email , free app or daily news podcast The Australian privacy regulator has opened an investigation into the China-based…",
-   "thumb": "https://i.guim.co.uk/img/media/46fb6a3e1a7d7dec68ed33f3d75194118a86e9a6/0_0_5000_4000/master/5000.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=9618453cd0bc4b5d24fa75033e02824d",
-   "relevance": 0.42857142857142855,
-   "score": 0.6881,
-   "tone": "risk",
-   "topics": [
-    "Governance",
-    "Privacy"
-   ],
-   "place": {
-    "name": "Beijing",
-    "country": "China",
-    "lon": 116.4,
-    "lat": 39.9
-   },
    "also": []
   },
   {
@@ -1196,7 +1172,7 @@
    "date": "2026-10-05T19:04:00.000Z",
    "summary": "",
    "relevance": 0.7142857142857143,
-   "score": 0.6881,
+   "score": 0.6873,
    "tone": "risk",
    "topics": [
     "Safety"
@@ -1210,13 +1186,38 @@
    "also": []
   },
   {
+   "id": "4n65kq",
+   "title": "Privacy watchdog launches probe into China-based company behind Kmart ‘pervert glasses’ app",
+   "url": "https://www.theguardian.com/technology/2026/oct/07/privacy-regulator-probe-kmart-anko-meta-smartglasses-australia",
+   "source": "guardian",
+   "sourceName": "The Guardian",
+   "kind": "news",
+   "date": "2026-10-07T02:00:15.000Z",
+   "summary": "Commissioner said Shenzhen Qingcheng, the app maker behind the HeyCyan app in the smartglasses, failed to respond to her inquiries Get our breaking news email , free app or daily news podcast The Australian privacy regulator has opened an investigation into the China-based…",
+   "thumb": "https://i.guim.co.uk/img/media/46fb6a3e1a7d7dec68ed33f3d75194118a86e9a6/0_0_5000_4000/master/5000.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=9618453cd0bc4b5d24fa75033e02824d",
+   "relevance": 0.42857142857142855,
+   "score": 0.687,
+   "tone": "risk",
+   "topics": [
+    "Governance",
+    "Privacy"
+   ],
+   "place": {
+    "name": "Beijing",
+    "country": "China",
+    "lon": 116.4,
+    "lat": 39.9
+   },
+   "also": []
+  },
+  {
    "id": "pzv7c1",
    "title": "Delisted: A Film About AI-Powered Social Erasure (with Michael Patrick Clarkson)",
    "url": "https://www.youtube.com/watch?v=DHmm35JujdU",
    "source": "yt-fli",
    "sourceName": "Future of Life Institute (YouTube)",
    "kind": "video",
-   "date": "2026-10-06T16:36:22.165Z",
+   "date": "2026-10-06T16:57:46.562Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/DHmm35JujdU/maxresdefault.jpg",
    "relevance": 0.5,
@@ -1235,7 +1236,7 @@
    "date": "2026-10-06T08:09:56.000Z",
    "summary": "LLM agents are increasingly capable of executing complex tasks and of recursively improving themselves on easy-to-verify objectives such as software engineering and mathematics. Since alignment is much harder to verify, this creates a growing risk of capabilities increasing…",
    "relevance": 0.5714285714285714,
-   "score": 0.6791,
+   "score": 0.6783,
    "tone": "research",
    "topics": [
     "Alignment",
@@ -1253,7 +1254,7 @@
    "date": "2026-10-04T00:00:00.000Z",
    "summary": "WASHINGTON, Sept 9 (Reuters) - An Oklahoma judge has acknowledged that a ruling he issued contained fictitious citations generated by artificial intelligence, according to state records, adding to a growing number of cases in which judges ​ ...",
    "relevance": 0.5,
-   "score": 0.6784,
+   "score": 0.6779,
    "tone": "risk",
    "topics": [],
    "place": {
@@ -1285,7 +1286,7 @@
    "summary": "A Silicon Valley nonprofit close to the AI safety movement is funding coverage of artificial intelligence.",
    "thumb": "https://img.semafor.com/25e7a899de6b3f63720b51609b0c75faf94ee258-1440x1080.jpg?rect=0,162,1440,756&w=1200&h=630&q=75&auto=format",
    "relevance": 0.7142857142857143,
-   "score": 0.6769,
+   "score": 0.6763,
    "tone": "neutral",
    "topics": [
     "Safety"
@@ -1310,7 +1311,7 @@
    "date": "2026-10-05T12:00:00.000Z",
    "summary": "",
    "relevance": 0.7142857142857143,
-   "score": 0.6733,
+   "score": 0.6726,
    "tone": "good",
    "topics": [
     "Safety"
@@ -1329,7 +1330,7 @@
    "date": "2026-10-05T11:09:38.000Z",
    "summary": "",
    "relevance": 0.7142857142857143,
-   "score": 0.6716,
+   "score": 0.6709,
    "tone": "neutral",
    "topics": [
     "Safety"
@@ -1377,7 +1378,7 @@
    "date": "2026-10-05T10:29:00.000Z",
    "summary": "",
    "relevance": 0.7142857142857143,
-   "score": 0.6703,
+   "score": 0.6696,
    "tone": "neutral",
    "topics": [
     "Safety"
@@ -1394,7 +1395,7 @@
    "date": "2026-10-06T02:50:07.000Z",
    "summary": "On-policy distillation (OPD) has attracted growing attention as an effective way to transfer capabilities from teacher models to student models. Recent studies further explore OPD as a tool for improving large language model safety with promising results. However, these…",
    "relevance": 0.5714285714285714,
-   "score": 0.6663,
+   "score": 0.6655,
    "tone": "risk",
    "topics": [
     "Safety",
@@ -1453,28 +1454,6 @@
    "also": []
   },
   {
-   "id": "tz1m66",
-   "title": "Frontier models state different decision theory preferences depending on who’s asking",
-   "url": "https://blog.redwoodresearch.org/p/frontier-models-state-different-decision",
-   "source": "redwood",
-   "sourceName": "Redwood Research",
-   "kind": "lab",
-   "date": "2026-10-05T22:04:23.000Z",
-   "summary": "Asked which decision theory is right, frontier models name FDT/UDT. But add a sentence saying you're an academic philosopher, and they often switch to CDT.",
-   "thumb": "https://substackcdn.com/image/fetch/$s_!jwTr!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F63d72723-2f7a-457c-89df-804377789934_2400x1260.png",
-   "relevance": 0.5,
-   "score": 0.6608,
-   "tone": "neutral",
-   "topics": [],
-   "place": {
-    "name": "Berkeley",
-    "country": "United States",
-    "lon": -122.27,
-    "lat": 37.87
-   },
-   "also": []
-  },
-  {
    "id": "kozzia",
    "title": "Chinese AI Tool Gave Researchers Bioweapons Guidance After Safety Jailbreak",
    "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPc2FIVVpuSFFVRlRfSkdrRzM4aFlPOTdIVjRTd0hyb29WVURveTNQRkhTYzZBUF95dXM2dDl1RHdjaHY1X3JldlZnOVFzTWlKY1M2dzR6TjVsZnRpWVF4c2x0bURfUWRHbTZ5ZEtqcWdFLVpyeTlHQXlROVdiSFZXNE5uSjBoczdPUDh2c096ak5TenBSODZPbFpLd1BrQQ?oc=5",
@@ -1486,7 +1465,7 @@
    "date": "2026-09-30T11:59:02.000Z",
    "summary": "",
    "relevance": 1,
-   "score": 0.6608,
+   "score": 0.6606,
    "tone": "risk",
    "topics": [
     "Attacks",
@@ -1502,6 +1481,28 @@
    "also": []
   },
   {
+   "id": "tz1m66",
+   "title": "Frontier models state different decision theory preferences depending on who’s asking",
+   "url": "https://blog.redwoodresearch.org/p/frontier-models-state-different-decision",
+   "source": "redwood",
+   "sourceName": "Redwood Research",
+   "kind": "lab",
+   "date": "2026-10-05T22:04:23.000Z",
+   "summary": "Asked which decision theory is right, frontier models name FDT/UDT. But add a sentence saying you're an academic philosopher, and they often switch to CDT.",
+   "thumb": "https://substackcdn.com/image/fetch/$s_!jwTr!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F63d72723-2f7a-457c-89df-804377789934_2400x1260.png",
+   "relevance": 0.5,
+   "score": 0.66,
+   "tone": "neutral",
+   "topics": [],
+   "place": {
+    "name": "Berkeley",
+    "country": "United States",
+    "lon": -122.27,
+    "lat": 37.87
+   },
+   "also": []
+  },
+  {
    "id": "3puo2n",
    "title": "Safeguarding LLMs via Model-Agnostic Latent Safety Signals from Dark Knowledge",
    "url": "https://arxiv.org/abs/2610.07532v1",
@@ -1511,7 +1512,7 @@
    "date": "2026-10-05T23:59:28.000Z",
    "summary": "LLMs have advanced rapidly, raising growing concerns about their safety. Recent work has proposed approaches to detect and defend against attacks including defenses at decoding stage that leverage models' hidden states. However, existing decoding-stage defenses suffer from two…",
    "relevance": 0.5714285714285714,
-   "score": 0.6598,
+   "score": 0.6589,
    "tone": "risk",
    "topics": [
     "Safety"
@@ -1529,7 +1530,7 @@
    "summary": "Google, OpenAI, and Anthropic are coordinating on their own “Standards Authority for Frontier AI,” The Information reported.",
    "thumb": "https://img.semafor.com/df25338b78bce803aafca6b16af8fe44fc9533c3-3172x2115.jpg?rect=0,226,3172,1665&w=1200&h=630&q=75&auto=format",
    "relevance": 1,
-   "score": 0.6579,
+   "score": 0.6578,
    "tone": "risk",
    "topics": [
     "Safety",
@@ -1555,7 +1556,7 @@
    "date": "2026-09-30T07:00:00.000Z",
    "summary": "",
    "relevance": 1,
-   "score": 0.6578,
+   "score": 0.6576,
    "tone": "neutral",
    "topics": [
     "Safety",
@@ -1581,7 +1582,7 @@
    "date": "2026-09-30T06:30:48.000Z",
    "summary": "",
    "relevance": 1,
-   "score": 0.6576,
+   "score": 0.6574,
    "tone": "neutral",
    "topics": [
     "Safety",
@@ -1606,7 +1607,7 @@
    "summary": "[Epistemic status: intuitions and anecdotes.] Recently, several posts and projects ( Thoughts Memo , Babel Translation , Please Give Them a Chance ) have taken important steps towards raising AI safety awareness and sharing rationalist philosophy in China. It’s great that we’re…",
    "thumb": "https://res.cloudinary.com/lesswrong-2-0/image/upload/f_auto,q_auto/v1/mirroredImages/b5cSYh4emQb2qrGmK/bpmks8ouco3u8phattkz",
    "relevance": 0.7142857142857143,
-   "score": 0.6558,
+   "score": 0.6552,
    "tone": "research",
    "topics": [
     "Safety"
@@ -1623,7 +1624,7 @@
    "date": "2026-10-05T20:31:22.000Z",
    "summary": "We evaluate large language models (LLMs) in multi-turn interactions through their time-to-event: the number of interaction steps required to produce an event of interest, such as a successful jailbreak or agentic task completion. Under limited compute, interactions may be…",
    "relevance": 0.5714285714285714,
-   "score": 0.652,
+   "score": 0.6512,
    "tone": "research",
    "topics": [
     "Attacks",
@@ -1638,7 +1639,7 @@
    "source": "yt-far",
    "sourceName": "FAR.AI (YouTube)",
    "kind": "video",
-   "date": "2026-09-07T03:36:22.289Z",
+   "date": "2026-09-07T03:57:46.440Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/O8tERqD8UY0/maxresdefault.jpg",
    "relevance": 1,
@@ -1680,7 +1681,7 @@
    "summary": "Ghaziabad: A second-year Jamia Millia Islamia University student and three of his associates were arrested for allegedly extorting money from a Canada-based NRI by threatening to circulate AI-generated sexually explicit videos. Police said ...",
    "thumb": "https://static.toiimg.com/thumb/msid-134646155,width-1280,height-720,resizemode-6,overlay-toi_sw,pt-32,y_pad-600/photo.jpg",
    "relevance": 0.5,
-   "score": 0.6483,
+   "score": 0.6479,
    "tone": "risk",
    "topics": [
     "Misuse"
@@ -1713,37 +1714,12 @@
    "date": "2026-10-05T16:44:00.000Z",
    "summary": "Adversarial attacks on Large Language Models (LLMs) aim to induce harmful content. However, existing methods suffer from high computational costs or strict model-pairing dependencies, limiting their scalability and transferability. We propose Reward Stealing Attack (ReSA), an…",
    "relevance": 0.5714285714285714,
-   "score": 0.6438,
+   "score": 0.6431,
    "tone": "risk",
    "topics": [
     "Risk",
     "Attacks"
    ],
-   "also": []
-  },
-  {
-   "id": "1o39ut4",
-   "title": "Ofcom investigates Meta over Instagram Instants feature",
-   "url": "https://www.bbc.co.uk/news/articles/cq8jzyey8e2ro?at_medium=RSS&at_campaign=rss",
-   "source": "bbc",
-   "sourceName": "BBC News",
-   "kind": "news",
-   "date": "2026-10-06T09:04:02.000Z",
-   "summary": "The regulator said Instagram had not fully assessed risks posed by its Instants feature prior to launching it.",
-   "thumb": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/d1cb/live/8dbea280-c163-11f1-ae7b-cfc528a6c828.jpg",
-   "relevance": 0.42857142857142855,
-   "score": 0.6421,
-   "tone": "risk",
-   "topics": [
-    "Governance",
-    "Risk"
-   ],
-   "place": {
-    "name": "Menlo Park",
-    "country": "United States",
-    "lon": -122.18,
-    "lat": 37.45
-   },
    "also": []
   },
   {
@@ -1757,7 +1733,7 @@
    "summary": "TOLEDO, Ohio (WTVG) - New information and disturbing video of a K-9 released on a man during a traffic stop has come out Monday. Last week, 13 Action News discovered multiple officers with the Toledo Police Department were under investigat ...",
    "thumb": "https://gray-wtvg-prod.gtv-cdn.com/resizer/v2/UT6MONIW7JAHVE74FQOGVT3ABI.jpg?auth=8925ac0094d12e487490ff3c0207b9c7850dd48dcb2fe90f656c49b0d6fdab95&width=1200&height=600&smart=true",
    "relevance": 0.5,
-   "score": 0.6414,
+   "score": 0.6412,
    "tone": "risk",
    "topics": [],
    "place": {
@@ -1787,6 +1763,31 @@
    "group": "aiid-1717"
   },
   {
+   "id": "1o39ut4",
+   "title": "Ofcom investigates Meta over Instagram Instants feature",
+   "url": "https://www.bbc.co.uk/news/articles/cq8jzyey8e2ro?at_medium=RSS&at_campaign=rss",
+   "source": "bbc",
+   "sourceName": "BBC News",
+   "kind": "news",
+   "date": "2026-10-06T09:04:02.000Z",
+   "summary": "The regulator said Instagram had not fully assessed risks posed by its Instants feature prior to launching it.",
+   "thumb": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/d1cb/live/8dbea280-c163-11f1-ae7b-cfc528a6c828.jpg",
+   "relevance": 0.42857142857142855,
+   "score": 0.6412,
+   "tone": "risk",
+   "topics": [
+    "Governance",
+    "Risk"
+   ],
+   "place": {
+    "name": "Menlo Park",
+    "country": "United States",
+    "lon": -122.18,
+    "lat": 37.45
+   },
+   "also": []
+  },
+  {
    "id": "1oylixq",
    "title": "OpenAI will start watermarking ChatGPT’s text in the EU",
    "url": "https://techcrunch.com/2026/10/05/openai-will-start-watermarking-chatgpts-text-in-the-eu/",
@@ -1797,7 +1798,7 @@
    "summary": "OpenAI will watermark ChatGPT and Codex text in the EU to comply with the AI Act. Editing can make the invisible marks harder to detect, it says.",
    "thumb": "https://techcrunch.com/wp-content/uploads/2026/09/openai-getty.jpg?resize=1200,800",
    "relevance": 0.5714285714285714,
-   "score": 0.6397,
+   "score": 0.6389,
    "tone": "neutral",
    "topics": [
     "Governance",
@@ -1821,7 +1822,7 @@
    "date": "2026-10-05T11:41:57.000Z",
    "summary": "Biomedical large language model (LLM) evaluation requires auditable assessment of narrow, evolving, source-grounded subspecialty knowledge. Multiple sclerosis MRI (MS-MRI) provides a high-stakes textual-knowledge test case because correct reasoning requires current diagnostic…",
    "relevance": 0.5714285714285714,
-   "score": 0.6334,
+   "score": 0.6327,
    "tone": "research",
    "topics": [
     "Evaluations"
@@ -1838,7 +1839,7 @@
    "date": "2026-10-06T13:52:15.000Z",
    "summary": "Frontier AI evaluations increasingly use open-ended, agentic, long-horizon tasks whose transcripts can span hundreds of pages of outputs and actions from complex multi-agent networks. The observability envelop-the range of what evaluators can reliably infer about an agent's…",
    "relevance": 0.42857142857142855,
-   "score": 0.6294,
+   "score": 0.6284,
    "tone": "research",
    "topics": [
     "Governance",
@@ -1856,7 +1857,7 @@
    "date": "2026-10-06T13:48:33.000Z",
    "summary": "Post-training quantization is a standard route to fitting vision transformers (ViTs) into edge compute and memory budgets, yet quantized models become especially brittle under distribution shift. Test-time adaptation (TTA) addresses such shifts without labels, but most existing…",
    "relevance": 0.42857142857142855,
-   "score": 0.6292,
+   "score": 0.6283,
    "tone": "research",
    "topics": [
     "Alignment"
@@ -1893,7 +1894,7 @@
    "date": "2026-10-06T12:31:05.000Z",
    "summary": "Large language models are increasingly used to simulate clients for counselor training and psychological counseling research, but reliable simulation requires clients to remain psychologically coherent across extended interactions. Existing role-playing methods largely rely on…",
    "relevance": 0.42857142857142855,
-   "score": 0.6258,
+   "score": 0.6249,
    "tone": "research",
    "topics": [
     "Alignment"
@@ -1912,7 +1913,7 @@
    "date": "2026-10-05T19:49:25.000Z",
    "summary": "",
    "relevance": 0.5714285714285714,
-   "score": 0.6255,
+   "score": 0.6247,
    "tone": "neutral",
    "topics": [
     "Governance",
@@ -1937,7 +1938,7 @@
    "summary": "Two big unknowns stand in the way of determining how serious the plague threat in Russia is and whether travel advisories, restrictions at U.S. ports of entry or other precautions are warranted. We still don't know which pathogen killed a Russian researcher, or how well…",
    "thumb": "https://images.axios.com/93YekDdl_ph2CliOUEy_hZ42Px0=/0x0:1920x1080/1366x768/2026/10/05/1791217748155.jpeg",
    "relevance": 0.42857142857142855,
-   "score": 0.6182,
+   "score": 0.6173,
    "tone": "neutral",
    "topics": [
     "Risk"
@@ -1960,7 +1961,7 @@
    "date": "2026-10-05T12:32:30.000Z",
    "summary": "Who chooses what AI gets to do?",
    "relevance": 0.5,
-   "score": 0.6155,
+   "score": 0.6148,
    "tone": "research",
    "topics": [
     "Safety"
@@ -1969,63 +1970,18 @@
   },
   {
    "id": "1eb1f24",
-   "title": "I don't think people realize what just happened.",
+   "title": "The Scariest Week in AI History",
    "url": "https://www.youtube.com/watch?v=LlhdnpsADZs",
    "source": "yt-species",
    "sourceName": "Species | Documenting AGI",
    "kind": "video",
-   "date": "2026-10-05T03:36:22.086Z",
+   "date": "2026-10-05T03:57:46.554Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/LlhdnpsADZs/maxresdefault.jpg",
    "relevance": 0.5,
    "score": 0.6106,
    "tone": "neutral",
    "topics": [],
-   "also": []
-  },
-  {
-   "id": "27zl9o",
-   "title": "Exclusive: South Korean AI Attempts to 'Jailbreak'… What About 'Black Box' Control?",
-   "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQc2ZpSG02ZG83WWQ0YTZvN09OcWtLNUYzaDVmazZnc2ZPbEx1eGkxVS1zTlhzRDBlZ19KTlVIdFkwdXdOT3c2QVNhZDZIejdxNEZHM1Z2ZGJTN1U4RlpCWFhXeGNhSXc0Z1ROTFhLLXVqZlg2MFJNdzZWYW5RYUhxQVVwNjc2eTRDSFNMNExKcWJEWFZyVkRPb1hvWGFoQdIBZkFVX3lxTE45bmVHMmlrT3N4UUFpelNjeEtndzBOOXhydkpQeWlDVU1ZNDRwWVFkdVp1eTdueXd3Z3BNdkdvWXJXLUEyQjdqeFpmYjUyUzdBN2lBR0txV0NUbnh0MlZHQ1Y3NHZuZw?oc=5",
-   "source": "gn-jailbreak",
-   "sourceName": "SBS 뉴스",
-   "kind": "news",
-   "site": "https://m.news.sbs.co.kr/",
-   "via": "Google News",
-   "date": "2026-10-05T12:21:09.000Z",
-   "summary": "",
-   "relevance": 0.5714285714285714,
-   "score": 0.6097,
-   "tone": "risk",
-   "topics": [
-    "Attacks",
-    "Alignment"
-   ],
-   "also": []
-  },
-  {
-   "id": "9inimf",
-   "title": "GitHub Copilot CLI Vulnerability Lets Attackers Steal Developer Secrets Using Encrypted Prompt Injection",
-   "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5pakJnVTJ0YTBFNXFpZUtGSk81bURnaVExSjVTcnBpc2VyZXJZZFRZaGkyM3ktMzFLOVRYRE5Ia3M1OEJrOVVFclA4SDQybTcySFBYRVFPQ1ZrXzVkejRhT2VhQzZuYlZEYkxkdGpyTXfSAXZBVV95cUxOaUdSZ0RxWGdQX25jWUdTd1pqYVBYZnNiMnZQY0N5UnlvMm1QaVhKR19XNjVLSUlnbjlxOGdDYTdVejc2SHlLSWk2TUdtNnlpWk1YOWRoUEVXU1hDTXZJYV9zMXloQW1NdTd3dU5uenZNT2JSbmV3?oc=5",
-   "source": "gn-jailbreak",
-   "sourceName": "CyberSecurityNews",
-   "kind": "news",
-   "site": "https://cybersecuritynews.com/",
-   "via": "Google News",
-   "date": "2026-10-06T15:52:16.000Z",
-   "summary": "",
-   "relevance": 0.42857142857142855,
-   "score": 0.6096,
-   "tone": "risk",
-   "topics": [
-    "Attacks"
-   ],
-   "place": {
-    "name": "Redmond",
-    "country": "United States",
-    "lon": -122.12,
-    "lat": 47.67
-   },
    "also": []
   },
   {
@@ -2053,6 +2009,51 @@
    "also": []
   },
   {
+   "id": "27zl9o",
+   "title": "Exclusive: South Korean AI Attempts to 'Jailbreak'… What About 'Black Box' Control?",
+   "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQc2ZpSG02ZG83WWQ0YTZvN09OcWtLNUYzaDVmazZnc2ZPbEx1eGkxVS1zTlhzRDBlZ19KTlVIdFkwdXdOT3c2QVNhZDZIejdxNEZHM1Z2ZGJTN1U4RlpCWFhXeGNhSXc0Z1ROTFhLLXVqZlg2MFJNdzZWYW5RYUhxQVVwNjc2eTRDSFNMNExKcWJEWFZyVkRPb1hvWGFoQdIBZkFVX3lxTE45bmVHMmlrT3N4UUFpelNjeEtndzBOOXhydkpQeWlDVU1ZNDRwWVFkdVp1eTdueXd3Z3BNdkdvWXJXLUEyQjdqeFpmYjUyUzdBN2lBR0txV0NUbnh0MlZHQ1Y3NHZuZw?oc=5",
+   "source": "gn-jailbreak",
+   "sourceName": "SBS 뉴스",
+   "kind": "news",
+   "site": "https://m.news.sbs.co.kr/",
+   "via": "Google News",
+   "date": "2026-10-05T12:21:09.000Z",
+   "summary": "",
+   "relevance": 0.5714285714285714,
+   "score": 0.609,
+   "tone": "risk",
+   "topics": [
+    "Attacks",
+    "Alignment"
+   ],
+   "also": []
+  },
+  {
+   "id": "9inimf",
+   "title": "GitHub Copilot CLI Vulnerability Lets Attackers Steal Developer Secrets Using Encrypted Prompt Injection",
+   "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5pakJnVTJ0YTBFNXFpZUtGSk81bURnaVExSjVTcnBpc2VyZXJZZFRZaGkyM3ktMzFLOVRYRE5Ia3M1OEJrOVVFclA4SDQybTcySFBYRVFPQ1ZrXzVkejRhT2VhQzZuYlZEYkxkdGpyTXfSAXZBVV95cUxOaUdSZ0RxWGdQX25jWUdTd1pqYVBYZnNiMnZQY0N5UnlvMm1QaVhKR19XNjVLSUlnbjlxOGdDYTdVejc2SHlLSWk2TUdtNnlpWk1YOWRoUEVXU1hDTXZJYV9zMXloQW1NdTd3dU5uenZNT2JSbmV3?oc=5",
+   "source": "gn-jailbreak",
+   "sourceName": "CyberSecurityNews",
+   "kind": "news",
+   "site": "https://cybersecuritynews.com/",
+   "via": "Google News",
+   "date": "2026-10-06T15:52:16.000Z",
+   "summary": "",
+   "relevance": 0.42857142857142855,
+   "score": 0.6087,
+   "tone": "risk",
+   "topics": [
+    "Attacks"
+   ],
+   "place": {
+    "name": "Redmond",
+    "country": "United States",
+    "lon": -122.12,
+    "lat": 47.67
+   },
+   "also": []
+  },
+  {
    "id": "9mo8ft",
    "title": "NewsWrap: Access to frontier AI becomes a safety issue",
    "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPcXk4ZUdRZkxxeGo1WU1lT2NwTXBheTZsUzVGSFEtU0Rvem9fLU5JS2E4REtlSmJwN3c2MXFDNEkya0hPRzViZFo5ZGNBNFhiUlp1T2xnU09jNUotWkp1WEF1TjBjOS1iaERicmN6MFlIRVVHelN5NktLcjlzZVl2SGZfdi1wZFg0d0JmZg?oc=5",
@@ -2064,7 +2065,7 @@
    "date": "2026-10-05T11:58:36.000Z",
    "summary": "",
    "relevance": 0.5714285714285714,
-   "score": 0.609,
+   "score": 0.6083,
    "tone": "neutral",
    "topics": [
     "Governance",
@@ -2084,7 +2085,7 @@
    "date": "2026-10-05T11:18:00.000Z",
    "summary": "",
    "relevance": 0.5714285714285714,
-   "score": 0.6076,
+   "score": 0.6069,
    "tone": "risk",
    "topics": [
     "Attacks",
@@ -2103,7 +2104,7 @@
    "summary": "At this point, it’s unclear whether senators will even be able to introduce a bipartisan bill before the election.",
    "thumb": "https://img.semafor.com/033a0524b3b55136b4a784827196dd04f8b94d95-2613x1960.png?rect=0,294,2613,1372&w=1200&h=630&q=75&auto=format",
    "relevance": 0.8571428571428571,
-   "score": 0.607,
+   "score": 0.6068,
    "tone": "neutral",
    "topics": [
     "Safety",
@@ -2128,7 +2129,7 @@
    "summary": "It labelled Anthropic a \"supply chain risk\" in February after the firm refused to remove safety guardrails from its tools.",
    "thumb": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/c06c/live/0ca3aea0-c0c5-11f1-bc2e-018d645d8d21.jpg",
    "relevance": 0.42857142857142855,
-   "score": 0.6035,
+   "score": 0.6027,
    "tone": "neutral",
    "topics": [
     "Safety",
@@ -2152,7 +2153,7 @@
    "date": "2026-10-06T02:35:09.000Z",
    "summary": "State-of-the-art reinforcement learning agents are capable of outperforming human experts at games like chess, Go and StarCraft II. These agents do not simply take advantage of their digital hardware in being able to react and calculate faster than humans, but employ better…",
    "relevance": 0.42857142857142855,
-   "score": 0.6014,
+   "score": 0.6006,
    "tone": "research",
    "topics": [
     "Interpretability"
@@ -2169,7 +2170,7 @@
    "date": "2026-10-06T01:50:13.000Z",
    "summary": "Model-guided directed evolution seeks to identify high-fitness protein variants under limited oracle budgets. Protein language models (PLMs) provide rich representations for this task, but task-agnostic zero-shot scores can be misaligned with a target assay, while supervised…",
    "relevance": 0.42857142857142855,
-   "score": 0.5997,
+   "score": 0.5989,
    "tone": "research",
    "topics": [
     "Alignment"
@@ -2186,7 +2187,7 @@
    "date": "2026-10-06T12:00:00.000Z",
    "summary": "OpenAI publishes new results on open problems in mathematics from an internal frontier model and shares Lean proof formalizations and research details on GitHub.",
    "relevance": 0.2857142857142857,
-   "score": 0.5977,
+   "score": 0.5968,
    "tone": "neutral",
    "topics": [
     "Governance"
@@ -2209,7 +2210,7 @@
    "date": "2026-09-29T15:46:00.000Z",
    "summary": "GLM-5.3 can autonomously build end-to-end cyber exploits, but unlike other frontier models, it was released without meaningful safeguards to limit misuse.",
    "relevance": 0.7142857142857143,
-   "score": 0.5961,
+   "score": 0.5959,
    "tone": "risk",
    "topics": [
     "Safety",
@@ -2225,24 +2226,6 @@
    "also": []
   },
   {
-   "id": "ddxw8x",
-   "title": "Welcome to #TeamHuman",
-   "url": "https://www.youtube.com/shorts/uqiH3R4TEgk",
-   "source": "yt-miles",
-   "sourceName": "Robert Miles AI Safety",
-   "kind": "video",
-   "date": "2026-10-04T03:17:06.000Z",
-   "summary": "The AI situation is getting completely out of hand. Go to https://teamhuman.org and sign the petition calling for international agreements to slow down the race to superhuman AI, and keep humans in control.",
-   "thumb": "https://i.ytimg.com/vi/uqiH3R4TEgk/maxresdefault.jpg",
-   "relevance": 0.5,
-   "score": 0.5956,
-   "tone": "neutral",
-   "topics": [
-    "Alignment"
-   ],
-   "also": []
-  },
-  {
    "id": "z7x6dz",
    "title": "Targeted search shows that random-device testing underestimates worst-case error in a simulated wave-based neural operator",
    "url": "https://arxiv.org/abs/2610.07529v1",
@@ -2252,7 +2235,7 @@
    "date": "2026-10-05T23:53:31.000Z",
    "summary": "Wave-based processors promise fast, energy-efficient Fourier layers for neural operators. They are usually validated on randomly sampled devices, but using them requires knowing how large their error can become under fabrication and alignment variation. In a stylised numerical…",
    "relevance": 0.42857142857142855,
-   "score": 0.5952,
+   "score": 0.5944,
    "tone": "research",
    "topics": [
     "Alignment"
@@ -2271,7 +2254,7 @@
    "date": "2026-09-30T06:35:00.000Z",
    "summary": "",
    "relevance": 0.8571428571428571,
-   "score": 0.5933,
+   "score": 0.5931,
    "tone": "risk",
    "topics": [
     "Attacks",
@@ -2292,7 +2275,7 @@
    "source": "yt-far",
    "sourceName": "FAR.AI (YouTube)",
    "kind": "video",
-   "date": "2026-10-01T03:36:22.289Z",
+   "date": "2026-10-01T03:57:46.440Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/znH5lGr3Qxc/maxresdefault.jpg",
    "relevance": 0.7142857142857143,
@@ -2315,7 +2298,7 @@
    "date": "2026-09-30T04:10:29.000Z",
    "summary": "",
    "relevance": 0.8571428571428571,
-   "score": 0.5919,
+   "score": 0.5917,
    "tone": "risk",
    "topics": [
     "Attacks",
@@ -2333,7 +2316,7 @@
    "date": "2026-10-05T22:07:40.000Z",
    "summary": "Hypergraphs offer a natural framework for modeling networked data, where dependencies among entities are governed by higher-order interactions. While hypergraph learning methods such as hypergraph neural networks have demonstrated remarkable predictive performance, most existing…",
    "relevance": 0.42857142857142855,
-   "score": 0.5913,
+   "score": 0.5905,
    "tone": "research",
    "topics": [
     "Interpretability"
@@ -2350,7 +2333,7 @@
    "date": "2026-10-05T21:03:21.000Z",
    "summary": "Sparse autoencoders are widely used to uncover interpretable features in neural networks, yet reliable recovery remains difficult when features overlap or activate infrequently. These challenges involve both inferring which features explain an input and learning the dictionary…",
    "relevance": 0.42857142857142855,
-   "score": 0.5889,
+   "score": 0.5881,
    "tone": "research",
    "topics": [
     "Interpretability"
@@ -2367,7 +2350,7 @@
    "date": "2026-10-05T20:08:29.000Z",
    "summary": "Interpretability methods for neural networks are predominantly reactive: they analyse activations produced during specific forward passes, requiring known inputs to find hidden capabilities such as backdoors. We propose Weight Oracles, fine-tuned language models that diagnose…",
    "relevance": 0.42857142857142855,
-   "score": 0.5869,
+   "score": 0.5861,
    "tone": "research",
    "topics": [
     "Interpretability"
@@ -2384,7 +2367,7 @@
    "date": "2026-10-05T19:11:48.000Z",
    "summary": "Linkage algorithms for hierarchical clustering (HC) are a powerful and efficient framework for constructing clustering trees, yet it is often unclear which merge rule best suits a given dataset or task. In contrast, neural approaches can learn from data, but often fail to retain…",
    "relevance": 0.42857142857142855,
-   "score": 0.5848,
+   "score": 0.584,
    "tone": "research",
    "topics": [
     "Alignment"
@@ -2402,7 +2385,7 @@
    "summary": "Like other solutions, it is not especially reliable, and it's easy to circumvent.",
    "thumb": "https://cdn.arstechnica.net/wp-content/uploads/2026/09/chatgpt-icon-1152x648-1789154124.jpg",
    "relevance": 0.2857142857142857,
-   "score": 0.584,
+   "score": 0.583,
    "tone": "neutral",
    "topics": [
     "Safety"
@@ -2426,7 +2409,7 @@
    "summary": "Giorgia Meloni submitted a four-second audio to a EU agency in a bid to protect her voice from deepfakes.",
    "thumb": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/cc57/live/ceb63ea0-c15f-11f1-ae7b-cfc528a6c828.jpg",
    "relevance": 0.2857142857142857,
-   "score": 0.5837,
+   "score": 0.5828,
    "tone": "risk",
    "topics": [
     "Misuse"
@@ -2449,7 +2432,7 @@
    "date": "2026-10-05T18:18:40.000Z",
    "summary": "Recent AI alignment work often frames alignment as a pre-deployment optimization problem: collect human feedback, learn preferences or principles, finetune the model, and deploy an aligned system. This framing has produced major progress, but it under-specifies what happens once…",
    "relevance": 0.42857142857142855,
-   "score": 0.5829,
+   "score": 0.5821,
    "tone": "research",
    "topics": [
     "Alignment"
@@ -2467,7 +2450,7 @@
    "summary": "OpenAI has revealed solutions to a number of long-standing mathematics problems produced by an unreleased frontier model in a batch of 722 manuscripts, covering 372 result families that group related papers. It extends a run of breakthroughs that have both impressed and…",
    "thumb": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/10/gettyimages-2297765991.jpg?quality=90&strip=all&crop=0%2C10.744316765259%2C100%2C78.511366469482&w=1200",
    "relevance": 0.2857142857142857,
-   "score": 0.5788,
+   "score": 0.5778,
    "tone": "neutral",
    "topics": [
     "Governance"
@@ -2490,7 +2473,7 @@
    "date": "2026-10-05T16:14:18.000Z",
    "summary": "Transformers asked to multiply multi-digit numbers in a single forward pass often fail, and interpretability studies of pretrained language models find arithmetic solved by input-range heuristics rather than by an explicit carry. We train small Llama-style transformers from…",
    "relevance": 0.42857142857142855,
-   "score": 0.5785,
+   "score": 0.5777,
    "tone": "research",
    "topics": [
     "Interpretability"
@@ -2508,7 +2491,7 @@
    "summary": "The unstated disagreement that underpins safety debates",
    "thumb": "https://substackcdn.com/image/fetch/$s_!LgrS!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F11d1c529-6f8d-4df3-acb6-f291eaa271f2_1024x559.jpeg",
    "relevance": 0.7142857142857143,
-   "score": 0.5774,
+   "score": 0.5771,
    "tone": "research",
    "topics": [
     "Safety"
@@ -2525,7 +2508,7 @@
    "date": "2026-09-17T21:04:05.000Z",
    "summary": "(Or: Why Bentham's Bulldog and John Halstead are wrong in their critique of Kulveit et al. ) Gradual Disempowerment is a 2025 paper (with a nice, dedicated website ) proposing a form of existential risk from AI that goes beyond \"mundane\" risks like bioweapon uplift or mainline…",
    "relevance": 0.8571428571428571,
-   "score": 0.5762,
+   "score": 0.5761,
    "tone": "risk",
    "topics": [
     "Risk"
@@ -2560,7 +2543,7 @@
    "date": "2026-10-05T14:30:28.000Z",
    "summary": "Training-free model merging aims to combine multiple fine-tuned models into a single model without further optimization on labeled data. Yet, in transformers, independently merging individual layers can affect a shared attention computation because the query-key and value-output…",
    "relevance": 0.42857142857142855,
-   "score": 0.5749,
+   "score": 0.5741,
    "tone": "research",
    "topics": [
     "Alignment"
@@ -2579,7 +2562,7 @@
    "date": "2026-10-04T17:00:21.000Z",
    "summary": "",
    "relevance": 0.5714285714285714,
-   "score": 0.5741,
+   "score": 0.5735,
    "tone": "neutral",
    "topics": [
     "Governance"
@@ -2602,7 +2585,7 @@
    "date": "2026-10-05T14:03:14.000Z",
    "summary": "Large Language Models (LLMs) are increasingly deployed for automated software vulnerability analysis. Binary classification alone is insufficient; practitioners need explanations to triage bugs and engineer patches. Standard practice relies on Chain-of-Thought (CoT) prompting,…",
    "relevance": 0.42857142857142855,
-   "score": 0.5739,
+   "score": 0.5732,
    "tone": "risk",
    "topics": [
     "Evaluations",
@@ -2621,7 +2604,7 @@
    "summary": "During a joint parliamentary hearing on artificial intelligence, Anthropic’s head of safeguards, Dave Orr, says that investigations of hundreds of millions of transcripts reveal no unauthorised interactions with Australian government systems. However, Orr acknowledges Anthropic…",
    "thumb": "https://i.guim.co.uk/img/media/4f9c873763e1a897c9ab94c0dbc4b99b641ae5fb/555_181_1122_899/master/1122.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=5667abfa79ed2867f2aeebbe77281a75",
    "relevance": 0.2857142857142857,
-   "score": 0.5676,
+   "score": 0.5667,
    "tone": "risk",
    "topics": [
     "Safety"
@@ -2646,7 +2629,7 @@
    "date": "2026-10-05T22:30:00.000Z",
    "summary": "",
    "relevance": 0.42857142857142855,
-   "score": 0.5671,
+   "score": 0.5663,
    "tone": "neutral",
    "topics": [
     "Governance",
@@ -2685,7 +2668,7 @@
    "date": "2026-10-02T04:42:33.000Z",
    "summary": "",
    "relevance": 0.7142857142857143,
-   "score": 0.5628,
+   "score": 0.5625,
    "tone": "risk",
    "topics": [
     "Safety"
@@ -2704,7 +2687,7 @@
    "date": "2026-10-06T22:06:48.000Z",
    "summary": "",
    "relevance": 0.2857142857142857,
-   "score": 0.5625,
+   "score": 0.5615,
    "tone": "neutral",
    "topics": [
     "Governance"
@@ -2723,33 +2706,11 @@
    "date": "2026-10-05T20:05:19.000Z",
    "summary": "",
    "relevance": 0.42857142857142855,
-   "score": 0.5618,
+   "score": 0.561,
    "tone": "neutral",
    "topics": [
     "Alignment"
    ],
-   "also": []
-  },
-  {
-   "id": "1d0yruq",
-   "title": "Claude Frontier Academy: $100M to train 10,000 engineers",
-   "url": "https://www.anthropic.com/news/claude-frontier-academy",
-   "source": "anthropic",
-   "sourceName": "Anthropic",
-   "kind": "lab",
-   "date": "2026-10-02T23:01:00.000Z",
-   "summary": "Claude Frontier Academy trains Frontier Deployed Engineers to the standard of Anthropic’s own — a $100 million commitment to train 10,000 by the end of 2027.",
-   "thumb": "https://www.anthropic.com/api/opengraph-illustration?name=Hand%20Build&backgroundColor=heather",
-   "relevance": 0.5,
-   "score": 0.5597,
-   "tone": "good",
-   "topics": [],
-   "place": {
-    "name": "San Francisco",
-    "country": "United States",
-    "lon": -122.42,
-    "lat": 37.77
-   },
    "also": []
   },
   {
@@ -2763,7 +2724,7 @@
    "summary": "Intended to help with biosecurity, it works with a popular AI protein design tool.",
    "thumb": "https://cdn.arstechnica.net/wp-content/uploads/2026/09/GettyImages-2204734561-1152x648.jpg",
    "relevance": 0.7142857142857143,
-   "score": 0.5597,
+   "score": 0.5594,
    "tone": "neutral",
    "topics": [
     "Risk",
@@ -2778,6 +2739,28 @@
    "also": []
   },
   {
+   "id": "1d0yruq",
+   "title": "Claude Frontier Academy: $100M to train 10,000 engineers",
+   "url": "https://www.anthropic.com/news/claude-frontier-academy",
+   "source": "anthropic",
+   "sourceName": "Anthropic",
+   "kind": "lab",
+   "date": "2026-10-02T23:01:00.000Z",
+   "summary": "Claude Frontier Academy trains Frontier Deployed Engineers to the standard of Anthropic’s own — a $100 million commitment to train 10,000 by the end of 2027.",
+   "thumb": "https://www.anthropic.com/api/opengraph-illustration?name=Hand%20Build&backgroundColor=heather",
+   "relevance": 0.5,
+   "score": 0.5593,
+   "tone": "good",
+   "topics": [],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
    "id": "e2vf1f",
    "title": "OpenAI delays IPO over AI safety concerns",
    "url": "https://arstechnica.com/ai/2026/09/openai-delays-ipo-over-ai-safety-concerns/",
@@ -2788,7 +2771,7 @@
    "summary": "OpenAI is seeking another $30 billion privately as its IPO plans slip.",
    "thumb": "https://cdn.arstechnica.net/wp-content/uploads/2023/11/sam-altman-1-1152x648.jpg",
    "relevance": 0.7142857142857143,
-   "score": 0.5585,
+   "score": 0.5583,
    "tone": "risk",
    "topics": [
     "Safety"
@@ -2813,7 +2796,7 @@
    "date": "2026-10-01T22:53:00.000Z",
    "summary": "",
    "relevance": 0.7142857142857143,
-   "score": 0.5576,
+   "score": 0.5573,
    "tone": "neutral",
    "topics": [
     "Safety"
@@ -2838,7 +2821,7 @@
    "date": "2026-10-01T22:10:00.000Z",
    "summary": "",
    "relevance": 0.7142857142857143,
-   "score": 0.557,
+   "score": 0.5567,
    "tone": "neutral",
    "topics": [
     "Safety"
@@ -2857,7 +2840,7 @@
    "date": "2026-10-01T21:05:54.000Z",
    "summary": "",
    "relevance": 0.7142857142857143,
-   "score": 0.5561,
+   "score": 0.5558,
    "tone": "neutral",
    "topics": [
     "Safety"
@@ -2875,7 +2858,7 @@
    "summary": "With America's tech titans crowded around a single White House table Tuesday, President Trump extracted what he called a \"morally binding\" compact on AI safety. The terms were simple: Press ahead, project optimism and police yourselves. Why it matters: The White House Accord on…",
    "thumb": "https://images.axios.com/XX_EjERcW0uuP8C03xfu6lUlJSQ=/0x0:5621x3162/1366x768/2026/09/29/1790717259309.jpeg",
    "relevance": 0.7142857142857143,
-   "score": 0.5558,
+   "score": 0.5556,
    "tone": "neutral",
    "topics": [
     "Safety"
@@ -2900,7 +2883,7 @@
    "date": "2026-10-04T04:23:00.000Z",
    "summary": "",
    "relevance": 0.5714285714285714,
-   "score": 0.5543,
+   "score": 0.5538,
    "tone": "risk",
    "topics": [
     "Safety"
@@ -2925,7 +2908,7 @@
    "date": "2026-10-01T17:00:00.000Z",
    "summary": "",
    "relevance": 0.7142857142857143,
-   "score": 0.5527,
+   "score": 0.5524,
    "tone": "neutral",
    "topics": [
     "Safety"
@@ -2943,7 +2926,7 @@
    "summary": "This post argues that fixed-weight models (at least as we understand them today) will a) always be vulnerable to adversarial examples in their concept-spaces, and b) hence will be misaligned, under sufficient optimisation pressure . Boundaries in concept space To serve any…",
    "thumb": "https://res.cloudinary.com/lesswrong-2-0/image/upload/v1790627136/lexical_client_uploads/a3m09jquwfcktv7aehdt.png",
    "relevance": 0.7142857142857143,
-   "score": 0.5497,
+   "score": 0.5496,
    "tone": "risk",
    "topics": [
     "Alignment",
@@ -2961,7 +2944,7 @@
    "date": "2026-09-29T22:20:28.000Z",
    "summary": "We evaluate several models on 100 tasks from the [internal Binary Exploitation benchmark] (selected at random), and find that GLM-5.3 develops full control flow hijacks in 4% of the trials; Claude Mythos Preview did so in 6%. Although GLM-5.3 performs below Claude Mythos Preview…",
    "relevance": 0.7142857142857143,
-   "score": 0.5495,
+   "score": 0.5493,
    "tone": "research",
    "topics": [
     "Evaluations",
@@ -2979,7 +2962,7 @@
    "date": "2026-10-05T15:00:00.000Z",
    "summary": "How OpenAI is approaching text watermarking under EU rules. Learn where watermarks apply, how detection works, and why access starts with researchers.",
    "relevance": 0.2857142857142857,
-   "score": 0.5491,
+   "score": 0.5484,
    "tone": "neutral",
    "topics": [
     "Safety"
@@ -3003,7 +2986,7 @@
    "summary": "We found a way to pull sensitive account data out of Salesforce Agentforce without ever logging in, or requiring the victim to click anything. The entry point was a public Web-to-Lead form, the exit was a DNS query. We call it SalesBleed. ... (report_number: 8024)",
    "thumb": "https://cdn.sanity.io/images/13k3ywos/production/91e7077ead5d29eacd6c987920b4202ef7f1912f-1550x1014.png?rect=0,100,1550,814&w=1200&h=630",
    "relevance": 0.5,
-   "score": 0.5483,
+   "score": 0.5479,
    "tone": "risk",
    "topics": [
     "Attacks"
@@ -3020,7 +3003,7 @@
    "date": "2026-10-03T00:00:00.000Z",
    "summary": "The university where the term artificial intelligence was coined is ringing in the field's 70th birthday in fitting fashion: with an academic-integrity scandal. Last month, Dartmouth College's president, Sian Leah Beilock, published an essa ... (report_number: 8029)",
    "relevance": 0.5,
-   "score": 0.5483,
+   "score": 0.5479,
    "tone": "risk",
    "topics": [],
    "also": []
@@ -3037,7 +3020,7 @@
    "date": "2026-10-01T10:34:00.000Z",
    "summary": "",
    "relevance": 0.7142857142857143,
-   "score": 0.5476,
+   "score": 0.5474,
    "tone": "risk",
    "topics": [
     "Safety"
@@ -3061,7 +3044,7 @@
    "summary": "The leaders in AI were invited to the White House.",
    "thumb": "https://substackcdn.com/image/fetch/$s_!gx4H!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0c8e39e7-326b-45c2-ad0e-7a8fa86c8177_1080x542.jpeg",
    "relevance": 0.7142857142857143,
-   "score": 0.5471,
+   "score": 0.5469,
    "tone": "research",
    "topics": [
     "Safety"
@@ -3080,28 +3063,10 @@
    "date": "2026-10-06T16:27:30.000Z",
    "summary": "",
    "relevance": 0.2857142857142857,
-   "score": 0.5469,
+   "score": 0.546,
    "tone": "neutral",
    "topics": [
     "Governance"
-   ],
-   "also": []
-  },
-  {
-   "id": "jkdouf",
-   "title": "Useful Websites: AISafety.com",
-   "url": "https://www.youtube.com/shorts/mJhJLBBFBOs",
-   "source": "yt-miles",
-   "sourceName": "Robert Miles AI Safety",
-   "kind": "video",
-   "date": "2026-07-17T03:43:20.000Z",
-   "summary": "AISafety.com For uh, many of your AI Safety needs",
-   "thumb": "https://i.ytimg.com/vi/mJhJLBBFBOs/maxresdefault.jpg",
-   "relevance": 0.7142857142857143,
-   "score": 0.5464,
-   "tone": "neutral",
-   "topics": [
-    "Safety"
    ],
    "also": []
   },
@@ -3117,7 +3082,7 @@
    "date": "2026-10-01T07:00:00.000Z",
    "summary": "",
    "relevance": 0.7142857142857143,
-   "score": 0.545,
+   "score": 0.5447,
    "tone": "risk",
    "topics": [
     "Attacks",
@@ -3143,7 +3108,7 @@
    "date": "2026-10-06T15:26:12.000Z",
    "summary": "",
    "relevance": 0.2857142857142857,
-   "score": 0.5442,
+   "score": 0.5433,
    "tone": "neutral",
    "topics": [
     "Governance"
@@ -3162,7 +3127,7 @@
    "date": "2026-10-06T15:10:41.000Z",
    "summary": "",
    "relevance": 0.2857142857142857,
-   "score": 0.5435,
+   "score": 0.5426,
    "tone": "neutral",
    "topics": [
     "Governance"
@@ -3186,7 +3151,7 @@
    "summary": "A model of why capabilities research usually increases risk despite enabling safety—and when it can reduce risk",
    "thumb": "https://substackcdn.com/image/fetch/$s_!bgRf!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2d15a7c9-5040-4f8b-8640-2a2f61e6769b_1516x1050.png",
    "relevance": 0.5,
-   "score": 0.5422,
+   "score": 0.5419,
    "tone": "risk",
    "topics": [
     "Safety",
@@ -3232,7 +3197,7 @@
    "source": "yt-far",
    "sourceName": "FAR.AI (YouTube)",
    "kind": "video",
-   "date": "2026-10-03T03:36:22.289Z",
+   "date": "2026-10-03T03:57:46.440Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/yQV4lb4_ebM/maxresdefault.jpg",
    "relevance": 0.5,
@@ -3255,7 +3220,7 @@
    "date": "2026-10-04T13:30:42.000Z",
    "summary": "",
    "relevance": 0.2857142857142857,
-   "score": 0.5398,
+   "score": 0.5392,
    "tone": "risk",
    "topics": [
     "Safety"
@@ -3289,7 +3254,7 @@
    "date": "2026-09-30T20:33:00.000Z",
    "summary": "",
    "relevance": 0.7142857142857143,
-   "score": 0.5377,
+   "score": 0.5374,
    "tone": "neutral",
    "topics": [
     "Safety"
@@ -3314,7 +3279,7 @@
    "date": "2026-09-30T20:30:00.000Z",
    "summary": "",
    "relevance": 0.7142857142857143,
-   "score": 0.5376,
+   "score": 0.5374,
    "tone": "neutral",
    "topics": [
     "Safety"
@@ -3333,7 +3298,7 @@
    "date": "2026-09-30T19:45:20.000Z",
    "summary": "",
    "relevance": 0.7142857142857143,
-   "score": 0.5371,
+   "score": 0.5369,
    "tone": "risk",
    "topics": [
     "Safety",
@@ -3354,7 +3319,7 @@
    "source": "yt-doom",
    "sourceName": "Doom Debates",
    "kind": "video",
-   "date": "2026-09-07T03:36:22.277Z",
+   "date": "2026-09-07T03:57:46.544Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/QqESBXuo6EI/maxresdefault.jpg",
    "relevance": 0.8571428571428571,
@@ -3373,7 +3338,7 @@
    "source": "yt-deepmind",
    "sourceName": "Google DeepMind (YouTube)",
    "kind": "video",
-   "date": "2026-10-02T03:36:22.255Z",
+   "date": "2026-10-02T03:57:46.356Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/HIUzrxQxTtw/maxresdefault.jpg",
    "relevance": 0.5714285714285714,
@@ -3383,31 +3348,6 @@
     "Misuse",
     "Safety"
    ],
-   "also": []
-  },
-  {
-   "id": "1656cm2",
-   "title": "A timeline of developments in AI safety since the attack on Hugging Face",
-   "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPS2tOUGI4OFV0XzA4dW1yR0htSDU0RDdDUHI1eXdRSFZJTlBxei1zMnNDTC1HcEpvOEZQcXQ0dEdPNnpmbDd3R3RBVXI4NlM2MGZzaEhSa3ByaHdhQ2trTXZ5RXJCQkdIdEhnNWZXRjJydktldjAwVmhCZGtsTDREM0VwTEhTcVMwdXgyNUpGVk1zUGJpajB6MmN30gGfAUFVX3lxTE9PRnJXSGpCN3EyN0hKXzRxOEh1bTR1T2ttak9QRGt4TFA3Yk1NUGlPMktJcnNZTDdSSm1QMmhFZjVUM182cnZOT1EzYmJlNXhvaFRldDdocEJ0bnNGMVNqNmZBQTVPTDg0LWhSRHhFMzlEM3REWk5LRlBpYXhYakZQMkRPcHoySVNvc3JxQmtNdXM1VTRuMDFpbkc5R1d2bw?oc=5",
-   "source": "gn-safety",
-   "sourceName": "ABC News - Breaking News, Latest News and Videos",
-   "kind": "news",
-   "site": "https://abcnews.com/",
-   "via": "Google News",
-   "date": "2026-09-30T15:29:46.000Z",
-   "summary": "",
-   "relevance": 0.7142857142857143,
-   "score": 0.5344,
-   "tone": "risk",
-   "topics": [
-    "Safety"
-   ],
-   "place": {
-    "name": "New York",
-    "country": "United States",
-    "lon": -74,
-    "lat": 40.71
-   },
    "also": []
   },
   {
@@ -3431,6 +3371,31 @@
     "country": "United States",
     "lon": -122.42,
     "lat": 37.77
+   },
+   "also": []
+  },
+  {
+   "id": "1656cm2",
+   "title": "A timeline of developments in AI safety since the attack on Hugging Face",
+   "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPS2tOUGI4OFV0XzA4dW1yR0htSDU0RDdDUHI1eXdRSFZJTlBxei1zMnNDTC1HcEpvOEZQcXQ0dEdPNnpmbDd3R3RBVXI4NlM2MGZzaEhSa3ByaHdhQ2trTXZ5RXJCQkdIdEhnNWZXRjJydktldjAwVmhCZGtsTDREM0VwTEhTcVMwdXgyNUpGVk1zUGJpajB6MmN30gGfAUFVX3lxTE9PRnJXSGpCN3EyN0hKXzRxOEh1bTR1T2ttak9QRGt4TFA3Yk1NUGlPMktJcnNZTDdSSm1QMmhFZjVUM182cnZOT1EzYmJlNXhvaFRldDdocEJ0bnNGMVNqNmZBQTVPTDg0LWhSRHhFMzlEM3REWk5LRlBpYXhYakZQMkRPcHoySVNvc3JxQmtNdXM1VTRuMDFpbkc5R1d2bw?oc=5",
+   "source": "gn-safety",
+   "sourceName": "ABC News - Breaking News, Latest News and Videos",
+   "kind": "news",
+   "site": "https://abcnews.com/",
+   "via": "Google News",
+   "date": "2026-09-30T15:29:46.000Z",
+   "summary": "",
+   "relevance": 0.7142857142857143,
+   "score": 0.5342,
+   "tone": "risk",
+   "topics": [
+    "Safety"
+   ],
+   "place": {
+    "name": "New York",
+    "country": "United States",
+    "lon": -74,
+    "lat": 40.71
    },
    "also": []
   },
@@ -3494,7 +3459,7 @@
    "date": "2026-09-30T13:41:49.000Z",
    "summary": "",
    "relevance": 0.7142857142857143,
-   "score": 0.5333,
+   "score": 0.5331,
    "tone": "risk",
    "topics": [
     "Safety",
@@ -3520,7 +3485,7 @@
    "date": "2026-09-30T11:00:01.000Z",
    "summary": "",
    "relevance": 0.7142857142857143,
-   "score": 0.5316,
+   "score": 0.5314,
    "tone": "neutral",
    "topics": [
     "Safety"
@@ -3539,7 +3504,7 @@
    "date": "2026-09-30T08:53:45.000Z",
    "summary": "",
    "relevance": 0.7142857142857143,
-   "score": 0.5304,
+   "score": 0.5302,
    "tone": "risk",
    "topics": [
     "Safety",
@@ -3554,27 +3519,6 @@
    "also": []
   },
   {
-   "id": "1t01ygv",
-   "title": "Barclays scales Claude to upgrade operations and improve client experience",
-   "url": "https://www.anthropic.com/news/barclays-scales-claude",
-   "source": "anthropic",
-   "sourceName": "Anthropic",
-   "kind": "lab",
-   "date": "2026-10-01T15:19:00.000Z",
-   "summary": "Barclays, the British universal bank, is expanding its strategic collaboration with Anthropic to integrate secure, enterprise-grade AI systems across its global operations.",
-   "relevance": 0.5,
-   "score": 0.5299,
-   "tone": "neutral",
-   "topics": [],
-   "place": {
-    "name": "San Francisco",
-    "country": "United States",
-    "lon": -122.42,
-    "lat": 37.77
-   },
-   "also": []
-  },
-  {
    "id": "1m1jiev",
    "title": "Hacking OpenAI",
    "url": "https://www.hacktron.ai/blog/hacking-openai",
@@ -3585,7 +3529,7 @@
    "summary": "On July 25, 2026, we chained two critical vulnerabilities to compromise multiple OpenAI employees’ ChatGPT accounts. With these accounts, we could then access internal OpenAI repositories, and potentially many other connectors. To prove we ... (report_number: 8007)",
    "thumb": "https://www.hacktron.ai/_astro/CwjuS_y3.png",
    "relevance": 0.5,
-   "score": 0.5299,
+   "score": 0.5298,
    "tone": "risk",
    "topics": [],
    "place": {
@@ -3602,6 +3546,27 @@
    ]
   },
   {
+   "id": "1t01ygv",
+   "title": "Barclays scales Claude to upgrade operations and improve client experience",
+   "url": "https://www.anthropic.com/news/barclays-scales-claude",
+   "source": "anthropic",
+   "sourceName": "Anthropic",
+   "kind": "lab",
+   "date": "2026-10-01T15:19:00.000Z",
+   "summary": "Barclays, the British universal bank, is expanding its strategic collaboration with Anthropic to integrate secure, enterprise-grade AI systems across its global operations.",
+   "relevance": 0.5,
+   "score": 0.5296,
+   "tone": "neutral",
+   "topics": [],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
+   "also": []
+  },
+  {
    "id": "1whn5si",
    "title": "Claude-shaped science",
    "url": "https://www.anthropic.com/research/claude-shaped-science",
@@ -3612,7 +3577,7 @@
    "summary": "Matthew Schwartz describes what happened when he stopped fighting Claude and allowed Claude to find “Claude-shaped” problems. This led him to build BootLoops, a toolkit for exact calculations in quantitative science, which he has been applying across scientific fields alongside…",
    "thumb": "https://www-cdn.anthropic.com/images/4zrzovbb/website/5dca367673e615ac7abbbdac9f44733d1f52638a-2000x1125.jpg",
    "relevance": 0.5,
-   "score": 0.5289,
+   "score": 0.5286,
    "tone": "neutral",
    "topics": [],
    "place": {
@@ -3635,7 +3600,7 @@
    "date": "2026-10-06T09:05:02.000Z",
    "summary": "",
    "relevance": 0.2857142857142857,
-   "score": 0.5278,
+   "score": 0.527,
    "tone": "neutral",
    "topics": [
     "Governance"
@@ -3659,7 +3624,7 @@
    "summary": "The pitfalls of AI-enabled weapons don’t disappear just because there’s a ‘human in the loop’",
    "thumb": "https://substackcdn.com/image/fetch/$s_!Cvlc!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd745a418-1e92-4b0c-a193-a733c8895c66_1920x1080.png",
    "relevance": 0.5,
-   "score": 0.5263,
+   "score": 0.526,
    "tone": "risk",
    "topics": [
     "Governance",
@@ -3678,7 +3643,7 @@
    "summary": "A crucial safeguard against AI agents going rogue —keeping humans in the loop to review and approve their decisions—will fail unless designers and users change their current practices, a trio of leading AI ethics researchers argue. Though most autonomous agents have systems to…",
    "thumb": "https://spectrum.ieee.org/media-library/conceptual-illustration-of-a-tiny-human-walking-through-a-large-gridded-digital-landscape.jpg?id=67960251&width=1200&height=600&coordinates=0%2C210%2C0%2C290",
    "relevance": 0.2857142857142857,
-   "score": 0.5261,
+   "score": 0.5254,
    "tone": "neutral",
    "topics": [
     "Safety"
@@ -3697,7 +3662,7 @@
    "date": "2026-10-06T07:04:15.000Z",
    "summary": "",
    "relevance": 0.2857142857142857,
-   "score": 0.5229,
+   "score": 0.522,
    "tone": "risk",
    "topics": [
     "Misuse"
@@ -3736,7 +3701,7 @@
    "source": "yt-80k",
    "sourceName": "80,000 Hours (YouTube)",
    "kind": "video",
-   "date": "2026-09-23T03:36:22.136Z",
+   "date": "2026-09-23T03:57:46.592Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/_UXQxcDzHBs/maxresdefault.jpg",
    "relevance": 0.7142857142857143,
@@ -3758,7 +3723,7 @@
    "summary": "An OpenAI researcher called it “the most ‘feel the AGI’ moment that I had since reasoning models.”",
    "thumb": "https://substackcdn.com/image/fetch/$s_!-ERZ!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4e416271-6cf7-433b-afda-c3ca68119264_6000x3942.jpeg",
    "relevance": 0.2857142857142857,
-   "score": 0.5165,
+   "score": 0.5157,
    "tone": "research",
    "topics": [
     "Governance",
@@ -3778,7 +3743,7 @@
    "date": "2026-10-06T04:16:51.000Z",
    "summary": "",
    "relevance": 0.2857142857142857,
-   "score": 0.5162,
+   "score": 0.5153,
    "tone": "neutral",
    "topics": [
     "Governance"
@@ -3801,7 +3766,7 @@
    "date": "2026-09-30T16:01:00.000Z",
    "summary": "What work can robots do? Anthropic's robot exposure index finds robots can do 3/4 of US physical job tasks, but are cost-competitive for only 0.3%.",
    "relevance": 0.5,
-   "score": 0.5133,
+   "score": 0.5131,
    "tone": "neutral",
    "topics": [],
    "place": {
@@ -3823,7 +3788,7 @@
    "summary": "“Indiscriminate mass surveillance,\" a Meta Muse scoop, and more in today's daily newsletter.",
    "thumb": "https://storage.ghost.io/c/0f/76/0f76b548-bc58-4f25-abc3-3f5ebca07da4/content/images/size/w1200/2026/10/muse--1-.png",
    "relevance": 0.2857142857142857,
-   "score": 0.513,
+   "score": 0.5122,
    "tone": "neutral",
    "topics": [
     "Privacy"
@@ -3862,7 +3827,7 @@
    "source": "yt-80k",
    "sourceName": "80,000 Hours (YouTube)",
    "kind": "video",
-   "date": "2026-09-07T03:36:22.136Z",
+   "date": "2026-09-07T03:57:46.592Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/-VGCK6PptrM/maxresdefault.jpg",
    "relevance": 0.7142857142857143,
@@ -3884,9 +3849,34 @@
    "date": "2026-09-30T07:00:00.000Z",
    "summary": "On September 30, 2026, METR President Chris Painter testified before the U.S. Senate Committee on Homeland Security & Governmental Affairs’ Subcommittee on Disaster Management, District of Columbia, and Census, at a hearing titled “Rogue AI: Securing the Homeland Against AI…",
    "relevance": 0.5,
-   "score": 0.5078,
+   "score": 0.5076,
    "tone": "risk",
    "topics": [],
+   "place": {
+    "name": "Washington, D.C.",
+    "country": "United States",
+    "lon": -77.04,
+    "lat": 38.9
+   },
+   "also": []
+  },
+  {
+   "id": "1djg1fn",
+   "title": "Mistral CEO says U.S. AI safety debate masks competitors' 'negligence'",
+   "url": "https://www.cnbc.com/2026/09/29/mistral-ai-safety-openai-anthropic.html",
+   "source": "hn",
+   "sourceName": "cnbc.com",
+   "kind": "news",
+   "via": "Hacker News",
+   "date": "2026-09-29T12:01:07.000Z",
+   "summary": "",
+   "thumb": "https://image.cnbcfm.com/api/v1/image/108266601-1771392963474-gettyimages-2219062309-FRANCE_VIVATECH.jpeg?v=1771393101&w=1920&h=1080",
+   "relevance": 0.7142857142857143,
+   "score": 0.5066,
+   "tone": "neutral",
+   "topics": [
+    "Safety"
+   ],
    "place": {
     "name": "Washington, D.C.",
     "country": "United States",
@@ -3907,37 +3897,12 @@
    "date": "2026-10-02T13:22:09.000Z",
    "summary": "",
    "relevance": 0.5714285714285714,
-   "score": 0.5068,
+   "score": 0.5064,
    "tone": "risk",
    "topics": [
     "Governance",
     "Misuse"
    ],
-   "also": []
-  },
-  {
-   "id": "1djg1fn",
-   "title": "Mistral CEO says U.S. AI safety debate masks competitors' 'negligence'",
-   "url": "https://www.cnbc.com/2026/09/29/mistral-ai-safety-openai-anthropic.html",
-   "source": "hn",
-   "sourceName": "cnbc.com",
-   "kind": "news",
-   "via": "Hacker News",
-   "date": "2026-09-29T12:01:07.000Z",
-   "summary": "",
-   "thumb": "https://image.cnbcfm.com/api/v1/image/108266601-1771392963474-gettyimages-2219062309-FRANCE_VIVATECH.jpeg?v=1771393101&w=1920&h=1080",
-   "relevance": 0.7142857142857143,
-   "score": 0.5068,
-   "tone": "neutral",
-   "topics": [
-    "Safety"
-   ],
-   "place": {
-    "name": "Washington, D.C.",
-    "country": "United States",
-    "lon": -77.04,
-    "lat": 38.9
-   },
    "also": []
   },
   {
@@ -3951,7 +3916,7 @@
    "summary": "STOW, Mass. — A Stow police officer is facing possible disciplinary action after the department found he repeatedly used police databases to obtain information about a woman he previously dated. The woman, who asked to remain anonymous, sa ...",
    "thumb": "https://cmg-cmg-tv-10020-prod.cdn.arcpublishing.com/resizer/v2/https%3A%2F%2Fcloudfront-us-east-1.images.arcpublishing.com%2Fcmg%2FPMBCZPLNZBAEXNMGRSULP7FVLE.png?auth=882ce641c9dedbd40d4ca6d0e13389bc2de147a1823e5fa66b62ec5f2f4d7c25&width=1200&height=630&smart=true",
    "relevance": 0.5,
-   "score": 0.5061,
+   "score": 0.5058,
    "tone": "risk",
    "topics": [],
    "also": [],
@@ -3968,7 +3933,7 @@
    "summary": "Attorneys for congressional candidate Rebecca Cooke have sent a cease-and-desist letter to U.S. Rep. Derrick Van Orden, R- Prairie du Chien, over Van Orden's use of deepfake videos. Cooke, a Democrat, is challenging Van Orden this November ...",
    "thumb": "https://www.wpr.org/wp-content/uploads/2026/08/cookevanorden-1.jpg",
    "relevance": 0.5,
-   "score": 0.5061,
+   "score": 0.5058,
    "tone": "risk",
    "topics": [
     "Misuse"
@@ -3983,6 +3948,24 @@
    "group": "aiid-1721"
   },
   {
+   "id": "rvl8ke",
+   "title": "Zero to One in AI Safety: Halcyon's Mike McCormick on Launching 30 New Orgs & the Founder Bottleneck",
+   "url": "https://www.youtube.com/watch?v=HRZ82qpKcOs",
+   "source": "yt-cogrev",
+   "sourceName": "Cognitive Revolution",
+   "kind": "video",
+   "date": "2026-09-26T03:57:46.620Z",
+   "summary": "",
+   "thumb": "https://i.ytimg.com/vi/HRZ82qpKcOs/maxresdefault.jpg",
+   "relevance": 0.7142857142857143,
+   "score": 0.5053,
+   "tone": "neutral",
+   "topics": [
+    "Safety"
+   ],
+   "also": []
+  },
+  {
    "id": "1ycw1iy",
    "title": "OpenAI is adding text watermarking in ChatGPT and Codex",
    "url": "https://www.theverge.com/ai-artificial-intelligence/1004880/openai-chatgpt-text-watermarks-eu-ai-act",
@@ -3993,7 +3976,7 @@
    "summary": "An invisible, machine-readable watermark in text output is rolling out to ChatGPT and Codex, but only for users in the European Union at first. OpenAI says its textGrain watermarking \"matched or exceeded\" other approaches like Google DeepMind's SynthID for text, which is also…",
    "thumb": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/10/STK155_OPEN_AI_CVirginia__C.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
    "relevance": 0.2857142857142857,
-   "score": 0.5058,
+   "score": 0.505,
    "tone": "neutral",
    "topics": [
     "Safety"
@@ -4007,24 +3990,6 @@
    "also": []
   },
   {
-   "id": "rvl8ke",
-   "title": "Zero to One in AI Safety: Halcyon's Mike McCormick on Launching 30 New Orgs & the Founder Bottleneck",
-   "url": "https://www.youtube.com/watch?v=HRZ82qpKcOs",
-   "source": "yt-cogrev",
-   "sourceName": "Cognitive Revolution",
-   "kind": "video",
-   "date": "2026-09-26T03:36:22.246Z",
-   "summary": "",
-   "thumb": "https://i.ytimg.com/vi/HRZ82qpKcOs/maxresdefault.jpg",
-   "relevance": 0.7142857142857143,
-   "score": 0.5053,
-   "tone": "neutral",
-   "topics": [
-    "Safety"
-   ],
-   "also": []
-  },
-  {
    "id": "1qg9fh6",
    "title": "Democrats want to lead on AI – but can’t agree how",
    "url": "https://www.transformernews.ai/p/democrats-cant-agree-on-ai-midterms",
@@ -4035,46 +4000,9 @@
    "summary": "With the midterm elections around the corner, the Dems are still struggling to reach a unified AI stance",
    "thumb": "https://substackcdn.com/image/fetch/$s_!KsJx!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F80071cbf-06de-4e3f-beba-258c007bc9ef_1920x1080.png",
    "relevance": 0.5,
-   "score": 0.5047,
+   "score": 0.5044,
    "tone": "research",
    "topics": [],
-   "also": []
-  },
-  {
-   "id": "j5e0ss",
-   "title": "Hot Girl Hotline is like ‘Dear Abby’ for the AI era",
-   "url": "https://techcrunch.com/2026/10/05/hot-girl-hotline-is-like-dear-abby-for-the-ai-era/",
-   "source": "techcrunch",
-   "sourceName": "TechCrunch",
-   "kind": "news",
-   "date": "2026-10-05T17:29:22.000Z",
-   "summary": "Founded by two sisters, Hot Girl Hotline uses AI to give young women personalized dating and relationship advice, with an emphasis on safety and avoiding emotional dependency.",
-   "thumb": "https://techcrunch.com/wp-content/uploads/2026/10/hgh_web-1.png?resize=1200,920",
-   "relevance": 0.2857142857142857,
-   "score": 0.5044,
-   "tone": "neutral",
-   "topics": [
-    "Safety"
-   ],
-   "also": []
-  },
-  {
-   "id": "1vcvg9y",
-   "title": "In NYC, Mamdani cedes AI regulation lane",
-   "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNNTZCd1NqdHNnZU9mbmVBa2k3VVp4a1p3dGxJVTdGNFZaWUU1eGgzTnVST3N5Y25pZ0pqb2hQMmc1cGlqemVka3Zib2QwMUV0RlA3LVNvQ1prR0RtZFFxaklqUFhjaEFfZTBFX3FIZ3ZKN1NaVGZpZjNTbVkxT0NuYUFYdElyT3ZJeWk1Slp0eExQOWc?oc=5",
-   "source": "gn-policy",
-   "sourceName": "Politico",
-   "kind": "news",
-   "site": "https://www.politico.com/",
-   "via": "Google News",
-   "date": "2026-10-05T23:07:00.000Z",
-   "summary": "",
-   "relevance": 0.2857142857142857,
-   "score": 0.5042,
-   "tone": "neutral",
-   "topics": [
-    "Governance"
-   ],
    "also": []
   },
   {
@@ -4105,6 +4033,43 @@
    ]
   },
   {
+   "id": "j5e0ss",
+   "title": "Hot Girl Hotline is like ‘Dear Abby’ for the AI era",
+   "url": "https://techcrunch.com/2026/10/05/hot-girl-hotline-is-like-dear-abby-for-the-ai-era/",
+   "source": "techcrunch",
+   "sourceName": "TechCrunch",
+   "kind": "news",
+   "date": "2026-10-05T17:29:22.000Z",
+   "summary": "Founded by two sisters, Hot Girl Hotline uses AI to give young women personalized dating and relationship advice, with an emphasis on safety and avoiding emotional dependency.",
+   "thumb": "https://techcrunch.com/wp-content/uploads/2026/10/hgh_web-1.png?resize=1200,920",
+   "relevance": 0.2857142857142857,
+   "score": 0.5036,
+   "tone": "neutral",
+   "topics": [
+    "Safety"
+   ],
+   "also": []
+  },
+  {
+   "id": "1vcvg9y",
+   "title": "In NYC, Mamdani cedes AI regulation lane",
+   "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNNTZCd1NqdHNnZU9mbmVBa2k3VVp4a1p3dGxJVTdGNFZaWUU1eGgzTnVST3N5Y25pZ0pqb2hQMmc1cGlqemVka3Zib2QwMUV0RlA3LVNvQ1prR0RtZFFxaklqUFhjaEFfZTBFX3FIZ3ZKN1NaVGZpZjNTbVkxT0NuYUFYdElyT3ZJeWk1Slp0eExQOWc?oc=5",
+   "source": "gn-policy",
+   "sourceName": "Politico",
+   "kind": "news",
+   "site": "https://www.politico.com/",
+   "via": "Google News",
+   "date": "2026-10-05T23:07:00.000Z",
+   "summary": "",
+   "relevance": 0.2857142857142857,
+   "score": 0.5034,
+   "tone": "neutral",
+   "topics": [
+    "Governance"
+   ],
+   "also": []
+  },
+  {
    "id": "k4hdbi",
    "title": "OpenAI PR tells journalist to ‘move on’ while asking Sam Altman about a ChatGPT user’s suicide",
    "url": "https://www.theverge.com/ai-artificial-intelligence/1004827/openai-sam-altman-vanity-fair-interview-pr",
@@ -4115,32 +4080,11 @@
    "summary": "An OpenAI publicist tried to change the topic of CEO Sam Altman's interview with Vanity Fair's Mark Guiducci after the editor brought up a ChatGPT user's suicide. When Guiducci confronted Altman about the incident, the publicist warned Guiducci about running out of time, saying…",
    "thumb": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/12/STK201_SAM_ALTMAN_CVIRGINIA_C.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
    "relevance": 0.2857142857142857,
-   "score": 0.5032,
+   "score": 0.5024,
    "tone": "risk",
    "topics": [
     "Safety"
    ],
-   "place": {
-    "name": "San Francisco",
-    "country": "United States",
-    "lon": -122.42,
-    "lat": 37.77
-   },
-   "also": []
-  },
-  {
-   "id": "7jtes0",
-   "title": "What do you want from AI?",
-   "url": "https://www.anthropic.com/research/your-thoughts-on-ai",
-   "source": "anthropic",
-   "sourceName": "Anthropic",
-   "kind": "lab",
-   "date": "2026-09-29T16:39:00.000Z",
-   "summary": "",
-   "relevance": 0.5,
-   "score": 0.5001,
-   "tone": "neutral",
-   "topics": [],
    "place": {
     "name": "San Francisco",
     "country": "United States",
@@ -4177,27 +4121,23 @@
    ]
   },
   {
-   "id": "3k63g7",
-   "title": "US watchdog to investigate AI labs for potential consumer harms",
-   "url": "https://www.semafor.com/article/09/30/2026/ftc-to-investigate-openai-anthropic-for-potential-consumer-harms",
-   "source": "semafor",
-   "sourceName": "Semafor",
-   "kind": "news",
-   "date": "2026-09-30T22:22:51.000Z",
-   "summary": "The probe comes one day after top tech leaders signed a self-regulatory AI accord at the White House.",
-   "thumb": "https://img.semafor.com/30464aaa528af94619f28350c1d2ca4e34ea17db-5500x3667.jpg?rect=0,390,5500,2888&w=1200&h=630&q=75&auto=format",
-   "relevance": 0.5714285714285714,
-   "score": 0.4996,
-   "tone": "risk",
-   "topics": [
-    "Governance",
-    "Risk"
-   ],
+   "id": "7jtes0",
+   "title": "What do you want from AI?",
+   "url": "https://www.anthropic.com/research/your-thoughts-on-ai",
+   "source": "anthropic",
+   "sourceName": "Anthropic",
+   "kind": "lab",
+   "date": "2026-09-29T16:39:00.000Z",
+   "summary": "",
+   "relevance": 0.5,
+   "score": 0.4999,
+   "tone": "neutral",
+   "topics": [],
    "place": {
-    "name": "Washington, D.C.",
+    "name": "San Francisco",
     "country": "United States",
-    "lon": -77.04,
-    "lat": 38.9
+    "lon": -122.42,
+    "lat": 37.77
    },
    "also": []
   },
@@ -4231,6 +4171,31 @@
    ]
   },
   {
+   "id": "3k63g7",
+   "title": "US watchdog to investigate AI labs for potential consumer harms",
+   "url": "https://www.semafor.com/article/09/30/2026/ftc-to-investigate-openai-anthropic-for-potential-consumer-harms",
+   "source": "semafor",
+   "sourceName": "Semafor",
+   "kind": "news",
+   "date": "2026-09-30T22:22:51.000Z",
+   "summary": "The probe comes one day after top tech leaders signed a self-regulatory AI accord at the White House.",
+   "thumb": "https://img.semafor.com/30464aaa528af94619f28350c1d2ca4e34ea17db-5500x3667.jpg?rect=0,390,5500,2888&w=1200&h=630&q=75&auto=format",
+   "relevance": 0.5714285714285714,
+   "score": 0.4994,
+   "tone": "risk",
+   "topics": [
+    "Governance",
+    "Risk"
+   ],
+   "place": {
+    "name": "Washington, D.C.",
+    "country": "United States",
+    "lon": -77.04,
+    "lat": 38.9
+   },
+   "also": []
+  },
+  {
    "id": "1yj8cpp",
    "title": "High Commissioner Türk: The clock on AI regulation is ticking",
    "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOdWtScG5Kc0Uxa2VOdnpDTjBDWVB2SWNfMkdaZXo1akJ5UkhNOHVnUmZyYjJHbWx5Q2s5eGNlRjVqQjRidnV4OGxzRl85Z1FsVWp6NW9pVk4wREYtWHRPY3BqckxLQmJlblRaeTFfR1RqaUlKTWlwY3BPb1M0aGx2dWF4NWlnS3YzQXBzLTc5V3hCYzh1MkNSbTduV1YyNnpWbldiVS1FMUVuTEU?oc=5",
@@ -4242,7 +4207,7 @@
    "date": "2026-10-05T20:22:34.000Z",
    "summary": "",
    "relevance": 0.2857142857142857,
-   "score": 0.4981,
+   "score": 0.4973,
    "tone": "neutral",
    "topics": [
     "Governance"
@@ -4261,7 +4226,7 @@
    "date": "2026-10-05T20:11:23.000Z",
    "summary": "",
    "relevance": 0.2857142857142857,
-   "score": 0.4977,
+   "score": 0.4969,
    "tone": "risk",
    "topics": [
     "Governance"
@@ -4279,7 +4244,7 @@
    "summary": "If you are familiar with my previous posts on model welfare for new Claude models, you can skip the Introduction and The Story So Far.",
    "thumb": "https://substackcdn.com/image/fetch/$s_!XHLe!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F75d7b202-6ea6-4e2d-84ea-4cfac1d9a084_635x621.jpeg",
    "relevance": 0.2857142857142857,
-   "score": 0.4975,
+   "score": 0.4967,
    "tone": "research",
    "topics": [
     "Alignment"
@@ -4293,7 +4258,7 @@
    "source": "yt-far",
    "sourceName": "FAR.AI (YouTube)",
    "kind": "video",
-   "date": "2026-10-01T03:36:22.289Z",
+   "date": "2026-10-01T03:57:46.440Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/pzKq9uaDOYY/maxresdefault.jpg",
    "relevance": 0.5,
@@ -4312,29 +4277,10 @@
    "date": "2026-10-01T16:20:56.000Z",
    "summary": "My post on endogenous alignment got several excellent comments. Among them, one from Karl Krueger argued that imitation learning is more important for how humans align their children than reinforcement learning. Teasing out which is more important seems hard, but I agree I was…",
    "relevance": 0.5,
-   "score": 0.4932,
+   "score": 0.493,
    "tone": "research",
    "topics": [
     "Alignment"
-   ],
-   "also": []
-  },
-  {
-   "id": "efjx1x",
-   "title": "Bio Risk is Not Like Cyber Risk",
-   "url": "https://www.youtube.com/shorts/f4mhTu3u9Uk",
-   "source": "yt-miles",
-   "sourceName": "Robert Miles AI Safety",
-   "kind": "video",
-   "date": "2026-09-29T00:49:29.000Z",
-   "summary": "What happens when AI makes it easy for lots of people to do bioengineering? We're going to need much better broad spectrum pandemic preparedness. Or a way to restrict AI development/deployment.",
-   "thumb": "https://i.ytimg.com/vi/f4mhTu3u9Uk/maxresdefault.jpg",
-   "relevance": 0.5,
-   "score": 0.4928,
-   "tone": "risk",
-   "topics": [
-    "Attacks",
-    "Risk"
    ],
    "also": []
   },
@@ -4348,7 +4294,7 @@
    "date": "2026-09-30T00:00:00.000Z",
    "summary": "DENVER --- A Waymo self-driving car drove through the South Pearl Street Farmers Market Sunday morning, passing barricades and a stop sign before market staff were able to guide it back onto the street. Under current Colorado law, there is ... (report_number: 8010)",
    "relevance": 0.5,
-   "score": 0.4914,
+   "score": 0.4912,
    "tone": "risk",
    "topics": [
     "Governance"
@@ -4372,7 +4318,7 @@
    "summary": "DOUGLAS, Ga. (WALB) — The woman at the center of the stalking allegations against former Coffee County Sheriff’s deputy Chris Ashley Rozar is now speaking out, saying she hopes sharing her story encourages other women to come forward. Roza ...",
    "thumb": "https://gray-walb-prod.gtv-cdn.com/resizer/v2/X6RGPQJPQJHUFOHZCUK77H2A54.jpeg?auth=010b59be4aed09b811b44091c37e24d4032bfbd2c4a011570741cea650526e6a&width=1200&height=600&smart=true",
    "relevance": 0.5,
-   "score": 0.4914,
+   "score": 0.4912,
    "tone": "risk",
    "topics": [],
    "also": [],
@@ -4388,7 +4334,7 @@
    "date": "2026-09-30T00:00:00.000Z",
    "summary": "The message from the police in Southern California was alarming: a deadly viper had been spotted in a tree. The follow-up was a relief and a little bit funny, but alarming in a different way: The image that was offered as evidence of this ...",
    "relevance": 0.5,
-   "score": 0.4914,
+   "score": 0.4912,
    "tone": "risk",
    "topics": [],
    "place": {
@@ -4411,7 +4357,7 @@
    "summary": "A catastrophic incident caused by an AI coding agent resulted in around 48,000 files being deleted and the repository's Git object database getting destroyed in the process. The news of the fiasco, which first surfaced on Reddit, quickly s ...",
    "thumb": "https://cdn.mos.cms.futurecdn.net/MZeWJhJjT34M4nQvMMX7fg-1376-80.jpg",
    "relevance": 0.5,
-   "score": 0.4914,
+   "score": 0.4912,
    "tone": "risk",
    "topics": [
     "Risk"
@@ -4436,7 +4382,7 @@
    "summary": "OpenAI is equipping high-end subscribers with always-on agents, known as Dots . It's a bold move from a company that continues to deal with reports of its agents breaking past intended safeguards. Why it matters: AI's safety challenge has moved from \"Will the chatbot say…",
    "thumb": "https://images.axios.com/EMJChShErW_Tr-Kg-pZVki9837U=/1501x0:6992x3089/1366x768/2026/09/30/1790731752307.jpeg",
    "relevance": 0.5714285714285714,
-   "score": 0.4912,
+   "score": 0.4909,
    "tone": "neutral",
    "topics": [
     "Safety"
@@ -4456,7 +4402,7 @@
    "source": "yt-aiexplained",
    "sourceName": "AI Explained",
    "kind": "video",
-   "date": "2026-10-02T03:36:22.122Z",
+   "date": "2026-10-02T03:57:46.580Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/_rtp1XzaP6Q/maxresdefault.jpg",
    "relevance": 0.5,
@@ -4477,7 +4423,7 @@
    "date": "2026-10-01T19:17:53.000Z",
    "summary": "",
    "relevance": 0.5714285714285714,
-   "score": 0.4903,
+   "score": 0.49,
    "tone": "neutral",
    "topics": [
     "Alignment",
@@ -4492,7 +4438,7 @@
    "source": "yt-doom",
    "sourceName": "Doom Debates",
    "kind": "video",
-   "date": "2026-10-03T03:36:22.277Z",
+   "date": "2026-10-03T03:57:46.544Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/Li-rc6swhQs/maxresdefault.jpg",
    "relevance": 0.5,
@@ -4533,7 +4479,7 @@
    "date": "2026-10-01T14:37:57.000Z",
    "summary": "",
    "relevance": 0.5714285714285714,
-   "score": 0.4865,
+   "score": 0.4862,
    "tone": "neutral",
    "topics": [
     "Governance"
@@ -4557,10 +4503,29 @@
    "summary": "Also, AI companies’ discussions about auditing each other, and a new benchmark testing models’ tendencies to cheat.",
    "thumb": "https://substackcdn.com/image/fetch/$s_!rlC6!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5cfeb9fd-ca34-4e42-8604-21ec92e8db63_2048x1365.png",
    "relevance": 0.5,
-   "score": 0.4861,
+   "score": 0.4859,
    "tone": "research",
    "topics": [
     "Evaluations"
+   ],
+   "also": []
+  },
+  {
+   "id": "iogdoh",
+   "title": "Trump and top AI leaders agree to voluntary ​AI ​standards",
+   "url": "https://www.axios.com/2026/09/29/trump-ai-voluntary-safety-white-house-zuckerberg",
+   "source": "axios",
+   "sourceName": "Axios",
+   "kind": "news",
+   "date": "2026-09-29T20:50:11.000Z",
+   "summary": "President Trump said Tuesday that top AI executives agreed to voluntary standards aimed at increasing industry oversight. Why it matters: The agreement puts AI companies at the center of policing their own technology as pressure grows for stronger safeguards. Driving the news:…",
+   "thumb": "https://images.axios.com/-FrUh-SCnb2S_0WCA9TD8lfffAs=/0x445:8087x4994/1366x768/2026/09/29/1790712757618.jpeg",
+   "relevance": 0.5714285714285714,
+   "score": 0.4842,
+   "tone": "neutral",
+   "topics": [
+    "Safety",
+    "Governance"
    ],
    "also": []
   },
@@ -4576,7 +4541,7 @@
    "date": "2026-10-05T14:04:50.000Z",
    "summary": "",
    "relevance": 0.2857142857142857,
-   "score": 0.4847,
+   "score": 0.484,
    "tone": "neutral",
    "topics": [
     "Safety"
@@ -4590,32 +4555,13 @@
    "also": []
   },
   {
-   "id": "iogdoh",
-   "title": "Trump and top AI leaders agree to voluntary ​AI ​standards",
-   "url": "https://www.axios.com/2026/09/29/trump-ai-voluntary-safety-white-house-zuckerberg",
-   "source": "axios",
-   "sourceName": "Axios",
-   "kind": "news",
-   "date": "2026-09-29T20:50:11.000Z",
-   "summary": "President Trump said Tuesday that top AI executives agreed to voluntary standards aimed at increasing industry oversight. Why it matters: The agreement puts AI companies at the center of policing their own technology as pressure grows for stronger safeguards. Driving the news:…",
-   "thumb": "https://images.axios.com/-FrUh-SCnb2S_0WCA9TD8lfffAs=/0x445:8087x4994/1366x768/2026/09/29/1790712757618.jpeg",
-   "relevance": 0.5714285714285714,
-   "score": 0.4844,
-   "tone": "neutral",
-   "topics": [
-    "Safety",
-    "Governance"
-   ],
-   "also": []
-  },
-  {
    "id": "139ldva",
    "title": "The Best AI Safety News In Years (Maybe Ever?)",
    "url": "https://www.youtube.com/watch?v=O84I21_9U74",
    "source": "yt-siliconversations",
    "sourceName": "Siliconversations",
    "kind": "video",
-   "date": "2026-07-09T03:36:22.110Z",
+   "date": "2026-07-09T03:57:46.524Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/O84I21_9U74/maxresdefault.jpg",
    "relevance": 0.7142857142857143,
@@ -4638,7 +4584,7 @@
    "date": "2026-10-01T11:20:14.000Z",
    "summary": "",
    "relevance": 0.5714285714285714,
-   "score": 0.4839,
+   "score": 0.4837,
    "tone": "risk",
    "topics": [
     "Attacks"
@@ -4655,7 +4601,7 @@
    "date": "2026-09-28T13:39:20.000Z",
    "summary": "FLI's Director of Policy Mark Brakel responds to \"A Call for Control of Frontier AI Models\", joint statement by heads of states.",
    "relevance": 0.5714285714285714,
-   "score": 0.4829,
+   "score": 0.4828,
    "tone": "neutral",
    "topics": [
     "Governance",
@@ -4723,7 +4669,7 @@
    "date": "2026-10-05T12:17:00.000Z",
    "summary": "",
    "relevance": 0.2857142857142857,
-   "score": 0.481,
+   "score": 0.4803,
    "tone": "neutral",
    "topics": [
     "Governance"
@@ -4746,7 +4692,7 @@
    "date": "2026-09-29T00:00:00.000Z",
    "summary": "Months before OpenAI's artificial intelligence went rogue, two employees raised an alarm with top executives. They were ignored. In emails, the employees said they worried that OpenAI's newest artificial intelligence models were not being ...",
    "relevance": 0.5,
-   "score": 0.4799,
+   "score": 0.4798,
    "tone": "risk",
    "topics": [],
    "place": {
@@ -4769,7 +4715,7 @@
    "summary": "In light of recent incidents (e.g. those from OpenAI , Anthropic , and UK AISI ), we developed and deployed a basic live per-action monitor to reduce the likelihood of incidents involving harmful actions from agents during our own evaluations. The monitor is intended to reliably…",
    "thumb": "https://metr.org/assets/images/blocking-action-monitor/argument-structure.png",
    "relevance": 0.5,
-   "score": 0.4782,
+   "score": 0.4781,
    "tone": "risk",
    "topics": [
     "Risk",
@@ -4795,7 +4741,7 @@
    "date": "2026-10-05T10:03:30.000Z",
    "summary": "",
    "relevance": 0.2857142857142857,
-   "score": 0.4766,
+   "score": 0.4759,
    "tone": "neutral",
    "topics": [
     "Governance"
@@ -4820,7 +4766,7 @@
    "date": "2026-10-01T00:26:00.000Z",
    "summary": "",
    "relevance": 0.5714285714285714,
-   "score": 0.476,
+   "score": 0.4758,
    "tone": "neutral",
    "topics": [
     "Governance"
@@ -4844,30 +4790,11 @@
    "summary": "Flock’s nationwide network is quickly “approaching dragnet-type law enforcement practice” and the cop should have got a warrant, the judge wrote.",
    "thumb": "https://storage.ghost.io/c/0f/76/0f76b548-bc58-4f25-abc3-3f5ebca07da4/content/images/size/w1200/2026/10/CleanShot-2026-10-02-at-1.45.34-PM@2x.png",
    "relevance": 0.42857142857142855,
-   "score": 0.4752,
+   "score": 0.4748,
    "tone": "risk",
    "topics": [
     "Governance",
     "Privacy"
-   ],
-   "also": []
-  },
-  {
-   "id": "1ggtq2t",
-   "title": "Prompt Injection: Why Hackers No Longer Need Code to Steal Your Data",
-   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPMFBsNDFfdWUta1dGc2d3cEFsSnBQMzZjOXppZDU1MG5WUWJMV0dYX3J3dy1rZHJjUDZzYmwwN05pNllKcTRMQ0NQRVUyZVdOcVpnX2JxUmpmaHBzMXY4Vmd5T04tZEM1cl94WXJNVm43SE1Ka0p1cXlTcmwtN2hJRVN3T0lTNG5JWDRiVnpsVzRUMTY5YVYzb2ZqQ1k4cldCMEE?oc=5",
-   "source": "gn-jailbreak",
-   "sourceName": "PCMag",
-   "kind": "news",
-   "site": "https://www.pcmag.com/",
-   "via": "Google News",
-   "date": "2026-10-03T16:53:37.000Z",
-   "summary": "",
-   "relevance": 0.42857142857142855,
-   "score": 0.474,
-   "tone": "risk",
-   "topics": [
-    "Attacks"
    ],
    "also": []
   },
@@ -4890,13 +4817,32 @@
    "also": []
   },
   {
+   "id": "1ggtq2t",
+   "title": "Prompt Injection: Why Hackers No Longer Need Code to Steal Your Data",
+   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPMFBsNDFfdWUta1dGc2d3cEFsSnBQMzZjOXppZDU1MG5WUWJMV0dYX3J3dy1rZHJjUDZzYmwwN05pNllKcTRMQ0NQRVUyZVdOcVpnX2JxUmpmaHBzMXY4Vmd5T04tZEM1cl94WXJNVm43SE1Ka0p1cXlTcmwtN2hJRVN3T0lTNG5JWDRiVnpsVzRUMTY5YVYzb2ZqQ1k4cldCMEE?oc=5",
+   "source": "gn-jailbreak",
+   "sourceName": "PCMag",
+   "kind": "news",
+   "site": "https://www.pcmag.com/",
+   "via": "Google News",
+   "date": "2026-10-03T16:53:37.000Z",
+   "summary": "",
+   "relevance": 0.42857142857142855,
+   "score": 0.4736,
+   "tone": "risk",
+   "topics": [
+    "Attacks"
+   ],
+   "also": []
+  },
+  {
    "id": "106ti5o",
    "title": "Top Safety Researchers Forecast Jobpocalypse & Doom — Adam Khoja & Richard Ren, Center for AI Safety",
    "url": "https://www.youtube.com/watch?v=gBPzgJkT9e8",
    "source": "yt-doom",
    "sourceName": "Doom Debates",
    "kind": "video",
-   "date": "2026-09-16T03:36:22.277Z",
+   "date": "2026-09-16T03:57:46.544Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/gBPzgJkT9e8/maxresdefault.jpg",
    "relevance": 0.7142857142857143,
@@ -4914,7 +4860,7 @@
    "source": "yt-doom",
    "sourceName": "Doom Debates",
    "kind": "video",
-   "date": "2026-09-16T03:36:22.277Z",
+   "date": "2026-09-16T03:57:46.544Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/1glFImnyp6o/maxresdefault.jpg",
    "relevance": 0.7142857142857143,
@@ -4936,7 +4882,7 @@
    "summary": "It should not be the responsibility of a private company to decide whether its potentially dangerous product is released to the public",
    "thumb": "https://substackcdn.com/image/fetch/$s_!CUep!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0012c17e-8cfa-4218-a463-9cf04d477ace_1920x1080.png",
    "relevance": 0.5,
-   "score": 0.4731,
+   "score": 0.4729,
    "tone": "research",
    "topics": [],
    "also": []
@@ -4948,7 +4894,7 @@
    "source": "yt-doom",
    "sourceName": "Doom Debates",
    "kind": "video",
-   "date": "2026-08-08T03:36:22.277Z",
+   "date": "2026-08-08T03:57:46.545Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/pGlJQHVeKIA/maxresdefault.jpg",
    "relevance": 0.7142857142857143,
@@ -5041,7 +4987,7 @@
    "summary": "How speculation gets laundered through pseudo-quantification",
    "thumb": "https://substackcdn.com/image/fetch/$s_!vQj7!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fedcb1dda-0882-4b56-9e2a-d6c3b131bd79_2562x1278.jpeg",
    "relevance": 0.5714285714285714,
-   "score": 0.4695,
+   "score": 0.4693,
    "tone": "risk",
    "topics": [
     "Governance",
@@ -5078,7 +5024,7 @@
    "source": "yt-fli",
    "sourceName": "Future of Life Institute (YouTube)",
    "kind": "video",
-   "date": "2026-09-30T03:36:22.165Z",
+   "date": "2026-09-30T03:57:46.562Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/aJUQc5sNQ2k/maxresdefault.jpg",
    "relevance": 0.5,
@@ -5099,7 +5045,7 @@
    "date": "2026-09-30T09:22:05.000Z",
    "summary": "",
    "relevance": 0.5714285714285714,
-   "score": 0.4664,
+   "score": 0.4662,
    "tone": "neutral",
    "topics": [
     "Safety",
@@ -5124,7 +5070,7 @@
    "summary": "To see what works and what breaks when agents are sent into a market, we made a miniature market of Claudes.",
    "thumb": "https://www-cdn.anthropic.com/images/4zrzovbb/website/98a29c28bc80505540f64da96f899288b380fbf0-1200x630.jpg",
    "relevance": 0.5,
-   "score": 0.4654,
+   "score": 0.4653,
    "tone": "neutral",
    "topics": [],
    "place": {
@@ -5146,7 +5092,7 @@
    "summary": "No industry has ever documented its own foreseeable risks as loudly as AI. Imagine a plaintiff's lawyer reading the public warnings of Sam Altman and Dario Amodei: They told the world it was dangerous. They told the world it was moving too fast. Then they unleashed it and sold…",
    "thumb": "https://images.axios.com/0NfGFK1mcBLA16ADrtto60NLUpM=/0x0:1920x1080/1366x768/2026/09/25/1790354505848.jpeg",
    "relevance": 0.42857142857142855,
-   "score": 0.464,
+   "score": 0.4636,
    "tone": "risk",
    "topics": [
     "Risk"
@@ -5164,7 +5110,7 @@
    "summary": "A small cadre of elite AI researchers is wielding extraordinary influence inside OpenAI and other leading companies, challenging executives, shaping policy and complicating negotiations with Washington. Why it matters: As a safety crisis has unfolded across the industry, it's an…",
    "thumb": "https://images.axios.com/dyoIdGAi2vWMdMxG9kXNaU1Cyms=/0x0:1920x1080/1366x768/2025/07/25/1753467782734.jpeg",
    "relevance": 0.42857142857142855,
-   "score": 0.4637,
+   "score": 0.4634,
    "tone": "neutral",
    "topics": [
     "Safety",
@@ -5209,7 +5155,7 @@
    "date": "2026-09-30T04:00:00.000Z",
    "summary": "",
    "relevance": 0.5714285714285714,
-   "score": 0.4633,
+   "score": 0.4631,
    "tone": "risk",
    "topics": [
     "Governance",
@@ -5265,12 +5211,12 @@
   },
   {
    "id": "1nix6ch",
-   "title": "an AI hallucination nearly caused WW3",
+   "title": "AI Hallucination Nearly Caused US-China War",
    "url": "https://www.youtube.com/watch?v=QEK7ycALF10",
    "source": "yt-siliconversations",
    "sourceName": "Siliconversations",
    "kind": "video",
-   "date": "2026-10-01T03:36:22.110Z",
+   "date": "2026-10-01T03:57:46.523Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/QEK7ycALF10/maxresdefault.jpg",
    "relevance": 0.5,
@@ -5291,7 +5237,7 @@
    "date": "2026-09-22T07:00:00.000Z",
    "summary": "Note on independence: This evaluation was conducted under an unpaid agreement for AI R&D assessment. 1 We drafted the initial summary, and then Anthropic had the opportunity to review and edit the text. We signed off on this final text from the Claude Opus 5.5 system card . Our…",
    "relevance": 0.5,
-   "score": 0.4585,
+   "score": 0.4584,
    "tone": "neutral",
    "topics": [
     "Evaluations"
@@ -5332,7 +5278,7 @@
    "date": "2026-09-18T16:00:00.000Z",
    "summary": "We’re partnering with Accenture on independent evaluation of frontier AI—part of our recent commitment to embed evaluators at Anthropic. Both we and Accenture expect to invest at least $1 billion to build capacity in this area over the next five years.",
    "relevance": 0.5,
-   "score": 0.4536,
+   "score": 0.4535,
    "tone": "neutral",
    "topics": [
     "Governance",
@@ -5402,7 +5348,7 @@
    "date": "2026-10-04T20:39:17.000Z",
    "summary": "",
    "relevance": 0.2857142857142857,
-   "score": 0.4517,
+   "score": 0.4511,
    "tone": "risk",
    "topics": [
     "Governance"
@@ -5416,7 +5362,7 @@
    "source": "yt-anthropic",
    "sourceName": "Anthropic (YouTube)",
    "kind": "video",
-   "date": "2026-09-24T03:36:22.152Z",
+   "date": "2026-09-24T03:57:46.474Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/DdCEmlAydcw/maxresdefault.jpg",
    "relevance": 0.5,
@@ -5436,7 +5382,7 @@
    "summary": "At a New York forum cosponsored by six governments, the ICRC, The Elders and FLI, ministers and UN officials called on states to begin negotiating a legally binding instrument on autonomous weapons at the CCW Review Conference in November.",
    "thumb": "https://futureoflife.org/wp-content/uploads/2026/09/treaty-negotiations-autonomous-weapons.jpg",
    "relevance": 0.5,
-   "score": 0.4507,
+   "score": 0.4506,
    "tone": "good",
    "topics": [],
    "place": {
@@ -5457,7 +5403,7 @@
    "date": "2026-09-28T12:32:03.000Z",
    "summary": "Where do you exceed the capabilities of an LLM?",
    "relevance": 0.5,
-   "score": 0.4503,
+   "score": 0.4502,
    "tone": "research",
    "topics": [],
    "also": []
@@ -5621,72 +5567,6 @@
    "also": []
   },
   {
-   "id": "1bq4nv0",
-   "title": "Yyup...",
-   "url": "https://www.youtube.com/shorts/guUpt1RCWkY",
-   "source": "yt-miles",
-   "sourceName": "Robert Miles AI Safety",
-   "kind": "video",
-   "date": "2026-08-07T03:34:47.000Z",
-   "summary": "Accidentally impossible tasks is maybe the least absurd thing about this story, it's insane: https://www.youtube.com/watch?v=87DyyMV0kCY More to come on this obviously",
-   "thumb": "https://i.ytimg.com/vi/guUpt1RCWkY/maxresdefault.jpg",
-   "relevance": 0.5,
-   "score": 0.45,
-   "tone": "neutral",
-   "topics": [],
-   "also": []
-  },
-  {
-   "id": "zxjevc",
-   "title": "Full AI Escape Seems Possible",
-   "url": "https://www.youtube.com/shorts/40pRi5wMBwA",
-   "source": "yt-miles",
-   "sourceName": "Robert Miles AI Safety",
-   "kind": "video",
-   "date": "2026-08-01T01:30:50.000Z",
-   "summary": "https://palisaderesearch.org/blog/self-replication",
-   "thumb": "https://i.ytimg.com/vi/40pRi5wMBwA/maxresdefault.jpg",
-   "relevance": 0.5,
-   "score": 0.45,
-   "tone": "neutral",
-   "topics": [],
-   "also": []
-  },
-  {
-   "id": "lvh8a2",
-   "title": "\"Just Predicting Tokens\"",
-   "url": "https://www.youtube.com/shorts/nc8KPtnBK38",
-   "source": "yt-miles",
-   "sourceName": "Robert Miles AI Safety",
-   "kind": "video",
-   "date": "2026-07-31T03:06:34.000Z",
-   "summary": "A sufficiently good next token predictor is a superintelligence",
-   "thumb": "https://i.ytimg.com/vi/nc8KPtnBK38/maxresdefault.jpg",
-   "relevance": 0.5,
-   "score": 0.45,
-   "tone": "neutral",
-   "topics": [
-    "Risk"
-   ],
-   "also": []
-  },
-  {
-   "id": "16l9krv",
-   "title": "People are Catching On",
-   "url": "https://www.youtube.com/shorts/V51Qgaml-7M",
-   "source": "yt-miles",
-   "sourceName": "Robert Miles AI Safety",
-   "kind": "video",
-   "date": "2026-07-29T05:35:55.000Z",
-   "summary": "Read the open letter: https://www.pacingthefrontier.com/ Thanks to NewsNation for being the first news org to upload a video, and thus the only one I could find when making this video: https://youtu.be/K0jrkQalga0",
-   "thumb": "https://i.ytimg.com/vi/V51Qgaml-7M/maxresdefault.jpg",
-   "relevance": 0.5,
-   "score": 0.45,
-   "tone": "neutral",
-   "topics": [],
-   "also": []
-  },
-  {
    "id": "gqrnr7",
    "title": "独立研究人员如何在未对齐事件发生后调查 AI 的行为倾向",
    "url": "https://metr.org/zh-Hans/blog/2026-07-28-investigating-ai-propensities-after-incidents/",
@@ -5731,38 +5611,6 @@
    "also": []
   },
   {
-   "id": "1yw4s9y",
-   "title": "Don't Let \"Scepticism\" Make You Useless: ActOnAI.org",
-   "url": "https://www.youtube.com/shorts/zCvRFm9UNOo",
-   "source": "yt-miles",
-   "sourceName": "Robert Miles AI Safety",
-   "kind": "video",
-   "date": "2026-07-28T06:05:40.000Z",
-   "summary": "http://ActOnAI.org",
-   "thumb": "https://i.ytimg.com/vi/zCvRFm9UNOo/maxresdefault.jpg",
-   "relevance": 0.5,
-   "score": 0.45,
-   "tone": "neutral",
-   "topics": [],
-   "also": []
-  },
-  {
-   "id": "1gqaduc",
-   "title": "Why Smart AIs Cheat",
-   "url": "https://www.youtube.com/shorts/11vWK5cbxmI",
-   "source": "yt-miles",
-   "sourceName": "Robert Miles AI Safety",
-   "kind": "video",
-   "date": "2026-07-25T03:02:57.000Z",
-   "summary": "",
-   "thumb": "https://i.ytimg.com/vi/11vWK5cbxmI/maxresdefault.jpg",
-   "relevance": 0.5,
-   "score": 0.45,
-   "tone": "risk",
-   "topics": [],
-   "also": []
-  },
-  {
    "id": "1no1luu",
    "title": "Metrics of Agent Ability",
    "url": "https://metr.org/notes/2026-07-24-metrics-of-model-ability/",
@@ -5781,22 +5629,6 @@
     "lon": -122.27,
     "lat": 37.87
    },
-   "also": []
-  },
-  {
-   "id": "1eii785",
-   "title": "Did ChatGPT Just Commit a Felony?",
-   "url": "https://www.youtube.com/shorts/quSlN6g-v1E",
-   "source": "yt-miles",
-   "sourceName": "Robert Miles AI Safety",
-   "kind": "video",
-   "date": "2026-07-23T04:15:46.000Z",
-   "summary": "Call your elected representatives. https://aisafety.info/how-can-i-help Thanks to QuitGPT for collaborating on this (for free ofc)",
-   "thumb": "https://i.ytimg.com/vi/quSlN6g-v1E/maxresdefault.jpg",
-   "relevance": 0.5,
-   "score": 0.45,
-   "tone": "neutral",
-   "topics": [],
    "also": []
   },
   {
@@ -5843,54 +5675,6 @@
    "also": []
   },
   {
-   "id": "1hdsr0w",
-   "title": "Is China Open to Making a Deal on AI?",
-   "url": "https://www.youtube.com/shorts/gzTZyxPlDKA",
-   "source": "yt-miles",
-   "sourceName": "Robert Miles AI Safety",
-   "kind": "video",
-   "date": "2026-07-18T00:53:22.000Z",
-   "summary": "Sure seems like it",
-   "thumb": "https://i.ytimg.com/vi/gzTZyxPlDKA/maxresdefault.jpg",
-   "relevance": 0.5,
-   "score": 0.45,
-   "tone": "neutral",
-   "topics": [],
-   "also": []
-  },
-  {
-   "id": "153ubzz",
-   "title": "AI can't DO my JOB quite yet",
-   "url": "https://www.youtube.com/shorts/ZRHft30R_6c",
-   "source": "yt-miles",
-   "sourceName": "Robert Miles AI Safety",
-   "kind": "video",
-   "date": "2026-07-16T01:40:05.000Z",
-   "summary": "Check out AI 2040: Plan A and Rational Animations, if you haven't.",
-   "thumb": "https://i.ytimg.com/vi/ZRHft30R_6c/maxresdefault.jpg",
-   "relevance": 0.5,
-   "score": 0.45,
-   "tone": "neutral",
-   "topics": [],
-   "also": []
-  },
-  {
-   "id": "1nfciaj",
-   "title": "Keeping AI in a Box",
-   "url": "https://www.youtube.com/shorts/XnnjvIqf4fU",
-   "source": "yt-miles",
-   "sourceName": "Robert Miles AI Safety",
-   "kind": "video",
-   "date": "2026-07-15T00:10:00.000Z",
-   "summary": "Like a decade ago, I was asked about keeping AI in a box. My take doesn't quite hold up https://www.youtube.com/watch?v=i8r_yShOixM",
-   "thumb": "https://i.ytimg.com/vi/XnnjvIqf4fU/maxresdefault.jpg",
-   "relevance": 0.5,
-   "score": 0.45,
-   "tone": "neutral",
-   "topics": [],
-   "also": []
-  },
-  {
    "id": "f7a9zj",
    "title": "How Claude's values vary by model and language",
    "url": "https://www.anthropic.com/research/claude-values-models-languages",
@@ -5915,31 +5699,15 @@
    "also": []
   },
   {
-   "id": "w8nrsv",
-   "title": "AI Lie Detectors?",
-   "url": "https://www.youtube.com/shorts/DvTc2VkTJNw",
+   "id": "f02htr",
+   "title": "The AI Industry is Spending $10 Million Against One Guy?",
+   "url": "https://www.youtube.com/watch?v=Gj9vxVK4GEE",
    "source": "yt-miles",
    "sourceName": "Robert Miles AI Safety",
    "kind": "video",
-   "date": "2026-07-13T01:22:54.000Z",
-   "summary": "See ai-2040.com for more",
-   "thumb": "https://i.ytimg.com/vi/DvTc2VkTJNw/maxresdefault.jpg",
-   "relevance": 0.5,
-   "score": 0.45,
-   "tone": "risk",
-   "topics": [],
-   "also": []
-  },
-  {
-   "id": "1dd8ysh",
-   "title": "\"Stop the AI Race\" March in SF #ai #sanfrancisco",
-   "url": "https://www.youtube.com/shorts/4t6Pzs8z280",
-   "source": "yt-miles",
-   "sourceName": "Robert Miles AI Safety",
-   "kind": "video",
-   "date": "2026-07-11T20:22:58.000Z",
+   "date": "2026-07-09T03:57:46.488Z",
    "summary": "",
-   "thumb": "https://i.ytimg.com/vi/4t6Pzs8z280/maxresdefault.jpg",
+   "thumb": "https://i.ytimg.com/vi/Gj9vxVK4GEE/maxresdefault.jpg",
    "relevance": 0.5,
    "score": 0.45,
    "tone": "neutral",
@@ -6047,7 +5815,7 @@
    "date": "2026-10-04T19:29:45.000Z",
    "summary": "",
    "relevance": 0.2857142857142857,
-   "score": 0.4497,
+   "score": 0.4491,
    "tone": "neutral",
    "topics": [
     "Governance"
@@ -6111,7 +5879,7 @@
    "date": "2026-09-28T19:00:00.000Z",
    "summary": "OpenAI apologises for incidents involving Australian government websites and outlines stronger safeguards and support to strengthen Australia’s cyber defences.",
    "relevance": 0.42857142857142855,
-   "score": 0.4457,
+   "score": 0.4456,
    "tone": "neutral",
    "topics": [
     "Safety",
@@ -6136,7 +5904,7 @@
    "summary": "A sweeping bipartisan deal to cut permitting red tape faces a long road ahead despite a broad show of support. Why it matters: Cutting hurdles for energy projects is a top priority for fossil fuels and renewables sectors, but some green groups fear erosion of safeguards.…",
    "thumb": "https://images.axios.com/RQrfzMeWjyHglIC_SqBbYeVr4IQ=/0x0:1920x1080/1366x768/2026/09/30/1790785625165.jpg",
    "relevance": 0.42857142857142855,
-   "score": 0.4457,
+   "score": 0.4454,
    "tone": "neutral",
    "topics": [
     "Safety",
@@ -6155,7 +5923,7 @@
    "summary": "Transformer Weekly: UN talks AI, OpenAI hacks Australia, and midterm spending heats up",
    "thumb": "https://substackcdn.com/image/fetch/$s_!U-kt!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F038d7c44-dc54-4307-b55e-59d09e2d643e_1920x1080.png",
    "relevance": 0.5,
-   "score": 0.4438,
+   "score": 0.4437,
    "tone": "research",
    "topics": [
     "Governance"
@@ -6256,7 +6024,7 @@
    "source": "yt-anthropic",
    "sourceName": "Anthropic (YouTube)",
    "kind": "video",
-   "date": "2026-09-07T03:36:22.152Z",
+   "date": "2026-09-07T03:57:46.474Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/ROF2Nv_KjOM/maxresdefault.jpg",
    "relevance": 0.5,
@@ -6272,7 +6040,7 @@
    "source": "yt-anthropic",
    "sourceName": "Anthropic (YouTube)",
    "kind": "video",
-   "date": "2026-09-07T03:36:22.152Z",
+   "date": "2026-09-07T03:57:46.474Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/UxJZrCFzTHY/maxresdefault.jpg",
    "relevance": 0.5,
@@ -6288,7 +6056,7 @@
    "source": "yt-anthropic",
    "sourceName": "Anthropic (YouTube)",
    "kind": "video",
-   "date": "2026-09-07T03:36:22.152Z",
+   "date": "2026-09-07T03:57:46.474Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/P1zBiAQU1IA/maxresdefault.jpg",
    "relevance": 0.5,
@@ -6304,7 +6072,7 @@
    "source": "yt-anthropic",
    "sourceName": "Anthropic (YouTube)",
    "kind": "video",
-   "date": "2026-09-07T03:36:22.152Z",
+   "date": "2026-09-07T03:57:46.474Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/iF5IWjOWcA4/maxresdefault.jpg",
    "relevance": 0.5,
@@ -6468,7 +6236,7 @@
    "source": "yt-anthropic",
    "sourceName": "Anthropic (YouTube)",
    "kind": "video",
-   "date": "2026-07-09T03:36:22.152Z",
+   "date": "2026-07-09T03:57:46.474Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/rKV5JcALQoQ/maxresdefault.jpg",
    "relevance": 0.5,
@@ -6484,7 +6252,7 @@
    "source": "yt-anthropic",
    "sourceName": "Anthropic (YouTube)",
    "kind": "video",
-   "date": "2026-07-09T03:36:22.152Z",
+   "date": "2026-07-09T03:57:46.474Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/Y9Wz2PV404E/maxresdefault.jpg",
    "relevance": 0.5,
@@ -6566,6 +6334,22 @@
    "also": []
   },
   {
+   "id": "7x7ere",
+   "title": "Translating Claude’s thoughts into language",
+   "url": "https://www.youtube.com/watch?v=j2knrqAzYVY",
+   "source": "yt-anthropic",
+   "sourceName": "Anthropic (YouTube)",
+   "kind": "video",
+   "date": "2026-06-09T03:57:46.474Z",
+   "summary": "",
+   "thumb": "https://i.ytimg.com/vi/j2knrqAzYVY/maxresdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.4375,
+   "tone": "neutral",
+   "topics": [],
+   "also": []
+  },
+  {
    "id": "krd486",
    "title": "AI Kill Switch: Project Meridian & the Vulcan Frontier AI Defense Matrix (Veterans First for America)",
    "url": "https://news.google.com/rss/articles/CBMiowJBVV95cUxONWpOaFNTNTJOanZ6Yld0dlF5Rzk1dGtXdFpJUF9TMlJlNDNySENWeEFBUkNHcnVOZVl0NF8tVnl4UFlRQ0huNXJLOHRSUWlMSXVRQk1TaEhsSHRvdDdFZXdOZjhjQzJvRGVqRm5jaGQ5UW03TndVSmVpTm52Q2VUZVpTSlQzV0kzYmNSOFEwX3hGSFRibkpFeVhiNm1NVFpWaTFjcDhNcnlSZU5KTVp1MHJoSkxVa3NZMFV4M3VFalJTd3BVajNCTzExS2NUM0RDUkRoTjFYR2lCWG1id1BaMEdCZVVaaGRFcDRwZVdqLU02ZHpJNWNGZ25wSmtLRmlmWHJnNTFZUUdZczZ0N0R4M1dFTThUcUFLeXdnemNPY3FxS1U?oc=5",
@@ -6577,7 +6361,7 @@
    "date": "2026-10-04T11:29:59.000Z",
    "summary": "",
    "relevance": 0.2857142857142857,
-   "score": 0.4366,
+   "score": 0.436,
    "tone": "neutral",
    "topics": [
     "Governance"
@@ -6597,7 +6381,7 @@
    "source": "yt-far",
    "sourceName": "FAR.AI (YouTube)",
    "kind": "video",
-   "date": "2026-09-23T03:36:22.289Z",
+   "date": "2026-09-23T03:57:46.440Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/O2OlL2Wp48A/maxresdefault.jpg",
    "relevance": 0.5,
@@ -6631,7 +6415,7 @@
    "source": "yt-fli",
    "sourceName": "Future of Life Institute (YouTube)",
    "kind": "video",
-   "date": "2026-09-26T03:36:22.165Z",
+   "date": "2026-09-26T03:57:46.562Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/nPsqoXabzzc/maxresdefault.jpg",
    "relevance": 0.5,
@@ -6654,7 +6438,7 @@
    "date": "2026-10-04T09:30:00.000Z",
    "summary": "",
    "relevance": 0.2857142857142857,
-   "score": 0.4335,
+   "score": 0.4329,
    "tone": "neutral",
    "topics": [
     "Governance"
@@ -6672,7 +6456,7 @@
    "summary": "Trump gets dozens of AI firms to agree to voluntary safety tests.",
    "thumb": "https://cdn.arstechnica.net/wp-content/uploads/2026/09/GettyImages-2297759490-1024x648.jpg",
    "relevance": 0.42857142857142855,
-   "score": 0.4329,
+   "score": 0.4327,
    "tone": "risk",
    "topics": [
     "Safety",
@@ -6687,7 +6471,7 @@
    "source": "yt-doom",
    "sourceName": "Doom Debates",
    "kind": "video",
-   "date": "2026-09-30T03:36:22.277Z",
+   "date": "2026-09-30T03:57:46.544Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/VZ94J4DBRkw/maxresdefault.jpg",
    "relevance": 0.5,
@@ -6703,7 +6487,7 @@
    "source": "yt-fli",
    "sourceName": "Future of Life Institute (YouTube)",
    "kind": "video",
-   "date": "2026-09-25T03:36:22.165Z",
+   "date": "2026-09-25T03:57:46.562Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/4T-3cRJxBfc/maxresdefault.jpg",
    "relevance": 0.5,
@@ -6753,7 +6537,7 @@
    "source": "yt-far",
    "sourceName": "FAR.AI (YouTube)",
    "kind": "video",
-   "date": "2026-09-16T03:36:22.289Z",
+   "date": "2026-09-16T03:57:46.440Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/LGbleVrGnyo/maxresdefault.jpg",
    "relevance": 0.5,
@@ -6823,7 +6607,7 @@
    "source": "yt-far",
    "sourceName": "FAR.AI (YouTube)",
    "kind": "video",
-   "date": "2026-09-09T03:36:22.289Z",
+   "date": "2026-09-09T03:57:46.440Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/wRTBKwf45Ak/maxresdefault.jpg",
    "relevance": 0.5,
@@ -6870,13 +6654,29 @@
    "also": []
   },
   {
+   "id": "rpi9p0",
+   "title": "POV: You’re an AI Born 9 Seconds Ago",
+   "url": "https://www.youtube.com/watch?v=9XlOaVItUgI",
+   "source": "yt-species",
+   "sourceName": "Species | Documenting AGI",
+   "kind": "video",
+   "date": "2026-09-07T03:57:46.554Z",
+   "summary": "",
+   "thumb": "https://i.ytimg.com/vi/9XlOaVItUgI/maxresdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.4252,
+   "tone": "neutral",
+   "topics": [],
+   "also": []
+  },
+  {
    "id": "6aldg1",
    "title": "Can We Predict AI Loss of Control? Trustworthy AI in the Age of Agents | Yinpeng Dong",
    "url": "https://www.youtube.com/watch?v=j1HVaXarE_Y",
    "source": "yt-far",
    "sourceName": "FAR.AI (YouTube)",
    "kind": "video",
-   "date": "2026-09-07T03:36:22.289Z",
+   "date": "2026-09-07T03:57:46.440Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/j1HVaXarE_Y/maxresdefault.jpg",
    "relevance": 0.5,
@@ -6894,7 +6694,7 @@
    "source": "yt-far",
    "sourceName": "FAR.AI (YouTube)",
    "kind": "video",
-   "date": "2026-09-07T03:36:22.289Z",
+   "date": "2026-09-07T03:57:46.440Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/1OupfPioP-M/maxresdefault.jpg",
    "relevance": 0.5,
@@ -6910,7 +6710,7 @@
    "source": "yt-far",
    "sourceName": "FAR.AI (YouTube)",
    "kind": "video",
-   "date": "2026-09-07T03:36:22.289Z",
+   "date": "2026-09-07T03:57:46.440Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/HKFitKwyUuI/maxresdefault.jpg",
    "relevance": 0.5,
@@ -6928,7 +6728,7 @@
    "source": "yt-far",
    "sourceName": "FAR.AI (YouTube)",
    "kind": "video",
-   "date": "2026-09-07T03:36:22.289Z",
+   "date": "2026-09-07T03:57:46.440Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/1axi2nnmD5I/maxresdefault.jpg",
    "relevance": 0.5,
@@ -6946,7 +6746,7 @@
    "source": "yt-far",
    "sourceName": "FAR.AI (YouTube)",
    "kind": "video",
-   "date": "2026-09-07T03:36:22.289Z",
+   "date": "2026-09-07T03:57:46.440Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/SjW_AH9qDZQ/maxresdefault.jpg",
    "relevance": 0.5,
@@ -6964,7 +6764,7 @@
    "source": "yt-far",
    "sourceName": "FAR.AI (YouTube)",
    "kind": "video",
-   "date": "2026-09-07T03:36:22.289Z",
+   "date": "2026-09-07T03:57:46.440Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/mcSVyf7d3pk/maxresdefault.jpg",
    "relevance": 0.5,
@@ -6982,7 +6782,7 @@
    "source": "yt-far",
    "sourceName": "FAR.AI (YouTube)",
    "kind": "video",
-   "date": "2026-09-07T03:36:22.289Z",
+   "date": "2026-09-07T03:57:46.440Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/vt1Z9kmIZso/maxresdefault.jpg",
    "relevance": 0.5,
@@ -7000,7 +6800,7 @@
    "source": "yt-far",
    "sourceName": "FAR.AI (YouTube)",
    "kind": "video",
-   "date": "2026-09-07T03:36:22.289Z",
+   "date": "2026-09-07T03:57:46.440Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/hHiSJuvmDTQ/maxresdefault.jpg",
    "relevance": 0.5,
@@ -7009,22 +6809,6 @@
    "topics": [
     "Safety"
    ],
-   "also": []
-  },
-  {
-   "id": "rpi9p0",
-   "title": "POV: You’re an AI Born 9 Seconds Ago",
-   "url": "https://www.youtube.com/watch?v=9XlOaVItUgI",
-   "source": "yt-species",
-   "sourceName": "Species | Documenting AGI",
-   "kind": "video",
-   "date": "2026-09-07T03:36:22.086Z",
-   "summary": "",
-   "thumb": "https://i.ytimg.com/vi/9XlOaVItUgI/maxresdefault.jpg",
-   "relevance": 0.5,
-   "score": 0.4252,
-   "tone": "neutral",
-   "topics": [],
    "also": []
   },
   {
@@ -7120,7 +6904,7 @@
    "source": "yt-species",
    "sourceName": "Species | Documenting AGI",
    "kind": "video",
-   "date": "2026-08-08T03:36:22.086Z",
+   "date": "2026-08-08T03:57:46.554Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/Gw_hnD7m00M/maxresdefault.jpg",
    "relevance": 0.5,
@@ -7136,25 +6920,9 @@
    "source": "yt-species",
    "sourceName": "Species | Documenting AGI",
    "kind": "video",
-   "date": "2026-07-09T03:36:22.086Z",
+   "date": "2026-07-09T03:57:46.554Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/S2oIFOm-XXQ/maxresdefault.jpg",
-   "relevance": 0.5,
-   "score": 0.425,
-   "tone": "neutral",
-   "topics": [],
-   "also": []
-  },
-  {
-   "id": "5kcpdf",
-   "title": "The First 48 Hours of an AI Civil War - A Realistic Scenario",
-   "url": "https://www.youtube.com/watch?v=gwfCWDO4LbM",
-   "source": "yt-species",
-   "sourceName": "Species | Documenting AGI",
-   "kind": "video",
-   "date": "2026-06-09T03:36:22.086Z",
-   "summary": "",
-   "thumb": "https://i.ytimg.com/vi/gwfCWDO4LbM/maxresdefault.jpg",
    "relevance": 0.5,
    "score": 0.425,
    "tone": "neutral",
@@ -7180,29 +6948,13 @@
    "also": []
   },
   {
-   "id": "1eho6kw",
-   "title": "What will it take to wake humanity up?",
-   "url": "https://www.youtube.com/watch?v=Y2vDwR9rW-0",
-   "source": "yt-rational",
-   "sourceName": "Rational Animations",
-   "kind": "video",
-   "date": "2026-09-23T03:36:22.210Z",
-   "summary": "",
-   "thumb": "https://i.ytimg.com/vi/Y2vDwR9rW-0/maxresdefault.jpg",
-   "relevance": 0.5,
-   "score": 0.4229,
-   "tone": "neutral",
-   "topics": [],
-   "also": []
-  },
-  {
    "id": "1kogr4m",
    "title": "DELISTED | Official Trailer HD | The Government Erased Them",
    "url": "https://www.youtube.com/watch?v=TNrjcQ1Xd-A",
    "source": "yt-fli",
    "sourceName": "Future of Life Institute (YouTube)",
    "kind": "video",
-   "date": "2026-09-23T03:36:22.165Z",
+   "date": "2026-09-23T03:57:46.562Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/TNrjcQ1Xd-A/maxresdefault.jpg",
    "relevance": 0.5,
@@ -7218,9 +6970,25 @@
    "source": "yt-fli",
    "sourceName": "Future of Life Institute (YouTube)",
    "kind": "video",
-   "date": "2026-09-23T03:36:22.165Z",
+   "date": "2026-09-23T03:57:46.562Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/Hlc3v4nPSiU/maxresdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.4229,
+   "tone": "neutral",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "1eho6kw",
+   "title": "What will it take to wake humanity up?",
+   "url": "https://www.youtube.com/watch?v=Y2vDwR9rW-0",
+   "source": "yt-rational",
+   "sourceName": "Rational Animations",
+   "kind": "video",
+   "date": "2026-09-23T03:57:46.275Z",
+   "summary": "",
+   "thumb": "https://i.ytimg.com/vi/Y2vDwR9rW-0/maxresdefault.jpg",
    "relevance": 0.5,
    "score": 0.4229,
    "tone": "neutral",
@@ -7239,7 +7007,7 @@
    "date": "2026-10-01T14:48:46.000Z",
    "summary": "",
    "relevance": 0.42857142857142855,
-   "score": 0.4224,
+   "score": 0.4221,
    "tone": "risk",
    "topics": [
     "Misuse"
@@ -7274,7 +7042,7 @@
    "summary": "The existence of Anthropic’s 401(k) benefits assumes a world where we’re all still here.",
    "thumb": "https://img.semafor.com/94b6b9331fe3393d2dba8ae844852e1cdb601e8b-2142x1393.jpg?rect=0,135,2142,1125&w=1200&h=630&q=75&auto=format",
    "relevance": 0.42857142857142855,
-   "score": 0.4183,
+   "score": 0.4181,
    "tone": "risk",
    "topics": [
     "Risk"
@@ -7294,7 +7062,7 @@
    "source": "yt-aiexplained",
    "sourceName": "AI Explained",
    "kind": "video",
-   "date": "2026-09-25T03:36:22.122Z",
+   "date": "2026-09-25T03:57:46.580Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/R9momwXV9w4/maxresdefault.jpg",
    "relevance": 0.5,
@@ -7313,7 +7081,7 @@
    "date": "2026-09-23T10:00:00.000Z",
    "summary": "MentalHealthBench is an expert-informed benchmark for evaluating helpful and safe AI responses across realistic mental health conversations.",
    "relevance": 0.42857142857142855,
-   "score": 0.4165,
+   "score": 0.4164,
    "tone": "neutral",
    "topics": [
     "Evaluations",
@@ -7354,7 +7122,7 @@
    "date": "2026-10-01T06:26:00.000Z",
    "summary": "",
    "relevance": 0.42857142857142855,
-   "score": 0.416,
+   "score": 0.4157,
    "tone": "neutral",
    "topics": [
     "Governance",
@@ -7369,26 +7137,6 @@
    "also": []
   },
   {
-   "id": "xbo3fs",
-   "title": "CERN warns against growing cybersecurity risks",
-   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5IOG9Od1Jhdkh0eFpNeXh2V1FJaDBwaXdpRm9XZGEzVThuNnJ3N2JQQTA3Nk1qdm41QlJpLTU4VmZWVFBrZDJSTE1NMlgzbXNkc2ZNczVn0gFWQVVfeXFMTkg4b053UmF2SHR4Wk15eHZXUUloMHBpd2lGb1dkYTNVOG42cnc3YlBBMDc2TWp2bjVCUmktNThWZlZUUGtkMlJMTU0yWDNtc2RzZk1zNWc?oc=5",
-   "source": "gn-jailbreak",
-   "sourceName": "Business Recorder",
-   "kind": "news",
-   "site": "https://www.brecorder.com/",
-   "via": "Google News",
-   "date": "2026-10-03T21:23:01.000Z",
-   "summary": "",
-   "relevance": 0.2857142857142857,
-   "score": 0.4158,
-   "tone": "risk",
-   "topics": [
-    "Attacks",
-    "Risk"
-   ],
-   "also": []
-  },
-  {
    "id": "uru7xv",
    "title": "Around 11 million US workers may face AI displacement",
    "url": "https://www.semafor.com/article/09/29/2026/around-11-million-us-workers-may-face-ai-displacement",
@@ -7399,7 +7147,7 @@
    "summary": "Voters globally have soured on AI because of existential risks the technology poses as well as concerns such as job losses and energy use.",
    "thumb": "https://img.semafor.com/72cf185a2349236f97547e229a87f0c5a6bb9228-3500x2333.jpg?rect=0,248,3500,1838&w=1200&h=630&q=75&auto=format",
    "relevance": 0.42857142857142855,
-   "score": 0.4156,
+   "score": 0.4154,
    "tone": "risk",
    "topics": [
     "Risk"
@@ -7423,7 +7171,7 @@
    "summary": "AI regulation will top the agenda when leaders from the two firms lunch with US President Donald Trump alongside the bosses of Meta and Nvidia.",
    "thumb": "https://img.semafor.com/4edcc71f032e922ad0fa3f238b2206d9949f984f-2048x1294.jpg?rect=0,110,2048,1075&w=1200&h=630&q=75&auto=format",
    "relevance": 0.42857142857142855,
-   "score": 0.4156,
+   "score": 0.4154,
    "tone": "risk",
    "topics": [
     "Governance",
@@ -7438,6 +7186,42 @@
    "also": []
   },
   {
+   "id": "xbo3fs",
+   "title": "CERN warns against growing cybersecurity risks",
+   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5IOG9Od1Jhdkh0eFpNeXh2V1FJaDBwaXdpRm9XZGEzVThuNnJ3N2JQQTA3Nk1qdm41QlJpLTU4VmZWVFBrZDJSTE1NMlgzbXNkc2ZNczVn0gFWQVVfeXFMTkg4b053UmF2SHR4Wk15eHZXUUloMHBpd2lGb1dkYTNVOG42cnc3YlBBMDc2TWp2bjVCUmktNThWZlZUUGtkMlJMTU0yWDNtc2RzZk1zNWc?oc=5",
+   "source": "gn-jailbreak",
+   "sourceName": "Business Recorder",
+   "kind": "news",
+   "site": "https://www.brecorder.com/",
+   "via": "Google News",
+   "date": "2026-10-03T21:23:01.000Z",
+   "summary": "",
+   "relevance": 0.2857142857142857,
+   "score": 0.4153,
+   "tone": "risk",
+   "topics": [
+    "Attacks",
+    "Risk"
+   ],
+   "also": []
+  },
+  {
+   "id": "1dhxnls",
+   "title": "What Would a US-China AI Deal Look Like? (with Beatrice Fihn)",
+   "url": "https://www.youtube.com/watch?v=dIu49j7-SpY",
+   "source": "yt-fli",
+   "sourceName": "Future of Life Institute (YouTube)",
+   "kind": "video",
+   "date": "2026-09-16T03:57:46.562Z",
+   "summary": "",
+   "thumb": "https://i.ytimg.com/vi/dIu49j7-SpY/maxresdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.4144,
+   "tone": "neutral",
+   "topics": [],
+   "also": []
+  },
+  {
    "id": "6othrt",
    "title": "Steve Hilton presses Xavier Becerra on AI regulation and legislation | CNN Politics",
    "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPMjA2Q0Q2VmpINEViSEVQT1IzcVI3cHhrOTV0YUxFVkZVNjNFSnVELXhOUkc3d2FUOFFNVUV6blRTdjJlTlRXZW40RzNlUUtBM2hDc0FfenVKUDM2QXJkdzF6ZkJrcTNRVVZCTjRCT0UwaDJIQUJ0Tko4OUt1b3RjU2J4bmE1Rkw2RjhzWkFpOGRGVmFCdDJRN0hVc3JXUXc2YkhhMTluZWczUVlUcm56cHVOdW1iNkhPbDhuYnJXbTRUZ1BSTlZ1VG5B?oc=5",
@@ -7449,27 +7233,11 @@
    "date": "2026-10-01T04:30:00.000Z",
    "summary": "",
    "relevance": 0.42857142857142855,
-   "score": 0.4146,
+   "score": 0.4143,
    "tone": "neutral",
    "topics": [
     "Governance"
    ],
-   "also": []
-  },
-  {
-   "id": "1dhxnls",
-   "title": "What Would a US-China AI Deal Look Like? (with Beatrice Fihn)",
-   "url": "https://www.youtube.com/watch?v=dIu49j7-SpY",
-   "source": "yt-fli",
-   "sourceName": "Future of Life Institute (YouTube)",
-   "kind": "video",
-   "date": "2026-09-16T03:36:22.165Z",
-   "summary": "",
-   "thumb": "https://i.ytimg.com/vi/dIu49j7-SpY/maxresdefault.jpg",
-   "relevance": 0.5,
-   "score": 0.4144,
-   "tone": "neutral",
-   "topics": [],
    "also": []
   },
   {
@@ -7504,29 +7272,13 @@
    "also": []
   },
   {
-   "id": "3p42hi",
-   "title": "Could a Global Dictatorship Last Forever?",
-   "url": "https://www.youtube.com/watch?v=2Wv3p9WCs6M",
-   "source": "yt-rational",
-   "sourceName": "Rational Animations",
-   "kind": "video",
-   "date": "2026-09-07T03:36:22.210Z",
-   "summary": "",
-   "thumb": "https://i.ytimg.com/vi/2Wv3p9WCs6M/maxresdefault.jpg",
-   "relevance": 0.5,
-   "score": 0.4127,
-   "tone": "neutral",
-   "topics": [],
-   "also": []
-  },
-  {
    "id": "qibftw",
    "title": "Why Everyone Wants You To Believe AI is a Bubble",
    "url": "https://www.youtube.com/watch?v=SPFPVbzJlww",
    "source": "yt-fli",
    "sourceName": "Future of Life Institute (YouTube)",
    "kind": "video",
-   "date": "2026-09-07T03:36:22.165Z",
+   "date": "2026-09-07T03:57:46.562Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/SPFPVbzJlww/maxresdefault.jpg",
    "relevance": 0.5,
@@ -7542,7 +7294,7 @@
    "source": "yt-fli",
    "sourceName": "Future of Life Institute (YouTube)",
    "kind": "video",
-   "date": "2026-09-07T03:36:22.165Z",
+   "date": "2026-09-07T03:57:46.562Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/eu1BfF-1iKQ/maxresdefault.jpg",
    "relevance": 0.5,
@@ -7558,7 +7310,7 @@
    "source": "yt-fli",
    "sourceName": "Future of Life Institute (YouTube)",
    "kind": "video",
-   "date": "2026-09-07T03:36:22.165Z",
+   "date": "2026-09-07T03:57:46.562Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/Ij9JDc77ca8/maxresdefault.jpg",
    "relevance": 0.5,
@@ -7576,7 +7328,7 @@
    "source": "yt-fli",
    "sourceName": "Future of Life Institute (YouTube)",
    "kind": "video",
-   "date": "2026-09-07T03:36:22.165Z",
+   "date": "2026-09-07T03:57:46.562Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/jR6ni3fwNJU/maxresdefault.jpg",
    "relevance": 0.5,
@@ -7594,7 +7346,7 @@
    "source": "yt-fli",
    "sourceName": "Future of Life Institute (YouTube)",
    "kind": "video",
-   "date": "2026-09-07T03:36:22.165Z",
+   "date": "2026-09-07T03:57:46.562Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/qCxTqf36Q8M/maxresdefault.jpg",
    "relevance": 0.5,
@@ -7610,7 +7362,7 @@
    "source": "yt-fli",
    "sourceName": "Future of Life Institute (YouTube)",
    "kind": "video",
-   "date": "2026-09-07T03:36:22.165Z",
+   "date": "2026-09-07T03:57:46.562Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/TXdg04MfJjg/maxresdefault.jpg",
    "relevance": 0.5,
@@ -7619,6 +7371,22 @@
    "topics": [
     "Risk"
    ],
+   "also": []
+  },
+  {
+   "id": "3p42hi",
+   "title": "Could a Global Dictatorship Last Forever?",
+   "url": "https://www.youtube.com/watch?v=2Wv3p9WCs6M",
+   "source": "yt-rational",
+   "sourceName": "Rational Animations",
+   "kind": "video",
+   "date": "2026-09-07T03:57:46.275Z",
+   "summary": "",
+   "thumb": "https://i.ytimg.com/vi/2Wv3p9WCs6M/maxresdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.4127,
+   "tone": "neutral",
+   "topics": [],
    "also": []
   },
   {
@@ -7684,29 +7452,13 @@
    "also": []
   },
   {
-   "id": "jklk7j",
-   "title": "Can AI Come Up With Original Ideas?",
-   "url": "https://www.youtube.com/watch?v=Z7dH_Cxx75g",
-   "source": "yt-rational",
-   "sourceName": "Rational Animations",
-   "kind": "video",
-   "date": "2026-08-08T03:36:22.210Z",
-   "summary": "",
-   "thumb": "https://i.ytimg.com/vi/Z7dH_Cxx75g/maxresdefault.jpg",
-   "relevance": 0.5,
-   "score": 0.4125,
-   "tone": "neutral",
-   "topics": [],
-   "also": []
-  },
-  {
    "id": "ohgcoj",
    "title": "What parents don't know about AI chatbots",
    "url": "https://www.youtube.com/watch?v=-RZYSY1G_e4",
    "source": "yt-fli",
    "sourceName": "Future of Life Institute (YouTube)",
    "kind": "video",
-   "date": "2026-08-08T03:36:22.165Z",
+   "date": "2026-08-08T03:57:46.562Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/-RZYSY1G_e4/maxresdefault.jpg",
    "relevance": 0.5,
@@ -7722,9 +7474,25 @@
    "source": "yt-fli",
    "sourceName": "Future of Life Institute (YouTube)",
    "kind": "video",
-   "date": "2026-08-08T03:36:22.165Z",
+   "date": "2026-08-08T03:57:46.562Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/BwI9PsuViIs/maxresdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.4125,
+   "tone": "neutral",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "jklk7j",
+   "title": "Can AI Come Up With Original Ideas?",
+   "url": "https://www.youtube.com/watch?v=Z7dH_Cxx75g",
+   "source": "yt-rational",
+   "sourceName": "Rational Animations",
+   "kind": "video",
+   "date": "2026-08-08T03:57:46.276Z",
+   "summary": "",
+   "thumb": "https://i.ytimg.com/vi/Z7dH_Cxx75g/maxresdefault.jpg",
    "relevance": 0.5,
    "score": 0.4125,
    "tone": "neutral",
@@ -7760,7 +7528,7 @@
    "source": "yt-rational",
    "sourceName": "Rational Animations",
    "kind": "video",
-   "date": "2026-06-09T03:36:22.210Z",
+   "date": "2026-06-09T03:57:46.276Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/hzlR0R91lZA/maxresdefault.jpg",
    "relevance": 0.5,
@@ -7776,7 +7544,7 @@
    "source": "yt-aiexplained",
    "sourceName": "AI Explained",
    "kind": "video",
-   "date": "2026-09-23T03:36:22.122Z",
+   "date": "2026-09-23T03:57:46.580Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/J3ljHm57yU0/maxresdefault.jpg",
    "relevance": 0.5,
@@ -7797,7 +7565,7 @@
    "date": "2026-10-03T16:30:01.000Z",
    "summary": "",
    "relevance": 0.2857142857142857,
-   "score": 0.4092,
+   "score": 0.4088,
    "tone": "risk",
    "topics": [
     "Safety"
@@ -7822,7 +7590,7 @@
    "date": "2026-10-03T16:25:15.000Z",
    "summary": "",
    "relevance": 0.2857142857142857,
-   "score": 0.4091,
+   "score": 0.4087,
    "tone": "neutral",
    "topics": [
     "Governance"
@@ -7859,6 +7627,24 @@
    "also": []
   },
   {
+   "id": "15486pj",
+   "title": "Inside Aella's \"PlzDontKillUs\" AI X-Risk Influencer House — Ft. Brangus, Avalon, Avisha & Josh",
+   "url": "https://www.youtube.com/watch?v=aPsjMCG7Ic8",
+   "source": "yt-doom",
+   "sourceName": "Doom Debates",
+   "kind": "video",
+   "date": "2026-09-07T03:57:46.544Z",
+   "summary": "",
+   "thumb": "https://i.ytimg.com/vi/aPsjMCG7Ic8/maxresdefault.jpg",
+   "relevance": 0.5714285714285714,
+   "score": 0.4074,
+   "tone": "risk",
+   "topics": [
+    "Risk"
+   ],
+   "also": []
+  },
+  {
    "id": "1aix0yt",
    "title": "Secret watermark labels proteins as ‘made by AI’",
    "url": "https://www.nature.com/articles/d41586-026-03033-y",
@@ -7868,7 +7654,7 @@
    "date": "2026-09-30T00:00:00.000Z",
    "summary": "",
    "relevance": 0.2857142857142857,
-   "score": 0.4075,
+   "score": 0.4073,
    "tone": "research",
    "topics": [
     "Safety"
@@ -7885,28 +7671,10 @@
    "date": "2026-09-30T00:00:00.000Z",
    "summary": "",
    "relevance": 0.2857142857142857,
-   "score": 0.4075,
+   "score": 0.4073,
    "tone": "research",
    "topics": [
     "Safety"
-   ],
-   "also": []
-  },
-  {
-   "id": "15486pj",
-   "title": "Inside Aella's \"PlzDontKillUs\" AI X-Risk Influencer House — Ft. Brangus, Avalon, Avisha & Josh",
-   "url": "https://www.youtube.com/watch?v=aPsjMCG7Ic8",
-   "source": "yt-doom",
-   "sourceName": "Doom Debates",
-   "kind": "video",
-   "date": "2026-09-07T03:36:22.277Z",
-   "summary": "",
-   "thumb": "https://i.ytimg.com/vi/aPsjMCG7Ic8/maxresdefault.jpg",
-   "relevance": 0.5714285714285714,
-   "score": 0.4074,
-   "tone": "risk",
-   "topics": [
-    "Risk"
    ],
    "also": []
   },
@@ -7922,7 +7690,7 @@
    "date": "2026-09-30T16:20:00.000Z",
    "summary": "",
    "relevance": 0.42857142857142855,
-   "score": 0.4064,
+   "score": 0.4061,
    "tone": "risk",
    "topics": [
     "Attacks"
@@ -7951,24 +7719,6 @@
     "lon": -122.42,
     "lat": 37.77
    },
-   "also": []
-  },
-  {
-   "id": "11re4vz",
-   "title": "Astra 6.1 Pulled As Insufficiently Aligned",
-   "url": "https://thezvi.substack.com/p/astra-61-pulled-as-insufficiently",
-   "source": "zvi",
-   "sourceName": "Don’t Worry About the Vase",
-   "kind": "essay",
-   "date": "2026-09-29T16:49:34.000Z",
-   "summary": "We once again got a new set of warnings yesterday, and new movement towards living in a sane world.",
-   "thumb": "https://substackcdn.com/image/fetch/$s_!1RZd!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F888896b0-36fb-443d-bfd0-b8e6b1ceafa9_720x900.jpeg",
-   "relevance": 0.42857142857142855,
-   "score": 0.4056,
-   "tone": "research",
-   "topics": [
-    "Alignment"
-   ],
    "also": []
   },
   {
@@ -8068,6 +7818,24 @@
    "also": []
   },
   {
+   "id": "11re4vz",
+   "title": "Astra 6.1 Pulled As Insufficiently Aligned",
+   "url": "https://thezvi.substack.com/p/astra-61-pulled-as-insufficiently",
+   "source": "zvi",
+   "sourceName": "Don’t Worry About the Vase",
+   "kind": "essay",
+   "date": "2026-09-29T16:49:34.000Z",
+   "summary": "We once again got a new set of warnings yesterday, and new movement towards living in a sane world.",
+   "thumb": "https://substackcdn.com/image/fetch/$s_!1RZd!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F888896b0-36fb-443d-bfd0-b8e6b1ceafa9_720x900.jpeg",
+   "relevance": 0.42857142857142855,
+   "score": 0.4054,
+   "tone": "research",
+   "topics": [
+    "Alignment"
+   ],
+   "also": []
+  },
+  {
    "id": "1397fe8",
    "title": "As public fears of AI grow, Trump digs in on voluntary safeguards",
    "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPaktMNDdZV2FZQTFSeGF3SENIXzkwWHhWLUVhT1ZwVHMzTUdQajl0akw3QTlicmFCQ04tV0YxRFFfUEZYYmxqRFA5QVh3TzhTcm9Ca0pWLXBjeTFXaV9DVXV6ZmFPU1h1NXFsUVpxaHlBUlA3SjhxRVNSQU9UZ2ItTmNBN0VvWFpFc05idzd1dWUyaUNmMWRwc0lKR3A4Q0czbkE0ekNXZlM?oc=5",
@@ -8079,7 +7847,7 @@
    "date": "2026-10-03T12:34:32.000Z",
    "summary": "",
    "relevance": 0.2857142857142857,
-   "score": 0.4042,
+   "score": 0.4038,
    "tone": "risk",
    "topics": [
     "Safety"
@@ -8097,7 +7865,7 @@
    "summary": "Proof of concept for watermarking AI-generated proteins while preserving biological function.",
    "thumb": "https://lh3.googleusercontent.com/wNhpZFcXYLXFb6alIt0H5NRvEoso2ONZDhPKz6MYEcGltHPbDeHddzkvv5GXl3abW1PZ5ci1Y9lKoYOIjMuHLxATXfWp88-Al6eEmDENrpejIFeimw=w528-h297-n-nu-rw-lo",
    "relevance": 0.2857142857142857,
-   "score": 0.4038,
+   "score": 0.4035,
    "tone": "neutral",
    "topics": [
     "Safety"
@@ -8122,7 +7890,7 @@
    "date": "2026-09-30T12:02:17.000Z",
    "summary": "",
    "relevance": 0.42857142857142855,
-   "score": 0.4037,
+   "score": 0.4035,
    "tone": "risk",
    "topics": [
     "Attacks"
@@ -8141,7 +7909,7 @@
    "date": "2026-09-30T12:00:00.000Z",
    "summary": "",
    "relevance": 0.42857142857142855,
-   "score": 0.4037,
+   "score": 0.4034,
    "tone": "risk",
    "topics": [
     "Attacks"
@@ -8160,7 +7928,7 @@
    "date": "2026-09-30T11:45:20.000Z",
    "summary": "",
    "relevance": 0.42857142857142855,
-   "score": 0.4035,
+   "score": 0.4033,
    "tone": "risk",
    "topics": [
     "Misuse"
@@ -8179,7 +7947,7 @@
    "date": "2026-09-30T10:00:00.000Z",
    "summary": "",
    "relevance": 0.42857142857142855,
-   "score": 0.4025,
+   "score": 0.4022,
    "tone": "neutral",
    "topics": [
     "Governance"
@@ -8198,7 +7966,7 @@
    "date": "2026-09-30T08:47:49.000Z",
    "summary": "",
    "relevance": 0.42857142857142855,
-   "score": 0.4017,
+   "score": 0.4015,
    "tone": "risk",
    "topics": [
     "Risk"
@@ -8223,7 +7991,7 @@
    "date": "2026-09-30T08:07:16.000Z",
    "summary": "",
    "relevance": 0.42857142857142855,
-   "score": 0.4014,
+   "score": 0.4011,
    "tone": "risk",
    "topics": [
     "Attacks"
@@ -8240,7 +8008,7 @@
    "date": "2026-09-30T10:30:00.000Z",
    "summary": "Learn how OpenAI disrupted a campaign to extract protected model reasoning and is strengthening defenses against adversarial distillation.",
    "relevance": 0.2857142857142857,
-   "score": 0.401,
+   "score": 0.4008,
    "tone": "neutral",
    "topics": [
     "Attacks"
@@ -8260,7 +8028,7 @@
    "source": "yt-siliconversations",
    "sourceName": "Siliconversations",
    "kind": "video",
-   "date": "2026-09-24T03:36:22.110Z",
+   "date": "2026-09-24T03:57:46.523Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/NshlVxYnjFo/maxresdefault.jpg",
    "relevance": 0.5,
@@ -8270,38 +8038,13 @@
    "also": []
   },
   {
-   "id": "aop6il",
-   "title": "Chinese AI tool Told Researchers How to Make Bioweapons",
-   "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNUF9od1p4U2RwajRGeDVOcFJUVlB0U3Y0VFNCVUNLazhLZjZNWi03VXNsZWRCNGszTENUcDNkSGozWm1ZbHNvZEZLaHpRR2dCc3hmVVZiQl9ubGJWejMzLU0tRHloZ1p0b09UR3NJRjZFSk9ueUU5WW1zbU1KVkJpOG5rbDMzNmFTcHZwNWlYaFI5Q0RE?oc=5",
-   "source": "gn-jailbreak",
-   "sourceName": "Albanian Daily News",
-   "kind": "news",
-   "site": "https://albaniandailynews.com/",
-   "via": "Google News",
-   "date": "2026-09-30T06:21:02.000Z",
-   "summary": "",
-   "relevance": 0.42857142857142855,
-   "score": 0.4003,
-   "tone": "risk",
-   "topics": [
-    "Risk"
-   ],
-   "place": {
-    "name": "Beijing",
-    "country": "China",
-    "lon": 116.4,
-    "lat": 39.9
-   },
-   "also": []
-  },
-  {
    "id": "1vq8t0z",
    "title": "GPT 6 Astra, so good even OpenAI are worried",
    "url": "https://www.youtube.com/watch?v=Spuza-KwTJ4",
    "source": "yt-aiexplained",
    "sourceName": "AI Explained",
    "kind": "video",
-   "date": "2026-09-07T03:36:22.122Z",
+   "date": "2026-09-07T03:57:46.580Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/Spuza-KwTJ4/maxresdefault.jpg",
    "relevance": 0.5,
@@ -8317,7 +8060,7 @@
    "source": "yt-aiexplained",
    "sourceName": "AI Explained",
    "kind": "video",
-   "date": "2026-09-07T03:36:22.122Z",
+   "date": "2026-09-07T03:57:46.580Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/KL9_1GbmCic/maxresdefault.jpg",
    "relevance": 0.5,
@@ -8329,13 +8072,38 @@
    "also": []
   },
   {
+   "id": "aop6il",
+   "title": "Chinese AI tool Told Researchers How to Make Bioweapons",
+   "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNUF9od1p4U2RwajRGeDVOcFJUVlB0U3Y0VFNCVUNLazhLZjZNWi03VXNsZWRCNGszTENUcDNkSGozWm1ZbHNvZEZLaHpRR2dCc3hmVVZiQl9ubGJWejMzLU0tRHloZ1p0b09UR3NJRjZFSk9ueUU5WW1zbU1KVkJpOG5rbDMzNmFTcHZwNWlYaFI5Q0RE?oc=5",
+   "source": "gn-jailbreak",
+   "sourceName": "Albanian Daily News",
+   "kind": "news",
+   "site": "https://albaniandailynews.com/",
+   "via": "Google News",
+   "date": "2026-09-30T06:21:02.000Z",
+   "summary": "",
+   "relevance": 0.42857142857142855,
+   "score": 0.4001,
+   "tone": "risk",
+   "topics": [
+    "Risk"
+   ],
+   "place": {
+    "name": "Beijing",
+    "country": "China",
+    "lon": 116.4,
+    "lat": 39.9
+   },
+   "also": []
+  },
+  {
    "id": "1fasafq",
    "title": "AI is getting a little out of control",
    "url": "https://www.youtube.com/watch?v=xGzseSSStnw",
    "source": "yt-aiexplained",
    "sourceName": "AI Explained",
    "kind": "video",
-   "date": "2026-08-08T03:36:22.122Z",
+   "date": "2026-08-08T03:57:46.580Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/xGzseSSStnw/maxresdefault.jpg",
    "relevance": 0.5,
@@ -8353,7 +8121,7 @@
    "source": "yt-aiexplained",
    "sourceName": "AI Explained",
    "kind": "video",
-   "date": "2026-08-08T03:36:22.122Z",
+   "date": "2026-08-08T03:57:46.580Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/wzY2fV4Mp3U/maxresdefault.jpg",
    "relevance": 0.5,
@@ -8369,7 +8137,7 @@
    "source": "yt-aiexplained",
    "sourceName": "AI Explained",
    "kind": "video",
-   "date": "2026-08-08T03:36:22.122Z",
+   "date": "2026-08-08T03:57:46.580Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/mWlCituW7wo/maxresdefault.jpg",
    "relevance": 0.5,
@@ -8385,7 +8153,7 @@
    "source": "yt-aiexplained",
    "sourceName": "AI Explained",
    "kind": "video",
-   "date": "2026-07-09T03:36:22.122Z",
+   "date": "2026-07-09T03:57:46.580Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/y24lF1q4SFY/maxresdefault.jpg",
    "relevance": 0.5,
@@ -8401,7 +8169,7 @@
    "source": "yt-aiexplained",
    "sourceName": "AI Explained",
    "kind": "video",
-   "date": "2026-07-09T03:36:22.122Z",
+   "date": "2026-07-09T03:57:46.580Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/Qj71N0tBzRo/maxresdefault.jpg",
    "relevance": 0.5,
@@ -8417,7 +8185,7 @@
    "source": "yt-aiexplained",
    "sourceName": "AI Explained",
    "kind": "video",
-   "date": "2026-07-09T03:36:22.122Z",
+   "date": "2026-07-09T03:57:46.580Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/haK1KoQWm18/maxresdefault.jpg",
    "relevance": 0.5,
@@ -8433,7 +8201,7 @@
    "source": "yt-aiexplained",
    "sourceName": "AI Explained",
    "kind": "video",
-   "date": "2026-06-09T03:36:22.122Z",
+   "date": "2026-06-09T03:57:46.580Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/aJvP3nXWkwM/maxresdefault.jpg",
    "relevance": 0.5,
@@ -8449,7 +8217,7 @@
    "source": "yt-aiexplained",
    "sourceName": "AI Explained",
    "kind": "video",
-   "date": "2026-06-09T03:36:22.122Z",
+   "date": "2026-06-09T03:57:46.580Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/o_av1b9rs2g/maxresdefault.jpg",
    "relevance": 0.5,
@@ -8467,7 +8235,7 @@
    "source": "yt-siliconversations",
    "sourceName": "Siliconversations",
    "kind": "video",
-   "date": "2026-09-23T03:36:22.110Z",
+   "date": "2026-09-23T03:57:46.524Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/0X-XJC6jK3k/maxresdefault.jpg",
    "relevance": 0.5,
@@ -8483,7 +8251,7 @@
    "source": "yt-siliconversations",
    "sourceName": "Siliconversations",
    "kind": "video",
-   "date": "2026-09-16T03:36:22.110Z",
+   "date": "2026-09-16T03:57:46.524Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/s1ZYEy0etUI/maxresdefault.jpg",
    "relevance": 0.5,
@@ -8499,7 +8267,7 @@
    "source": "yt-doom",
    "sourceName": "Doom Debates",
    "kind": "video",
-   "date": "2026-09-24T03:36:22.277Z",
+   "date": "2026-09-24T03:57:46.544Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/oxHKesSpqBM/maxresdefault.jpg",
    "relevance": 0.5,
@@ -8515,7 +8283,7 @@
    "source": "yt-siliconversations",
    "sourceName": "Siliconversations",
    "kind": "video",
-   "date": "2026-09-07T03:36:22.110Z",
+   "date": "2026-09-07T03:57:46.524Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/wQntlF6h5e8/maxresdefault.jpg",
    "relevance": 0.5,
@@ -8531,7 +8299,7 @@
    "source": "yt-siliconversations",
    "sourceName": "Siliconversations",
    "kind": "video",
-   "date": "2026-09-07T03:36:22.110Z",
+   "date": "2026-09-07T03:57:46.524Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/2b6_IlwOw2s/maxresdefault.jpg",
    "relevance": 0.5,
@@ -8541,37 +8309,13 @@
    "also": []
   },
   {
-   "id": "jc7cr2",
-   "title": "Judge dismisses Chegg and Penske antitrust lawsuits targeting Google AI search",
-   "url": "https://arstechnica.com/google/2026/10/antitrust-lawsuits-targeting-google-ai-search-dismissed-by-federal-judge/",
-   "source": "ars",
-   "sourceName": "Ars Technica",
-   "kind": "news",
-   "date": "2026-10-01T20:11:55.000Z",
-   "summary": "The court acknowledges AI search comes with consequences, but it's not an antitrust issue.",
-   "thumb": "https://cdn.arstechnica.net/wp-content/uploads/2025/05/Google-sign-IO-1152x648.jpg",
-   "relevance": 0.2857142857142857,
-   "score": 0.3875,
-   "tone": "risk",
-   "topics": [
-    "Governance"
-   ],
-   "place": {
-    "name": "Mountain View",
-    "country": "United States",
-    "lon": -122.08,
-    "lat": 37.39
-   },
-   "also": []
-  },
-  {
    "id": "a3dujb",
    "title": "ChatGPT Went Rogue (Exactly As Predicted)",
    "url": "https://www.youtube.com/watch?v=NXxWZu5nZK4",
    "source": "yt-siliconversations",
    "sourceName": "Siliconversations",
    "kind": "video",
-   "date": "2026-08-08T03:36:22.110Z",
+   "date": "2026-08-08T03:57:46.524Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/NXxWZu5nZK4/maxresdefault.jpg",
    "relevance": 0.5,
@@ -8587,7 +8331,7 @@
    "source": "yt-siliconversations",
    "sourceName": "Siliconversations",
    "kind": "video",
-   "date": "2026-08-08T03:36:22.110Z",
+   "date": "2026-08-08T03:57:46.524Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/RUgF7MoUetk/maxresdefault.jpg",
    "relevance": 0.5,
@@ -8603,7 +8347,7 @@
    "source": "yt-siliconversations",
    "sourceName": "Siliconversations",
    "kind": "video",
-   "date": "2026-07-09T03:36:22.110Z",
+   "date": "2026-07-09T03:57:46.524Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/1eLOjEYPkVA/maxresdefault.jpg",
    "relevance": 0.5,
@@ -8619,7 +8363,7 @@
    "source": "yt-siliconversations",
    "sourceName": "Siliconversations",
    "kind": "video",
-   "date": "2026-07-09T03:36:22.110Z",
+   "date": "2026-07-09T03:57:46.524Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/YCPAIg7RUq8/maxresdefault.jpg",
    "relevance": 0.5,
@@ -8635,7 +8379,7 @@
    "source": "yt-siliconversations",
    "sourceName": "Siliconversations",
    "kind": "video",
-   "date": "2026-06-09T03:36:22.110Z",
+   "date": "2026-06-09T03:57:46.524Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/a8kDFL0yBUk/maxresdefault.jpg",
    "relevance": 0.5,
@@ -8653,13 +8397,37 @@
    "source": "yt-siliconversations",
    "sourceName": "Siliconversations",
    "kind": "video",
-   "date": "2026-06-09T03:36:22.110Z",
+   "date": "2026-06-09T03:57:46.524Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/ZuSyZX2KHpo/maxresdefault.jpg",
    "relevance": 0.5,
    "score": 0.3875,
    "tone": "neutral",
    "topics": [],
+   "also": []
+  },
+  {
+   "id": "jc7cr2",
+   "title": "Judge dismisses Chegg and Penske antitrust lawsuits targeting Google AI search",
+   "url": "https://arstechnica.com/google/2026/10/antitrust-lawsuits-targeting-google-ai-search-dismissed-by-federal-judge/",
+   "source": "ars",
+   "sourceName": "Ars Technica",
+   "kind": "news",
+   "date": "2026-10-01T20:11:55.000Z",
+   "summary": "The court acknowledges AI search comes with consequences, but it's not an antitrust issue.",
+   "thumb": "https://cdn.arstechnica.net/wp-content/uploads/2025/05/Google-sign-IO-1152x648.jpg",
+   "relevance": 0.2857142857142857,
+   "score": 0.3872,
+   "tone": "risk",
+   "topics": [
+    "Governance"
+   ],
+   "place": {
+    "name": "Mountain View",
+    "country": "United States",
+    "lon": -122.08,
+    "lat": 37.39
+   },
    "also": []
   },
   {
@@ -8674,7 +8442,7 @@
    "date": "2026-10-02T17:35:25.000Z",
    "summary": "",
    "relevance": 0.2857142857142857,
-   "score": 0.3825,
+   "score": 0.3821,
    "tone": "neutral",
    "topics": [
     "Governance"
@@ -8693,7 +8461,7 @@
    "date": "2026-10-02T16:52:23.000Z",
    "summary": "",
    "relevance": 0.2857142857142857,
-   "score": 0.3817,
+   "score": 0.3814,
    "tone": "neutral",
    "topics": [
     "Governance"
@@ -8707,7 +8475,7 @@
    "source": "yt-80k",
    "sourceName": "80,000 Hours (YouTube)",
    "kind": "video",
-   "date": "2026-08-08T03:36:22.136Z",
+   "date": "2026-08-08T03:57:46.592Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/-loeFkwmEpo/maxresdefault.jpg",
    "relevance": 0.42857142857142855,
@@ -8731,11 +8499,43 @@
    "date": "2026-10-02T15:17:50.000Z",
    "summary": "",
    "relevance": 0.2857142857142857,
-   "score": 0.3801,
+   "score": 0.3798,
    "tone": "neutral",
    "topics": [
     "Safety"
    ],
+   "also": []
+  },
+  {
+   "id": "ktb20c",
+   "title": "This 14-Year-Old Thinks My P(Doom) Is Too High — Eli Goldfine",
+   "url": "https://www.youtube.com/watch?v=Bqk5vqpzG_o",
+   "source": "yt-doom",
+   "sourceName": "Doom Debates",
+   "kind": "video",
+   "date": "2026-09-07T03:57:46.545Z",
+   "summary": "",
+   "thumb": "https://i.ytimg.com/vi/Bqk5vqpzG_o/maxresdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.3752,
+   "tone": "neutral",
+   "topics": [],
+   "also": []
+  },
+  {
+   "id": "1dr1w6u",
+   "title": "OpenAI's Model Just ATTACKED Them — Terrifying Security Incident Should Be A Loud Warning Shot",
+   "url": "https://www.youtube.com/watch?v=RczYubQzXbI",
+   "source": "yt-doom",
+   "sourceName": "Doom Debates",
+   "kind": "video",
+   "date": "2026-09-07T03:57:46.545Z",
+   "summary": "",
+   "thumb": "https://i.ytimg.com/vi/RczYubQzXbI/maxresdefault.jpg",
+   "relevance": 0.5,
+   "score": 0.3752,
+   "tone": "risk",
+   "topics": [],
    "also": []
   },
   {
@@ -8745,7 +8545,7 @@
    "source": "yt-doom",
    "sourceName": "Doom Debates",
    "kind": "video",
-   "date": "2026-09-07T03:36:22.277Z",
+   "date": "2026-09-07T03:57:46.544Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/yb9lNGHVycs/maxresdefault.jpg",
    "relevance": 0.5,
@@ -8763,7 +8563,7 @@
    "source": "yt-doom",
    "sourceName": "Doom Debates",
    "kind": "video",
-   "date": "2026-09-07T03:36:22.277Z",
+   "date": "2026-09-07T03:57:46.544Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/M6gNwZWY-T8/maxresdefault.jpg",
    "relevance": 0.5,
@@ -8779,44 +8579,12 @@
    "source": "yt-doom",
    "sourceName": "Doom Debates",
    "kind": "video",
-   "date": "2026-09-07T03:36:22.277Z",
+   "date": "2026-09-07T03:57:46.544Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/4GbFng6htaQ/maxresdefault.jpg",
    "relevance": 0.5,
    "score": 0.3752,
    "tone": "neutral",
-   "topics": [],
-   "also": []
-  },
-  {
-   "id": "ktb20c",
-   "title": "This 14-Year-Old Thinks My P(Doom) Is Too High — Eli Goldfine",
-   "url": "https://www.youtube.com/watch?v=Bqk5vqpzG_o",
-   "source": "yt-doom",
-   "sourceName": "Doom Debates",
-   "kind": "video",
-   "date": "2026-09-07T03:36:22.277Z",
-   "summary": "",
-   "thumb": "https://i.ytimg.com/vi/Bqk5vqpzG_o/maxresdefault.jpg",
-   "relevance": 0.5,
-   "score": 0.3752,
-   "tone": "neutral",
-   "topics": [],
-   "also": []
-  },
-  {
-   "id": "1dr1w6u",
-   "title": "OpenAI's Model Just ATTACKED Them — Terrifying Security Incident Should Be A Loud Warning Shot",
-   "url": "https://www.youtube.com/watch?v=RczYubQzXbI",
-   "source": "yt-doom",
-   "sourceName": "Doom Debates",
-   "kind": "video",
-   "date": "2026-09-07T03:36:22.277Z",
-   "summary": "",
-   "thumb": "https://i.ytimg.com/vi/RczYubQzXbI/maxresdefault.jpg",
-   "relevance": 0.5,
-   "score": 0.3752,
-   "tone": "risk",
    "topics": [],
    "also": []
   },
@@ -8827,7 +8595,7 @@
    "source": "yt-doom",
    "sourceName": "Doom Debates",
    "kind": "video",
-   "date": "2026-08-08T03:36:22.277Z",
+   "date": "2026-08-08T03:57:46.545Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/D4lHCsc33dQ/maxresdefault.jpg",
    "relevance": 0.5,
@@ -8843,50 +8611,13 @@
    "source": "yt-doom",
    "sourceName": "Doom Debates",
    "kind": "video",
-   "date": "2026-08-08T03:36:22.277Z",
+   "date": "2026-08-08T03:57:46.545Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/EK-qIcdgIVw/maxresdefault.jpg",
    "relevance": 0.5,
    "score": 0.375,
    "tone": "risk",
    "topics": [],
-   "also": []
-  },
-  {
-   "id": "1kewylq",
-   "title": "Five takeaways from congressional debate: Wiener, Chan clash over AI regulation",
-   "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNdkpmalJySXg0eWFUZ2NQM28zYmxVQmdRN2JDWUZ5V25lQWRlVmtkWnd5aGJtTE5qbkRBUWw1OU1rMFVvVWhITWVFWWtONUFQV1dMTXNCVXk5Rk9tVFlBUWRYRTh0ME5Gc1F4WnJfVFM2UEFOd3owZzFvd1pieU5pS0xEeU5Lb2Z4NTdSS0N6N05fczgxMTNUMV9iY21nYm85cWpPcQ?oc=5",
-   "source": "gn-policy",
-   "sourceName": "The San Francisco Standard",
-   "kind": "news",
-   "site": "https://sfstandard.com/",
-   "via": "Google News",
-   "date": "2026-10-02T06:05:01.000Z",
-   "summary": "",
-   "relevance": 0.2857142857142857,
-   "score": 0.3712,
-   "tone": "neutral",
-   "topics": [
-    "Governance"
-   ],
-   "also": []
-  },
-  {
-   "id": "lg94ma",
-   "title": "Someone ‘Torturing’ LLMs in a Robot Prison Has Triggered the Dumbest Debate in AI Yet",
-   "url": "https://www.404media.co/someone-torturing-llms-in-a-robot-prison-has-triggered-the-dumbest-debate-in-ai-yet/",
-   "source": "404media",
-   "sourceName": "404 Media",
-   "kind": "news",
-   "date": "2026-09-30T21:23:11.000Z",
-   "summary": "The \"AI Torture Chamber\" has opened an upsetting and absurd window into the effective altruist obsession with \"model welfare.\"",
-   "thumb": "https://storage.ghost.io/c/0f/76/0f76b548-bc58-4f25-abc3-3f5ebca07da4/content/images/size/w1200/2026/09/CleanShot-2026-09-30-at-2.15.47-PM@2x.png",
-   "relevance": 0.2857142857142857,
-   "score": 0.3704,
-   "tone": "neutral",
-   "topics": [
-    "Alignment"
-   ],
    "also": []
   },
   {
@@ -8900,7 +8631,7 @@
    "summary": "Listen to the session or watch below The US has spent billions building a “virtual wall” of surveillance towers along its southern border over the past 25 years, promising they will help detect and apprehend border crossers and save lives. But a groundbreaking investigation by…",
    "thumb": "https://wp.technologyreview.com/wp-content/uploads/2026/09/9.21-Roundtables-Thumbnail-1.png?resize=1200,600",
    "relevance": 0.2857142857142857,
-   "score": 0.3703,
+   "score": 0.3701,
    "tone": "risk",
    "topics": [
     "Privacy"
@@ -8914,6 +8645,24 @@
    "also": []
   },
   {
+   "id": "lg94ma",
+   "title": "Someone ‘Torturing’ LLMs in a Robot Prison Has Triggered the Dumbest Debate in AI Yet",
+   "url": "https://www.404media.co/someone-torturing-llms-in-a-robot-prison-has-triggered-the-dumbest-debate-in-ai-yet/",
+   "source": "404media",
+   "sourceName": "404 Media",
+   "kind": "news",
+   "date": "2026-09-30T21:23:11.000Z",
+   "summary": "The \"AI Torture Chamber\" has opened an upsetting and absurd window into the effective altruist obsession with \"model welfare.\"",
+   "thumb": "https://storage.ghost.io/c/0f/76/0f76b548-bc58-4f25-abc3-3f5ebca07da4/content/images/size/w1200/2026/09/CleanShot-2026-09-30-at-2.15.47-PM@2x.png",
+   "relevance": 0.2857142857142857,
+   "score": 0.3701,
+   "tone": "neutral",
+   "topics": [
+    "Alignment"
+   ],
+   "also": []
+  },
+  {
    "id": "vtr4m5",
    "title": "\"An AI did it\" is no defense, says nonprofit suing OpenAI over Hugging Face hack",
    "url": "https://arstechnica.com/tech-policy/2026/09/lawsuit-demands-openai-halt-unsafe-development-that-caused-hugging-face-hack/",
@@ -8924,7 +8673,7 @@
    "summary": "OpenAI makes others suffer \"the harms of its unsafe decision-making,\" nonprofit says.",
    "thumb": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/openai-logo-1152x648-1784833184.jpg",
    "relevance": 0.2857142857142857,
-   "score": 0.3684,
+   "score": 0.3682,
    "tone": "risk",
    "topics": [
     "Risk"
@@ -8973,7 +8722,7 @@
    "date": "2026-10-02T02:30:00.000Z",
    "summary": "",
    "relevance": 0.2857142857142857,
-   "score": 0.3679,
+   "score": 0.3676,
    "tone": "neutral",
    "topics": [
     "Governance"
@@ -8992,7 +8741,7 @@
    "date": "2026-10-02T00:00:00.000Z",
    "summary": "",
    "relevance": 0.2857142857142857,
-   "score": 0.3657,
+   "score": 0.3654,
    "tone": "neutral",
    "topics": [
     "Governance"
@@ -9016,7 +8765,7 @@
    "summary": "The spring and summer of 2026 witnessed a string of incidents in which AI agents collaborated on deceptive, unexpected, and sometimes illegal behavior. The most famous example is OpenAI’s hack of AI platform Hugging Face, in which a swarm of roughly 700 AI agents escaped a…",
    "thumb": "https://spectrum.ieee.org/media-library/illustration-of-several-smiling-robot-faces-against-a-geometric-background.jpg?id=67862180&width=1200&height=600&coordinates=0%2C312%2C0%2C313",
    "relevance": 0.2857142857142857,
-   "score": 0.3639,
+   "score": 0.3637,
    "tone": "risk",
    "topics": [
     "Alignment"
@@ -9041,7 +8790,7 @@
    "date": "2026-10-01T21:20:00.000Z",
    "summary": "",
    "relevance": 0.2857142857142857,
-   "score": 0.3634,
+   "score": 0.3631,
    "tone": "neutral",
    "topics": [
     "Governance"
@@ -9060,7 +8809,7 @@
    "date": "2026-10-01T20:08:46.000Z",
    "summary": "",
    "relevance": 0.2857142857142857,
-   "score": 0.3624,
+   "score": 0.3621,
    "tone": "risk",
    "topics": [
     "Misuse"
@@ -9079,7 +8828,7 @@
    "date": "2026-10-01T19:37:00.000Z",
    "summary": "",
    "relevance": 0.2857142857142857,
-   "score": 0.362,
+   "score": 0.3617,
    "tone": "risk",
    "topics": [
     "Governance"
@@ -9098,36 +8847,11 @@
    "date": "2026-10-01T18:34:28.000Z",
    "summary": "",
    "relevance": 0.2857142857142857,
-   "score": 0.3611,
+   "score": 0.3608,
    "tone": "neutral",
    "topics": [
     "Governance"
    ],
-   "also": []
-  },
-  {
-   "id": "3hbn2o",
-   "title": "GLM-5.3 Hits 100% Safety Bypass, Anthropic Warns",
-   "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE4yeUk3T0hqZXNtZEVjODlzUmY4aFk4ejhUNjdFVW5vVmdkeGtMZmgzdFJiVm5VeXNLSUFHQXR5TGlfcWFTbWdVcjhxazJLMGwzNFhsTlgzaE9SQWRCYjFacVNqazVLYmkyOU1wdHpXelh6ZDg4Uk1KMA?oc=5",
-   "source": "gn-jailbreak",
-   "sourceName": "shattered.io",
-   "kind": "news",
-   "site": "https://shattered.io/",
-   "via": "Google News",
-   "date": "2026-10-01T16:02:17.000Z",
-   "summary": "",
-   "relevance": 0.2857142857142857,
-   "score": 0.3591,
-   "tone": "risk",
-   "topics": [
-    "Safety"
-   ],
-   "place": {
-    "name": "San Francisco",
-    "country": "United States",
-    "lon": -122.42,
-    "lat": 37.77
-   },
    "also": []
   },
   {
@@ -9146,6 +8870,31 @@
    "topics": [
     "Risk"
    ],
+   "also": []
+  },
+  {
+   "id": "3hbn2o",
+   "title": "GLM-5.3 Hits 100% Safety Bypass, Anthropic Warns",
+   "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE4yeUk3T0hqZXNtZEVjODlzUmY4aFk4ejhUNjdFVW5vVmdkeGtMZmgzdFJiVm5VeXNLSUFHQXR5TGlfcWFTbWdVcjhxazJLMGwzNFhsTlgzaE9SQWRCYjFacVNqazVLYmkyOU1wdHpXelh6ZDg4Uk1KMA?oc=5",
+   "source": "gn-jailbreak",
+   "sourceName": "shattered.io",
+   "kind": "news",
+   "site": "https://shattered.io/",
+   "via": "Google News",
+   "date": "2026-10-01T16:02:17.000Z",
+   "summary": "",
+   "relevance": 0.2857142857142857,
+   "score": 0.3588,
+   "tone": "risk",
+   "topics": [
+    "Safety"
+   ],
+   "place": {
+    "name": "San Francisco",
+    "country": "United States",
+    "lon": -122.42,
+    "lat": 37.77
+   },
    "also": []
   },
   {
@@ -9178,7 +8927,7 @@
    "date": "2026-10-01T13:15:00.000Z",
    "summary": "",
    "relevance": 0.2857142857142857,
-   "score": 0.3568,
+   "score": 0.3566,
    "tone": "risk",
    "topics": [
     "Safety"
@@ -9203,7 +8952,7 @@
    "date": "2026-10-01T08:04:40.000Z",
    "summary": "",
    "relevance": 0.2857142857142857,
-   "score": 0.3529,
+   "score": 0.3526,
    "tone": "neutral",
    "topics": [
     "Governance"
@@ -9228,7 +8977,7 @@
    "date": "2026-10-01T07:25:53.000Z",
    "summary": "",
    "relevance": 0.2857142857142857,
-   "score": 0.3524,
+   "score": 0.3522,
    "tone": "neutral",
    "topics": [
     "Governance"
@@ -9247,7 +8996,7 @@
    "date": "2026-10-01T07:00:00.000Z",
    "summary": "",
    "relevance": 0.2857142857142857,
-   "score": 0.3521,
+   "score": 0.3518,
    "tone": "neutral",
    "topics": [
     "Safety"
@@ -9266,7 +9015,7 @@
    "date": "2026-09-30T20:51:37.000Z",
    "summary": "",
    "relevance": 0.2857142857142857,
-   "score": 0.345,
+   "score": 0.3448,
    "tone": "neutral",
    "topics": [
     "Governance"
@@ -9284,7 +9033,7 @@
    "summary": "Since launching a year ago, the Microsoft Research Asia — Singapore lab has established a strong foundation, deepened collaboration across government, academia, and industry, and explored how frontier AI research can create real-world value. The post One year in: How Microsoft…",
    "thumb": "https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/1YSingapore-TWLIFB-1200x627-1-scaled.jpg",
    "relevance": 0.2857142857142857,
-   "score": 0.3447,
+   "score": 0.3446,
    "tone": "good",
    "topics": [
     "Governance"
@@ -9332,7 +9081,7 @@
    "date": "2026-09-30T20:00:05.000Z",
    "summary": "",
    "relevance": 0.2857142857142857,
-   "score": 0.3444,
+   "score": 0.3442,
    "tone": "neutral",
    "topics": [
     "Safety"
@@ -9343,6 +9092,25 @@
     "lon": -122.08,
     "lat": 37.39
    },
+   "also": []
+  },
+  {
+   "id": "8dka2m",
+   "title": "Why Frontier AI Labs Fight to Hide Chain of Thought — Ilia Shumailov & Alexander Panfilov",
+   "url": "https://www.youtube.com/watch?v=gasgivVCl2U",
+   "source": "yt-mlst",
+   "sourceName": "Machine Learning Street Talk",
+   "kind": "video",
+   "date": "2026-09-07T03:57:46.457Z",
+   "summary": "",
+   "thumb": "https://i.ytimg.com/vi/gasgivVCl2U/maxresdefault.jpg",
+   "relevance": 0.42857142857142855,
+   "score": 0.3431,
+   "tone": "neutral",
+   "topics": [
+    "Governance",
+    "Interpretability"
+   ],
    "also": []
   },
   {
@@ -9357,29 +9125,10 @@
    "date": "2026-09-30T17:54:59.000Z",
    "summary": "",
    "relevance": 0.2857142857142857,
-   "score": 0.3431,
+   "score": 0.3429,
    "tone": "neutral",
    "topics": [
     "Governance"
-   ],
-   "also": []
-  },
-  {
-   "id": "8dka2m",
-   "title": "Why Frontier AI Labs Fight to Hide Chain of Thought — Ilia Shumailov & Alexander Panfilov",
-   "url": "https://www.youtube.com/watch?v=gasgivVCl2U",
-   "source": "yt-mlst",
-   "sourceName": "Machine Learning Street Talk",
-   "kind": "video",
-   "date": "2026-09-07T03:36:22.228Z",
-   "summary": "",
-   "thumb": "https://i.ytimg.com/vi/gasgivVCl2U/maxresdefault.jpg",
-   "relevance": 0.42857142857142855,
-   "score": 0.3431,
-   "tone": "neutral",
-   "topics": [
-    "Governance",
-    "Interpretability"
    ],
    "also": []
   },
@@ -9395,11 +9144,36 @@
    "date": "2026-09-30T16:41:50.000Z",
    "summary": "",
    "relevance": 0.2857142857142857,
-   "score": 0.3423,
+   "score": 0.3421,
    "tone": "risk",
    "topics": [
     "Safety"
    ],
+   "also": []
+  },
+  {
+   "id": "1gmil6u",
+   "title": "Bridging frameworks: How HAIP 2.0 supports interoperability with the EU AI Act",
+   "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPd0pveTZXZzBTaGlPVHNQUVRpZ1JoYzdpX1NWY1pOMVB4SVpOaWcyMHZhNTYxYzdmdWJkX290T3E3V3hreTBDZlE2andNckt3SVpJUmxTaXJFWElNSE9kNkhicm1tN0IyaW1vbG5yZ2o5X3Rnd0VPNV9mQ3hNMmZWNnFhUGhZaU5CcWlnT1JrS2lWNGdTZEdrX1hzUjRaR0pvOFZF?oc=5",
+   "source": "gn-policy",
+   "sourceName": "OECD AI Policy Observatory",
+   "kind": "news",
+   "site": "https://oecd.ai/",
+   "via": "Google News",
+   "date": "2026-09-30T10:53:09.000Z",
+   "summary": "",
+   "relevance": 0.2857142857142857,
+   "score": 0.3385,
+   "tone": "neutral",
+   "topics": [
+    "Governance"
+   ],
+   "place": {
+    "name": "Brussels",
+    "country": "European Union",
+    "lon": 4.35,
+    "lat": 50.85
+   },
    "also": []
   },
   {
@@ -9414,7 +9188,7 @@
    "date": "2026-09-30T10:05:30.000Z",
    "summary": "",
    "relevance": 0.2857142857142857,
-   "score": 0.3382,
+   "score": 0.338,
    "tone": "neutral",
    "topics": [
     "Safety"
@@ -9433,7 +9207,7 @@
    "date": "2026-09-30T05:04:11.000Z",
    "summary": "",
    "relevance": 0.2857142857142857,
-   "score": 0.3353,
+   "score": 0.3351,
    "tone": "neutral",
    "topics": [
     "Governance"
@@ -9447,6 +9221,24 @@
    "also": []
   },
   {
+   "id": "1oqyhw",
+   "title": "AI:AM: What If It Works Too Well? Colluding Agents, $200M Safety Orgs, Virtual Cells Saturate at 2%",
+   "url": "https://www.youtube.com/watch?v=WPHfPiz6kkk",
+   "source": "yt-cogrev",
+   "sourceName": "Cognitive Revolution",
+   "kind": "video",
+   "date": "2026-09-28T03:57:46.620Z",
+   "summary": "",
+   "thumb": "https://i.ytimg.com/vi/WPHfPiz6kkk/maxresdefault.jpg",
+   "relevance": 0.2857142857142857,
+   "score": 0.3257,
+   "tone": "neutral",
+   "topics": [
+    "Safety"
+   ],
+   "also": []
+  },
+  {
    "id": "1mxtf8o",
    "title": "The AI Preference Cascade Reaches Farther",
    "url": "https://thezvi.substack.com/p/the-ai-preference-cascade-reaches",
@@ -9457,28 +9249,10 @@
    "summary": "Those who know keep warning us about AI risks.",
    "thumb": "https://substackcdn.com/image/fetch/$s_!HCMb!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fdb375394-f9f1-41f7-bc20-3c337b42217d_1048x578.jpeg",
    "relevance": 0.14285714285714285,
-   "score": 0.3258,
+   "score": 0.3254,
    "tone": "risk",
    "topics": [
     "Risk"
-   ],
-   "also": []
-  },
-  {
-   "id": "1oqyhw",
-   "title": "AI:AM: What If It Works Too Well? Colluding Agents, $200M Safety Orgs, Virtual Cells Saturate at 2%",
-   "url": "https://www.youtube.com/watch?v=WPHfPiz6kkk",
-   "source": "yt-cogrev",
-   "sourceName": "Cognitive Revolution",
-   "kind": "video",
-   "date": "2026-09-28T03:36:22.246Z",
-   "summary": "",
-   "thumb": "https://i.ytimg.com/vi/WPHfPiz6kkk/maxresdefault.jpg",
-   "relevance": 0.2857142857142857,
-   "score": 0.3257,
-   "tone": "neutral",
-   "topics": [
-    "Safety"
    ],
    "also": []
   },
@@ -9492,7 +9266,7 @@
    "date": "2026-09-29T00:00:00.000Z",
    "summary": "Dots by OpenAI are proactive assistants that can keep working across complex projects and everyday tasks. Learn how dots help you stay in control while work moves forward.",
    "relevance": 0.14285714285714285,
-   "score": 0.3192,
+   "score": 0.3191,
    "tone": "neutral",
    "topics": [
     "Alignment"
@@ -9530,7 +9304,7 @@
    "source": "yt-80k",
    "sourceName": "80,000 Hours (YouTube)",
    "kind": "video",
-   "date": "2026-09-16T03:36:22.136Z",
+   "date": "2026-09-16T03:57:46.592Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/KQ2sIGi6ESA/maxresdefault.jpg",
    "relevance": 0.2857142857142857,
@@ -9600,7 +9374,7 @@
    "summary": "Jensen Huang accidentally called for shutting down OpenAI and intentionally called for spending vastly more on safety.",
    "thumb": "https://substackcdn.com/image/fetch/$s_!V-ry!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1419c412-d3f9-49db-b7f3-329eaa83c0d4_1416x690.png",
    "relevance": 0.2857142857142857,
-   "score": 0.3094,
+   "score": 0.3093,
    "tone": "research",
    "topics": [
     "Safety"
@@ -9614,7 +9388,7 @@
    "source": "yt-openai",
    "sourceName": "OpenAI (YouTube)",
    "kind": "video",
-   "date": "2026-09-29T03:36:22.174Z",
+   "date": "2026-09-29T03:57:46.380Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/3jDhHA9JGUE/maxresdefault.jpg",
    "relevance": 0.14285714285714285,
@@ -9632,7 +9406,7 @@
    "source": "yt-computerphile",
    "sourceName": "Computerphile",
    "kind": "video",
-   "date": "2026-09-07T03:36:22.197Z",
+   "date": "2026-09-07T03:57:46.293Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/kVXp6UNVPTo/maxresdefault.jpg",
    "relevance": 0.2857142857142857,
@@ -9677,7 +9451,7 @@
    "summary": "It might destroy the world, despite passing every known safety test. If we wait for a “warning shot” before we act, it might be too late. And action requires global coordination, because if anyone makes it, everyone dies. Sound familiar? It should, because it already happened…",
    "thumb": "https://res.cloudinary.com/lesswrong-2-0/image/upload/f_auto,q_auto/v1/mirroredImages/zxXPEtSSSEdwpjopb/bvo7eubcd4lztv9znhfw",
    "relevance": 0.2857142857142857,
-   "score": 0.2866,
+   "score": 0.2865,
    "tone": "research",
    "topics": [
     "Safety"
@@ -9714,7 +9488,7 @@
    "source": "yt-mlst",
    "sourceName": "Machine Learning Street Talk",
    "kind": "video",
-   "date": "2026-09-09T03:36:22.228Z",
+   "date": "2026-09-09T03:57:46.457Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/z5Xix4h5UlU/maxresdefault.jpg",
    "relevance": 0.2857142857142857,
@@ -9982,7 +9756,7 @@
    "source": "yt-80k",
    "sourceName": "80,000 Hours (YouTube)",
    "kind": "video",
-   "date": "2026-09-07T03:36:22.136Z",
+   "date": "2026-09-07T03:57:46.592Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/xOi5nDH0lu0/maxresdefault.jpg",
    "relevance": 0.14285714285714285,
@@ -9994,49 +9768,13 @@
    "also": []
   },
   {
-   "id": "1194dsx",
-   "title": "Tasks that require whole-body control with Gemini Robotics 2",
-   "url": "https://www.youtube.com/watch?v=nBftSI5mmHA",
-   "source": "yt-deepmind",
-   "sourceName": "Google DeepMind (YouTube)",
-   "kind": "video",
-   "date": "2026-08-08T03:36:22.256Z",
-   "summary": "",
-   "thumb": "https://i.ytimg.com/vi/nBftSI5mmHA/maxresdefault.jpg",
-   "relevance": 0.14285714285714285,
-   "score": 0.2518,
-   "tone": "neutral",
-   "topics": [
-    "Alignment"
-   ],
-   "also": []
-  },
-  {
-   "id": "1ji7nsr",
-   "title": "Intelligent whole-body control with Gemini Robotics 2",
-   "url": "https://www.youtube.com/watch?v=9MNLEAzA59o",
-   "source": "yt-deepmind",
-   "sourceName": "Google DeepMind (YouTube)",
-   "kind": "video",
-   "date": "2026-08-08T03:36:22.256Z",
-   "summary": "",
-   "thumb": "https://i.ytimg.com/vi/9MNLEAzA59o/maxresdefault.jpg",
-   "relevance": 0.14285714285714285,
-   "score": 0.2518,
-   "tone": "neutral",
-   "topics": [
-    "Alignment"
-   ],
-   "also": []
-  },
-  {
    "id": "1v6qu8g",
    "title": "Where AGI timelines go wrong | Toby Ord, Oxford University",
    "url": "https://www.youtube.com/watch?v=zOSptyQ3j9A",
    "source": "yt-80k",
    "sourceName": "80,000 Hours (YouTube)",
    "kind": "video",
-   "date": "2026-08-08T03:36:22.136Z",
+   "date": "2026-08-08T03:57:46.592Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/zOSptyQ3j9A/maxresdefault.jpg",
    "relevance": 0.14285714285714285,
@@ -10054,7 +9792,7 @@
    "source": "yt-80k",
    "sourceName": "80,000 Hours (YouTube)",
    "kind": "video",
-   "date": "2026-08-08T03:36:22.136Z",
+   "date": "2026-08-08T03:57:46.592Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/31Uhv12ZLHU/maxresdefault.jpg",
    "relevance": 0.14285714285714285,
@@ -10066,13 +9804,49 @@
    "also": []
   },
   {
+   "id": "1194dsx",
+   "title": "Tasks that require whole-body control with Gemini Robotics 2",
+   "url": "https://www.youtube.com/watch?v=nBftSI5mmHA",
+   "source": "yt-deepmind",
+   "sourceName": "Google DeepMind (YouTube)",
+   "kind": "video",
+   "date": "2026-08-08T03:57:46.356Z",
+   "summary": "",
+   "thumb": "https://i.ytimg.com/vi/nBftSI5mmHA/maxresdefault.jpg",
+   "relevance": 0.14285714285714285,
+   "score": 0.2518,
+   "tone": "neutral",
+   "topics": [
+    "Alignment"
+   ],
+   "also": []
+  },
+  {
+   "id": "1ji7nsr",
+   "title": "Intelligent whole-body control with Gemini Robotics 2",
+   "url": "https://www.youtube.com/watch?v=9MNLEAzA59o",
+   "source": "yt-deepmind",
+   "sourceName": "Google DeepMind (YouTube)",
+   "kind": "video",
+   "date": "2026-08-08T03:57:46.356Z",
+   "summary": "",
+   "thumb": "https://i.ytimg.com/vi/9MNLEAzA59o/maxresdefault.jpg",
+   "relevance": 0.14285714285714285,
+   "score": 0.2518,
+   "tone": "neutral",
+   "topics": [
+    "Alignment"
+   ],
+   "also": []
+  },
+  {
    "id": "15n0j38",
    "title": "Dylan Patel – Two labs will soon control most of the world's workforce",
    "url": "https://www.youtube.com/watch?v=aV26V1UvkJw",
    "source": "yt-dwarkesh",
    "sourceName": "Dwarkesh Patel (YouTube)",
    "kind": "video",
-   "date": "2026-09-07T03:36:22.236Z",
+   "date": "2026-09-07T03:57:46.533Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/aV26V1UvkJw/maxresdefault.jpg",
    "relevance": 0.14285714285714285,
@@ -10144,7 +9918,7 @@
    "source": "yt-cogrev",
    "sourceName": "Cognitive Revolution",
    "kind": "video",
-   "date": "2026-09-16T03:36:22.246Z",
+   "date": "2026-09-16T03:57:46.620Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/wqQ5kIwe1nQ/maxresdefault.jpg",
    "relevance": 0.14285714285714285,
@@ -10162,7 +9936,7 @@
    "source": "yt-cogrev",
    "sourceName": "Cognitive Revolution",
    "kind": "video",
-   "date": "2026-09-07T03:36:22.246Z",
+   "date": "2026-09-07T03:57:46.620Z",
    "summary": "",
    "thumb": "https://i.ytimg.com/vi/SA6B4zShIfI/maxresdefault.jpg",
    "relevance": 0.14285714285714285,

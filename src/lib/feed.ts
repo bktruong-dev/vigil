@@ -81,7 +81,7 @@ export interface Section { slug: string; num: string; title: string; dek: string
 export const SECTIONS: Section[] = [
   { slug: 'latest', num: 'I', title: 'Latest', dek: 'Everything new from labs, newsrooms, researchers and the incident record, ranked.', match: i => i.kind !== 'video' && i.kind !== 'podcast' },
   { slug: 'research', num: 'II', title: 'Research', dek: 'New papers and long-form essays on alignment, interpretability, evaluations and attacks.', match: i => i.kind === 'paper' || i.kind === 'essay', sort: 'date' },
-  { slug: 'watch', num: 'III', title: 'Watch', dek: 'Explainers, interviews and talks from YouTube. Every video plays on youtube.com.', match: i => i.kind === 'video', sort: 'date' },
+  { slug: 'watch', num: 'III', title: 'Watch', dek: 'Explainers, interviews and talks from YouTube. Press play to watch right here, or open it on youtube.com.', match: i => i.kind === 'video', sort: 'date' },
   { slug: 'incidents', num: 'IV', title: 'Incidents', dek: 'Real-world harms and failures involving AI, from the AI Incident Database and the press.', match: i => i.kind === 'incident' || (i.tone === 'risk' && i.kind === 'news'), sort: 'date' },
   { slug: 'good-news', num: 'V', title: 'Good News', dek: 'Progress worth knowing about: new safeguards, laws, research funding and commitments.', match: i => i.tone === 'good' },
 ];

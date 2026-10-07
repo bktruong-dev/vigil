@@ -2,6 +2,9 @@
 import Base from '../layouts/Base.astro';
 import Story from '../components/Story.astro';
 import Mix from '../components/Mix.astro';
+import Timeline from '../components/Timeline.astro';
+import Atlas from '../components/Atlas.astro';
+import { items as allItems } from '../lib/feed';
 import { SECTIONS, sectionItems, PERSPECTIVES, perspectiveOf, type Section } from '../lib/feed';
 
 export function getStaticPaths() {
@@ -27,6 +30,7 @@ const persps = [...new Set(list.map(perspectiveOf))];
         <h1><span class="num">{s.num}.</span> {s.title}</h1>
         <p class="dek">{s.dek}</p>
         <p class="label count">{list.length} stories · every link opens the original source</p>
+        {s.slug === 'latest' && <p class="jump"><a class="btn" href="#stories">Stories</a><a class="btn" href="#record">The Record (timeline)</a><a class="btn" href="#atlas">The Atlas (map)</a></p>}
       </div>
       <div class="mixbox"><Mix list={list} label="Who is speaking on this page" /></div>
     </header>
@@ -38,7 +42,7 @@ const persps = [...new Set(list.map(perspectiveOf))];
       </section>
     )}
 
-    <div class="tools">
+    <div class="tools" id="stories">
       <div class="chips" role="group" aria-label="Filter by topic">
         <button class="btn" type="button" data-f="topic" data-v="all" aria-pressed="true">All topics</button>
         {topics.map(t => <button class="btn" type="button" data-f="topic" data-v={t} aria-pressed="false">{t}</button>)}
@@ -61,6 +65,13 @@ const persps = [...new Set(list.map(perspectiveOf))];
     </div>
     <p class="empty label" id="empty" hidden>Nothing matches. Try another word or filter.</p>
     <div class="morewrap"><button class="btn" type="button" id="more">Show more</button></div>
+
+    {s.slug === 'latest' && (
+      <>
+        <div class="extra" id="record"><Timeline list={allItems} limit={40} filters id="record-tl" title="The Record" dek="Every story in the order it happened, grouped by day (UTC). Filter by category to follow one thread." /></div>
+        <div class="extra" id="atlas"><Atlas /></div>
+      </>
+    )}
   </div>
 </Base>
 
@@ -89,6 +100,10 @@ const persps = [...new Set(list.map(perspectiveOf))];
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 18px; }
   .grid.vids { grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); }
   .empty { text-align: center; padding: 30px 0; }
+  .jump { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 0; }
+  .jump .btn { text-decoration: none; }
+  .extra { margin-top: 90px; scroll-margin-top: 80px; }
+  #stories { scroll-margin-top: 80px; }
   .morewrap { display: flex; justify-content: center; margin-top: 24px; }
   @media (max-width: 960px) {
     .phead, .top { grid-template-columns: minmax(0, 1fr); gap: 20px; }

@@ -44,6 +44,25 @@ function syncButtons() {
   });
 }
 
+// ---------- Play videos in place (YouTube's privacy-enhanced player, loaded only on click) ----------
+document.addEventListener('click', e => {
+  const play = (e.target as HTMLElement).closest<HTMLButtonElement>('.play[data-yt]');
+  if (!play) return;
+  e.preventDefault();
+  const id = play.dataset.yt!;
+  if (!/^[\w-]{11}$/.test(id)) return;
+  const media = play.closest('.media');
+  if (!media) return;
+  const f = document.createElement('iframe');
+  f.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`;
+  f.title = play.getAttribute('aria-label')?.replace(/^Play /, '').replace(/ here$/, '') ?? 'Video';
+  f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+  f.allowFullscreen = true;
+  f.referrerPolicy = 'strict-origin-when-cross-origin';
+  media.append(f);
+  play.remove();
+});
+
 document.addEventListener('click', async e => {
   const btn = (e.target as HTMLElement).closest<HTMLButtonElement>('.act');
   if (!btn) return;

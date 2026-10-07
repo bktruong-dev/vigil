@@ -1,10 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
 import Story from '../components/Story.astro';
-import Atlas from '../components/Atlas.astro';
 import Mix from '../components/Mix.astro';
 import TopicCard from '../components/TopicCard.astro';
-import Timeline from '../components/Timeline.astro';
 import { JURISDICTIONS } from '../data/policy';
 import { items, SECTIONS, sectionItems, TOPICS, topicItems, within, sources, newest } from '../lib/feed';
 
@@ -82,10 +80,6 @@ const stats = [
       </div>
     </section>
 
-    <section class="block" aria-label="The record">
-      <Timeline list={newest(items).slice(0, 40)} limit={8} id="home-tl" title="The Record" dek="The latest stories in the order they happened (UTC). The full record, with filters, is on the Timeline page." />
-      <p class="tlall"><a class="all" href="/timeline">Open the full timeline →</a></p>
-    </section>
 
     <section class="block" aria-labelledby="research-h">
       <header class="sec-head"><span class="num">II.</span><h2 id="research-h"><a href="/research">Research</a></h2><a class="all" href="/research">All research →</a><span class="dek">New preprints and essays. Preprints are not yet peer-reviewed.</span></header>
@@ -101,10 +95,6 @@ const stats = [
       </div>
     </section>
 
-    <section class="block" id="atlas">
-      <header class="sec-head"><span class="num">VI.</span><h2><a href="/atlas">The Atlas</a></h2><a class="all" href="/atlas">Open the full map →</a></header>
-      <Atlas />
-    </section>
 
     <section class="block" aria-labelledby="watch-h">
       <header class="sec-head"><span class="num">III.</span><h2 id="watch-h"><a href="/watch">Watch</a></h2><a class="all" href="/watch">All videos →</a></header>

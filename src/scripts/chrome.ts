@@ -214,3 +214,40 @@ if (veil && !seen && !automated) {
 } else if (wantBriefing) {
   setTimeout(openBriefing, 400);
 }
+
+// ---------- Section bar: scroll sideways when it doesn't fit ----------
+// Mouse wheel, drag, or the ‹ › buttons; the current page scrolls into view.
+const navBox = document.querySelector<HTMLElement>('.navscroll');
+const navList = navBox?.querySelector<HTMLElement>('ul');
+if (navBox && navList) {
+  const edges = () => {
+    const max = navList.scrollWidth - navList.clientWidth;
+    navBox.classList.toggle('l', navList.scrollLeft > 4);
+    navBox.classList.toggle('r', navList.scrollLeft < max - 4);
+  };
+  navList.addEventListener('scroll', edges, { passive: true });
+  addEventListener('resize', edges);
+  navList.addEventListener('wheel', e => {
+    if (navList.scrollWidth <= navList.clientWidth || Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+    e.preventDefault();
+    navList.scrollLeft += e.deltaY;
+  }, { passive: false });
+  navBox.querySelector('.prev')?.addEventListener('click', () => navList.scrollBy({ left: -navList.clientWidth * 0.6 }));
+  navBox.querySelector('.next')?.addEventListener('click', () => navList.scrollBy({ left: navList.clientWidth * 0.6 }));
+  // Drag to scroll (mouse); taps on links still work.
+  let down = false, startX = 0, startL = 0, moved = false;
+  navList.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') return; down = true; moved = false; startX = e.clientX; startL = navList.scrollLeft; });
+  addEventListener('pointermove', e => { if (!down) return; const dx = e.clientX - startX; if (Math.abs(dx) > 4) moved = true; navList.scrollLeft = startL - dx; });
+  addEventListener('pointerup', () => { down = false; });
+  navList.addEventListener('click', e => { if (moved) { e.preventDefault(); moved = false; } }, true);
+  // Keep the current page's link visible, and re-check when the bar sticks.
+  const cur = navList.querySelector<HTMLElement>('[aria-current="page"]');
+  if (cur) {
+    const x = cur.getBoundingClientRect().left - navList.getBoundingClientRect().left + navList.scrollLeft;
+    navList.style.scrollBehavior = 'auto';
+    navList.scrollLeft = x - navList.clientWidth / 2 + cur.offsetWidth / 2;
+    navList.style.scrollBehavior = '';
+  }
+  new ResizeObserver(edges).observe(navList);
+  edges();
+}

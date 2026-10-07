@@ -10,6 +10,8 @@ const mins = readMins(item);
 const media = item.kind === 'video' ? 'Watch' : 'Read';
 const search = `${item.title} ${item.sourceName} ${item.topics.join(' ')} ${item.place?.name ?? ''} ${item.summary}`.toLowerCase();
 const showImage = variant !== 'text';
+// YouTube id, for the click-to-play player.
+const yt = item.kind === 'video' ? (item.url.match(/[?&]v=([\w-]{11})/) ?? item.url.match(/youtu\.be\/([\w-]{11})/))?.[1] : undefined;
 ---
 <article
   class={`card story rv ${variant} edge-${item.tone}`}
@@ -31,7 +33,7 @@ const showImage = variant !== 'text';
     <div class="media">
       {!item.thumb && <Plate item={item} />}
       {item.thumb && <img src={item.thumb} alt="" loading={eager ? 'eager' : 'lazy'} decoding="async" referrerpolicy="no-referrer" />}
-      {(item.kind === 'video' || item.kind === 'podcast') && <span class="play" aria-hidden="true">{item.kind === 'video' ? '▶' : '◖◗'}</span>}
+      {yt && <button class="play" type="button" data-yt={yt} aria-label={`Play “${item.title}” here`}><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.2v9.6L13 8z" /></svg></button>}
     </div>
   )}
   <div class="body">
@@ -86,7 +88,10 @@ const showImage = variant !== 'text';
   .foot { margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line-2); display: flex; align-items: center; justify-content: space-between; gap: 10px 18px; flex-wrap: wrap; }
   .out, .also, .persp { position: relative; z-index: 2; }
   .also { display: inline-flex; align-items: center; gap: 14px; flex-wrap: wrap; }
-  .play { position: absolute; z-index: 2; left: 50%; top: 50%; width: 52px; height: 52px; margin: -26px 0 0 -26px; display: grid; place-items: center; border-radius: 50%; border: 1px solid rgba(238,236,231,0.7); background: rgba(12,13,16,0.6); color: var(--ink); font-size: 15px; backdrop-filter: blur(4px); transition: transform .4s var(--ease), border-color .4s var(--ease), box-shadow .4s var(--ease); }
+  .play { position: absolute; z-index: 3; cursor: pointer; padding: 0; left: 50%; top: 50%; width: 52px; height: 52px; margin: -26px 0 0 -26px; display: grid; place-items: center; border-radius: 50%; border: 1px solid rgba(238,236,231,0.7); background: rgba(12,13,16,0.6); color: var(--ink); font-size: 15px; backdrop-filter: blur(4px); transition: transform .4s var(--ease), border-color .4s var(--ease), box-shadow .4s var(--ease); }
+  .play svg { width: 18px; height: 18px; fill: currentColor; margin-left: 3px; }
+  .play:focus-visible { outline: 2px solid var(--acc); outline-offset: 3px; }
+  .media :global(iframe) { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; z-index: 4; background: #000; }
   .story:hover .play { transform: scale(1.1); border-color: var(--acc); box-shadow: 0 0 24px var(--acc-glow); }
 
   /* Hero: the lead story */

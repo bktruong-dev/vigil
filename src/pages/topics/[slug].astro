@@ -28,7 +28,7 @@ const others = TOPICS.filter(o => o.slug !== t.slug);
       </div>
     </header>
 
-    <section class="briefing" aria-label="Brief">
+    <section class="tbrief" aria-label="Brief">
       <div class="text">
         <p class="label k">The brief</p>
         <p class="lead">{t.brief}</p>
@@ -60,7 +60,7 @@ const others = TOPICS.filter(o => o.slug !== t.slug);
   .crumb { margin: 0 0 6px; }
   .crumb a { color: var(--acc); text-decoration: none; }
   h1 { margin: 0; font-family: var(--display); font-weight: 600; font-size: clamp(48px, 6vw, 84px); line-height: 0.98; }
-  .briefing { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 36px; margin-bottom: 56px; }
+  .tbrief { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 36px; margin-bottom: 56px; }
   .k { margin: 0 0 6px; color: var(--gold); }
   .lead { margin: 0 0 22px; font-size: clamp(22px, 2.2vw, 28px); line-height: 1.45; }
   .lead::first-letter { font-family: var(--display); float: left; font-size: 3.4em; line-height: 0.8; padding: 6px 10px 0 0; color: var(--acc); }
@@ -75,5 +75,5 @@ const others = TOPICS.filter(o => o.slug !== t.slug);
   .other { margin-top: 56px; }
   .other ul { list-style: none; padding: 0; margin: 10px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
   .other a { text-decoration: none; display: inline-block; }
-  @media (max-width: 900px) { .briefing { grid-template-columns: minmax(0, 1fr); } }
+  @media (max-width: 900px) { .tbrief { grid-template-columns: minmax(0, 1fr); } }
 </style>

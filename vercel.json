@@ -8,7 +8,7 @@
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' https: data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests"
+          "value": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' https: data:; font-src 'self'; connect-src 'self'; frame-src https://www.youtube-nocookie.com; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests"
         },
         {
           "key": "X-Content-Type-Options",
@@ -55,6 +55,16 @@
     {
       "source": "/listen",
       "destination": "/watch",
+      "permanent": true
+    },
+    {
+      "source": "/atlas",
+      "destination": "/latest#atlas",
+      "permanent": true
+    },
+    {
+      "source": "/timeline",
+      "destination": "/latest#record",
       "permanent": true
     }
   ]
