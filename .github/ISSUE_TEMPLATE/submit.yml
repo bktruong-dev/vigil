@@ -1,0 +1,45 @@
+name: Submit to The Vigil
+description: Share a link about AI safety (news, a paper, a video, a post, a tool, an event or a job).
+title: "[Submit] "
+labels: ["submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for sharing! Submissions appear on **The Vigil → Community** after a quick review, usually within a day.
+        Readers vote with a 👍 reaction on this issue, and comments here are the discussion thread.
+        Please share things that help people understand AI safety. No self-promotion spam, no personal attacks.
+  - type: input
+    id: link
+    attributes:
+      label: Link
+      description: The full URL (https://…)
+      placeholder: https://
+    validations:
+      required: true
+  - type: input
+    id: headline
+    attributes:
+      label: Headline
+      description: The title of the article, paper or video (no clickbait, please).
+    validations:
+      required: true
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type
+      options: [News, Paper, Video, Blog post, Tool, Event, Job, Ask / discussion]
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it matters (optional)
+      description: One or two sentences on why AI safety readers should see this.
+  - type: checkboxes
+    id: rules
+    attributes:
+      label: House rules
+      options:
+        - label: This is about AI safety, and I'm sharing the original source where possible.
+          required: true

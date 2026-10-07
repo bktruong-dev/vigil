@@ -17,7 +17,7 @@ delete headers['Strict-Transport-Security'];
 
 const TYPES: Record<string, string> = {
   '.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '.css': 'text/css', '.svg': 'image/svg+xml',
-  '.woff2': 'font/woff2', '.woff': 'font/woff', '.json': 'application/json', '.png': 'image/png',
+  '.xml': 'application/rss+xml; charset=utf-8', '.woff2': 'font/woff2', '.woff': 'font/woff', '.json': 'application/json', '.png': 'image/png',
 };
 
 createServer(async (req, res) => {

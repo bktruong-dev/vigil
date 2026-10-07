@@ -1,0 +1,75 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Saved" current="/saved" description="Stories you saved for later. Kept only in this browser.">
+  <div class="wrap page">
+    <header class="phead">
+      <p class="label crumb"><a href="/">Front Page</a> / Your reading list</p>
+      <h1>Saved</h1>
+      <p class="dek">Stories you saved with the bookmark button. They are kept only in this browser; nothing is sent anywhere.</p>
+      <div class="tools"><button class="btn" type="button" id="clear" hidden>Clear all</button></div>
+    </header>
+    <ol class="list" id="saved-list"></ol>
+    <div class="empty" id="saved-empty" hidden>
+      <p class="big">Nothing saved yet.</p>
+      <p>Tap the <span class="bm">bookmark</span> on any story to keep it here, then come back to read it later.</p>
+      <a class="btn" href="/latest">Browse the latest →</a>
+    </div>
+  </div>
+</Base>
+
+<script>
+  import { saved, say } from '../scripts/features.ts';
+  const list = document.getElementById('saved-list')!;
+  const empty = document.getElementById('saved-empty')!;
+  const clear = document.getElementById('clear')!;
+  const safe = (u: string) => { try { const x = new URL(u); return x.protocol === 'https:' ? x.href : ''; } catch { return ''; } };
+
+  function render() {
+    const all = saved.all();
+    list.replaceChildren();
+    empty.hidden = all.length > 0;
+    clear.hidden = !all.length;
+    for (const s of all) {
+      const href = safe(s.href);
+      if (!href) continue;
+      const li = document.createElement('li'); li.className = 'card item';
+      const fig = document.createElement('span'); fig.className = 'thumb';
+      const img = safe(s.img);
+      if (img) { const im = document.createElement('img'); im.src = img; im.alt = ''; im.referrerPolicy = 'no-referrer'; im.loading = 'lazy'; fig.append(im); }
+      const body = document.createElement('div'); body.className = 'b';
+      const a = document.createElement('a'); a.href = href; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.className = 'hl t'; a.textContent = s.title;
+      const m = document.createElement('p'); m.className = 'm';
+      m.textContent = `${s.src} · ${s.site} · ${new Date(s.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`;
+      const rm = document.createElement('button'); rm.type = 'button'; rm.className = 'btn rm'; rm.textContent = 'Remove';
+      rm.addEventListener('click', () => { saved.set(saved.all().filter(x => x.id !== s.id)); say('Removed from Saved'); render(); });
+      body.append(a, m);
+      li.append(fig, body, rm);
+      list.append(li);
+    }
+  }
+  clear.addEventListener('click', () => { if (confirm('Remove every saved story?')) { saved.set([]); render(); } });
+  addEventListener('vigil:saved', render);
+  render();
+</script>
+
+<style>
+  .page { padding-top: 34px; }
+  .phead { border-bottom: 2px solid var(--rule); padding-bottom: 20px; margin-bottom: 26px; }
+  .crumb { margin: 0 0 6px; }
+  .crumb a { color: var(--acc); text-decoration: none; }
+  h1 { margin: 0; font-family: var(--display); font-weight: 600; font-size: clamp(48px, 6vw, 80px); line-height: 1; }
+  .dek { margin: 10px 0 0; font-size: 20px; color: var(--ink-2); max-width: 680px; }
+  .tools { margin-top: 14px; }
+  .list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; max-width: 920px; }
+  .list :global(.item) { display: grid; grid-template-columns: 120px minmax(0, 1fr) auto; gap: 16px; align-items: center; padding: 10px 14px 10px 10px; }
+  .list :global(.thumb) { position: relative; aspect-ratio: 16 / 10; border-radius: 6px; overflow: hidden; background: var(--well); border: 1px solid var(--line); }
+  .list :global(.thumb img) { width: 100%; height: 100%; object-fit: cover; }
+  .list :global(.t) { font-family: var(--serif); font-weight: 560; font-size: 20px; line-height: 1.25; color: var(--ink); }
+  .list :global(.m) { margin: 4px 0 0; font-family: var(--mono); font-size: 12px; color: var(--dim); }
+  .empty { text-align: center; padding: 60px 0; color: var(--ink-2); }
+  .empty .big { font-family: var(--display); font-size: 34px; color: var(--ink); margin: 0 0 6px; }
+  .empty .bm { color: var(--gold); }
+  .empty .btn { display: inline-block; margin-top: 12px; text-decoration: none; }
+  @media (max-width: 600px) { .list :global(.item) { grid-template-columns: 80px minmax(0, 1fr); } .list :global(.rm) { grid-column: 2; justify-self: start; } }
+</style>

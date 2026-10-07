@@ -9,6 +9,7 @@ import { XMLParser } from 'fast-xml-parser';
 import { SOURCES, type Source, type Kind } from './sources.ts';
 import { locate, type Place } from './places.ts';
 import { parseChannelPage, agoToDate } from './youtube.ts';
+import { community } from './community.ts';
 
 const OUT = new URL('../src/data/feed.json', import.meta.url);
 const UA = 'VigilBot/0.1 (+https://github.com/bktruong-dev) AI-safety news reader';
@@ -338,7 +339,14 @@ const sources = SOURCES.map(s => {
 });
 
 await mkdir(new URL('.', OUT), { recursive: true });
-await writeFile(OUT, JSON.stringify({ generated: new Date().toISOString(), sources, items }, null, 1));
+// Community board (reader submissions approved on GitHub). Keep the last good copy if GitHub is unreachable.
+const board = await community();
+let prevBoard = { posts: [], pending: 0 };
+try { prevBoard = JSON.parse(await readFile(OUT, 'utf8')).community ?? prevBoard; } catch {}
+const communityOut = board.ok ? { posts: board.posts, pending: board.pending } : prevBoard;
+
+await writeFile(OUT, JSON.stringify({ generated: new Date().toISOString(), sources, items, community: communityOut }, null, 1));
+console.log(`community: ${board.ok ? 'ok' : 'FAIL'} · ${communityOut.posts.length} posts · ${communityOut.pending} pending`);
 
 for (const s of sources) console.log(`${s.ok ? 'ok  ' : 'FAIL'} ${String(s.count).padStart(3)}  ${s.name}${s.error ? '  (' + s.error + ')' : ''}`);
 console.log(`\n${items.length} items · ${items.filter(i => i.place).length} on the map · ${items.filter(i => i.tone === 'good').length} good news`);

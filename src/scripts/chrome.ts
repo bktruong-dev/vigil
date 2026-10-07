@@ -104,7 +104,11 @@ const now = new Date();
 const hour = now.getHours();
 const slot = hour >= 5 && hour < 12 ? 'Morning' : hour >= 12 && hour < 18 ? 'Afternoon' : 'Evening';
 const dayKey = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}-${slot}`;
-const lastVisit = Number(store('vigil:last') || 0);
+// "Last visit" = when your previous reading session ended. A gap of 30+ minutes
+// starts a new session, so moving between pages doesn't reset it.
+const seenAt = Number(store('vigil:last') || 0);
+if (seenAt && Date.now() - seenAt > 30 * 6e4) store('vigil:prev', String(seenAt));
+export const lastVisit = Number(store('vigil:prev') || 0);
 store('vigil:last', String(Date.now()));
 
 function fillBriefing() {

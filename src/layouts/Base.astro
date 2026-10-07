@@ -17,6 +17,7 @@ const nav: [string, string, string][] = [
   ['/atlas', 'VI', 'Atlas'],
   ['/topics', 'VII', 'Topics'],
   ['/guide', 'VIII', 'Guide & Sources'],
+  ['/community', 'IX', 'Community'],
 ];
 // A golden spiral for the background drawing.
 const spiral = (() => {
@@ -47,6 +48,7 @@ const briefJson = JSON.stringify({ generated: generated.toISOString(), items: br
   <meta name="description" content={description} />
   <meta name="author" content="Benjamin Truong" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="alternate" type="application/rss+xml" title="The Vigil" href="/rss.xml" />
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -90,6 +92,14 @@ const briefJson = JSON.stringify({ generated: generated.toISOString(), items: br
             <li><a href={href} aria-current={current === href ? 'page' : undefined}>{label}</a></li>
           ))}
         </ul>
+        <div class="tools">
+          <button class="tool" type="button" data-open-search aria-label="Search (press /)" title="Search  ( / )">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5" /><path d="M10.4 10.4L14 14" /></svg><span>Search</span>
+          </button>
+          <a class="tool" href="/saved" aria-label="Saved stories" title="Saved">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h8v11l-4-3-4 3z" /></svg><span>Saved</span><b data-saved-count hidden></b>
+          </a>
+        </div>
         <button class="theme-btn" type="button" id="theme" aria-label="Switch between paper and ink">◑ Ink</button>
         <button class="brief-btn" type="button" id="open-brief" aria-label="Open today’s briefing">◐ Briefing</button>
       </div>
@@ -120,6 +130,7 @@ const briefJson = JSON.stringify({ generated: generated.toISOString(), items: br
         <div class="flinks">
           <a class="out" href="https://benjamin-truong.vercel.app" target="_blank" rel="noopener noreferrer"><span class="host">Quaderni</span><span class="arrow">↗</span></a>
           <a class="out" href="https://github.com/bktruong-dev" target="_blank" rel="noopener noreferrer"><span class="host">GitHub</span><span class="arrow">↗</span></a>
+          <a class="out" href="/rss.xml"><span class="host">RSS</span><span class="arrow">↗</span></a>
           <a class="out" href="https://www.linkedin.com/in/bktruong" target="_blank" rel="noopener noreferrer"><span class="host">LinkedIn</span><span class="arrow">↗</span></a>
           <button class="btn" type="button" id="motion" aria-pressed="true">Motion on</button>
         </div>
@@ -133,6 +144,19 @@ const briefJson = JSON.stringify({ generated: generated.toISOString(), items: br
       <figcaption>Norbert Wiener, 1960</figcaption>
       <p class="label skiphint">Click or press any key</p>
     </figure>
+  </div>
+
+  <div class="search" id="search" role="dialog" aria-modal="true" aria-label="Search The Vigil" hidden>
+    <div class="spanel">
+      <div class="sbar">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5" /><path d="M10.4 10.4L14 14" /></svg>
+        <input id="search-q" type="search" placeholder="Search stories, papers, videos, places…" autocomplete="off" spellcheck="false" role="combobox" aria-expanded="true" aria-controls="search-results" />
+        <kbd>Esc</kbd>
+      </div>
+      <p class="label smeta" id="search-meta">Type to search every story, paper and video</p>
+      <ol class="sres" id="search-results" role="listbox"></ol>
+      <p class="label shint"><kbd>↑</kbd><kbd>↓</kbd> move · <kbd>Enter</kbd> open · <kbd>/</kbd> search anywhere · <kbd>t</kbd> theme · <kbd>b</kbd> briefing</p>
+    </div>
   </div>
 
   <div class="briefing" id="briefing" role="dialog" aria-modal="true" aria-labelledby="brief-title" hidden>
@@ -154,6 +178,8 @@ const briefJson = JSON.stringify({ generated: generated.toISOString(), items: br
 
   <script>
     import '../scripts/chrome.ts';
+    import '../scripts/features.ts';
+    import '../scripts/ambient.ts';
   </script>
 </body>
 </html>

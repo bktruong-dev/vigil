@@ -2,11 +2,25 @@
 
 *A daily watch on AI safety*, kept by Benjamin Truong.
 
-A newspaper-style front page for AI safety. It gathers news, research papers, lab
+A newspaper-style website for AI safety. It gathers news, research papers, lab
 posts, YouTube videos, podcasts and incident reports from public feeds. It ranks
 them and links every story back to its original source. An **Incident Atlas**
 puts stories on a live world map, in red for incidents and risk and in mint for
 good news.
+
+## Features
+
+- **Front page** ranked hourly from 59 public sources, plus a light Google News / Hacker News search
+- **Sections:** Latest, Research, Watch, Incidents, Good News, Topics (hand-written briefs), Atlas (live map)
+- **Community:** readers submit links through a GitHub issue form, vote with 👍, and the board ranks approved posts with Hacker News' formula
+- **Search** everything (press `/`), **Saved** reading list, **New since your last visit** markers, share / copy link
+- **Briefing:** a morning / afternoon / evening edition the first time you open the site
+- **Perspective labels** on every story and a “who is speaking” mix per page
+- Paper and ink themes, links that highlight the excerpt on the original page, an RSS feed at `/rss.xml`
+
+## Moderating the Community board
+
+Submissions arrive as GitHub issues labelled `submission`. Add the `approved` label to publish one (it appears within the hour); close an issue to remove it.
 
 ## Run it locally
 
@@ -50,3 +64,7 @@ tiers only, with no API keys or paid services.
 
 Add one line to `scripts/sources.ts` with the feed URL, a trust weight (0–1) and
 a filter level, then run `npm.cmd run collect`.
+
+## License
+
+MIT — see [LICENSE](LICENSE). Stories, excerpts and images belong to their publishers; The Vigil links to them.

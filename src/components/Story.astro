@@ -12,12 +12,20 @@ const search = `${item.title} ${item.sourceName} ${item.topics.join(' ')} ${item
 const showImage = variant !== 'text';
 ---
 <article
-  class={`card story ${variant} edge-${item.tone}`}
+  class={`card story rv ${variant} edge-${item.tone}`}
   data-kind={item.kind}
   data-tone={item.tone}
   data-persp={p}
   data-topics={item.topics.join(',')}
   data-search={search}
+  data-id={item.id}
+  data-date={item.date}
+  data-href={href}
+  data-title={item.title}
+  data-src={item.sourceName}
+  data-site={siteOf(item)}
+  data-img={item.thumb ?? ''}
+  data-tone-label={item.kind === 'incident' ? 'Incident' : TONE_LABEL[item.tone]}
 >
   {showImage && (
     <div class="media">
@@ -28,6 +36,7 @@ const showImage = variant !== 'text';
   )}
   <div class="body">
     <p class="kicker">
+      <span class="newtag" aria-label="New since your last visit">New</span>
       <span class={`pill t-${item.tone}`}><i></i>{item.kind === 'incident' ? 'Incident' : TONE_LABEL[item.tone]}</span>
       {item.kind !== 'incident' && <span class="kind">{KIND_LABEL[item.kind]}</span>}
       {item.place && variant !== 'row' && <span class="place">◎ {item.place.name}</span>}
@@ -39,6 +48,14 @@ const showImage = variant !== 'text';
       <span class={`persp pc-${p}`} title={PERSPECTIVES[p].note}>{PERSPECTIVES[p].label}</span>
       <time datetime={item.date}>{ago(item.date)}</time>
       {mins && variant !== 'row' && <span class="mins">{mins} min read</span>}
+      <span class="acts">
+        <button class="act save" type="button" aria-pressed="false" aria-label={`Save “${item.title}” for later`} title="Save for later">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h8v11l-4-3-4 3z" /></svg>
+        </button>
+        <button class="act share" type="button" aria-label={`Copy link to “${item.title}”`} title="Copy link">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 9.5l3-3M7 4.5l1.2-1.2a2.6 2.6 0 0 1 3.7 3.7L10.7 8.2M9 11.5l-1.2 1.2a2.6 2.6 0 0 1-3.7-3.7L5.3 7.8" /></svg>
+        </button>
+      </span>
     </p>
     {variant !== 'row' && (
       <div class="foot">
@@ -90,6 +107,20 @@ const showImage = variant !== 'text';
   .text .sum { -webkit-line-clamp: 4; font-size: 16.5px; }
 
   .story[hidden] { display: none; }
+
+  /* New-since-last-visit marker (shown by script) */
+  .newtag { display: none; font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; color: var(--bg); background: var(--acc); border-radius: 3px; padding: 1px 6px; }
+  .story.is-new .newtag { display: inline-block; animation: newpop 0.6s var(--ease) both; }
+  @keyframes newpop { from { transform: scale(0.6); opacity: 0; } }
+
+  /* Save / share */
+  .acts { margin-left: auto; display: inline-flex; gap: 4px; position: relative; z-index: 2; }
+  .act { width: 30px; height: 30px; display: grid; place-items: center; padding: 0; border: 1px solid transparent; border-radius: 7px; background: none; color: var(--dim); cursor: pointer; transition: color .25s var(--ease), border-color .25s var(--ease), background .25s var(--ease), transform .25s var(--ease); }
+  .act svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+  .act:hover, .act:focus-visible { color: var(--acc); border-color: var(--line); background: var(--well); }
+  .act:active { transform: scale(0.9); }
+  .save[aria-pressed='true'] { color: var(--gold); }
+  .save[aria-pressed='true'] svg { fill: currentColor; }
 
   @media (max-width: 560px) {
     .row .media { width: 96px; }
