@@ -1,42 +1,16 @@
 ---
-// Notebook-style cover art for stories without an image (and behind images
-// that fail to load). Each story gets its own figure from its id: a golden
-// spiral, a Lissajous curve, construction rings or a rose curve.
+// Notebook cover art for stories without an image (also shown behind images
+// that fail to load). One of ten patterns in one of eight colours, chosen by
+// the story's id. Hovering the card redraws the pattern.
 import type { Item } from '../lib/feed';
+import { pattern, W, H } from '../lib/patterns';
 interface Props { item: Item }
 const { item } = Astro.props;
-
-let h = 0;
-for (const c of item.id) h = (h * 31 + c.charCodeAt(0)) >>> 0;
-const kind = h % 4;
-const col = { risk: '#ff9b8a', good: '#8fd3a8', research: '#b79cff', neutral: '#86a8ff' }[item.tone];
-const W = 320, H = 180, cx = 160, cy = 90;
-const pts: string[] = [];
-if (kind === 0) {
-  const b = Math.log((1 + Math.sqrt(5)) / 2) / (Math.PI / 2);
-  for (let t = -6 * Math.PI; t <= 0.6; t += 0.09) { const r = 58 * Math.exp(b * t); pts.push(`${(cx + r * Math.cos(t + h)).toFixed(1)},${(cy + r * Math.sin(t + h)).toFixed(1)}`); }
-} else if (kind === 1) {
-  const a = 2 + (h % 3), bb = 3 + (h % 4), d = (h % 7) / 7 * Math.PI;
-  for (let t = 0; t <= Math.PI * 2 + 0.01; t += 0.035) pts.push(`${(cx + 120 * Math.sin(a * t + d)).toFixed(1)},${(cy + 62 * Math.sin(bb * t)).toFixed(1)}`);
-} else if (kind === 3) {
-  const k = [3, 5, 7, 4][h % 4];
-  for (let t = 0; t <= Math.PI * (k % 2 ? 1 : 2) + 0.01; t += 0.035) { const r = 70 * Math.cos(k * t); pts.push(`${(cx + r * Math.cos(t)).toFixed(1)},${(cy + r * Math.sin(t)).toFixed(1)}`); }
-}
-const rings = [18, 34, 55, 76];
+const p = pattern(item.id);
 ---
-<svg class="plate" viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-  
-  <g fill="none" stroke={col} stroke-opacity="0.18" stroke-width="0.7">
-    <line x1="0" y1={cy} x2={W} y2={cy} /><line x1={cx} y1="0" x2={cx} y2={H} />
-    {kind === 2 && rings.map(r => <circle cx={cx} cy={cy} r={r} />)}
-  </g>
-  {kind === 2
-    ? <g fill="none" stroke={col} stroke-width="1.2"><circle cx={cx} cy={cy} r={rings[h % 4]} stroke-opacity="0.9" /><circle cx={cx + rings[h % 4]} cy={cy} r="3" fill={col} /></g>
-    : <polyline points={pts.join(' ')} fill="none" stroke={col} stroke-width="1.2" stroke-opacity="0.85" stroke-linecap="round" stroke-linejoin="round" />}
-  <circle cx={cx} cy={cy} r="2" fill={col} />
-  <text x="14" y={H - 14} fill="#8d8b86" font-family="IBM Plex Mono, monospace" font-size="9" letter-spacing="1.5">FIG. {(h % 89) + 1} — {item.sourceName.toUpperCase().slice(0, 28)}</text>
+<svg class={`plate pat pc${p.color}`} viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <line class="axis" x1="0" y1={H / 2} x2={W} y2={H / 2} /><line class="axis" x1={W / 2} y1="0" x2={W / 2} y2={H} />
+  <path class="curve" d={p.d} pathLength="1" />
+  <circle class="dot" cx={W / 2} cy={H / 2} r="2" />
+  <text x="12" y={H - 12}>FIG. {p.fig} — {p.name.toUpperCase()}</text>
 </svg>
-
-<style>
-  .plate { position: absolute; inset: 0; width: 100%; height: 100%; display: block; background-color: #0d0f13; background-image: linear-gradient(#22252d 1px, transparent 1px), linear-gradient(90deg, #22252d 1px, transparent 1px); background-size: 26px 26px; background-position: 4px 12px; }
-</style>

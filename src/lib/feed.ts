@@ -7,7 +7,7 @@ export interface Place { name: string; country: string; lon: number; lat: number
 export interface Item {
   id: string; title: string; url: string; source: string; sourceName: string; kind: Kind;
   date: string; summary: string; thumb?: string; relevance: number; score: number; tone: Tone;
-  topics: string[]; place?: Place; also: { sourceName: string; url: string }[];
+  topics: string[]; place?: Place; site?: string; via?: string; also: { sourceName: string; url: string }[];
 }
 export interface SourceInfo {
   id: string; name: string; home: string; feed: string; kind: Kind; trust: number; minScore: number;
@@ -37,12 +37,14 @@ export const PERSPECTIVES: Record<Perspective, { label: string; note: string }> 
 export const PERSPECTIVE_ORDER: Perspective[] = ['journalism', 'research', 'nonprofit', 'creator', 'company', 'database'];
 
 export const host = (url: string) => new URL(url).hostname.replace(/^www\./, '');
+// The publisher's own site, even when the link goes through Google News.
+export const siteOf = (i: Item) => host(i.site ?? i.url);
 
 // Links that highlight what you read here on the original page (text fragments).
 // Supported in Chrome, Edge and Safari; other browsers just open the page.
 const enc = (s: string) => encodeURIComponent(s).replace(/-/g, '%2D').replace(/,/g, '%2C').replace(/&/g, '%26');
 export function linkTo(i: Item) {
-  if (i.kind === 'video' || i.kind === 'podcast' || /youtube\.com|youtu\.be/.test(i.url)) return i.url;
+  if (i.kind === 'video' || i.kind === 'podcast' || /youtube\.com|youtu\.be|news\.google\.com/.test(i.url)) return i.url;
   const parts = [i.title.replace(/[“”"]/g, '').trim()];
   const words = i.summary.replace(/…$/, '').split(/\s+/).filter(Boolean);
   if (words.length >= 6) parts.push(words.slice(0, 8).join(' ').replace(/[“”"]/g, ''));

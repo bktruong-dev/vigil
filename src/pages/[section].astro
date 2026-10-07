@@ -8,7 +8,7 @@ export function getStaticPaths() {
   return SECTIONS.map(s => ({ params: { section: s.slug }, props: { s } }));
 }
 const { s } = Astro.props as { s: Section };
-const list = sectionItems(s);
+const list = sectionItems(s).slice(0, 150);
 const [lead, ...rest] = list;
 const side = s.slug === 'watch' || s.slug === 'listen' ? [] : rest.slice(0, 3);
 const grid = rest.slice(side.length);

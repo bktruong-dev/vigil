@@ -1,6 +1,6 @@
 ---
 // A topic brief: a short hand-written explainer plus the latest headlines.
-import { type Topic, topicItems, newest, within, linkTo, host } from '../lib/feed';
+import { type Topic, topicItems, newest, within, linkTo, host, siteOf } from '../lib/feed';
 interface Props { topic: Topic; n?: number }
 const { topic, n = 3 } = Astro.props;
 const list = topicItems(topic);
@@ -13,7 +13,7 @@ const latest = newest(list).filter(i => i.kind !== 'video').slice(0, n);
   <p class="brief">{topic.brief}</p>
   <ul>
     {latest.map(i => (
-      <li><a href={linkTo(i)} target="_blank" rel="noopener noreferrer"><span class={`d t-${i.tone}`}></span><span class="ht">{i.title}</span><span class="hs">{host(i.url)} ↗</span></a></li>
+      <li><a href={linkTo(i)} target="_blank" rel="noopener noreferrer"><span class={`d t-${i.tone}`}></span><span class="ht">{i.title}</span><span class="hs">{siteOf(i)} ↗</span></a></li>
     ))}
   </ul>
   <a class="all" href={`/topics/${topic.slug}`}>Full brief →</a>

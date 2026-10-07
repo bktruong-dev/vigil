@@ -93,10 +93,22 @@ export function mountAtlas(root: HTMLElement) {
   }
 
   function place() {
-    screen = locs.filter(shown).map((loc, i) => {
+    // Merge places that would overlap on screen (e.g. San Francisco, Berkeley,
+    // Palo Alto) into one marker, so the map stays readable.
+    const gap = phone ? 18 : 22;
+    const clusters: { x: number; y: number; loc: Loc }[] = [];
+    for (const loc of [...locs].filter(shown).sort((a, b) => b.items.length - a.items.length)) {
       const [x, y] = projection([loc.lon, loc.lat]) ?? [0, 0];
-      const n = filter === 'risk' ? loc.risk : filter === 'good' ? loc.good : loc.items.length;
-      return { x, y, r: 2.2 + Math.sqrt(n) * 1.5, tone: toneOf(loc), loc, phase: (i * 0.618) % 1 };
+      const near = clusters.find(c => Math.hypot(c.x - x, c.y - y) < gap);
+      if (near) {
+        const m = near.loc;
+        near.loc = { ...m, name: m.name.includes(' + ') ? m.name.replace(/\+ (\d+)/, (_, k) => `+ ${+k + 1}`) : `${m.name} + 1`,
+          items: [...m.items, ...loc.items].sort((a, b) => b.d.localeCompare(a.d)), risk: m.risk + loc.risk, good: m.good + loc.good };
+      } else clusters.push({ x, y, loc });
+    }
+    screen = clusters.map((c, i) => {
+      const n = filter === 'risk' ? c.loc.risk : filter === 'good' ? c.loc.good : c.loc.items.length;
+      return { x: c.x, y: c.y, r: 2 + Math.min(7, Math.sqrt(n) * 1.1), tone: toneOf(c.loc), loc: c.loc, phase: (i * 0.618) % 1 };
     });
   }
 
@@ -139,22 +151,22 @@ export function mountAtlas(root: HTMLElement) {
     for (const s of screen) {
       const c = COL[s.tone];
       if (motion.on) {
-        // Two expanding rings per marker, offset by a golden-ratio phase.
-        for (const off of [0, 0.5]) {
-          const p = ((t / 2600 + s.phase + off) % 1);
-          ctx.globalAlpha = (1 - p) * 0.55;
-          ctx.strokeStyle = c; ctx.lineWidth = 1;
-          ctx.beginPath(); ctx.arc(s.x, s.y, s.r + p * (10 + s.r * 2), 0, Math.PI * 2); ctx.stroke();
+        ctx.strokeStyle = c; ctx.lineWidth = 1;
+        // One slow expanding ring, only on the busier places.
+        if (s.loc.items.length >= 3) {
+          const p = ((t / 4200 + s.phase) % 1);
+          ctx.globalAlpha = (1 - p) * 0.4;
+          ctx.beginPath(); ctx.arc(s.x, s.y, s.r + p * (8 + s.r * 1.5), 0, Math.PI * 2); ctx.stroke();
         }
-        // A bright flash as the sweep passes over.
+        // A brief flash as the sweep passes over.
         const d = sx - s.x;
-        if (d > 0 && d < 90) {
-          ctx.globalAlpha = (1 - d / 90) * 0.9;
-          ctx.beginPath(); ctx.arc(s.x, s.y, s.r + 4 + d / 6, 0, Math.PI * 2); ctx.stroke();
+        if (d > 0 && d < 60) {
+          ctx.globalAlpha = (1 - d / 60) * 0.7;
+          ctx.beginPath(); ctx.arc(s.x, s.y, s.r + 3 + d / 10, 0, Math.PI * 2); ctx.stroke();
         }
       }
       ctx.globalAlpha = 1;
-      ctx.shadowColor = c; ctx.shadowBlur = 14;
+      ctx.shadowColor = c; ctx.shadowBlur = 8;
       ctx.fillStyle = c;
       ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2); ctx.fill();
       ctx.shadowBlur = 0;

@@ -6,7 +6,37 @@
 @import '@fontsource/ibm-plex-mono/400.css';
 @import '@fontsource/ibm-plex-mono/500.css';
 
+/* Paper (default): warm newsprint, dark ink, deeper accents for contrast. */
 :root {
+  --bg: #f3efe4;
+  --dot: #d9d1bf;
+  --ink: #1b1a17;
+  --ink-2: #3b3832;
+  --dim: #6c665b;
+  --line: #d4ccba;
+  --line-2: #e2dbcb;
+  --card: #fbf8f0;
+  --card-2: #f7f3e9;
+  --well: #ebe5d6;
+  --acc: #2c52c4;
+  --acc-glow: rgba(44, 82, 196, 0.22);
+  --gold: #946d1f;
+  --risk: #c0402a;
+  --good: #22804d;
+  --violet: #6646c4;
+  --rose: #b13f74;
+  --teal: #16807f;
+  --amber: #b45d0c;
+  --rule: #1b1a17;
+  --nav-bg: rgba(243, 239, 228, 0.9);
+  --shade: rgba(60, 50, 30, 0.12);
+  --img-filter: saturate(0.95);
+  --img-filter-hover: saturate(1.05);
+  --grain-opacity: 0.5;
+  color-scheme: light;
+}
+/* Ink: the dark notebook. */
+:root[data-theme='ink'] {
   --bg: #0c0d10;
   --dot: #1f2126;
   --ink: #eeece7;
@@ -24,6 +54,17 @@
   --good: #8fd3a8;
   --violet: #b79cff;
   --rose: #f2a6c4;
+  --teal: #7fd6d2;
+  --amber: #f0a868;
+  --rule: #eeece7;
+  --nav-bg: rgba(12, 13, 16, 0.86);
+  --shade: rgba(0, 0, 0, 0.5);
+  --img-filter: saturate(0.85) brightness(0.88);
+  --img-filter-hover: saturate(1) brightness(0.98);
+  --grain-opacity: 0.25;
+  color-scheme: dark;
+}
+:root {
   --display: 'Cormorant Garamond', 'Iowan Old Style', Georgia, serif;
   --serif: 'Newsreader Variable', 'Newsreader', Georgia, 'Times New Roman', serif;
   --mono: 'IBM Plex Mono', ui-monospace, Consolas, monospace;
@@ -35,8 +76,7 @@
   --p-research: var(--violet);
   --p-nonprofit: var(--good);
   --p-creator: var(--rose);
-  --p-database: #c9c6bf;
-  color-scheme: dark;
+  --p-database: var(--dim);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -47,6 +87,7 @@ body {
   background-color: var(--bg);
   background-image: radial-gradient(var(--dot) 1px, transparent 1px);
   background-size: 24px 24px;
+  transition: background-color 0.4s var(--ease), color 0.4s var(--ease);
   color: var(--ink);
   font-family: var(--serif);
   font-optical-sizing: auto;
@@ -85,7 +126,7 @@ img { max-width: 100%; display: block; }
 /* Section headers: roman numeral + display title + "see all" link */
 .sec-head {
   display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;
-  border-top: 2px solid var(--ink);
+  border-top: 2px solid var(--rule);
   padding-top: 12px; margin: 0 0 24px;
 }
 .sec-head .num { font-family: var(--mono); font-size: 13px; color: var(--acc); letter-spacing: 0.12em; }
@@ -169,8 +210,8 @@ img { max-width: 100%; display: block; }
 
 /* Image frames with notebook cover art underneath (shown if there's no image or it fails) */
 .media { position: relative; overflow: hidden; background: var(--well); }
-.media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; filter: saturate(0.85) brightness(0.88); transition: transform 0.7s var(--ease), filter 0.7s var(--ease); }
-.card:hover .media img { transform: scale(1.035); filter: saturate(1) brightness(0.98); }
+.media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; filter: var(--img-filter); transition: transform 0.7s var(--ease), filter 0.7s var(--ease); }
+.card:hover .media img { transform: scale(1.035); filter: var(--img-filter-hover); }
 .media.broken img { display: none; }
 
 .visually-hidden { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
@@ -195,3 +236,37 @@ html.no-motion *, html.no-motion *::before, html.no-motion *::after { transition
 html.no-motion .track { animation: none !important; }
 html.no-motion .ticker { overflow-x: auto; scrollbar-width: none; }
 html.no-motion .iris { animation: none !important; }
+
+/* ---------- Page texture: paper grain + faint construction drawings ---------- */
+.grain { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: var(--grain-opacity);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.4 0 0 0 0 0.3 0 0 0 0.09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+.bgart { position: fixed; z-index: -1; pointer-events: none; color: var(--ink); opacity: 0.07; }
+.bgart.tr { top: -120px; right: -160px; width: 720px; height: 720px; }
+.bgart.bl { bottom: -200px; left: -220px; width: 760px; height: 760px; }
+.bgart path, .bgart circle, .bgart line, .bgart rect { fill: none; stroke: currentColor; stroke-width: 1; vector-effect: non-scaling-stroke; }
+.bgart .spiral { stroke: var(--acc); stroke-width: 1.4; }
+.bgart.tr { animation: drift 120s linear infinite; }
+@keyframes drift { to { transform: rotate(360deg); } }
+html.no-motion .bgart { animation: none; }
+@media (max-width: 760px) { .bgart { opacity: 0.05; } .bgart.tr { width: 420px; height: 420px; right: -180px; } .bgart.bl { display: none; } }
+
+/* ---------- Cover-art patterns (cards and the briefing) ---------- */
+.pat { position: absolute; inset: 0; width: 100%; height: 100%; display: block; background-color: var(--well);
+  background-image: linear-gradient(var(--line-2) 1px, transparent 1px), linear-gradient(90deg, var(--line-2) 1px, transparent 1px);
+  background-size: 26px 26px; background-position: 4px 12px; color: var(--acc); }
+.pat .axis { stroke: currentColor; stroke-opacity: 0.18; stroke-width: 0.7; }
+.pat .curve { fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 0; }
+.pat .dot { fill: currentColor; }
+.pat text { fill: var(--dim); font-family: var(--mono); font-size: 9px; letter-spacing: 1.5px; }
+.pc0 { color: var(--acc); } .pc1 { color: var(--gold); } .pc2 { color: var(--rose); } .pc3 { color: var(--good); }
+.pc4 { color: var(--violet); } .pc5 { color: var(--risk); } .pc6 { color: var(--teal); } .pc7 { color: var(--amber); }
+/* Hover: the pattern draws itself again, like a pen tracing it */
+.card:hover .pat .curve, .card:focus-within .pat .curve, .blist a:hover .pat .curve { animation: trace 2.6s var(--ease) both; }
+@keyframes trace { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+.card:hover .pat .dot { animation: pulse 1.4s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+@keyframes pulse { 50% { transform: scale(2.2); opacity: 0.5; } }
+
+/* Theme switch */
+.theme-btn { flex: none; font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-2); background: none; border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; cursor: pointer; transition: border-color .3s var(--ease), color .3s var(--ease); }
+.theme-btn:hover { color: var(--ink); border-color: var(--dim); }
+.row .pat text, .bimg .pat text { display: none; }

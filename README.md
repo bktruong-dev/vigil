@@ -37,7 +37,7 @@ npm.cmd run serve     # http://localhost:4322, same CSP as vercel.json
 The method is explained in plain words on the `/sources` page.
 
 **Updates:** a GitHub Action (`.github/workflows/refresh.yml`) pings a Vercel deploy
-hook every two hours. Vercel runs the collector and rebuilds the site. It uses free
+hook every hour. Vercel runs the collector and rebuilds the site. It uses free
 tiers only, with no API keys or paid services.
 
 ## Principles

@@ -2,6 +2,8 @@
 // first-open briefing, the sticky section bar, image fallbacks, "… ago".
 // Feed text is only ever inserted with textContent.
 
+import { pattern, W, H } from '../lib/patterns';
+
 const root = document.documentElement;
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -27,6 +29,37 @@ document.getElementById('motion')?.addEventListener('click', () => {
   applyMotion();
 });
 applyMotion();
+
+// ---------- Paper / ink theme ----------
+const themeBtn = document.getElementById('theme');
+const applyTheme = (t: string) => {
+  root.setAttribute('data-theme', t);
+  root.style.backgroundColor = t === 'ink' ? '#0c0d10' : '#f3efe4';
+  root.style.colorScheme = t === 'ink' ? 'dark' : 'light';
+  if (themeBtn) themeBtn.textContent = t === 'ink' ? '◐ Paper' : '◑ Ink';
+  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', t === 'ink' ? '#0c0d10' : '#f3efe4');
+};
+applyTheme(root.getAttribute('data-theme') || 'paper');
+themeBtn?.addEventListener('click', () => {
+  const next = root.getAttribute('data-theme') === 'ink' ? 'paper' : 'ink';
+  store('vigil:theme', next);
+  applyTheme(next);
+});
+
+// Small pattern art for the briefing (same generator as the cards).
+function patternSvg(id: string) {
+  const NS = 'http://www.w3.org/2000/svg';
+  const p = pattern(id);
+  const svg = document.createElementNS(NS, 'svg');
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+  svg.setAttribute('preserveAspectRatio', 'xMidYMid slice');
+  svg.setAttribute('class', `pat pc${p.color}`);
+  svg.setAttribute('aria-hidden', 'true');
+  const path = document.createElementNS(NS, 'path');
+  path.setAttribute('class', 'curve'); path.setAttribute('d', p.d); path.setAttribute('pathLength', '1');
+  svg.append(path);
+  return svg;
+}
 
 // ---------- "Updated 2h ago" ----------
 function ago(ms: number) {
@@ -56,7 +89,7 @@ const mast = document.querySelector('.masthead');
 if (nav && mast) new IntersectionObserver(([e]) => nav.classList.toggle('stuck', !e.isIntersecting)).observe(mast);
 
 // ---------- First-open briefing ----------
-type B = { t: string; u: string; h: string; s: string; p: string; pc: string; d: string; img: string; tone: string; k: string };
+type B = { id: string; t: string; u: string; h: string; s: string; p: string; pc: string; d: string; img: string; tone: string; k: string };
 const panel = document.getElementById('briefing');
 const data: { generated: string; items: B[] } = JSON.parse(document.getElementById('brief-data')?.textContent || '{"items":[]}');
 const safe = (u: string) => { try { const x = new URL(u); return x.protocol === 'https:' ? x.href : ''; } catch { return ''; } };
@@ -76,9 +109,11 @@ function fillBriefing() {
   const greeting = { Morning: 'Good morning.', Afternoon: 'Good afternoon.', Evening: 'Good evening.' }[slot];
   document.getElementById('brief-slot')!.textContent = `The ${slot} Edition · ${now.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}`;
   document.getElementById('brief-title')!.textContent = greeting;
-  document.getElementById('brief-sub')!.textContent = since
+  document.getElementById('brief-sub')!.textContent = since && fresh.length
     ? `Since your last visit ${ago(Date.now() - since)}: ${fresh.length} new ${fresh.length === 1 ? 'story' : 'stories'}. Here is what matters most.`
-    : 'Here is what matters in AI safety right now: the most important stories from the last two days.';
+    : since
+      ? `Nothing new since your last visit ${ago(Date.now() - since)}. Here is what still matters most.`
+      : 'Here is what matters in AI safety right now: the most important stories from the last two days.';
   const ol = document.getElementById('brief-list')!;
   ol.replaceChildren();
   list.forEach((it, n) => {
@@ -89,6 +124,7 @@ function fillBriefing() {
     a.href = href; a.target = '_blank'; a.rel = 'noopener noreferrer';
     const num = document.createElement('span'); num.className = 'bn'; num.textContent = String(n + 1).padStart(2, '0');
     const fig = document.createElement('span'); fig.className = 'bimg';
+    fig.append(patternSvg(it.id));
     const src = safe(it.img);
     if (src) { const img = document.createElement('img'); img.src = src; img.alt = ''; img.referrerPolicy = 'no-referrer'; img.decoding = 'async'; fig.append(img); }
     const txt = document.createElement('span');
@@ -125,13 +161,15 @@ document.getElementById('brief-go')?.addEventListener('click', closeBriefing);
 panel?.addEventListener('click', e => { if (e.target === panel) closeBriefing(); });
 addEventListener('keydown', e => { if (e.key === 'Escape') closeBriefing(); });
 
-const wantBriefing = store('vigil:edition') !== dayKey;
+// Automated browsers (link previews, test tools) skip the quote and the briefing.
+const automated = navigator.webdriver === true;
+const wantBriefing = !automated && store('vigil:edition') !== dayKey;
 
 // ---------- Opening quote veil, once per visit; letters settle out of a blur ----------
 const veil = document.getElementById('veil');
 let seen = false;
 try { seen = sessionStorage.getItem('vigil:veil') === '1'; sessionStorage.setItem('vigil:veil', '1'); } catch {}
-if (veil && !seen) {
+if (veil && !seen && !automated) {
   const q = document.getElementById('veil-q')!;
   if (motion.on) {
     const words = (q.textContent ?? '').split(' ');

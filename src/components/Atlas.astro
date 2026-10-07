@@ -90,6 +90,9 @@ const json = JSON.stringify(points).replace(/</g, '\\u003c');
 <style>
   .atlas { margin: 0; }
   .frame {
+    --ink: #eeece7; --ink-2: #d2cfc8; --dim: #a29f98; --line: #2e3138; --line-2: #23262d; --well: #0b0c0f; --bg: #0c0d10;
+    --acc: #86a8ff; --acc-glow: rgba(134,168,255,0.35); --risk: #ff9b8a; --good: #8fd3a8; --gold: #d9b878;
+    color: var(--ink);
     position: relative; border-radius: 12px; overflow: hidden;
     aspect-ratio: 2 / 1; min-height: 420px;
     background: radial-gradient(ellipse at 50% 45%, #10131a 0%, #0b0c0f 70%);

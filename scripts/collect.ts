@@ -8,6 +8,7 @@ import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { XMLParser } from 'fast-xml-parser';
 import { SOURCES, type Source, type Kind } from './sources.ts';
 import { locate, type Place } from './places.ts';
+import { parseChannelPage, agoToDate } from './youtube.ts';
 
 const OUT = new URL('../src/data/feed.json', import.meta.url);
 const UA = 'VigilBot/0.1 (+https://github.com/bktruong-dev) AI-safety news reader';
@@ -32,6 +33,8 @@ export interface Item {
   topics: string[];
   place?: Place;
   also: { sourceName: string; url: string }[];
+  via?: string;
+  site?: string;
   group?: string;
 }
 
@@ -62,15 +65,20 @@ function relevance(text: string) {
 }
 
 // ---------- Tone: risk, good news, research ----------
-const RISK = /\b(incident|lawsuit|sued|sues|jailbr|deepfake|scam|fraud|harm|attack|exploit|vulnerab|breach|leak|misuse|false|fake|fabricat|hallucinat|death|died|suicide|arrest|manipulat|malware|bioweapon|surveillance|danger|misinformation|disinformation|wrongful|hack|abuse|stalk|threat|crash|fined|banned|recall|warn)/i;
-const GOOD = /\b(passes|passed|signs|signed|agreement|commit(s|ment)|pledge|fund(s|ing|ed)?\b|grant|breakthrough|safeguards?|protect|transparen|standard|fellowship|partnership|treaty|progress|improv|detect|defen[cs]e|defend|award|launch(es|ed)? .*safety|safety institute|new law|framework|open[- ]source|scholarship|hiring|careers?)\b/i;
+// Risk words count once each; the headline counts double. "Good news" needs a
+// clear positive event (a law passed, funding, a new safeguard) AND no risk
+// language in the headline, so a story like "AI could cover up misbehavior"
+// is never filed as good news.
+const RISK = /\b(incidents?|lawsuits?|sued|sues|jailbr\w*|deepfakes?|scams?|fraud|harms?|harmful|attacks?|exploit\w*|vulnerab\w*|breach\w*|leak\w*|misuse|fake|fabricat\w*|hallucinat\w*|death|died|suicide|arrest\w*|manipulat\w*|malware|bioweapons?|surveillance|danger\w*|misinformation|disinformation|wrongful|hack\w*|abuse|stalk\w*|threat\w*|crash\w*|fined|recall\w*|warn\w*|cover(s|ed)? up|misbehav\w*|decepti\w*|deceiv\w*|schem\w*|sabotag\w*|evad\w*|bypass\w*|steal\w*|stolen|unsafe|fail\w*|lie|lies|lying|cheat\w*|reward hacking|misaligned|misalignment|catastroph\w*|extinction|risks?|concern\w*|worr\w*|alarm\w*|steganograph\w*|covert|exfiltrat\w*|injection|weaponi\w*|blackmail\w*|quits?|resign\w*|fears?|probes?|investigat\w*|crosshairs|protest\w*)\b/gi;
+const GOOD = /\b(pass(es|ed)\b.*\b(law|bill|act)|signs?\b.*\b(law|bill|agreement|pledge)|signed into law|new (law|safeguards?|protections?)|safeguards? for|commits? to|pledges?|treaty|fund(s|ing|ed)? (for |new )?.*(safety|research)|grants? (to|for|from|of)\b|wins? grants?|fellowships?|scholarships?|\$\d+\S* (to|for)|breakthrough|protect(s|ing)? (children|teens|users|people)|safety institute|partnership|launch(es|ed)? .*(safety|safeguard|protection)|bans? deepfakes?|crack(s|ing)? down|ruling (for|in favou?r)|hiring|academy|scholars|award(s|ed)?)\b/gi;
 
-function tone(kind: Kind, text: string): Tone {
+function tone(kind: Kind, title: string, summary: string): Tone {
   if (kind === 'incident') return 'risk';
-  const r = (text.match(new RegExp(RISK, 'gi')) ?? []).length;
-  const g = (text.match(new RegExp(GOOD, 'gi')) ?? []).length;
-  if (r > g) return 'risk';
-  if (g > r) return 'good';
+  const count = (re: RegExp, s: string) => (s.match(re) ?? []).length;
+  const rTitle = count(RISK, title), r = rTitle * 2 + count(RISK, summary);
+  const g = count(GOOD, title) * 2 + count(GOOD, summary);
+  if (g >= 2 && rTitle === 0 && g > r) return 'good';
+  if (rTitle > 0 || r >= 2) return 'risk';
   if (kind === 'paper' || kind === 'essay') return 'research';
   return 'neutral';
 }
@@ -134,7 +142,7 @@ async function ogImage(url: string) {
   } catch { return undefined; }
 }
 
-interface Raw { title: string; url: string; date: string; summary: string; thumb?: string; group?: string }
+interface Raw { title: string; url: string; date: string; summary: string; thumb?: string; group?: string; publisher?: string; site?: string }
 
 function parseFeed(body: string): Raw[] {
   const doc = xml.parse(body);
@@ -158,8 +166,33 @@ function parseFeed(body: string): Raw[] {
       date: text(e.pubDate) || text(e.published) || text(e.updated) || text(e['dc:date']),
       summary: text(media?.['media:description']) || text(e.description) || text(e.summary) || text(e['content:encoded']) || text(e.content),
       thumb,
+      publisher: text(e.source) || undefined,
+      site: e.source?.['@url'] || undefined,
     };
   });
+}
+
+// YouTube: the channel RSS feed first (with one retry); if YouTube's feed
+// service is down, the channel's public Videos page instead.
+async function youtube(src: Source): Promise<Raw[]> {
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try { return parseFeed(await get(src.feed)); } catch { await new Promise(r => setTimeout(r, 1200)); }
+  }
+  const res = await fetch(`${src.home}/videos`, { headers: { 'user-agent': 'Mozilla/5.0 (compatible; VigilBot/0.1)', 'accept-language': 'en' }, signal: AbortSignal.timeout(20000) });
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  return parseChannelPage(await res.text()).slice(0, 15).map(v => ({
+    title: clean(v.title, 200), url: `https://www.youtube.com/watch?v=${v.id}`, date: agoToDate(v.ago), summary: '',
+    thumb: `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`,
+  }));
+}
+
+// Hacker News search (Algolia's free public API): stories people are discussing.
+async function hackerNews(src: Source): Promise<Raw[]> {
+  const data = JSON.parse(await get(src.feed));
+  return (data.hits ?? []).filter((h: any) => h.url && h.title).map((h: any): Raw => ({
+    title: clean(h.title, 200), url: h.url, date: h.created_at, summary: '',
+    publisher: (() => { try { return new URL(h.url).hostname.replace(/^www./, ''); } catch { return undefined; } })(),
+  }));
 }
 
 async function anthropic(src: Source): Promise<Raw[]> {
@@ -180,7 +213,13 @@ async function anthropic(src: Source): Promise<Raw[]> {
 // ---------- Collect one source ----------
 async function collect(src: Source): Promise<{ items: Item[]; ok: boolean; error?: string }> {
   try {
-    const raws = src.type === 'anthropic' ? await anthropic(src) : parseFeed(await get(src.feed));
+    const raws = src.type === 'anthropic' ? await anthropic(src) : src.type === 'hn' ? await hackerNews(src)
+      : src.kind === 'video' ? await youtube(src) : parseFeed(await get(src.feed));
+    // Google News: headline ends in " - Publisher" and the description is just links.
+    if (src.type === 'gnews') for (const r of raws) {
+      if (r.publisher && r.title.endsWith(` - ${r.publisher}`)) r.title = r.title.slice(0, -(r.publisher.length + 3));
+      r.summary = '';
+    }
     const now = Date.now();
     const items: Item[] = [];
     for (const r of raws) {
@@ -196,10 +235,12 @@ async function collect(src: Source): Promise<{ items: Item[]; ok: boolean; error
       if (src.kind === 'paper' && !/\b(language models?|LLMs?|AI|agents?|neural|transformers?|reinforcement learning|chatbots?)\b/.test(`${r.title} ${summary}`)) continue;
       const kind = src.kind;
       items.push({
-        id: hash(url), title: r.title, url, source: src.id, sourceName: src.name, kind,
+        id: hash(url), title: r.title, url, source: src.id, sourceName: (src.type === 'gnews' || src.type === 'hn') && r.publisher ? r.publisher : src.name, kind,
+        site: r.site ? safeUrl(r.site) || undefined : undefined,
+        via: src.type === 'gnews' ? 'Google News' : src.type === 'hn' ? 'Hacker News' : undefined,
         date: new Date(t).toISOString(), summary, thumb: goodImage(r.thumb),
         relevance: Math.max(rel, src.minScore === 0 ? 0.5 : 0), score: 0,
-        tone: tone(kind, `${r.title} ${summary}`), topics,
+        tone: tone(kind, r.title, summary), topics,
         place: kind === 'incident' || kind === 'news' || kind === 'lab' ? locate(r.title, summary, src.name) : undefined,
         also: [], group: r.group ? `aiid-${r.group}` : undefined,
       });

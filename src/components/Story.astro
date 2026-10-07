@@ -1,5 +1,5 @@
 ---
-import { type Item, KIND_LABEL, TONE_LABEL, PERSPECTIVES, host, ago, linkTo, perspectiveOf, readMins } from '../lib/feed';
+import { type Item, KIND_LABEL, TONE_LABEL, PERSPECTIVES, host, siteOf, ago, linkTo, perspectiveOf, readMins } from '../lib/feed';
 import Plate from './Plate.astro';
 
 interface Props { item: Item; variant?: 'hero' | 'card' | 'row' | 'text'; eager?: boolean }
@@ -21,7 +21,7 @@ const showImage = variant !== 'text';
 >
   {showImage && (
     <div class="media">
-      <Plate item={item} />
+      {!item.thumb && <Plate item={item} />}
       {item.thumb && <img src={item.thumb} alt="" loading={eager ? 'eager' : 'lazy'} decoding="async" referrerpolicy="no-referrer" />}
       {(item.kind === 'video' || item.kind === 'podcast') && <span class="play" aria-hidden="true">{item.kind === 'video' ? '▶' : '◖◗'}</span>}
     </div>
@@ -42,8 +42,8 @@ const showImage = variant !== 'text';
     </p>
     {variant !== 'row' && (
       <div class="foot">
-        <a class="out" href={href} target="_blank" rel="noopener noreferrer" aria-label={`${media} “${item.title}” at ${host(item.url)} (opens in a new tab)`}>
-          {media} at <span class="host">{host(item.url)}</span><span class="arrow">↗</span>
+        <a class="out" href={href} target="_blank" rel="noopener noreferrer" aria-label={`${media} “${item.title}” at ${siteOf(item)} (opens in a new tab)`}>
+          {media} at <span class="host">{siteOf(item)}</span><span class="arrow">↗</span>
         </a>
         {item.also.length > 0 && (
           <span class="also">

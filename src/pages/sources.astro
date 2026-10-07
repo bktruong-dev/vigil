@@ -52,13 +52,13 @@ const placed = items.filter(i => i.place).length;
     <section class="block" id="algorithm" aria-labelledby="alg-h">
       <header class="sec-head"><span class="num">II.</span><h2 id="alg-h">How stories are ranked</h2></header>
       <ol class="steps">
-        <li><span class="label">Step 1 — Collect</span><p>Every two hours a script reads each source’s official public feed (RSS, Atom, the arXiv API or YouTube’s channel feeds). Anthropic has no feed, so we read its public sitemap and each post’s own title and date.</p></li>
+        <li><span class="label">Step 1 — Collect</span><p>Every hour a script reads each source’s official public feed (RSS, Atom, the arXiv API or YouTube’s channel feeds), plus a light web search: a few Google News and Hacker News searches that find AI safety stories from outlets we don’t follow directly. If YouTube’s feed service is down, it reads the channel’s public Videos page instead. A failed source keeps its last stories, so nothing breaks. Anthropic has no feed, so we read its public sitemap and each post’s own title and date.</p></li>
         <li><span class="label">Step 2 — Relevance</span><p>Each story is scored against a weighted list of AI safety terms: alignment, interpretability, jailbreaks, red-teaming, evaluations, governance, misuse and more. General tech outlets must show a clear safety signal; safety-focused sources are kept whole.</p></li>
         <li><span class="label">Step 3 — Rank</span>
           <p class="formula"><span>score</span> = 0.45 × <span>relevance</span> + 0.25 × <span>source trust</span> + 0.30 × <span>freshness</span> + <span>coverage</span></p>
           <p>Freshness fades smoothly with age (it halves about every three days), so the front page turns over on its own. Coverage adds a small bonus when several outlets report the same story.</p></li>
         <li><span class="label">Step 4 — Merge</span><p>When different outlets cover the same story, they become one entry with “Also covered by” links. Multiple reports of the same incident are grouped using the AI Incident Database’s incident number.</p></li>
-        <li><span class="label">Step 5 — Tone and place</span><p>A word list marks each story as a risk, good news, research or a general update. A place name in the headline (or else the company’s headquarters) puts it on the map. Both are automatic and approximate.</p></li>
+        <li><span class="label">Step 5 — Tone and place</span><p>A word list marks each story as a risk, good news, research or a general update. Good news needs a clear positive event (a law passed, new funding, a new safeguard) and no risk language in the headline; anything describing harm, deception or failure is filed as a risk. A place name in the headline (or else the company’s headquarters) puts it on the map. Both are automatic and approximate.</p></li>
       </ol>
     </section>
 
