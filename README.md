@@ -13,6 +13,7 @@ good news.
 - **Front page** ranked hourly from 59 public sources, plus a light Google News / Hacker News search
 - **Sections:** Latest, Research, Watch, Incidents, Good News, Topics (hand-written briefs), Atlas (live map)
 - **Community:** readers submit links through a GitHub issue form, vote with 👍, and the board ranks approved posts with Hacker News' formula
+- **Developing stories:** reports about the same event are grouped automatically with TF-IDF and cosine similarity (no AI model), each with its own page and timeline; trending phrases from the same model drive every filter
 - **Search** everything (press `/`), **Saved** reading list, **New since your last visit** markers, share / copy link
 - **Briefing:** a morning / afternoon / evening edition the first time you open the site
 - **Perspective labels** on every story and a “who is speaking” mix per page

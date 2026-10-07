@@ -47,7 +47,7 @@ themeBtn?.addEventListener('click', () => {
 });
 
 // Small pattern art for the briefing (same generator as the cards).
-function patternSvg(id: string) {
+export function patternSvg(id: string) {
   const NS = 'http://www.w3.org/2000/svg';
   const p = pattern(id);
   const box = document.createElement('span');

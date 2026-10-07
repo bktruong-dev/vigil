@@ -5,7 +5,7 @@ import Mix from '../components/Mix.astro';
 import Timeline from '../components/Timeline.astro';
 import Atlas from '../components/Atlas.astro';
 import { items as allItems } from '../lib/feed';
-import { SECTIONS, sectionItems, PERSPECTIVES, perspectiveOf, type Section } from '../lib/feed';
+import { SECTIONS, sectionItems, PERSPECTIVES, perspectiveOf, trendingKeys, type Section } from '../lib/feed';
 
 export function getStaticPaths() {
   return SECTIONS.map(s => ({ params: { section: s.slug }, props: { s } }));
@@ -17,9 +17,8 @@ const side = s.slug === 'watch' ? [] : rest.slice(0, 3);
 const grid = rest.slice(side.length);
 
 // Filters offered on this page: its most common topics and perspectives.
-const topicCounts = new Map<string, number>();
-for (const i of list) for (const t of i.topics) topicCounts.set(t, (topicCounts.get(t) ?? 0) + 1);
-const topics = [...topicCounts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 7).map(([t]) => t);
+// Filters follow the news: the phrases trending in this section right now.
+const trending = trendingKeys(list, 9);
 const persps = [...new Set(list.map(perspectiveOf))];
 ---
 <Base title={s.title} current={`/${s.slug}`} description={s.dek} compact>
@@ -43,9 +42,10 @@ const persps = [...new Set(list.map(perspectiveOf))];
     )}
 
     <div class="tools" id="stories">
-      <div class="chips" role="group" aria-label="Filter by topic">
-        <button class="btn" type="button" data-f="topic" data-v="all" aria-pressed="true">All topics</button>
-        {topics.map(t => <button class="btn" type="button" data-f="topic" data-v={t} aria-pressed="false">{t}</button>)}
+      <div class="chips" role="group" aria-label="Filter by trending phrase">
+        <span class="label trend-k">Trending</span>
+        <button class="btn" type="button" data-f="key" data-v="all" aria-pressed="true">Everything</button>
+        {trending.map(({ k, n }) => <button class="btn" type="button" data-f="key" data-v={k.toLowerCase()} aria-pressed="false">{k} <span class="cnt">{n}</span></button>)}
       </div>
       <div class="right">
         <label class="sel"><span class="visually-hidden">Filter by perspective</span>
@@ -92,7 +92,10 @@ const persps = [...new Set(list.map(perspectiveOf))];
   .top.solo { grid-template-columns: minmax(0, 1fr); max-width: 980px; }
   .side { display: grid; gap: 14px; align-content: start; }
   .tools { display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 20px; padding-top: 18px; border-top: 1px solid var(--line); }
-  .chips { display: flex; gap: 8px; flex-wrap: wrap; }
+  .chips { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .trend-k { color: var(--gold); margin-right: 4px; }
+  .chips .cnt { color: var(--acc); margin-left: 4px; }
+  .chips [aria-pressed="true"] .cnt { color: inherit; }
   .right { display: flex; gap: 10px; flex-wrap: wrap; }
   select, .search input { font: 15px var(--mono); color: var(--ink); background: var(--well); border: 1px solid var(--line); border-radius: 999px; padding: 8px 16px; }
   .search input { width: min(260px, 80vw); }

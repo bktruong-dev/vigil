@@ -1,5 +1,5 @@
 ---
-import { type Item, KIND_LABEL, TONE_LABEL, PERSPECTIVES, host, siteOf, ago, linkTo, perspectiveOf, readMins } from '../lib/feed';
+import { type Item, KIND_LABEL, TONE_LABEL, PERSPECTIVES, host, siteOf, ago, linkTo, perspectiveOf, readMins, storyOf } from '../lib/feed';
 import Plate from './Plate.astro';
 
 interface Props { item: Item; variant?: 'hero' | 'card' | 'row' | 'text'; eager?: boolean }
@@ -10,6 +10,8 @@ const mins = readMins(item);
 const media = item.kind === 'video' ? 'Watch' : 'Read';
 const search = `${item.title} ${item.sourceName} ${item.topics.join(' ')} ${item.place?.name ?? ''} ${item.summary}`.toLowerCase();
 const showImage = variant !== 'text';
+const story = storyOf(item);
+const keys = (item.keys ?? []).map(k => k.toLowerCase()).join('|');
 // YouTube id, for the click-to-play player.
 const yt = item.kind === 'video' ? (item.url.match(/[?&]v=([\w-]{11})/) ?? item.url.match(/youtu\.be\/([\w-]{11})/))?.[1] : undefined;
 ---
@@ -21,6 +23,8 @@ const yt = item.kind === 'video' ? (item.url.match(/[?&]v=([\w-]{11})/) ?? item.
   data-topics={item.topics.join(',')}
   data-search={search}
   data-id={item.id}
+  data-keys={keys}
+  data-story={story?.id ?? ''}
   data-date={item.date}
   data-href={href}
   data-title={item.title}
@@ -44,6 +48,7 @@ const yt = item.kind === 'video' ? (item.url.match(/[?&]v=([\w-]{11})/) ?? item.
       {item.place && variant !== 'row' && <span class="place">◎ {item.place.name}</span>}
     </p>
     <h3><a class="hl stretch" href={href} target="_blank" rel="noopener noreferrer">{item.title}</a></h3>
+    {story && <a class="devl" href={`/story/${story.id}`}><i aria-hidden="true"></i>Developing story · {story.items.length} reports{story.sources > 1 ? ` from ${story.sources} sources` : ''} →</a>}
     {(variant === 'hero' || variant === 'card' || variant === 'text') && item.summary && <p class="sum">{item.summary}</p>}
     <p class="meta">
       <span class="src">{item.sourceName}</span>
@@ -112,6 +117,11 @@ const yt = item.kind === 'video' ? (item.url.match(/[?&]v=([\w-]{11})/) ?? item.
   .text .sum { -webkit-line-clamp: 4; font-size: 16.5px; }
 
   .story[hidden] { display: none; }
+
+  /* Link to the developing story this report belongs to */
+  .devl { position: relative; z-index: 2; align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.04em; color: var(--gold); text-decoration: none; padding: 3px 10px 3px 8px; margin-left: -2px; border: 1px solid color-mix(in srgb, var(--gold) 40%, transparent); border-radius: 999px; transition: background .25s var(--ease), border-color .25s var(--ease); }
+  .devl i { width: 7px; height: 7px; transform: rotate(45deg); background: var(--gold); }
+  .devl:hover { background: color-mix(in srgb, var(--gold) 12%, transparent); border-color: var(--gold); }
 
   /* New-since-last-visit marker (shown by script) */
   .newtag { display: none; font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; color: var(--bg); background: var(--acc); border-radius: 3px; padding: 1px 6px; }

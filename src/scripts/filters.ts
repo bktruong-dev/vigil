@@ -12,7 +12,7 @@ if (stream) {
 
   const match = (c: HTMLElement) => {
     const q = (input?.value ?? '').trim().toLowerCase();
-    const okTopic = topic === 'all' || (c.dataset.topics ?? '').split(',').includes(topic);
+    const okTopic = topic === 'all' || (c.dataset.keys ?? '').split('|').includes(topic) || (c.dataset.search ?? '').includes(topic);
     const okPersp = !persp || persp.value === 'all' || c.dataset.persp === persp.value;
     return okTopic && okPersp && (!q || q.split(/\s+/).every(w => c.dataset.search!.includes(w)));
   };
@@ -29,15 +29,21 @@ if (stream) {
     if (more) { more.hidden = total <= limit; more.textContent = `Show more (${total - shown} left)`; }
   }
 
-  document.querySelectorAll<HTMLButtonElement>('[data-f="topic"]').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll<HTMLButtonElement>('[data-f="key"]').forEach(b => b.addEventListener('click', () => {
     topic = b.dataset.v!;
     limit = PAGE;
-    document.querySelectorAll('[data-f="topic"]').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    document.querySelectorAll('[data-f="key"]').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
     render();
   }));
   persp?.addEventListener('change', () => { limit = PAGE; render(); });
   let t = 0;
   input?.addEventListener('input', () => { clearTimeout(t); t = window.setTimeout(() => { limit = PAGE; render(); }, 120); });
   more?.addEventListener('click', () => { limit += PAGE; render(); });
+  // Arriving from a trending link (?k=phrase): select that phrase, or search for it.
+  const k = new URLSearchParams(location.search).get('k')?.toLowerCase().slice(0, 80);
+  if (k) {
+    const chip = [...document.querySelectorAll<HTMLButtonElement>('[data-f="key"]')].find(b => b.dataset.v === k);
+    if (chip) chip.click(); else if (input) { input.value = k; }
+  }
   render();
 }

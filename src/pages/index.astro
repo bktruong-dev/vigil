@@ -4,7 +4,8 @@ import Story from '../components/Story.astro';
 import Mix from '../components/Mix.astro';
 import TopicCard from '../components/TopicCard.astro';
 import { JURISDICTIONS } from '../data/policy';
-import { items, SECTIONS, sectionItems, TOPICS, topicItems, within, sources, newest } from '../lib/feed';
+import { items, SECTIONS, sectionItems, TOPICS, topicItems, within, sources, newest, stories, storyItems, trendingKeys, ago, siteOf } from '../lib/feed';
+import Plate from '../components/Plate.astro';
 
 const sec = Object.fromEntries(SECTIONS.map(s => [s.slug, sectionItems(s)]));
 const used = new Set<string>();
@@ -34,6 +35,12 @@ const stats = [
   ['Papers · 7 days', items.filter(i => i.kind === 'paper' && within(i, 7)).length, '/research'],
   ['Good news · 7 days', items.filter(i => i.tone === 'good' && within(i, 7)).length, '/good-news'],
 ] as const;
+// Developing stories: groups of reports about the same event, found hourly.
+const developing = stories.slice(0, 6).map(st => {
+  const list = storyItems(st);
+  return { st, list, pic: list.find(i => i.thumb && i.kind !== 'video') ?? list.find(i => i.thumb) ?? list[0] };
+});
+const trending = trendingKeys(items, 10);
 ---
 <Base current="/">
   <div class="wrap">
@@ -45,14 +52,34 @@ const stats = [
       </aside>
     </section>
 
+    {developing.length > 0 && (
+      <section class="block dev" aria-labelledby="dev-h">
+        <header class="sec-head"><span class="num">◆</span><h2 id="dev-h">Developing stories</h2><span class="label all-note">Grouped automatically from {sources.length} sources · updated hourly</span></header>
+        <div class="devgrid">
+          {developing.map(({ st, list, pic }, n) => (
+            <article class={`card dcard rv ${n === 0 ? 'big' : ''}`}>
+              <div class="media">
+                {pic.thumb ? <img src={pic.thumb} alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" /> : <Plate item={pic} />}
+              </div>
+              <div class="db">
+                <p class="dk label"><i aria-hidden="true"></i>{list.length} reports · {st.sources} {st.sources === 1 ? 'source' : 'sources'} · {ago(st.last)}</p>
+                <h3><a class="hl stretch" href={`/story/${st.id}`}>{st.label}</a></h3>
+                <p class="dsrc">{[...new Set(list.map(i => i.sourceName))].slice(0, 4).join(' · ')}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    )}
+
     <section class="today" aria-labelledby="today-h">
       <h2 id="today-h" class="label">Today in AI safety</h2>
       <dl class="stats">
         {stats.map(([k, v, href]) => <div><dt class="label">{k}</dt><dd><a href={href}>{v}</a></dd></div>)}
       </dl>
       <div class="trend">
-        <p class="label">Trending topics</p>
-        <ul>{hotTopics.slice(0, 6).map(t => <li><a class="btn" href={`/topics/${t.slug}`}>{t.name} <span>{topicItems(t).filter(i => within(i, 7)).length}</span></a></li>)}</ul>
+        <p class="label">Trending right now</p>
+        <ul>{trending.map(({ k, n }) => <li><a class="btn" href={`/latest?k=${encodeURIComponent(k.toLowerCase())}#stories`}>{k} <span>{n}</span></a></li>)}</ul>
       </div>
       <div class="mixw"><Mix list={items} label="Who is speaking in today’s edition" /></div>
     </section>
@@ -147,6 +174,18 @@ const stats = [
   .papers, .essays { display: grid; gap: 14px; align-content: start; }
   .colhead { margin: 0; }
   .two { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .dev .all-note { margin-left: auto; }
+  .devgrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .dcard { overflow: hidden; display: flex; flex-direction: column; --edge: var(--gold); }
+  .dcard .media { aspect-ratio: 16 / 9; border-bottom: 1px solid var(--line); }
+  .dcard.big { grid-column: span 2; grid-row: span 2; }
+  .dcard.big .media { aspect-ratio: 16 / 8; }
+  .dcard.big h3 { font-size: clamp(26px, 2.6vw, 36px); line-height: 1.12; }
+  .db { padding: 14px 18px 16px; display: flex; flex-direction: column; gap: 8px; }
+  .dk { margin: 0; display: flex; align-items: center; gap: 8px; color: var(--gold); }
+  .dk i { width: 7px; height: 7px; transform: rotate(45deg); background: var(--gold); }
+  .dcard h3 { margin: 0; font-family: var(--serif); font-weight: 580; font-size: 20px; line-height: 1.25; }
+  .dsrc { margin: 0; font-family: var(--mono); font-size: 12px; color: var(--dim); }
   .pstrip { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
   .pcard { display: flex; flex-direction: column; gap: 6px; padding: 16px; text-decoration: none; transition: transform .35s var(--ease); }
   .pcard:hover { transform: translateY(-3px); }
@@ -158,6 +197,7 @@ const stats = [
   .guide a { color: var(--acc); }
 
   @media (max-width: 1150px) {
+    .devgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .pstrip { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .g4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .g3 { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
@@ -167,6 +207,8 @@ const stats = [
     .today { grid-template-columns: minmax(0, 1fr); }
   }
   @media (max-width: 640px) {
+    .devgrid { grid-template-columns: minmax(0, 1fr); }
+    .dcard.big { grid-column: auto; grid-row: auto; }
     .pstrip { grid-template-columns: minmax(0, 1fr); }
     .g4, .g3 { grid-template-columns: minmax(0, 1fr); }
     .stats { gap: 22px; }

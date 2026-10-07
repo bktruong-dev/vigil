@@ -10,6 +10,7 @@ import { SOURCES, type Source, type Kind } from './sources.ts';
 import { locate, type Place } from './places.ts';
 import { parseChannelPage, agoToDate } from './youtube.ts';
 import { community } from './community.ts';
+import { cluster } from './cluster.ts';
 
 const OUT = new URL('../src/data/feed.json', import.meta.url);
 const UA = 'VigilBot/0.1 (+https://github.com/bktruong-dev) AI-safety news reader';
@@ -241,7 +242,7 @@ async function collect(src: Source): Promise<{ items: Item[]; ok: boolean; error
         via: src.type === 'gnews' ? 'Google News' : src.type === 'hn' ? 'Hacker News' : undefined,
         date: new Date(t).toISOString(), summary, thumb: goodImage(r.thumb),
         relevance: Math.max(rel, src.minScore === 0 ? 0.5 : 0), score: 0,
-        tone: tone(kind, r.title, summary), topics,
+        tone: ((t0 => (t0 === 'good' && raw < 3 ? 'neutral' : t0))(tone(kind, r.title, summary))) as Tone, topics,
         place: kind === 'incident' || kind === 'news' || kind === 'lab' ? locate(r.title, summary, src.name) : undefined,
         also: [], group: r.group ? `aiid-${r.group}` : undefined,
       });
@@ -339,13 +340,24 @@ const sources = SOURCES.map(s => {
 });
 
 await mkdir(new URL('.', OUT), { recursive: true });
+// Developing stories and key phrases (plain text statistics, no AI model).
+const docs = items.filter(i => i.kind !== 'podcast').map(i => ({ id: i.id, title: i.title, summary: i.summary, date: i.date, source: i.sourceName, kind: i.kind }));
+const grouped = cluster(docs);
+for (const i of items) {
+  (i as any).keys = grouped.keys.get(i.id) ?? [];
+  const c = grouped.clusterOf.get(i.id);
+  if (c) (i as any).cluster = c;
+}
+const stories = grouped.clusters;
+console.log(`stories: ${stories.length} developing stories covering ${stories.reduce((n, c) => n + c.items.length, 0)} reports`);
+
 // Community board (reader submissions approved on GitHub). Keep the last good copy if GitHub is unreachable.
 const board = await community();
 let prevBoard = { posts: [], pending: 0 };
 try { prevBoard = JSON.parse(await readFile(OUT, 'utf8')).community ?? prevBoard; } catch {}
 const communityOut = board.ok ? { posts: board.posts, pending: board.pending } : prevBoard;
 
-await writeFile(OUT, JSON.stringify({ generated: new Date().toISOString(), sources, items, community: communityOut }, null, 1));
+await writeFile(OUT, JSON.stringify({ generated: new Date().toISOString(), sources, items, stories, community: communityOut }, null, 1));
 console.log(`community: ${board.ok ? 'ok' : 'FAIL'} · ${communityOut.posts.length} posts · ${communityOut.pending} pending`);
 
 for (const s of sources) console.log(`${s.ok ? 'ok  ' : 'FAIL'} ${String(s.count).padStart(3)}  ${s.name}${s.error ? '  (' + s.error + ')' : ''}`);

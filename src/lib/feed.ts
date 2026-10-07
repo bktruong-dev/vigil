@@ -7,7 +7,7 @@ export interface Place { name: string; country: string; lon: number; lat: number
 export interface Item {
   id: string; title: string; url: string; source: string; sourceName: string; kind: Kind;
   date: string; summary: string; thumb?: string; relevance: number; score: number; tone: Tone;
-  topics: string[]; place?: Place; site?: string; via?: string; also: { sourceName: string; url: string }[];
+  topics: string[]; keys?: string[]; cluster?: string; place?: Place; site?: string; via?: string; also: { sourceName: string; url: string }[];
 }
 export interface SourceInfo {
   id: string; name: string; home: string; feed: string; kind: Kind; trust: number; minScore: number;
@@ -125,4 +125,35 @@ export function perspectiveMix(list: Item[]) {
   for (const i of list) counts[perspectiveOf(i)]++;
   const total = list.length || 1;
   return PERSPECTIVE_ORDER.map(p => ({ p, n: counts[p], pct: Math.round((counts[p] / total) * 100) })).filter(x => x.n > 0);
+}
+
+
+// ---------- Developing stories (grouped hourly by the collector, no AI model) ----------
+export interface StoryGroup { id: string; label: string; terms: string[]; items: string[]; sources: number; first: string; last: string; score: number }
+const byId = new Map(items.map(i => [i.id, i]));
+export const stories = ((data as any).stories ?? []) as StoryGroup[];
+const storyById = new Map(stories.map(s => [s.id, s]));
+export const storyOf = (i: Item) => (i.cluster ? storyById.get(i.cluster) : undefined);
+export const storyItems = (s: StoryGroup) => s.items.map(id => byId.get(id)).filter((x): x is Item => !!x);
+
+// Trending phrases in a set of stories: the key phrases most of them share,
+// weighted toward recent stories. These drive the filters on every page.
+export function trendingKeys(list: Item[], n = 8) {
+  const score = new Map<string, number>(), count = new Map<string, number>();
+  for (const i of list) {
+    const w = 1 + Math.exp(-(generated.getTime() - Date.parse(i.date)) / (3 * 864e5));
+    for (const k of (i.keys ?? []).slice(0, 4)) {
+      // Names and two-word phrases ('Hugging Face', 'prompt injection') beat single common words.
+      const shape = k.includes(' ') ? 1.5 : /^[A-Z]/.test(k) ? 1.25 : 0.7;
+      score.set(k, (score.get(k) ?? 0) + w * shape); count.set(k, (count.get(k) ?? 0) + 1);
+    }
+  }
+  const out: string[] = [];
+  for (const [k] of [...score.entries()].filter(([k]) => (count.get(k) ?? 0) >= 2).sort((a, b) => b[1] - a[1])) {
+    const lk = k.toLowerCase();
+    if (out.some(o => { const lo = o.toLowerCase(); return lo.includes(lk) || lk.includes(lo) || lo.split(' ').some(w => lk.split(' ').includes(w)); })) continue;
+    out.push(k);
+    if (out.length === n) break;
+  }
+  return out.map(k => ({ k, n: count.get(k) ?? 0 }));
 }
