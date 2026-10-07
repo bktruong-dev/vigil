@@ -1,0 +1,161 @@
+---
+import Base from '../layouts/Base.astro';
+import Story from '../components/Story.astro';
+import Timeline from '../components/Timeline.astro';
+import { items, newest } from '../lib/feed';
+import { JURISDICTIONS, OTHERS, REVIEWED, type Status } from '../data/policy';
+
+const policyItems = items.filter(i => i.topics.includes('Governance'));
+const newsFor = (re: RegExp) => newest(policyItems.filter(i => re.test(`${i.title} ${i.summary}`))).slice(0, 4);
+const fmt = (d: string) => new Date(`${d}T12:00:00Z`).toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' });
+const reviewed = new Date(`${REVIEWED}T12:00:00Z`).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+const cls = (s: Status) => s.toLowerCase().replace(/\s+/g, '-');
+const sorted = JURISDICTIONS.map(j => ({ ...j, measures: [...j.measures].sort((a, b) => a.date.localeCompare(b.date)) }));
+---
+<Base title="Policy & Law" current="/policy" description="AI safety law and policy around the world — the EU, China, the UK, the UN, the US and more — in plain language, with links to the official texts and the latest policy news.">
+  <div class="wrap page">
+    <header class="phead">
+      <p class="label crumb"><a href="/">Front Page</a> / Section XI</p>
+      <h1><span class="num">XI.</span> Policy &amp; Law</h1>
+      <p class="dek">Who makes the rules for AI, and what they say. A plain-language guide to AI safety law in the places that matter most, with the official texts one click away and the latest policy news underneath.</p>
+      <p class="label note">Last reviewed {reviewed} · checked against official texts and legal trackers · an overview, not legal advice</p>
+    </header>
+
+    <nav class="board" aria-label="Jurisdictions">
+      {sorted.map(j => (
+        <a class="card jcard" href={`#${j.slug}`}>
+          <span class="code">{j.code}</span>
+          <span class="jn">{j.name}</span>
+          <span class="ap">{j.approach}</span>
+          <span class="pips">{j.measures.map(m => <i class={`pip s-${cls(m.status)}`} title={`${m.name}: ${m.status}`}></i>)}</span>
+        </a>
+      ))}
+    </nav>
+    <p class="legend label">
+      <span><i class="pip s-in-force"></i>In force</span><span><i class="pip s-partly-in-force"></i>Partly in force</span>
+      <span><i class="pip s-coming"></i>Coming</span><span><i class="pip s-proposed"></i>Proposed</span>
+      <span><i class="pip s-voluntary"></i>Voluntary</span><span><i class="pip s-paused"></i>Paused</span>
+    </p>
+
+    {sorted.map((j, n) => {
+      const news = newsFor(j.match);
+      return (
+        <section class="jur" id={j.slug} aria-labelledby={`${j.slug}-h`}>
+          <header class="jhead">
+            <span class="bigcode" aria-hidden="true">{j.code}</span>
+            <div>
+              <p class="label">XI.{['i', 'ii', 'iii', 'iv', 'v', 'vi'][n]} · {j.regulator}</p>
+              <h2 id={`${j.slug}-h`}>{j.name}</h2>
+              <p class="approach">{j.approach}</p>
+            </div>
+          </header>
+          <div class="jbody">
+            <div class="jtext">
+              <p class="sum">{j.summary}</p>
+              <div class="watch card"><p class="label">What to watch</p><p>{j.watch}</p></div>
+            </div>
+            <ol class="measures" aria-label={`Key measures in ${j.name}`}>
+              {j.measures.map(m => (
+                <li class="m">
+                  <span class="mdate label">{fmt(m.date)}</span>
+                  <span class={`mdot s-${cls(m.status)}`} aria-hidden="true"></span>
+                  <div class="mb">
+                    <p class="mt"><a class="hl" href={m.url} target="_blank" rel="noopener noreferrer">{m.name}</a> <span class={`stat s-${cls(m.status)}`}>{m.status}</span></p>
+                    <p class="mn">{m.note}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+          {news.length > 0 && (
+            <div class="jnews">
+              <p class="label">Latest policy news · {j.name}</p>
+              <div class="ngrid">{news.map(i => <Story item={i} variant="row" />)}</div>
+            </div>
+          )}
+        </section>
+      );
+    })}
+
+    <section class="jur" id="others" aria-labelledby="others-h">
+      <header class="sec-head"><span class="num">XI.vi</span><h2 id="others-h">Elsewhere, and between countries</h2></header>
+      <ul class="others">
+        {OTHERS.map(o => (
+          <li class="card oc">
+            <p class="mt"><a class="hl stretch" href={o.url} target="_blank" rel="noopener noreferrer">{o.name}</a></p>
+            <span class={`stat s-${cls(o.status)}`}>{o.status}</span>
+            <p class="mn">{o.note}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <div class="tlwrap">
+      <Timeline list={policyItems} limit={30} id="policy-tl" title="Policy timeline" dek="Every policy, law and governance story we’ve collected, in the order it happened (UTC). Each links to its source." />
+    </div>
+  </div>
+</Base>
+
+<style>
+  .page { padding-top: 34px; }
+  .phead { border-bottom: 2px solid var(--rule); padding-bottom: 22px; margin-bottom: 28px; }
+  .crumb { margin: 0 0 6px; }
+  .crumb a { color: var(--acc); text-decoration: none; }
+  h1 { margin: 0; font-family: var(--display); font-weight: 600; font-size: clamp(48px, 6vw, 84px); line-height: 0.98; }
+  h1 .num { color: var(--acc); font-size: 0.45em; vertical-align: 0.6em; font-family: var(--mono); font-weight: 400; }
+  .dek { margin: 12px 0 10px; font-size: 21px; color: var(--ink-2); max-width: 780px; }
+  .note { margin: 0; }
+
+  .board { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
+  .jcard { display: flex; flex-direction: column; gap: 6px; padding: 16px; text-decoration: none; transition: transform .35s var(--ease), border-color .35s var(--ease), box-shadow .35s var(--ease); }
+  .jcard:hover { transform: translateY(-3px); }
+  .code { font-family: var(--mono); font-size: 13px; letter-spacing: 0.16em; color: var(--acc); }
+  .jn { font-family: var(--display); font-weight: 600; font-size: 26px; line-height: 1.05; }
+  .ap { font-size: 15px; line-height: 1.4; color: var(--ink-2); flex: 1; }
+  .pips { display: flex; gap: 5px; margin-top: 6px; }
+  .pip { width: 9px; height: 9px; border-radius: 50%; background: var(--sc); display: inline-block; }
+  .legend { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 14px 0 0; font-size: 10.5px; }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; }
+
+  .s-in-force { --sc: var(--good); } .s-partly-in-force { --sc: var(--teal); } .s-coming { --sc: var(--acc); }
+  .s-proposed { --sc: var(--gold); } .s-voluntary { --sc: var(--violet); } .s-paused { --sc: var(--risk); }
+
+  .jur { margin-top: 84px; scroll-margin-top: 80px; }
+  .jhead { display: flex; gap: 22px; align-items: center; border-top: 2px solid var(--rule); padding-top: 18px; margin-bottom: 22px; }
+  .bigcode { font-family: var(--display); font-weight: 600; font-size: clamp(56px, 7vw, 96px); line-height: 0.85; color: transparent; -webkit-text-stroke: 1px var(--acc); opacity: 0.85; }
+  .jhead .label { margin: 0; }
+  .jhead h2 { margin: 4px 0 2px; font-family: var(--display); font-weight: 600; font-size: clamp(34px, 3.6vw, 48px); line-height: 1; }
+  .approach { margin: 0; font-style: italic; color: var(--ink-2); font-size: 19px; }
+  .jbody { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 36px; }
+  .sum { margin: 0 0 18px; font-size: 19.5px; line-height: 1.6; }
+  .watch { padding: 14px 18px; --edge: var(--gold); }
+  .watch .label { margin: 0 0 4px; color: var(--gold); }
+  .watch p:last-child { margin: 0; color: var(--ink-2); font-size: 17px; }
+
+  .measures { list-style: none; margin: 0; padding: 0; }
+  .m { display: grid; grid-template-columns: 76px 22px minmax(0, 1fr); gap: 4px; position: relative; padding-bottom: 16px; }
+  .m::before { content: ''; position: absolute; left: 86px; top: 14px; bottom: 0; width: 1px; background: var(--line); }
+  .m:last-child::before { display: none; }
+  .mdate { padding-top: 3px; font-size: 11px; }
+  .mdot { width: 11px; height: 11px; margin-top: 5px; justify-self: center; border-radius: 50%; background: var(--sc); box-shadow: 0 0 0 4px var(--bg); position: relative; z-index: 1; }
+  .mt { margin: 0; font-family: var(--serif); font-weight: 580; font-size: 18px; line-height: 1.3; }
+  .mt a { text-decoration: none; }
+  .stat { display: inline-block; vertical-align: 2px; margin-left: 4px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sc); background: color-mix(in srgb, var(--sc) 14%, transparent); padding: 2px 8px; border-radius: 999px; font-weight: 500; }
+  .mn { margin: 4px 0 0; font-size: 16px; color: var(--ink-2); line-height: 1.5; }
+  .jnews { margin-top: 26px; }
+  .jnews .label { margin: 0 0 10px; }
+  .ngrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+
+  .others { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 14px; }
+  .oc { padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+  .oc .stat { margin: 0; }
+  .tlwrap { margin-top: 90px; }
+
+  @media (max-width: 1100px) { .board { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (max-width: 860px) {
+    .board { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+    .jbody, .ngrid { grid-template-columns: minmax(0, 1fr); }
+    .bigcode { font-size: 48px; }
+  }
+  @media (max-width: 480px) { .board { grid-template-columns: minmax(0, 1fr); } }
+</style>

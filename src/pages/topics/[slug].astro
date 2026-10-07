@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import Story from '../../components/Story.astro';
 import Mix from '../../components/Mix.astro';
+import Timeline from '../../components/Timeline.astro';
 import { TOPICS, topicItems, newest, within, type Topic } from '../../lib/feed';
 
 export function getStaticPaths() {
@@ -40,9 +41,10 @@ const others = TOPICS.filter(o => o.slug !== t.slug);
       </aside>
     </section>
 
-    <header class="sec-head"><span class="num">§</span><h2>Latest on {t.name.toLowerCase()}</h2></header>
-    <div class="grid" id="stream">{recent.map(i => <Story item={i} />)}</div>
-    <div class="morewrap"><button class="btn" type="button" id="more">Show more</button></div>
+    <header class="sec-head"><span class="num">§</span><h2>Top stories on {t.name.toLowerCase()}</h2></header>
+    <div class="grid">{list.slice(0, 6).map(i => <Story item={i} />)}</div>
+
+    <div class="tlwrap"><Timeline list={list} limit={40} title="Timeline" dek={`Every story on ${t.name.toLowerCase()} in the order it happened, grouped by day (UTC). Each links to its source.`} /></div>
 
     <nav class="other" aria-label="Other topics">
       <p class="label">Other topics</p>
@@ -51,9 +53,6 @@ const others = TOPICS.filter(o => o.slug !== t.slug);
   </div>
 </Base>
 
-<script>
-  import '../../scripts/filters.ts';
-</script>
 
 <style>
   .page { padding-top: 34px; }
@@ -71,6 +70,7 @@ const others = TOPICS.filter(o => o.slug !== t.slug);
   dd { margin: 0; font-family: var(--mono); font-size: 30px; line-height: 1.1; color: var(--ink); }
   dl div { display: flex; flex-direction: column-reverse; }
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 18px; }
+  .tlwrap { margin-top: 64px; }
   .morewrap { display: flex; justify-content: center; margin-top: 24px; }
   .other { margin-top: 56px; }
   .other ul { list-style: none; padding: 0; margin: 10px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }

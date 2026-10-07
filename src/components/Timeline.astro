@@ -1,0 +1,162 @@
+---
+// A timeline: stories in the order they happened, grouped by day (UTC),
+// each with its time, a category tag and the source it came from.
+import { type Item, linkTo, siteOf, newest } from '../lib/feed';
+
+interface Props { list: Item[]; limit?: number; title?: string; dek?: string; filters?: boolean; id?: string }
+const { list, limit = 60, title = 'Timeline', dek = 'Every story in the order it happened, grouped by day (UTC). Each links to its source.', filters = false, id = 'tl' } = Astro.props;
+
+// One category per story, most specific first.
+const CATS = ['Incident', 'Security', 'Policy', 'Misuse', 'Alignment', 'Interpretability', 'Evaluations', 'Risk', 'Research', 'Safety', 'Update'] as const;
+const catOf = (i: Item) =>
+  i.kind === 'incident' ? 'Incident'
+  : i.topics.includes('Attacks') ? 'Security'
+  : i.topics.includes('Governance') ? 'Policy'
+  : i.topics.includes('Misuse') ? 'Misuse'
+  : i.topics.includes('Alignment') ? 'Alignment'
+  : i.topics.includes('Interpretability') ? 'Interpretability'
+  : i.topics.includes('Evaluations') ? 'Evaluations'
+  : i.topics.includes('Risk') ? 'Risk'
+  : i.kind === 'paper' || i.kind === 'essay' ? 'Research'
+  : i.topics.length ? 'Safety' : 'Update';
+
+const sorted = newest(list.filter(i => i.kind !== 'video'));
+const days = new Map<string, Item[]>();
+for (const i of sorted) {
+  const k = i.date.slice(0, 10);
+  days.set(k, [...(days.get(k) ?? []), i]);
+}
+const fmtDay = (k: string) => new Date(`${k}T12:00:00Z`).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', timeZone: 'UTC' });
+const fmtTime = (iso: string) => new Date(iso).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'UTC' }) + ' UTC';
+const usedCats = CATS.filter(c => sorted.some(i => catOf(i) === c));
+let n = 0;
+---
+<section class="timeline" id={id} data-limit={limit} aria-labelledby={`${id}-h`}>
+  <header class="tl-head">
+    <h2 id={`${id}-h`}>{title}</h2>
+    <span class="tl-rule" aria-hidden="true"></span>
+    <span class="label tl-count"><span data-shown>{Math.min(limit, sorted.length)}</span> / {sorted.length} stories</span>
+  </header>
+  <p class="tl-dek">{dek}</p>
+
+  {filters && (
+    <div class="tl-filters" role="group" aria-label="Filter the timeline">
+      <button class="btn" type="button" data-cat="all" aria-pressed="true">All</button>
+      {usedCats.map(c => <button class={`btn c-${c.toLowerCase()}`} type="button" data-cat={c} aria-pressed="false"><i></i>{c}</button>)}
+    </div>
+  )}
+
+  <ol class="tl-days">
+    {[...days.entries()].map(([k, list]) => (
+      <li class="tl-day" data-day={k}>
+        <div class="tl-date card">
+          <p class="d">{fmtDay(k)}</p>
+          <p class="y label">{k.slice(0, 4)} · <span data-day-count>{list.length}</span></p>
+        </div>
+        <ol class="tl-items">
+          {list.map(i => {
+            const c = catOf(i);
+            n++;
+            return (
+              <li class={`tl-item c-${c.toLowerCase()}`} data-cat={c} data-n={n}>
+                <span class="tl-dot" aria-hidden="true"></span>
+                <article class="card tl-card rv">
+                  <p class="tl-meta"><time datetime={i.date}>{fmtTime(i.date)}</time><span class="tl-tag">{c}</span>{i.place && <span class="tl-place">◎ {i.place.name}</span>}</p>
+                  <h3><a class="hl stretch" href={linkTo(i)} target="_blank" rel="noopener noreferrer">{i.title}</a></h3>
+                  <p class="tl-src">Source: <b>{i.sourceName}</b> · {siteOf(i)} ↗{i.also.length > 0 && <span> · also covered by {i.also.length} more</span>}</p>
+                </article>
+              </li>
+            );
+          })}
+        </ol>
+      </li>
+    ))}
+  </ol>
+  {sorted.length > limit && <div class="tl-more"><button class="btn" type="button" data-tl-more>Show earlier stories</button></div>}
+</section>
+
+<script>
+  // Paging and category filters for every timeline on the page.
+  document.querySelectorAll<HTMLElement>('section.timeline').forEach(tl => {
+    const step = Number(tl.dataset.limit) || 60;
+    let limit = step, cat = 'all';
+    const items = [...tl.querySelectorAll<HTMLElement>('.tl-item')];
+    const more = tl.querySelector<HTMLButtonElement>('[data-tl-more]');
+    const shown = tl.querySelector('[data-shown]');
+    function render() {
+      let k = 0;
+      for (const it of items) {
+        const ok = cat === 'all' || it.dataset.cat === cat;
+        it.hidden = !(ok && k < limit);
+        if (ok) k++;
+      }
+      tl.querySelectorAll<HTMLElement>('.tl-day').forEach(d => {
+        const vis = d.querySelectorAll('.tl-item:not([hidden])').length;
+        d.hidden = vis === 0;
+        const c = d.querySelector('[data-day-count]'); if (c) c.textContent = String(vis);
+      });
+      const visible = items.filter(i => !i.hidden).length;
+      if (shown) shown.textContent = String(visible);
+      if (more) more.hidden = k <= limit;
+      tl.querySelectorAll('.rv:not(.in)').forEach(el => { if (!(el.closest('[hidden]'))) el.classList.add('in'); });
+    }
+    more?.addEventListener('click', () => { limit += step; render(); });
+    tl.querySelectorAll<HTMLButtonElement>('[data-cat]').forEach(b => b.addEventListener('click', () => {
+      cat = b.dataset.cat!; limit = step;
+      tl.querySelectorAll('[data-cat].btn').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+      render();
+    }));
+    render();
+  });
+</script>
+
+<style>
+  .timeline { scroll-margin-top: 70px; }
+  .tl-head { display: flex; align-items: center; gap: 22px; }
+  .tl-head h2 { margin: 0; font-family: var(--display); font-weight: 600; font-size: clamp(36px, 4vw, 54px); line-height: 1; }
+  .tl-rule { flex: 1; height: 1px; background: linear-gradient(90deg, var(--line), transparent 90%); }
+  .tl-count { white-space: nowrap; }
+  .tl-dek { margin: 14px 0 24px; color: var(--ink-2); font-size: 18px; max-width: 620px; }
+  .tl-filters { display: flex; flex-wrap: wrap; gap: 8px; margin: -6px 0 26px; }
+  .tl-filters .btn { display: inline-flex; align-items: center; gap: 7px; }
+  .tl-filters .btn i { width: 7px; height: 7px; border-radius: 50%; background: var(--cc); }
+
+  .tl-days, .tl-items { list-style: none; margin: 0; padding: 0; }
+  .tl-day { display: grid; grid-template-columns: 230px 40px minmax(0, 1fr); margin-bottom: 26px; }
+  .tl-day[hidden] { display: none; }
+  .tl-date { grid-column: 1; align-self: start; position: sticky; top: 76px; padding: 16px 18px; }
+  .tl-date .d { margin: 0; font-family: var(--serif); font-weight: 600; font-size: 18px; line-height: 1.2; }
+  .tl-date .y { margin: 6px 0 0; }
+  .tl-items { grid-column: 2 / 4; display: grid; gap: 12px; }
+  .tl-item { display: grid; grid-template-columns: 40px minmax(0, 1fr); position: relative; }
+  .tl-item[hidden] { display: none; }
+  /* the spine */
+  .tl-item::before { content: ''; position: absolute; left: 19px; top: 0; bottom: -12px; width: 1px; background: var(--line); }
+  .tl-item:last-child::before { bottom: 18px; }
+  .tl-dot { grid-column: 1; justify-self: center; margin-top: 24px; width: 11px; height: 11px; border-radius: 50%; background: var(--cc); box-shadow: 0 0 0 4px var(--bg), 0 0 12px var(--cc); position: relative; z-index: 1; transition: transform .3s var(--ease); }
+  .tl-item:hover .tl-dot { transform: scale(1.35); }
+  .tl-card { grid-column: 2; padding: 14px 20px 14px; --edge: var(--cc); }
+  .tl-meta { margin: 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-family: var(--mono); font-size: 12px; color: var(--dim); }
+  .tl-tag { font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cc); background: color-mix(in srgb, var(--cc) 14%, transparent); border-radius: 999px; padding: 3px 10px; font-weight: 500; }
+  .tl-place { color: var(--ink-2); }
+  .tl-card h3 { margin: 8px 0 6px; font-family: var(--serif); font-weight: 580; font-size: 20px; line-height: 1.3; }
+  .tl-src { margin: 0; font-family: var(--mono); font-size: 12px; color: var(--dim); }
+  .tl-src b { font-weight: 500; color: var(--ink-2); }
+  .tl-more { display: flex; justify-content: center; margin-top: 8px; }
+
+  .c-incident { --cc: var(--risk); } .c-security { --cc: var(--teal); } .c-policy { --cc: var(--gold); }
+  .c-misuse { --cc: var(--rose); } .c-alignment { --cc: var(--violet); } .c-interpretability { --cc: var(--acc); }
+  .c-evaluations { --cc: var(--amber); } .c-risk { --cc: var(--risk); } .c-research { --cc: var(--violet); }
+  .c-safety { --cc: var(--good); } .c-update { --cc: var(--dim); }
+
+  @media (max-width: 860px) {
+    .tl-day { grid-template-columns: minmax(0, 1fr); }
+    .tl-date { position: static; grid-column: 1; margin-bottom: 10px; padding: 10px 14px; background: none; border: 0; }
+    .tl-date::before { display: none; }
+    .tl-items { grid-column: 1; }
+    .tl-item { grid-template-columns: 28px minmax(0, 1fr); }
+    .tl-item::before { left: 13px; }
+    .tl-head { flex-wrap: wrap; gap: 10px; }
+    .tl-rule { display: none; }
+  }
+</style>
