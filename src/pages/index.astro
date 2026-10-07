@@ -65,6 +65,9 @@ const trending = trendingKeys(items, 10);
                 <p class="dk label"><i aria-hidden="true"></i>{list.length} reports · {st.sources} {st.sources === 1 ? 'source' : 'sources'} · {ago(st.last)}</p>
                 <h3><a class="hl stretch" href={`/story/${st.id}`}>{st.label}</a></h3>
                 <p class="dsrc">{[...new Set(list.map(i => i.sourceName))].slice(0, 4).join(' · ')}</p>
+                {n === 0 && list.length > 1 && (
+                  <ul class="dcov">{list.slice(1, 4).map(i => <li><span>{i.sourceName}</span> {i.title}</li>)}</ul>
+                )}
               </div>
             </article>
           ))}
@@ -179,7 +182,10 @@ const trending = trendingKeys(items, 10);
   .dcard { overflow: hidden; display: flex; flex-direction: column; --edge: var(--gold); }
   .dcard .media { aspect-ratio: 16 / 9; border-bottom: 1px solid var(--line); }
   .dcard.big { grid-column: span 2; grid-row: span 2; }
-  .dcard.big .media { aspect-ratio: 16 / 8; }
+  .dcard.big .media { aspect-ratio: auto; flex: 1 1 auto; min-height: 240px; }
+  .dcov { list-style: none; margin: 4px 0 0; padding: 10px 0 0; border-top: 1px solid var(--line-2); display: grid; gap: 6px; }
+  .dcov li { font-size: 16px; line-height: 1.35; color: var(--ink-2); display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+  .dcov span { font-family: var(--mono); font-size: 11px; color: var(--gold); margin-right: 6px; }
   .dcard.big h3 { font-size: clamp(26px, 2.6vw, 36px); line-height: 1.12; }
   .db { padding: 14px 18px 16px; display: flex; flex-direction: column; gap: 8px; }
   .dk { margin: 0; display: flex; align-items: center; gap: 8px; color: var(--gold); }

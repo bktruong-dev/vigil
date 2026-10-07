@@ -5,6 +5,18 @@
 import { pattern, W, H } from '../lib/patterns';
 
 const root = document.documentElement;
+root.classList.add('js');
+
+// Images fade in when ready; cached ones show at once.
+const markLoaded = (img: HTMLImageElement) => img.classList.add('ld');
+document.querySelectorAll<HTMLImageElement>('.media img').forEach(img => { if (img.complete && img.naturalWidth) markLoaded(img); else img.addEventListener('load', () => markLoaded(img), { once: true }); });
+new MutationObserver(ms => ms.forEach(m => m.addedNodes.forEach(n => { if (n instanceof HTMLImageElement && n.closest('.media')) n.complete ? markLoaded(n) : n.addEventListener('load', () => markLoaded(n), { once: true }); }))).observe(document.body, { childList: true, subtree: true });
+
+// Coming back with the Back button (page restored from memory): close any overlay left open.
+addEventListener('pageshow', e => {
+  if (!e.persisted) return;
+  document.querySelectorAll<HTMLElement>('#veil, #briefing, #search').forEach(el => { el.hidden = true; el.classList.remove('out', 'open'); });
+});
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 function store(key: string, value?: string) {
@@ -36,7 +48,7 @@ const applyTheme = (t: string) => {
   root.setAttribute('data-theme', t);
   root.style.backgroundColor = t === 'ink' ? '#0c0d10' : '#f3efe4';
   root.style.colorScheme = t === 'ink' ? 'dark' : 'light';
-  if (themeBtn) themeBtn.textContent = t === 'ink' ? '◐ Paper' : '◑ Ink';
+  if (themeBtn) { themeBtn.textContent = t === 'ink' ? '◐ Paper' : '◑ Ink'; themeBtn.title = t === 'ink' ? 'Switch to paper' : 'Switch to ink'; }
   document.querySelector('meta[name="theme-color"]')?.setAttribute('content', t === 'ink' ? '#0c0d10' : '#f3efe4');
 };
 applyTheme(root.getAttribute('data-theme') || 'paper');
@@ -227,8 +239,9 @@ if (navBox && navList) {
   };
   navList.addEventListener('scroll', edges, { passive: true });
   addEventListener('resize', edges);
+  // Shift + wheel (or a trackpad's sideways swipe) scrolls the bar; a normal wheel scrolls the page.
   navList.addEventListener('wheel', e => {
-    if (navList.scrollWidth <= navList.clientWidth || Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+    if (!e.shiftKey || navList.scrollWidth <= navList.clientWidth) return;
     e.preventDefault();
     navList.scrollLeft += e.deltaY;
   }, { passive: false });

@@ -98,7 +98,9 @@ if (lastVisit) {
 }
 
 // ---------- Cards rise into view ----------
-if (motion.on && 'IntersectionObserver' in window) {
+const navType = (performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming | undefined)?.type;
+const replay = navType === 'navigate' && !location.hash;
+if (motion.on && replay && 'IntersectionObserver' in window) {
   root.classList.add('reveal-on');
   const io = new IntersectionObserver(entries => {
     let k = 0;
